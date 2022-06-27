@@ -11,6 +11,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
+import { CartaComponent } from './carta/carta.component';
+import { GiocoComponent } from './gioco/gioco.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TitoloComponent } from './titolo/titolo.component';
     HomepageComponent,
     GiochiComponent,
     LoginComponent,
-    TitoloComponent
+    TitoloComponent,
+    CartaComponent,
+    GiocoComponent
   ],
   imports: [
     BrowserModule,

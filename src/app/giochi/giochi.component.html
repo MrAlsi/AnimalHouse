@@ -1,5 +1,6 @@
 <app-titolo></app-titolo>
 <p>Benvenuto nella sezioni giochi di Animal House</p>
 <p>Giochi disponibili</p>
-<p>Memory</p>
-<p>Quanti ce ne sono</p>
+<li *ngFor="let gioco of giochi">
+    <span>{{gioco.nome}}</span>
+</li>
