@@ -2,3 +2,8 @@
     flex-direction: column;
 
 }
+
+#prima{
+    text-align: justify;
+    text-justify: inter-word;
+}
