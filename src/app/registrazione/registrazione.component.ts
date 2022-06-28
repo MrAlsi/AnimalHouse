@@ -29,7 +29,11 @@ export class RegistrazioneComponent implements OnInit {
       alert("Dati mancanti");
       return;
     }else{//@todo: mancano i controlli sui singoli dati
-      this.router.navigate(['homepage']);
+      if(this.form.value.password==this.form.value.confirmpassword){
+        this.router.navigate(['homepage']);
+      }else{
+        alert("le password non coincidono");
+      }
     }
   }
 
