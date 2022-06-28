@@ -15,6 +15,8 @@ import { CartaComponent } from './carta/carta.component';
 import { GiocoComponent } from './gioco/gioco.component';
 import { DimenticataComponent } from './dimenticata/dimenticata.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
