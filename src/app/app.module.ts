@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
 import { CartaComponent } from './carta/carta.component';
 import { GiocoComponent } from './gioco/gioco.component';
+import { MemoryComponent } from './memory/memory.component';
+import { CardMemoryComponent } from './card-memory/card-memory.component';
+import { MemeComponent } from './meme/meme.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { GiocoComponent } from './gioco/gioco.component';
     LoginComponent,
     TitoloComponent,
     CartaComponent,
-    GiocoComponent
+    GiocoComponent,
+    MemoryComponent,
+    CardMemoryComponent,
+    MemeComponent
   ],
   imports: [
     BrowserModule,
