@@ -1,9 +1,13 @@
 .bottoni{
+    display: flex;
     flex-direction: column;
-
 }
 
 #prima{
     text-align: justify;
     text-justify: inter-word;
+}
+
+div p{
+    text-align: center;
 }
