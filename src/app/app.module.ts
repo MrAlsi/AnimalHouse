@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
 import { CartaComponent } from './carta/carta.component';
 import { GiocoComponent } from './gioco/gioco.component';
+import { DimenticataComponent } from './dimenticata/dimenticata.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GiocoComponent } from './gioco/gioco.component';
     LoginComponent,
     TitoloComponent,
     CartaComponent,
-    GiocoComponent
+    GiocoComponent,
+    DimenticataComponent,
+    NewpasswordComponent
   ],
   imports: [
     BrowserModule,
