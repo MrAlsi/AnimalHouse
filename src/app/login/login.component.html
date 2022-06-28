@@ -1,17 +1,17 @@
 <div class="container mt-1">
-    
-    <form action="/login" method="POST">
-        <h5>Accedi</h5>
-        <div  class="form-group"><input class="input-fiel" type="text" placeholder="Username" name="name" /></div>
-        <div class="form-group"><input class="input-field" type="password" placeholder="Password" name="password" /></div>
-        <br>
-        <button class="btn btn-primary" type="submit">Login</button>
-        <br>
-        <button type="button" class="btn btn-secondary btn-sm" (click)="dimenticata()">Password dimenticata</button>
-        <br>
-        <div *ngIf="selectedDimenticata">
-            <app-dimenticata></app-dimenticata>
-        </div>
-    </form>
-    
+    <div class="formaContainer">
+        <form (ngSubmit)="accedi()" [formGroup]="form">
+            <h5>Accedi</h5>
+            <div  class="form-group"><input class="input-fiel" type="text" placeholder="Username" formControlName="nome" /></div>
+            <div class="form-group"><input class="input-field" type="password" placeholder="Password" name="password" formControlName="password"/></div>
+            <br>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <br>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="dimenticata()">Password dimenticata</button>
+            <br>
+            <div *ngIf="selectedDimenticata">
+                <app-dimenticata></app-dimenticata>
+            </div>
+        </form>
+    </div>
 </div>

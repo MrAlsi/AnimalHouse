@@ -1,11 +1,12 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
-            <form action="/login" method="POST">
+            <div class="formaContainer">
+                <form (ngSubmit)="controllaCodice()" [formGroup]="form">
                 <h6>Inserisci il codice che ti abbiamo inviato via mail</h6>
-                <div  class="form-group"><input class="input-fiel" type="text" placeholder="Codice" name="codice" /></div>
+                <div  class="form-group"><input class="input-fiel" type="text" placeholder="Codice" name="codice" formControlName="codice"/></div>
                 <br>
-                <button type="button" class="btn btn-secondary btn-sm" (click)="Verifica()">Verifica</button>
+                <button type="submit" class="btn btn-secondary btn-sm">Verifica</button>
             </form>
         </div>
     </div>
