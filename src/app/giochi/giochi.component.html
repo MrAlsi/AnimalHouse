@@ -1,6 +1,8 @@
 <app-titolo></app-titolo>
-<p>Benvenuto nella sezioni giochi di Animal House</p>
-<p>Giochi disponibili</p>
-<li *ngFor="let gioco of giochi">
-    <span>{{gioco.nome}}</span>
-</li>
+<h1>Benvenuto nella sezioni giochi di Animal House</h1>
+<h5>Giochi disponibili</h5>
+<div class="giochi">
+    <div *ngFor="let gioco of giochi" class="gioco" [routerLink]="['/Memory']"> 
+        {{gioco.nome}}
+    </div>
+</div>
