@@ -5,9 +5,11 @@
                 <h6>Inserisci il codice che ti abbiamo inviato via mail</h6>
                 <div  class="form-group"><input class="input-fiel" type="text" placeholder="Codice" name="codice" /></div>
                 <br>
-                <button type="button" class="btn btn-secondary btn-sm">Verifica</button>
+                <button type="button" class="btn btn-secondary btn-sm" (click)="Verifica()">Verifica</button>
             </form>
         </div>
     </div>
-    <app-newpassword></app-newpassword>
+    <div *ngIf="selectedVerifica">
+        <app-newpassword></app-newpassword>
+    </div>
 </div>

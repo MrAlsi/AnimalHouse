@@ -12,4 +12,9 @@ export class DimenticataComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectedVerifica: boolean= false;
+  Verifica(): void{
+    this.selectedVerifica= true;
+  }
+
 }

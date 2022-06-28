@@ -7,9 +7,11 @@
         <br>
         <button class="btn btn-primary" type="submit">Login</button>
         <br>
-        <button type="button" class="btn btn-secondary btn-sm">Password dimenticata</button>
+        <button type="button" class="btn btn-secondary btn-sm" (click)="dimenticata()">Password dimenticata</button>
         <br>
-        <app-dimenticata></app-dimenticata>
+        <div *ngIf="selectedDimenticata">
+            <app-dimenticata></app-dimenticata>
+        </div>
     </form>
     
 </div>
