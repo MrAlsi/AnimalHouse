@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { GiochiComponent } from './giochi/giochi.component';
+import { HomepageAmministratoreComponent } from './homepage-amministratore/homepage-amministratore.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MemeComponent } from './meme/meme.component';
 import { MemoryComponent } from './memory/memory.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'games/memory', component: MemoryComponent},
   {path: 'meme', component: MemeComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
-  {path: 'curiosity', component: CuriositaComponent}
+  {path: 'curiosity', component: CuriositaComponent},
+  {path: 'homepageadmin', component: HomepageAmministratoreComponent}
 ];
 
 @NgModule({
