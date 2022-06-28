@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newpassword',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newpassword.component.css']
 })
 export class NewpasswordComponent implements OnInit {
+  form: FormGroup;
+  constructor(public fb: FormBuilder, private router: Router) { 
+    this.form = fb.group({
+      "password": ['',Validators.required]
+    });
+  }
 
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
+  controllaPassword(): void{
+    if(!this.form.valid){
+      alert("Dati mancanti");
+      return;
+    }else{//@todo: mancao controlli non sia la stessa password di prima
+      this.router.navigate(['homepage']);
+    }
   }
 
 }
