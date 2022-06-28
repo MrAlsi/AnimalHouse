@@ -18,6 +18,8 @@ import { CardMemoryComponent } from './card-memory/card-memory.component';
 import { MemeComponent } from './meme/meme.component';
 import { DimenticataComponent } from './dimenticata/dimenticata.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
+import { CuriositaComponent } from './curiosita/curiosita.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,11 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
     GiocoComponent,
     MemoryComponent,
     CardMemoryComponent,
-    MemeComponent
+    MemeComponent,
     DimenticataComponent,
-    NewpasswordComponent
+    NewpasswordComponent,
+    BabyAnimalComponent,
+    CuriositaComponent
   ],
   imports: [
     BrowserModule,

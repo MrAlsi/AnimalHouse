@@ -1,0 +1,20 @@
+<app-titolo></app-titolo>
+<div *ngFor="let animale of animali">
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample{{animale.animale}}" role="button" aria-controls="offcanvasExample">
+        {{animale.animale}}
+      </a>
+    
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample{{animale.animale}}" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{animale.animale}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            {{animale.descrizione}}
+            <br> <br>
+            {{animale.curiosita}}
+          </div>
+        </div>
+      </div>
+</div>

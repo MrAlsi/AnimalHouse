@@ -2,7 +2,9 @@
 <h1>Benvenuto nella sezioni giochi di Animal House</h1>
 <h5>Giochi disponibili</h5>
 <div class="giochi">
-    <div *ngFor="let gioco of giochi" class="gioco" [routerLink]="['/Memory']"> 
-        {{gioco.nome}}
+    <div *ngFor="let gioco of giochi" class="gioco"> 
+        <a href="games/{{gioco.url}}">
+            {{gioco.nome}}
+        </a>
     </div>
 </div>
