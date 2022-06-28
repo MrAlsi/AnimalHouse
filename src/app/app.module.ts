@@ -36,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GiocoComponent,
     MemoryComponent,
     CardMemoryComponent,
-    MemeComponent
+    MemeComponent,
     DimenticataComponent,
     NewpasswordComponent
   ],
