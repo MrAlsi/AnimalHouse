@@ -1,7 +1,10 @@
 .titolo{
     background-color: #AA0000;
-    color: white;
     height:30%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
+  
+}
+a{
+    color: white;
 }

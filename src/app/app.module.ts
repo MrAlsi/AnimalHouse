@@ -21,8 +21,6 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomepageAmministratoreComponent } from './homepage-amministratore/homepage-amministratore.component';
-import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 
 
 @NgModule({
@@ -45,8 +43,6 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
     NewpasswordComponent,
     BabyAnimalComponent,
     CuriositaComponent,
-    HomepageAmministratoreComponent,
-    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,

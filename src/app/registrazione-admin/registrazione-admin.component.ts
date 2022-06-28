@@ -34,7 +34,7 @@ export class RegistrazioneAdminComponent implements OnInit {
         alert("codice amministratore errato");
       }else{
         if(this.form.value.password==this.form.value.confirmpassword){
-          this.router.navigate(['homepageadmin']);
+          this.router.navigate(['homepage']);
         }else{
           alert("le password non coincidono");
         }
