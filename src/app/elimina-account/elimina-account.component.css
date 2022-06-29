@@ -1,0 +1,16 @@
+.btn-sm{
+   margin-left: 5%;
+}
+
+
+.btn-sm:focus{
+    background-color: #AA0000;
+    color: white;
+ }
+
+
+.subtitle{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
