@@ -21,6 +21,10 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfiloComponent } from './profilo/profilo.component';
+import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
+import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-utente.component';
+import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
 
 
 @NgModule({
@@ -43,6 +47,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewpasswordComponent,
     BabyAnimalComponent,
     CuriositaComponent,
+    ProfiloComponent,
+    DatiUtenteComponent,
+    StatisticheUtenteComponent,
+    StoricoPrenotazioniComponent,
   ],
   imports: [
     BrowserModule,

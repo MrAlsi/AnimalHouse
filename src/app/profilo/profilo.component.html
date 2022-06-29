@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<br>
+<h3>Benvenuto nel tuo profilo</h3>
+<br>
+<ul class="menu">
+    <li>
+       <button class="btn btn-secondary btn-sm" (click)="showDati()">Dati</button> 
+    </li><br>
+    <li>
+        <button class="btn btn-secondary btn-sm" (click)="showStatistiche()">Statistiche giochi</button>
+    </li><br>
+    <li>
+        <button class="btn btn-secondary btn-sm" (click)="showPrenotazioni()">Prenotazioni</button>
+    </li>
+</ul>
+<div *ngIf="selectedDati">
+    <app-dati-utente></app-dati-utente>
+</div>
+<div *ngIf="selectedStatistiche">
+    <app-statistiche-utente></app-statistiche-utente>
+</div>
+<div *ngIf="selectedPrenotazioni">
+    <app-storico-prenotazioni></app-storico-prenotazioni>
+</div>

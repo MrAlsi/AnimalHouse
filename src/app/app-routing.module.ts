@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MemeComponent } from './meme/meme.component';
 import { MemoryComponent } from './memory/memory.component';
 import { PrimaComponent } from './prima/prima.component';
+import { ProfiloComponent } from './profilo/profilo.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'meme', component: MemeComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'curiosity', component: CuriositaComponent},
+  {path: 'profilo',component: ProfiloComponent}, //ci sarà poi da aggiungere l'id
 ];
 
 @NgModule({

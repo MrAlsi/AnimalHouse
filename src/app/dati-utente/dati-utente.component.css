@@ -1,0 +1,23 @@
+.subtitle{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
+
+.desc{
+    color: #AA0000;
+    font-weight: bolder;
+    grid-column-start: 1;
+}
+
+.dati{
+    grid-column-start: 2;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: 25% 50%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    text-align: left;
+    justify-content: center;
+}
