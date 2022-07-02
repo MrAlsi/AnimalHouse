@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AggiungiDBService } from '../aggiungi-db.service';
 
 @Component({
   selector: 'app-registrazione-admin',
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class RegistrazioneAdminComponent implements OnInit {
   form: FormGroup;
-  constructor(public fb: FormBuilder, private router: Router) { 
+  postId: any; //id di ritorno da mongo
+  url: string= "utenti"; //per indirizzare alla collection
+
+  constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
       "cognome": ['',Validators.required],
@@ -17,7 +21,8 @@ export class RegistrazioneAdminComponent implements OnInit {
       "username": ['',Validators.required],
       "confirmpassword": ['',Validators.required],
       "password": ['',Validators.required],
-      "codice": ['',Validators.required]
+      "codice": ['',Validators.required],
+      "ruolo": ['admin']
     });
   }
 
@@ -34,6 +39,7 @@ export class RegistrazioneAdminComponent implements OnInit {
         alert("codice amministratore errato");
       }else{
         if(this.form.value.password==this.form.value.confirmpassword){
+          this.db.aggiungiDB(this.form.value,this.url);
           this.router.navigate(['homepage']);
         }else{
           alert("le password non coincidono");

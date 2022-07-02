@@ -27,6 +27,7 @@ import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-ute
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
 import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
 
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EliminaAccountComponent } from './elimina-account/elimina-account.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
