@@ -35,7 +35,7 @@ export class RegistrazioneComponent implements OnInit {
     if(!this.form.valid){
       alert("Dati mancanti");
       return;
-    }else{// TODO : manca controllare l'username sia già in uso e anche la mail
+    }else{// @TODO : manca controllare l'username sia già in uso e anche la mail
       if(this.form.value.password==this.form.value.confirmpassword){
         this.db.aggiungiDB(this.form.value,this.url);
         this.router.navigate(['homepage']);
