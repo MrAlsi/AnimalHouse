@@ -1,0 +1,17 @@
+.accordion-button{
+    background-color: #aa00009d;
+    color: white;
+
+}
+
+.accordion-button:focus{
+    background-color:#AA0000;
+    color: white;
+    box-shadow: none;
+    font-weight: bolder;
+}
+
+.accordion-body{
+    border-style:ridge;
+    border-color:#AA0000;
+}

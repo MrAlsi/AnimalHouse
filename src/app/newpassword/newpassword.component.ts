@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProfiloServiceService } from '../profilo-service.service';
+
 
 @Component({
   selector: 'app-newpassword',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NewpasswordComponent implements OnInit {
   form: FormGroup;
-  constructor(public fb: FormBuilder, private router: Router) { 
+  constructor(public fb: FormBuilder, private router: Router,  public profilo: ProfiloServiceService) { 
     this.form = fb.group({
       "password": ['',Validators.required]
     });
@@ -24,8 +26,10 @@ export class NewpasswordComponent implements OnInit {
     if(!this.form.valid){
       alert("Dati mancanti");
       return;
-    }else{//@todo: mancao controlli non sia la stessa password di prima
-      this.router.navigate(['homepage']);
+    }else{//@todo: mancano controlli non sia la stessa password di prima
+        this.router.navigate(['homepage']);
+        alert("Cambio password avvenuto con successo");
+
     }
   }
 

@@ -26,9 +26,14 @@ import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
 import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-utente.component';
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
 import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ClassificheComponent } from './classifiche/classifiche.component';
 
 import { HttpClientModule} from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { ProfessionistiComponent } from './professionisti/professionisti.component';
+import { UtentiComponent } from './utenti/utenti.component'
 
 @NgModule({
   declarations: [
@@ -55,6 +60,11 @@ import { CookieService } from 'ngx-cookie-service';
     StatisticheUtenteComponent,
     StoricoPrenotazioniComponent,
     EliminaAccountComponent,
+    ResetPasswordComponent,
+    ClassificheComponent,
+    NavbarAdminComponent,
+    ProfessionistiComponent,
+    UtentiComponent,
   ],
   imports: [
     BrowserModule,

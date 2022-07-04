@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfiloServiceService } from '../profilo-service.service';
+
 
 @Component({
   selector: 'app-dati-utente',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dati-utente.component.css']
 })
 export class DatiUtenteComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(public profilo: ProfiloServiceService) { }
 
   ngOnInit(): void {
   }

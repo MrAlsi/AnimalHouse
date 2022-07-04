@@ -1,6 +1,7 @@
-li::marker{
-    color: #AA0000;
-
+.base{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 button:focus{
@@ -9,12 +10,8 @@ button:focus{
 }
 
 
-h3{
-    text-align: left;
-    margin-left: 5%;
-}
-
 .btn-dark{
-    margin-left: 60%;
+    margin-left: 80%;
+    margin-right: 20%;
 }
 

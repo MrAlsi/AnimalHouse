@@ -1,0 +1,83 @@
+<app-navbar-admin></app-navbar-admin>
+<br>
+<h3>Nuovo Professionista</h3>
+<p>Chi vuoi aggiungere?</p>
+<div class="card">
+    <div class="card-body">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (change)="checked('pensione')">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Pensione
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (change)="checked('Veterinario')">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Veterinario
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (change)="checked('psicologo')">
+            <label class="form-check-label" for="flexRadioDefault3">
+              Psicologo
+            </label>
+        </div>
+    </div>
+</div>
+<div *ngIf="professionista!=undefined">
+    <div class="formaContainer">
+        <form (ngSubmit)="salva()" [formGroup]="form">
+            <h5>Aggiungi {{professionista}}</h5>
+            <label class="form-gruop-label" for="nome"> Nome: </label>
+            <div  class="form-group"><input class="input-fiel" placeholder="" type="text" id="nome" formControlName="nome" /></div>
+            <label class="form-gruop-label" for="città"> Città: </label>
+            <div class="form-group"><input class="input-field" placeholder="" type="text"  id="città" formControlName="città"/></div>
+            <label class="form-gruop-label" for="via"> Via: </label>
+            <div class="form-group"><input class="input-field" placeholder="" type="text"  id="via" formControlName="via"/></div>
+            <label class="form-gruop-label" for="civico"> Civico: </label>
+            <div class="form-group"><input class="input-field" placeholder="" type="number" min="1"  id="civico" formControlName="civico"/></div>
+            <label class="form-gruop-label" for="servizio"> Descrizione: </label>
+            <div class="form-group"><textarea class="input-field" placeholder="" type="text" maxlength="500" cols="50" rows="8" id="servizio" formControlName="servizio"></textarea></div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <p>Servizio online: </p>
+                    <div class="form-checkonline">
+                        <input class="form-check-input1" type="radio" name="flexRadioDefault1" id="flexRadioDefault4" (change)="online('si')">
+                        <label class="form-check-label" for="flexRadioDefault4">
+                          sì
+                        </label>
+                    </div>
+                    <div class="form-checkonline">
+                        <input class="form-check-input1" type="radio" name="flexRadioDefault1" id="flexRadioDefault5" (change)="online('no')">
+                        <label class="form-check-label" for="flexRadioDefault5">
+                          no
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <p>Servizio domicilio: </p>
+                    <div class="form-checkdomicilio">
+                        <input class="form-check-input2" type="radio" name="flexRadioDefault" id="flexRadioDefault6" (change)="domicilio('si')">
+                        <label class="form-check-label" for="flexRadioDefault6">
+                          sì
+                        </label>
+                    </div>
+                    <div class="form-checkdomicilio">
+                        <input class="form-check-input2" type="radio" name="flexRadioDefault" id="flexRadioDefault7" (change)="domicilio('no')">
+                        <label class="form-check-label" for="flexRadioDefault7">
+                          no
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Salva</button>
+        </form>
+    </div>
+
+</div>
+    
+

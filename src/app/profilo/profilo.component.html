@@ -1,21 +1,19 @@
 <app-navbar></app-navbar>
 <br>
+<h3>Benvenuto nel tuo profilo</h3>
+<br>
 <div class="base">
-    <h3>Benvenuto nel tuo profilo</h3>
     <br>
-    <ul class="menu">
-        <li>
+        
             <button class="btn btn-secondary btn-sm" (click)="profilo.showDati()">Dati</button> 
-        </li><br>
-        <li>
+        <br>
+        
             <button class="btn btn-secondary btn-sm" (click)="profilo.showStatistiche()">Statistiche giochi</button>
-        </li><br>
-        <li>
+        <br>
+        
             <button class="btn btn-secondary btn-sm" (click)="profilo.showPrenotazioni()">Prenotazioni</button>
-        </li>
-    </ul>
+        
     <br>
-    <button id="eliminia" class="btn btn-dark btn-sm" (click)="profilo.showElimina()">Cancella account</button>
 </div>
 <br>
 <div *ngIf="profilo.selectedDati">
@@ -30,3 +28,11 @@
 <div *ngIf="profilo.selectedElimina">
     <app-elimina-account></app-elimina-account>
 </div>
+<div *ngIf="profilo.selectedReset">
+    <app-reset-password></app-reset-password>
+</div>
+<div *ngIf="profilo.selectedNewPassword">
+    <app-newpassword></app-newpassword>
+</div>
+<br>
+<button id="eliminia" class="btn btn-dark btn-sm" (click)="profilo.showElimina()">Cancella account</button>

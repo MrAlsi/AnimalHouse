@@ -10,6 +10,9 @@ import { PrimaComponent } from './prima/prima.component';
 import { ProfiloComponent } from './profilo/profilo.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { ClassificheComponent } from './classifiche/classifiche.component';
+import { ProfessionistiComponent } from './professionisti/professionisti.component';
+import { UtentiComponent } from './utenti/utenti.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -22,6 +25,9 @@ const routes: Routes = [
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'curiosity', component: CuriositaComponent},
   {path: 'profilo',component: ProfiloComponent}, //ci sarà poi da aggiungere l'id
+  {path: 'classifiche', component: ClassificheComponent},
+  {path: 'newProfessionisti', component: ProfessionistiComponent},
+  {path: 'utenti', component: UtentiComponent},
 ];
 
 @NgModule({
