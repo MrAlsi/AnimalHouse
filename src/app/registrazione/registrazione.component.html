@@ -7,10 +7,10 @@
                 <form (ngSubmit)="controllaInput()" [formGroup]="form">                
                     <div class="form-group"><label for="nome">Nome</label><input class="form-control" id="nome" type="text" name="nome" formControlName="nome"/></div>
                     <div class="form-group"><label for="cognome">Cognome</label><input class="form-control" id="cognome" type="text" name="cognome" formControlName="cognome" /></div>
-                    <div class="form-group"><label for="mail">Email</label><input class="form-control" id="mail" type="text" name="mail" formControlName="email" /></div>
                     <div class="form-group"><label for="username">Username</label><input class="form-control" id="username" type="text" name="username" formControlName="username"/></div>
+                    <div class="form-group"><label for="mail">Email</label><input class="form-control" id="mail" type="text" name="mail" formControlName="email" /></div>
                     <div class="form-group"><label for="password">Password</label><input class="form-control" id="password" type="password" name="password" formControlName="password"/></div>
-                    <div class="form-group"><label for="passwordConfirm">Password</label><input class="form-control" id="passwordConfirm" type="password" name="passwordConfirm" formControlName="confirmpassword"/></div><br />
+                    <div class="form-group"><label for="passwordConfirm">Conferma Password</label><input class="form-control" id="passwordConfirm" type="password" name="passwordConfirm" formControlName="confirmpassword"/></div><br />
                     <button class="btn btn-primary mt-3" type="submit">Sign up</button>
                 </form>
             </div>

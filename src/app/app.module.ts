@@ -28,6 +28,7 @@ import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-pre
 import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
 
 import { HttpClientModule} from '@angular/common/http'
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { HttpClientModule} from '@angular/common/http'
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
