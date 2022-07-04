@@ -30,7 +30,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ClassificheComponent } from './classifiche/classifiche.component';
 
 import { HttpClientModule} from '@angular/common/http';
-import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component'
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { ProfessionistiComponent } from './professionisti/professionisti.component';
+import { UtentiComponent } from './utenti/utenti.component'
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component'
     ResetPasswordComponent,
     ClassificheComponent,
     NavbarAdminComponent,
+    ProfessionistiComponent,
+    UtentiComponent,
   ],
   imports: [
     BrowserModule,
