@@ -29,6 +29,7 @@ import { EliminaAccountComponent } from './elimina-account/elimina-account.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ClassificheComponent } from './classifiche/classifiche.component';
 
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ClassificheComponent } from './classifiche/classifiche.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
