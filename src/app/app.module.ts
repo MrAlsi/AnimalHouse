@@ -29,7 +29,8 @@ import { EliminaAccountComponent } from './elimina-account/elimina-account.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ClassificheComponent } from './classifiche/classifiche.component';
 
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component'
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { HttpClientModule} from '@angular/common/http'
     EliminaAccountComponent,
     ResetPasswordComponent,
     ClassificheComponent,
+    NavbarAdminComponent,
   ],
   imports: [
     BrowserModule,
