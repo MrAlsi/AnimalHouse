@@ -26,6 +26,8 @@ import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
 import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-utente.component';
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
 import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ClassificheComponent } from './classifiche/classifiche.component';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { EliminaAccountComponent } from './elimina-account/elimina-account.compo
     StatisticheUtenteComponent,
     StoricoPrenotazioniComponent,
     EliminaAccountComponent,
+    ResetPasswordComponent,
+    ClassificheComponent,
   ],
   imports: [
     BrowserModule,

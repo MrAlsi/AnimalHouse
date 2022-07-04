@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedDimenticata: boolean= false;
+  selectedDimenticata: boolean= false; //variabile per far apparire la card per cambiare la password
   dimenticata(): void{
     this.selectedDimenticata= true;
   }
