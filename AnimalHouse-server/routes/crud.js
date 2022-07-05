@@ -1,3 +1,5 @@
+//Routes per le operazioni CRUD
+
 var express = require('express');
 var router = express.Router();
 const routes = require("../controller/ruotes")
@@ -8,5 +10,8 @@ router.get('/:collezione', routes.getCollection);
 //Aggiungi un documento ad una collection
 router.put('/:collezione', routes.setData);
 
+//READ: tutti i dati da una collection
+router.get('/:collezione', routers.getCollection);
 
+//DELETE: elimina un documento di una collection
 module.exports = router;
