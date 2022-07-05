@@ -23,7 +23,7 @@ app.use(cors());
 
 //Indirizzamento dei ruoter
 app.use('/', indexRouter);
-app.use('/crud', crudRouter);
+app.use('/crud', crud);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

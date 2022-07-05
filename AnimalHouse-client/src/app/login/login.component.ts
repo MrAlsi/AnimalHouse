@@ -50,7 +50,9 @@ export class LoginComponent implements OnInit {
               
             } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
               // TODO: alert credenziali sbagliate
+              alert("utente non trovato, riprova");
               console.log("Accesso negato");
+              return;
             }
           }
         );      
