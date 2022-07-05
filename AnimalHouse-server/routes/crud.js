@@ -10,4 +10,5 @@ router.put('/:collezione', routers.setData);
 //READ: tutti i dati da una collection
 router.get('/:collezione', routers.getCollection);
 
+//DELETE: elimina un documento di una collection
 module.exports = router;
