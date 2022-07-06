@@ -1,8 +1,10 @@
-
 <div id="container">
     <div class="domanda">
         <p>{{domanda}}</p>
     </div>
-    <app-risposta *ngFor="let risposta of risposte"> <p>Prova</p> </app-risposta>
+    <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte" (click)="controlloRisposta(risposta)">
+        {{risposta}}
+    </button>
+
 </div>
 
