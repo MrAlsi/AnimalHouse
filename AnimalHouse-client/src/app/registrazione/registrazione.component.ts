@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AggiungiDBService } from '../aggiungi-db.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-registrazione',
@@ -14,7 +16,7 @@ export class RegistrazioneComponent implements OnInit {
   url: string= "utenti"; //per indirizzare alla collection
 
 
-  constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService) { 
+  constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
       "cognome": ['',Validators.required],
@@ -35,13 +37,32 @@ export class RegistrazioneComponent implements OnInit {
     if(!this.form.valid){
       alert("Dati mancanti");
       return;
-    }else{// @TODO : manca controllare l'username sia già in uso e anche la mail
-      if(this.form.value.password==this.form.value.confirmpassword){
-        this.db.aggiungiDB(this.form.value,this.url);
-        this.router.navigate(['homepage']);
-      }else{
-        alert("le password non coincidono");
-      }
+    }else{
+      //controllo l'user non sia già in uso
+      console.log(this.form.value.username);
+      this.http.put<any>('http://localhost:3000/controllaUsername', this.form.value)
+      .subscribe(data => {
+        if(data==null){ //se data è vuoto non è in uso
+          //controllo la mail non sia già in uso
+          //console.log("username già in uso")
+          /*this.http.put<any>('http://localhost:3000/ricercaUtenti', this.form.value.mail)
+          .subscribe(data => {
+            if(data==null){ //se data è vuoto non è in uso
+              if(this.form.value.password==this.form.value.confirmpassword){
+               // this.db.aggiungiDB(this.form.value, this.url);
+                this.router.navigate(['homepage']);
+              }else{
+                alert("le password non coincidono");
+              }
+            }else{
+              alert( "mail: "+this.form.value.mail+" è già in uso")
+            }
+          });*/
+        }else{
+          alert( "username: "+this.form.value.username+" è già in uso")
+          return;
+        }
+      });
     }
   }
 
