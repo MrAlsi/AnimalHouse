@@ -8,12 +8,15 @@
 </div>
 <!-- In pratica vorrei che cliccassi su Memory apri qui sotto il memory con <app-memory>, 
     se clicchi il quiz apra il quiz con <app-quiz>, ci riesci? ti amo <3-->
-<div *ngIf="memory">
-    <app-card-memory></app-card-memory>
+<div id="gioco">
+    <div *ngIf="memory">
+        <app-memory></app-memory>
+    </div>
+    <div *ngIf="quiz">
+        <app-quiz></app-quiz>
+    </div>
+    <div *ngIf="quantiSono">
+        <h2>devo ancora crearlo</h2>
+    </div>
 </div>
-<div *ngIf="quiz">
-    <app-quiz></app-quiz>
-</div>
-<div *ngIf="quantiSono">
-    <h2>devo ancora crearlo</h2>
-</div>
+
