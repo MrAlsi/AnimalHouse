@@ -27,3 +27,8 @@ a {
     align-items: center;
     text-decoration: none;
 }
+
+#gioco{
+    width: 90%;
+    height: 60%;
+}

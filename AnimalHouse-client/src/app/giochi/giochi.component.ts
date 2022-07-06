@@ -8,9 +8,13 @@ import { GIOCHI } from '../lista-giochi';
 })
 export class GiochiComponent implements OnInit {  
   giochi = GIOCHI;
+  giochiamo?: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  giocaA(gioco: string): void {
+    this.giochiamo = gioco;
+  }
 }
