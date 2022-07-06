@@ -1,4 +1,4 @@
-<app-titolo></app-titolo>
+<app-titolo></app-titolo><!--questo titolo se c'è il token non deve essere un titolo ma la navbar-->
 <h1>Benvenuto nella sezioni giochi di Animal House</h1>
 <h5>Giochi disponibili</h5>
 <div class="giochi">
@@ -8,6 +8,12 @@
 </div>
 <!-- In pratica vorrei che cliccassi su Memory apri qui sotto il memory con <app-memory>, 
     se clicchi il quiz apra il quiz con <app-quiz>, ci riesci? ti amo <3-->
-<div>
-    
+<div *ngIf="memory">
+    <app-card-memory></app-card-memory>
+</div>
+<div *ngIf="quiz">
+    <app-quiz></app-quiz>
+</div>
+<div *ngIf="quantiSono">
+    <h2>devo ancora crearlo</h2>
 </div>
