@@ -105,5 +105,8 @@
       }
     }
   },
-  "defaultProject": "AnimalHouse"
+  "defaultProject": "AnimalHouse",
+  "cli": {
+    "analytics": false
+  }
 }

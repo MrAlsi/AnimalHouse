@@ -13,6 +13,7 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
 import { ClassificheComponent } from './classifiche/classifiche.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'signupAdmin', component: RegistrazioneAdminComponent},
   {path: 'games', component: GiochiComponent},
   {path: 'games/memory', component: MemoryComponent},
+  {path: 'games/quiz', component: QuizComponent}, 
   {path: 'meme', component: MemeComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'curiosity', component: CuriositaComponent},
