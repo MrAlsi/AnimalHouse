@@ -33,31 +33,28 @@ export class LoginComponent implements OnInit {
     if(!this.form.valid){
       alert("compila bene");
       return;
-    }else{//@todo: mancao i controlli su password e username
+    }else{
       let credenziali = this.form.value;
+      console.log(credenziali);
       this.http.put<any>('http://localhost:3000/ricercaUtenti', credenziali)
         .subscribe(data => {
           //Se data non è null vuol dire che ha trovato una corrispondenza nel DB
-            if(data!==null){
-              // TODO: accesso di utente normale o amministratore
-              this.postId = data.id;
-              //richiede il cookie al server
-              this.http.put<any>('http://localhost:3000/login', this.postId)
-                .subscribe(data => {
-                  //Salva il cookie
-                  this.cookieService.set('token', data);
-                  this.router.navigate(['homepage'])})
-              
-            } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
-              // TODO: alert credenziali sbagliate
-              alert("utente non trovato, riprova");
-              console.log("Accesso negato");
-              return;
-            }
+          if(data!==null){
+            // TODO: accesso di utente normale o amministratore
+            this.postId = data.id;
+            //richiede il cookie al server
+            this.http.put<any>('http://localhost:3000/login', this.postId)
+              .subscribe(data => {
+                //Salva il cookie
+                this.cookieService.set('token', data);
+                this.router.navigate(['homepage'])})
+          } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
+            alert("utente non trovato, riprova");
+            //console.log("Accesso negato");
+            return;
           }
-        );      
+        }
+      );      
     }
   }
-
-
 }
