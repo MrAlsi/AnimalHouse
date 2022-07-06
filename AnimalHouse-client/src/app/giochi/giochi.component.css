@@ -16,6 +16,7 @@
 .giochi{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 a {
@@ -26,9 +27,4 @@ a {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-}
-
-#gioco{
-    width: 90%;
-    height: 60%;
 }
