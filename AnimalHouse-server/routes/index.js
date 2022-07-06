@@ -12,5 +12,6 @@ router.get('/', function(req, res, next) {
 router.put('/ricercaUtenti', login.controlloUtente);
 router.put('/login', login.login);
 router.put('/controllaUsername', registrazione.controllaUsername );
+router.put('/controllaEmail', registrazione.controllaEmail);
 
 module.exports = router;

@@ -13,8 +13,8 @@ export class AggiungiDBService {
 
   //metodo per aggiungere al database l'utente
   aggiungiDB(data: any, url: string): string{
-    this.http.put<any>('http://localhost:3000/animali/'+ url, data)
-        .subscribe(data => this.postId = data.id);
-        return this.postId;
+    this.http.put<any>('http://localhost:3000/crud/'+ url, data)
+      .subscribe(data => this.postId = data.id);
+      return this.postId;
   }
 }

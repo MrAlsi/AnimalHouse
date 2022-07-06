@@ -44,28 +44,25 @@ export class RegistrazioneComponent implements OnInit {
       .subscribe(data => {
         if(data==null){ //se data è vuoto non è in uso
           //controllo la mail non sia già in uso
-          //console.log("username già in uso")
-          /*this.http.put<any>('http://localhost:3000/ricercaUtenti', this.form.value.mail)
-          .subscribe(data => {
-            if(data==null){ //se data è vuoto non è in uso
+          this.http.put<any>('http://localhost:3000/controllaEmail', this.form.value)
+          .subscribe(data1 => {
+            if(data1==null){ //se data è vuoto non è in uso
               if(this.form.value.password==this.form.value.confirmpassword){
-               // this.db.aggiungiDB(this.form.value, this.url);
+                this.db.aggiungiDB(this.form.value, this.url);
                 this.router.navigate(['homepage']);
               }else{
                 alert("le password non coincidono");
               }
             }else{
-              alert( "mail: "+this.form.value.mail+" è già in uso")
+              alert( "mail: "+this.form.value.email+" è già in uso")
             }
-          });*/
+          });
         }else{
+          console.log("username già in uso")
           alert( "username: "+this.form.value.username+" è già in uso")
           return;
         }
       });
     }
   }
-
-  
-
 }
