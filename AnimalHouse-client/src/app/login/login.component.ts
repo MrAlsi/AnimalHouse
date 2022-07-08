@@ -35,19 +35,14 @@ export class LoginComponent implements OnInit {
       return;
     }else{
       let credenziali = this.form.value;
-      console.log(credenziali);
+      //Chiamata al db per cercare una corrispondenza
       this.http.put<any>('http://localhost:3000/ricercaUtenti', credenziali)
         .subscribe(data => {
-          //Se data non è null vuol dire che ha trovato una corrispondenza nel DB
+          //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
           if(data!==null){
-            // TODO: accesso di utente normale o amministratore
-            this.postId = data.id;
-            //richiede il cookie al server
-            this.http.put<any>('http://localhost:3000/login', this.postId)
-              .subscribe(data => {
-                //Salva il cookie
-                this.cookieService.set('token', data);
-                this.router.navigate(['homepage'])})
+            this.cookieService.set('token', data);
+            this.router.navigate(['homepage']);
+
           } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
             alert("utente non trovato, riprova");
             //console.log("Accesso negato");

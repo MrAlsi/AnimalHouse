@@ -1,9 +1,26 @@
-<div class="domanda">
-    <p>{{domanda}}</p>
-</div>
-<div id="container">  
-    <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte" (click)="controlloRisposta(risposta)">
-        {{risposta}}
+<div *ngIf="gioca === true">
+    <div class="domanda">
+        <p>{{domanda}}</p>
+    </div>
+    <div id="container">  
+        <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte" (click)="controlloRisposta(risposta)">
+            {{risposta}}
+        </button>
+    <div id="punteggio">
+    <h4> Punteggio: </h4>
+    <h5> {{punteggio}}/10</h5>
+    </div>
+    <button type="button" class="btn btn-primary" [disabled]="stato === 'disabled'" (click)="prossimaDomanda()">
+        Prossima domanda
     </button>
+    </div>
 </div>
-
+<div *ngIf="gioca === false">
+    <h1> FINE DEL QUIZ!!!</h1>
+    <h3> hai realizzato un punteggio di:</h3>
+    <h3> {{punteggio}}/10</h3>
+    <h3 *ngIf="punteggio === 0"> Fai proprio schifo zi </h3> 
+    <h3 *ngIf="punteggio < 6"> Andrà meglio la prossima volta dai </h3>
+    <h3 *ngIf="punteggio > 5 and punteggio < 8"> Sei stato molto bravo </h3>
+    <h3 *ngIf="punteggio > 8"> Mostruoso zi </h3>
+</div>
