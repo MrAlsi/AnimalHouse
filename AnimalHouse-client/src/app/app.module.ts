@@ -31,7 +31,6 @@ import { ClassificheComponent } from './classifiche/classifiche.component';
 
 import { HttpClientModule} from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
-import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
@@ -64,7 +63,6 @@ import { RispostaComponent } from './risposta/risposta.component';
     EliminaAccountComponent,
     ResetPasswordComponent,
     ClassificheComponent,
-    NavbarAdminComponent,
     ProfessionistiComponent,
     UtentiComponent,
     QuizComponent,

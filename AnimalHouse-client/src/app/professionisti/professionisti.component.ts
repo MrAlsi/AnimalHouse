@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ProfessionistiComponent implements OnInit {
   on?: string;
   dom?: string;
   professionista?: string; //variabile per sapere che tipo di professionista sto creando
-  constructor(public fb: FormBuilder, private router: Router) { 
+  constructor(public fb: FormBuilder, private router: Router, public biscotto: MangiaBiscottoService) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
       "città": ['',Validators.required],
@@ -29,6 +30,7 @@ export class ProfessionistiComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.biscotto.getRuolo();
   }
 
 

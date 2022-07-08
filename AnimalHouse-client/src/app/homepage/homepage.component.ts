@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(public biscotto: MangiaBiscottoService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
