@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import jwt_decode from 'jwt-decode';
+import jwt_decoded from 'jwt-decode';
 
 @Component({
   selector: 'app-quiz',
@@ -92,7 +92,7 @@ export class QuizComponent {
       console.log(this.cookie)
       /*this.id = this.cookie.id;
       console.log(this.id);*/
-      this.cookie = jwt_decode(this.cookie);
+      this.cookie = jwt_decoded(this.cookie);
       console.log(this.cookie);
 
       if(this.cookie != null){
