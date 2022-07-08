@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
+
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public biscotto: MangiaBiscottoService) { }
 
   ngOnInit(): void {
   }
