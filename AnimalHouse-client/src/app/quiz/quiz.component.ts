@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-quiz',
@@ -8,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class QuizComponent {
+  
+  cookie?: any;
+  id?: any;
+
   api?: any;
   domanda?: string;
   risposte?: any;
@@ -18,7 +24,7 @@ export class QuizComponent {
   stato: string = "disabled";
   gioca: boolean = true;
 
-  constructor(public httpClient:HttpClient) {  }
+  constructor(public httpClient:HttpClient, private cookieService: CookieService) {  }
 
   ngOnInit(): void {   
     this.httpClient.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple').subscribe(data => {
@@ -82,18 +88,27 @@ export class QuizComponent {
     } else {
       //con gioca = false mostra il punteggio finale e una frase d'incoraggiamento
       this.gioca = false;
-      /*if(cookie != null){
+      this.cookie = this.cookieService.get("token");
+      console.log(this.cookie)
+      /*this.id = this.cookie.id;
+      console.log(this.id);*/
+      this.cookie = jwt_decode(this.cookie);
+      console.log(this.cookie);
+
+      if(this.cookie != null){
         var body = {
-          "_id": "",
+          "_id": this.cookie.id,
           "gioco": "Quiz",
           "punteggio": this.punteggio
         }
+
+        console.log("body:", body);
         //var Cookie = cookie
       
       this.httpClient.put("localhost:3000/aggiungiPunteggio", body)
         .subscribe();
       }
-      */
+      
     }
     
   }

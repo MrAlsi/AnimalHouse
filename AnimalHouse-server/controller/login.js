@@ -13,7 +13,6 @@ const mongo = new MongoClient(URI);
 const db = mongo.db("AnimalHouse");
 
 // Controllo che esista una corrispondenza di username e passoword nel DB
-// ! secondo me si possono unire in un unico ~Alsi
 exports.controlloUtente = async (req, res) => {
   console.log("Credenziali  ", req.body);
   return await db.collection("utenti").findOne({username: req.body.user, password: req.body.password}, (err, cursor) => {
