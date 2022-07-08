@@ -82,34 +82,31 @@ export class QuizComponent {
   //disabilita il bottone prossima domanda e carica il prossimo quesito
   prossimaDomanda(): void{
     this.indice+=1;
-    if(this.indice < 10){
+    if(this.indice < 2){
       this.stato = "disabled";
       this.caricaQuesito();
     } else {
-      //con gioca = false mostra il punteggio finale e una frase d'incoraggiamento
-      this.gioca = false;
-      this.cookie = this.cookieService.get("token");
-      console.log(this.cookie)
-      /*this.id = this.cookie.id;
-      console.log(this.id);*/
-      this.cookie = jwt_decode(this.cookie);
+      this.gioca = false;       //cambia l'html mostrando il punteggio finale e una frase d'incoraggiamento
+      this.cookie = this.cookieService.get("token");  //Prende il cookie salvato
+      if(this.cookie != null){    //Se c'è un cookie salvato salva il punteggio
+        this.salvaPunteggio();    //Richiama il metodo per salvare il punteggio nel DB
+      }
+    }
+  }
+
+  salvaPunteggio(): void{
+      this.cookie = jwt_decode(this.cookie);  //Traduce il cookie
       console.log(this.cookie);
 
-      if(this.cookie != null){
-        var body = {
-          "_id": this.cookie.id,
-          "gioco": "Quiz",
-          "punteggio": this.punteggio
-        }
-
-        console.log("body:", body);
-        //var Cookie = cookie
-      
-      this.httpClient.put("localhost:3000/aggiungiPunteggio", body)
-        .subscribe();
+      //Crea il body per la richiesta al server
+      var body = {
+        "_id": this.cookie.id,
+        "gioco": "Quiz",
+        "punteggio": this.punteggio
       }
-      
-    }
-    
+
+      //Manda la richiesta al server per salvare il risultato della partita
+      this.httpClient.put<any>("http://localhost:3000/giochi/aggiungiPunteggio", body)
+        .subscribe();
   }
 }
