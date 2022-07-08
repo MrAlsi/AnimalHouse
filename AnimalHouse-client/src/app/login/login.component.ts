@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   postId?: any;
+  ruolo?: string;
     
-  constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, private cookieService: CookieService) { 
+  constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, private cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
     this.form = fb.group({
       "user": ['',Validators.required],
       "password": ['',Validators.required]
@@ -40,9 +43,9 @@ export class LoginComponent implements OnInit {
         .subscribe(data => {
           //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
           if(data!==null){
-            this.cookieService.set('token', data);
+            this.cookieService.set("token",data);
+            this.biscotto.getRuolo();
             this.router.navigate(['homepage']);
-
           } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
             alert("utente non trovato, riprova");
             //console.log("Accesso negato");

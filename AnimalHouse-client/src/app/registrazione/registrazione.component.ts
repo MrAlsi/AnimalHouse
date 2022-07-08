@@ -49,6 +49,7 @@ export class RegistrazioneComponent implements OnInit {
             if(data1==null){ //se data è vuoto non è in uso
               if(this.form.value.password==this.form.value.confirmpassword){
                 this.db.aggiungiDB(this.form.value, this.url);
+                
                 this.router.navigate(['homepage']);
               }else{
                 alert("le password non coincidono");

@@ -2,35 +2,31 @@
 
 const { MongoClient, ObjectId } = require('mongodb');
 const jwt= require("jsonwebtoken");
-//const { db } = require("../connessioneDB");
-// ! Risolvere perché non vada il modulo connessione DB
-const dotenv = require('dotenv');
-
-dotenv.config({ path: './.env'});
-
-const URI = process.env.URI;
-const mongo = new MongoClient(URI);
-const db = mongo.db("AnimalHouse");
+const  db = require("../connessioneDB");
 
 // Controllo che esista una corrispondenza di username e passoword nel DB
 exports.controlloUtente = async (req, res) => {
+  console.log(db);
   console.log("Credenziali  ", req.body);
-  return await db.collection("utenti").findOne({username: req.body.user, password: req.body.password}, (err, cursor) => {
-  if(err) console.log("Err: ", err);
-  
-  console.log(cursor);
+  db.collection("utenti").findOne({username: req.body.user, password: req.body.password}, (err, cursor) => {
+    if(err) console.log("Err: ", err);
+    if(cursor != undefined){
+      console.log("cursor", cursor);
 
-  const payload = {
-    "id": cursor._id,
-    "username": cursor.username,
-    "ruolo": cursor.ruolo
-  };
+      const payload = {
+        "id": cursor._id,
+        "username": cursor.username,
+        "ruolo": cursor.ruolo
+      };
 
-  console.log("payload", payload);
-  token = jwt.sign(payload, "PASSWORDFORTE");
-  res.json(token);
-  }
-  )     
+      console.log("payload", payload);
+      token = jwt.sign(payload, "PASSWORDFORTE");
+      res.json(token);
+    } else {
+      res.json(null);
+    }
+    
+  });     
 }
 
 //Crea un JWT e lo ritorna per salvarlo nel cookie

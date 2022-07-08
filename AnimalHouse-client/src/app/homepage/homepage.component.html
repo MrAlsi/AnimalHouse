@@ -1,1 +1,8 @@
-<app-navbar> </app-navbar>
+<div *ngIf="this.biscotto.ruolo=='utente'; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-navbar></app-navbar>
+</ng-template>
+<ng-template #elseBlock>
+   <app-navbar-admin></app-navbar-admin> 
+</ng-template>
+

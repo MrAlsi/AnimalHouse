@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import jwt_decode from 'jwt-decode';
+import jwt_decoded from 'jwt-decode';
 
 @Component({
   selector: 'app-quiz',
@@ -95,7 +95,7 @@ export class QuizComponent {
   }
 
   salvaPunteggio(): void{
-      this.cookie = jwt_decode(this.cookie);  //Traduce il cookie
+      this.cookie = jwt_decoded(this.cookie);  //Traduce il cookie
       console.log(this.cookie);
 
       //Crea il body per la richiesta al server
