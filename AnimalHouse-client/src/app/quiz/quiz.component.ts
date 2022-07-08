@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -15,10 +14,11 @@ export class QuizComponent {
   giusta?: string;
   colore: string = "btn-outline-dark";
   indice: number = 0;
+  punteggio: number = 0;
+  stato: string = "disabled";
+  gioca: boolean = true;
 
-  constructor(public httpClient:HttpClient, 
-    private router: Router,
-    private route: ActivatedRoute) {  }
+  constructor(public httpClient:HttpClient) {  }
 
   ngOnInit(): void {   
     this.httpClient.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple').subscribe(data => {
@@ -37,6 +37,7 @@ export class QuizComponent {
     this.giusta = this.api.results[this.indice].correct_answer;
   }
 
+  //Restituisce la domanda posta
   getDomanda(): string{
     return this.api.results[this.indice].question;
   }
@@ -62,17 +63,38 @@ export class QuizComponent {
   controlloRisposta(risposta: any): void{
     if(risposta === this.giusta){
       this.colore = "btn-success";
+      this.punteggio+=1;
       //serve un delay
     } else {
       this.colore = "btn-danger";
-       //serve un delay
-       this.prossimaDomanda();
-
+      //serve un delay
     }
-  } //(click)="controlloRisposta(risposta)"
+    this.stato = "";
+  } 
 
+  //Passa alla prossima domanda, incrementa l'indice per scorrere l'array, 
+  //disabilita il bottone prossima domanda e carica il prossimo quesito
   prossimaDomanda(): void{
     this.indice+=1;
-    this.caricaQuesito();
+    if(this.indice < 10){
+      this.stato = "disabled";
+      this.caricaQuesito();
+    } else {
+      //con gioca = false mostra il punteggio finale e una frase d'incoraggiamento
+      this.gioca = false;
+      /*if(cookie != null){
+        var body = {
+          "_id": "",
+          "gioco": "Quiz",
+          "punteggio": this.punteggio
+        }
+        //var Cookie = cookie
+      
+      this.httpClient.put("localhost:3000/aggiungiPunteggio", body)
+        .subscribe();
+      }
+      */
+    }
+    
   }
 }
