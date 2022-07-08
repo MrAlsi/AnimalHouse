@@ -44,15 +44,14 @@ export class LoginComponent implements OnInit {
           //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
           if(data!==null){
             this.cookieService.set("token",data);// in questo punto sto salvando il token in data
-            this.biscotto.getRuolo();
+            this.biscotto.getRuolo(); //richiamp metodo per prendere il ruolo dal token
             this.router.navigate(['homepage']);
           } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
             alert("utente non trovato, riprova");
             //console.log("Accesso negato");
             return;
           }
-        }
-      );      
+        });
     }
   }
 }

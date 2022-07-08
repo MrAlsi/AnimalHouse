@@ -16,7 +16,7 @@ exports.controlloUtente = async (req, res) => {
       const payload = {
         "id": cursor._id,
         "username": cursor.username,
-        "ruolo": cursor.ruolo
+        "ruolo": cursor.ruolo,
       };
 
       console.log("payload", payload);

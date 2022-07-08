@@ -10,4 +10,6 @@ router.put('/:collezione', routers.setData);
 //READ: tutti i dati da una collection
 router.get('/:collezione', routers.getCollection);
 
+router.get('/one/:collezione/:id', routers.getOneDocument);
+
 module.exports = router;
