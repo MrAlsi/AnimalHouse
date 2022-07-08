@@ -35,7 +35,7 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { RispostaComponent } from './risposta/risposta.component'
+import { RispostaComponent } from './risposta/risposta.component';
 
 @NgModule({
   declarations: [
