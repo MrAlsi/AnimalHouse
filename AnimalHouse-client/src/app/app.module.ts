@@ -36,6 +36,8 @@ import { ProfessionistiComponent } from './professionisti/professionisti.compone
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RispostaComponent } from './risposta/risposta.component';
+import { GameCardComponentComponent } from './memory/game-card-component/game-card-component.component';
+import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { RispostaComponent } from './risposta/risposta.component';
     UtentiComponent,
     QuizComponent,
     RispostaComponent,
+    GameCardComponentComponent,
+    AggiungiCuriositaComponent,
   ],
   imports: [
     BrowserModule,

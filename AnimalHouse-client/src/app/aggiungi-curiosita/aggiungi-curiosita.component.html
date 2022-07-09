@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h3>Aggiungi curiosità</h3>
+            <div class="formaContainer">
+                <!--[formGroup]="form" -->
+                <form (ngSubmit)="controllaInput()" >                
+                    <div class="form-group"><label for="animale">Animale</label><input class="form-control" id="animale" type="text" name="animale" formControlName="animale"/></div>
+                    <div class="form-group"><label for="icona">Icona</label><input class="form-control" id="icona" type="text" name="icona" formControlName="icona" /></div>
+                    <div class="form-group"><label for="copertina">Copertina</label><input class="form-control" id="copertina" type="text" name="copertina" formControlName="copertina"/></div>
+                    <div class="form-group"><label for="descrizione">Descrizione</label><input class="form-control" id="descrizione" type="text" name="descrizione" formControlName="descrizione" /></div>
+                    <div class="form-group"><label for="curiosita">Curiosità</label><input class="form-control" id="curiosita" type="text" name="curiosita" formControlName="curiosita"/></div>
+                    <button class="btn btn-primary mt-3" type="submit">Aggiungi animale</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

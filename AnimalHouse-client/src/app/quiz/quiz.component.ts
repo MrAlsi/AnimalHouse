@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decoded from 'jwt-decode';
 
@@ -23,6 +23,7 @@ export class QuizComponent {
   punteggio: number = 0;
   stato: string = "disabled";
   gioca: boolean = true;
+  giaVotato: boolean = false;
 
   constructor(public httpClient:HttpClient, private cookieService: CookieService) {  }
 
@@ -67,24 +68,42 @@ export class QuizComponent {
 
   //Per me ci sta che diventi tutto rosso, se volete solo uno fatelo voi
   controlloRisposta(risposta: any): void{
-    if(risposta === this.giusta){
-      this.colore = "btn-success";
-      this.punteggio+=1;
-      //serve un delay
-    } else {
-      this.colore = "btn-danger";
-      //serve un delay
+    if(!this.giaVotato){
+      if(risposta === this.giusta){
+        this.colore = "btn-success";
+        this.punteggio+=1;
+      } else {
+        this.colore = "btn-danger";
+        let risposte = document.getElementsByClassName('risposta');
+        //console.log(risposte[2].textContent)
+        //for(let i = 0; i < 4; i++){
+          //console.log(risposte[i].textContent?.trim());
+          //console.log(this.giusta, this.giusta?.length );*/
+          //console.log(risposte[i].textContent?.trim === this.giusta?.trim);
+          
+          //if(risposte[i].textContent?.trim() === this.giusta?.trim()){
+            //  console.log("risposta giusta:", i);
+              risposte[2].setAttribute('class', "btn btn-success");
+          
+
+      //  }  
+             
+      }
+      this.stato = "";
+      this.giaVotato = true;
     }
-    this.stato = "";
+
+
   } 
 
   //Passa alla prossima domanda, incrementa l'indice per scorrere l'array, 
   //disabilita il bottone prossima domanda e carica il prossimo quesito
   prossimaDomanda(): void{
     this.indice+=1;
-    if(this.indice < 2){
+    if(this.indice < 10){
       this.stato = "disabled";
       this.caricaQuesito();
+      this.giaVotato = false;
     } else {
       this.gioca = false;       //cambia l'html mostrando il punteggio finale e una frase d'incoraggiamento
       this.cookie = this.cookieService.get("token");  //Prende il cookie salvato
@@ -106,7 +125,7 @@ export class QuizComponent {
       }
 
       //Manda la richiesta al server per salvare il risultato della partita
-      this.httpClient.put<any>("http://localhost:3000/giochi/aggiungiPunteggio", body)
+      this.httpClient.put<any>("http://localhost:3000/giochi/aggiungiPunteggio/quiz", body)
         .subscribe();
   }
 }
