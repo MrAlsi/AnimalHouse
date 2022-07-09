@@ -1,0 +1,24 @@
+h5{
+    margin-left: 2%;
+}
+
+#search{
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+table{
+    font-size: small;
+}
+
+.tabella{
+    overflow: scroll
+}
+
+
+button{
+    background-color: #AA0000;
+    border-color:#AA0000;
+    border-style: inset;
+}

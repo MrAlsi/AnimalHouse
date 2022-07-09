@@ -34,6 +34,15 @@ exports.getOneDocument = async (req,res)=> {
   });
 }
 
+exports.deleteOneDocument= async(req,res)=>{
+  console.log("collezione", req.params.id)
+  return await db.collection(`${req.params.collezione}`).deleteOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
+    if(err) console.log ("Err: ", err);
+    console.log("ciao",cursor);
+    res.json(cursor);
+  });
+}
+
 
 
 

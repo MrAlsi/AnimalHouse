@@ -29,7 +29,7 @@ export class DatiUtenteComponent implements OnInit {
 
           this.nome= data.nome;
           this.username= data.username;
-          this.email= data.mail;
+          this.email= data.email;
           this.cognome= data.cognome;
           this.ruolo= data.ruolo;
 
