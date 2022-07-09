@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 @Component({
   selector: 'app-classifiche',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassificheComponent implements OnInit {
 
-  constructor() { }
+  constructor(public biscotto: MangiaBiscottoService) { }
 
   ngOnInit(): void {
+    this.biscotto.getRuolo();
   }
 
 }

@@ -10,4 +10,7 @@ router.put('/:collezione', routers.setData);
 //READ: tutti i dati da una collection
 router.get('/:collezione', routers.getCollection);
 
+//dato e una collezione ti ritorna il documento corrispondente all'id
+router.get('/one/:collezione/:id', routers.getOneDocument);
+
 module.exports = router;

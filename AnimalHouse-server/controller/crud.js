@@ -22,8 +22,16 @@ exports.getCollection = (req, res)=>{
       if(err) throw err;
       console.log("res", risp);
       res.json(risp);
-    })
-    
+    }) 
+}
+
+exports.getOneDocument = async (req,res)=> {
+  console.log("collezione", req.params.collezione)
+  return await db.collection(`${req.params.collezione}`).findOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
+      if(err) console.log ("Err: ", err);
+      console.log("ciao",cursor);
+      res.json(cursor);
+  });
 }
 
 

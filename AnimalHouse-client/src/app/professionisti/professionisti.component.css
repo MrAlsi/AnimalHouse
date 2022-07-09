@@ -13,8 +13,17 @@ p{
     margin-left: 70%;
 }
 
-.form-check-input:checked {
+.form-check-input:checked{
     background-color:#AA0000;
     border-color:#AA0000;
 }
+
+
+#disponibilità{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
 
