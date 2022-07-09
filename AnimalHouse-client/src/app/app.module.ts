@@ -13,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
 import { CartaComponent } from './carta/carta.component';
 import { GiocoComponent } from './gioco/gioco.component';
-import { MemoryComponent } from './memory/memory.component';
 import { CardMemoryComponent } from './card-memory/card-memory.component';
 import { MemeComponent } from './meme/meme.component';
 import { DimenticataComponent } from './dimenticata/dimenticata.component';
@@ -35,7 +34,6 @@ import { ProfessionistiComponent } from './professionisti/professionisti.compone
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RispostaComponent } from './risposta/risposta.component';
-import { GameCardComponentComponent } from './memory/game-card-component/game-card-component.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 
 @NgModule({
@@ -51,7 +49,6 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
     TitoloComponent,
     CartaComponent,
     GiocoComponent,
-    MemoryComponent,
     CardMemoryComponent,
     MemeComponent,
     DimenticataComponent,
@@ -69,7 +66,6 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
     UtentiComponent,
     QuizComponent,
     RispostaComponent,
-    GameCardComponentComponent,
     AggiungiCuriositaComponent,
   ],
   imports: [
