@@ -5,9 +5,9 @@
 <div class="card">
     <div class="card-body">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (change)="checked('pensione')">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (change)="checked('Ripetizioni di canto')">
             <label class="form-check-label" for="flexRadioDefault1">
-              Pensione
+              Ripetizioni di canto
             </label>
         </div>
         <div class="form-check">
@@ -17,17 +17,17 @@
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (change)="checked('psicologo')">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (change)="checked('Psicologo')">
             <label class="form-check-label" for="flexRadioDefault3">
               Psicologo
             </label>
         </div>
     </div>
 </div>
-<div *ngIf="professionista!=undefined">
+<div *ngIf="this.ruolo!=undefined">
     <div class="formaContainer">
         <form (ngSubmit)="salva()" [formGroup]="form">
-            <h5>Aggiungi {{professionista}}</h5>
+            <h5>Aggiungi {{this.ruolo}}</h5>
             <label class="form-gruop-label" for="nome"> Nome: </label>
             <div  class="form-group"><input class="input-fiel" placeholder="" type="text" id="nome" formControlName="nome" /></div>
             <label class="form-gruop-label" for="città"> Città: </label>
@@ -36,20 +36,70 @@
             <div class="form-group"><input class="input-field" placeholder="" type="text"  id="via" formControlName="via"/></div>
             <label class="form-gruop-label" for="civico"> Civico: </label>
             <div class="form-group"><input class="input-field" placeholder="" type="number" min="1"  id="civico" formControlName="civico"/></div>
-            <label class="form-gruop-label" for="servizio"> Descrizione: </label>
-            <div class="form-group"><textarea class="input-field" placeholder="" type="text" maxlength="500" cols="50" rows="8" id="servizio" formControlName="servizio"></textarea></div>
+            <label class="form-gruop-label" for="descrizione"> Descrizione: </label>
+            <div class="form-group"><textarea class="input-field" placeholder="" type="text" maxlength="500" cols="50" rows="8" id="descrizione" formControlName="descrizione"></textarea></div>
             <br>
+            <div class="card">
+                <div class="card-body">
+                    <label>Disponibilità: </label>
+                    <br>
+                    <div id="disponibilità"> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Lunedì" (click)="addGiorno('Lunedì')">
+                            <label class="form-check-label" for="Lunedì">
+                            Lunedì
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Martedì" id="Martedì" (click)="addGiorno('Martedì')">
+                            <label class="form-check-label" for="Martedì">
+                            Martedì
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Mercoledì" id="Mercoledì" (click)="addGiorno('Mercoledì')">
+                            <label class="form-check-label" for="Mercoledì">
+                            Mercoledì
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Giovedì" id="Giovedì" (click)="addGiorno('Giovedì')" >
+                            <label class="form-check-label" for="Giovedì">
+                            Giovedì
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Venerdì" id="Venerdì" (click)="addGiorno('Venerdì')">
+                            <label class="form-check-label" for="Venerdì">
+                            Venerdì
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Sabato" id="Sabato" (click)="addGiorno('Sabato')">
+                            <label class="form-check-label" for="Sabato">
+                            Sabato
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Domenica" id="Domenica" (click)="addGiorno('Domenica')">
+                            <label class="form-check-label" for="Domenica">
+                            Domenica
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <p>Servizio online: </p>
                     <div class="form-checkonline">
-                        <input class="form-check-input1" type="radio" name="flexRadioDefault1" id="flexRadioDefault4" (change)="online('si')">
+                        <input  type="radio" name="flexRadioDefault1" id="flexRadioDefault4"  (change)="online('true')">
                         <label class="form-check-label" for="flexRadioDefault4">
                           sì
                         </label>
                     </div>
                     <div class="form-checkonline">
-                        <input class="form-check-input1" type="radio" name="flexRadioDefault1" id="flexRadioDefault5" (change)="online('no')">
+                        <input  type="radio" name="flexRadioDefault1" id="flexRadioDefault5"  (change)="online('false')">
                         <label class="form-check-label" for="flexRadioDefault5">
                           no
                         </label>
@@ -60,13 +110,13 @@
                 <div class="card-body">
                     <p>Servizio domicilio: </p>
                     <div class="form-checkdomicilio">
-                        <input class="form-check-input2" type="radio" name="flexRadioDefault" id="flexRadioDefault6" (change)="domicilio('si')">
+                        <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault6" (change)="domicilio('true')">
                         <label class="form-check-label" for="flexRadioDefault6">
                           sì
                         </label>
                     </div>
                     <div class="form-checkdomicilio">
-                        <input class="form-check-input2" type="radio" name="flexRadioDefault" id="flexRadioDefault7" (change)="domicilio('no')">
+                        <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault7" (change)="domicilio('false')">
                         <label class="form-check-label" for="flexRadioDefault7">
                           no
                         </label>
@@ -77,7 +127,6 @@
             <button class="btn btn-primary" type="submit">Salva</button>
         </form>
     </div>
-
 </div>
     
 
