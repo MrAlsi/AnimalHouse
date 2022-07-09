@@ -3,7 +3,7 @@
         <p>{{domanda}}</p>
     </div>
     <div id="container">  
-        <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte" (click)="controlloRisposta(risposta)">
+        <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte; let i = index" (click)="controlloRisposta(risposta)">
             {{risposta}}
         </button>
     <div id="punteggio">
