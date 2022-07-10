@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfiloServiceService } from '../profilo-service.service';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -11,13 +14,17 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angula
 })
 export class ResetPasswordComponent implements OnInit {
   form: FormGroup;
-  constructor(public fb: FormBuilder,public profilo: ProfiloServiceService) { 
+  id?: string;
+  password?: string;
+
+  constructor(public fb: FormBuilder,public profilo: ProfiloServiceService, public biscotto: MangiaBiscottoService, public http: HttpClient) { 
     this.form = fb.group({
       "password": ['',Validators.required]
     });
   }
 
   ngOnInit(): void {
+    this.id=this.biscotto.getId();
   }
 
   //metodo per controllare siano stati inseriti i dati e che siano corretti
@@ -26,10 +33,21 @@ export class ResetPasswordComponent implements OnInit {
       alert("Dati mancanti");
       return;
     }else{
-      //@todo manca la parta di controllo password
-      //se la password è corretta passo alla card che permette l'inserimento della nuova password
-      this.profilo.selectedNewPassword=true;
-      this.profilo.selectedReset=false;
+      this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
+        .subscribe(data => {
+          console.log("k", data.password);
+
+          this.password=data.password;
+          if(this.password==this.form.value.password){
+            //se la password è corretta passo alla card che permette l'inserimento della nuova password
+            this.profilo.selectedNewPassword=true;
+            this.profilo.selectedReset=false;
+            //@todo manca salvare la nuova password
+          }else{
+            alert("Password errata");
+            return;
+          }
+        });
     }
   }
 
