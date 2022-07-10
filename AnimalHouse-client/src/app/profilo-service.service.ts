@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { MangiaBiscottoService } from './mangia-biscotto.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfiloServiceService {
-
-  constructor (private router: Router) {}
+  
+  id?: string;
+  constructor (private router: Router, public http: HttpClient, public biscotto: MangiaBiscottoService) {}
   //variabili per gestire la visualizzazioni delle card nel profilo
   selectedPrenotazioni:boolean= false;
   selectedStatistiche: boolean= false;
@@ -56,8 +59,6 @@ export class ProfiloServiceService {
     this.selectedStatistiche=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
-
-
   }
 
   close(): void{
@@ -73,10 +74,17 @@ export class ProfiloServiceService {
 
   }
 
-
+  
   eliminaAccount(): void{
-    //@todo eliminare veramente l'account adesso reindirizza solo alla prima pagina
-    this.router.navigate(['']);
+      this.id=this.biscotto.getId();
+      console.log("id:", this.id);
+      this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
+      .subscribe(data => {
+        //this.collezioni=data;
+        console.log(data);
+        this.router.navigate(['']);
+      });
+      
   }
 
 }

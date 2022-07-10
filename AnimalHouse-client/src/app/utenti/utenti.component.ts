@@ -32,7 +32,4 @@ export class UtentiComponent implements OnInit {
     });
     window.location.reload();
   }
-
-
-
 }

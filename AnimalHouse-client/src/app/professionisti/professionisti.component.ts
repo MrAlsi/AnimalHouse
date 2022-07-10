@@ -78,7 +78,7 @@ export class ProfessionistiComponent implements OnInit {
         this.form.value.tipo=this.ruolo;
         //aggiungo il documento al db
         this.DB.aggiungiDB(this.form.value, this.url);
-        //this.router.navigate(['newProfessionisti']);//perché non si refresha la pagina?
+        window.location.reload();
       }else{
         alert("compilare tutti i campi");
         return;
