@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, SafePipe } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { PrimaComponent } from './prima/prima.component';
@@ -34,7 +34,7 @@ import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { MemoryComponent } from './memory/memory.component';
 import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
-
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,12 +65,14 @@ import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
     AggiungiCuriositaComponent,
     MemoryComponent,
     CartaMemoryComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SwiperModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

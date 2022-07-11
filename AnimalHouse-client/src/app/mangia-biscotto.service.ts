@@ -14,15 +14,17 @@ export class MangiaBiscottoService {
   constructor(private cookieService: CookieService) { }
 
   //metodo per prendere il ruolo dal token
-  getRuolo(): void{
+  getRuolo(): any{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
     console.log("token",this.cookie);
 
     if(this.cookie != null){
-       this.ruolo=this.cookie.ruolo;
+       return this.cookie.ruolo;
        console.log("ruolo:",this.cookie.ruolo);
     }
+
+    return null;
   }
 
 

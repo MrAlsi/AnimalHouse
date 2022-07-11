@@ -1,0 +1,11 @@
+import swiper/css
+import swiper/less/navigation
+import swiper/less/pagination
+
+iframe{
+    width: 100%;
+}
+
+.conteiner{
+    height: 300px;
+}
