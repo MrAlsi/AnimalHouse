@@ -6,13 +6,15 @@
       <br>
       <!-- Scheda di un animale -->
       <div class="card" >
-        <img src="assets/img/curiosita/carta/{{animale.icona}}" class="card-img-top" alt="{{animale.animale}}">
+        <img src="http://source.unsplash.com/{{animale.icona}}" class="card-img-top" alt="{{animale.animale}}">
         <div class="card-body">
           <h5 class="card-title">{{animale.animale}}</h5>
           <p class="card-text">{{animale.descrizione}}</p>
           <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#scheda{{animale.animale}}" role="button" aria-controls="offcanvasExample">Apri la scheda</a>
         </div>
       </div>
+
+      <button></button>
       
       <!-- Pagina delle curiosità-->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="scheda{{animale.animale}}" aria-labelledby="offcanvasExampleLabel">
@@ -22,7 +24,7 @@
         </div>
         <div class="offcanvas-body">
           <div>
-            <img src="assets/img/curiosita/scheda/{{animale.img}}" class="card-img-top" alt="{{animale.animale}}">
+            <img src="https://source.unsplash.com/{{animale.copertina}}" class="card-img-top" alt="{{animale.animale}}">
             <h4>Descrizione:</h4>
             {{animale.descrizione}}
             <br> <br>
