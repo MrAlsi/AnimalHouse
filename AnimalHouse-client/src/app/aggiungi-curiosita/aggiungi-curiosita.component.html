@@ -1,15 +1,19 @@
+<app-navbar></app-navbar>
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
             <h3>Aggiungi curiosità</h3>
             <div class="formaContainer">
-                <!--[formGroup]="form" -->
-                <form (ngSubmit)="controllaInput()" >                
+                <form (ngSubmit)="aggiungi(true)" [formGroup]="form">                
                     <div class="form-group"><label for="animale">Animale</label><input class="form-control" id="animale" type="text" name="animale" formControlName="animale"/></div>
                     <div class="form-group"><label for="icona">Icona</label><input class="form-control" id="icona" type="text" name="icona" formControlName="icona" /></div>
                     <div class="form-group"><label for="copertina">Copertina</label><input class="form-control" id="copertina" type="text" name="copertina" formControlName="copertina"/></div>
-                    <div class="form-group"><label for="descrizione">Descrizione</label><input class="form-control" id="descrizione" type="text" name="descrizione" formControlName="descrizione" /></div>
-                    <div class="form-group"><label for="curiosita">Curiosità</label><input class="form-control" id="curiosita" type="text" name="curiosita" formControlName="curiosita"/></div>
+                    <div class="form-group"><label for="descrizione">Descrizione</label><textarea class="input-field" placeholder="" type="text" cols="40" rows="8" id="descrizione" formControlName="descrizione"></textarea></div>
+                    <div class="form-groupAggingi">
+                        <label for="curiosita">Curiosità</label>
+                        <input class="form-control1" id="curiosita" type="text" name="curiosita" formControlName="curiosita"/>
+                        <button class="btn btn-primary" (click)="aggiungiCuriosita(this.form.value.curiosita)">+</button>
+                    </div>
                     <button class="btn btn-primary mt-3" type="submit">Aggiungi animale</button>
                 </form>
             </div>
