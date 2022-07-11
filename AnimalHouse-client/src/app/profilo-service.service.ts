@@ -71,8 +71,8 @@ export class ProfiloServiceService {
     this.selectedReset=true;
     this.selectedDati=false;
     this.selectedNewPassword= false;
-
   }
+
 
   
   eliminaAccount(): void{

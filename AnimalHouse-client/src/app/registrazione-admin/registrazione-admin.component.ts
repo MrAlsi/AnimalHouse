@@ -14,7 +14,9 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
   styleUrls: ['./registrazione-admin.component.css']
 })
 export class RegistrazioneAdminComponent implements OnInit {
+  codiceAdmin= "1111";
   form: FormGroup;
+  form2: FormGroup; //per prendere confirmpassword senza salvarlo nel db
   postId: any; //id di ritorno da mongo
   url: string= "utenti"; //per indirizzare alla collection
 
@@ -24,11 +26,13 @@ export class RegistrazioneAdminComponent implements OnInit {
       "cognome": ['',Validators.required],
       "email": ['',Validators.required],
       "username": ['',Validators.required],
-      "confirmpassword": ['',Validators.required],
       "password": ['',Validators.required],
-      "codice": ['',Validators.required],
       "ruolo": ['admin']
     });
+    this.form2= fb.group({
+      "confirmpassword": ['',Validators.required],
+      "codice": ['',Validators.required],
+    })
   }
 
   ngOnInit(): void {
@@ -36,11 +40,11 @@ export class RegistrazioneAdminComponent implements OnInit {
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaInput(): void{
-    if(!this.form.valid){
+    if(!this.form.valid || !this.form2.valid){
       alert("Dati mancanti");
       return;
     }else{//@todo: mancano i controlli sui singoli dati
-      if(this.form.value.codice!="1111"){
+      if(this.form2.value.codice!=this.codiceAdmin){
         alert("codice amministratore errato");
       }else{
         //controllo l'user non sia già in uso
@@ -52,7 +56,7 @@ export class RegistrazioneAdminComponent implements OnInit {
             this.http.put<any>('http://localhost:3000/controllaEmail', this.form.value)
             .subscribe(data1 => {
               if(data1==null){ //se data è vuoto non è in uso
-                if(this.form.value.password==this.form.value.confirmpassword){
+                if(this.form.value.password==this.form2.value.confirmpassword){
                   //salvo sul db il nuovo admin
                   this.db.aggiungiDB(this.form.value, this.url);
 
