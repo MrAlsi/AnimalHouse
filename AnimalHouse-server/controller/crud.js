@@ -25,6 +25,7 @@ exports.getCollection = (req, res)=>{
     }) 
 }
 
+//passata una collezione restituisce solo il documento con quell'id
 exports.getOneDocument = async (req,res)=> {
   console.log("collezione", req.params.collezione)
   return await db.collection(`${req.params.collezione}`).findOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
@@ -34,6 +35,8 @@ exports.getOneDocument = async (req,res)=> {
   });
 }
 
+
+//passata una collezione elimina solo il documento con quell'id
 exports.deleteOneDocument= async(req,res)=>{
   console.log("collezione", req.params.id)
   return await db.collection(`${req.params.collezione}`).deleteOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
@@ -42,6 +45,21 @@ exports.deleteOneDocument= async(req,res)=>{
     res.json(cursor);
   });
 }
+
+
+//passata una collezione aggiorna la password del documento con quell'id
+exports.updateOnePasswordDocument = (req, res) => {
+  const body = req.body.pp;
+  //console.log("Body:", req.body.pp);
+  return db.collection(`${req.params.collezione}`).updateOne({_id:ObjectId(req.params.id)},{$set:{"password": body}}, (err,cursor)=>{
+    if(err) console.log ("Err: ", err);
+    console.log("ciao",cursor);
+    res.json(cursor);
+  });
+}
+
+
+
 
 
 
