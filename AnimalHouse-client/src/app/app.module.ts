@@ -11,9 +11,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
-import { CartaComponent } from './carta/carta.component';
-import { GiocoComponent } from './gioco/gioco.component';
-import { CardMemoryComponent } from './card-memory/card-memory.component';
 import { MemeComponent } from './meme/meme.component';
 import { DimenticataComponent } from './dimenticata/dimenticata.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
@@ -35,6 +32,8 @@ import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
+import { MemoryComponent } from './memory/memory.component';
+import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 
 @NgModule({
   declarations: [
@@ -47,9 +46,6 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
     GiochiComponent,
     LoginComponent,
     TitoloComponent,
-    CartaComponent,
-    GiocoComponent,
-    CardMemoryComponent,
     MemeComponent,
     DimenticataComponent,
     NewpasswordComponent,
@@ -67,6 +63,8 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
     QuizComponent,
     RispostaComponent,
     AggiungiCuriositaComponent,
+    MemoryComponent,
+    CartaMemoryComponent,
   ],
   imports: [
     BrowserModule,

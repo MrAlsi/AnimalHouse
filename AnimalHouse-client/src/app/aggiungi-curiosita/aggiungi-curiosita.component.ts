@@ -12,6 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class AggiungiCuriositaComponent implements OnInit {
 
   form: FormGroup;
+  url: string = "curiosita";
+  listaCuriosita?: string[] = [];
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient) { 
     this.form = fb.group({
@@ -19,20 +21,31 @@ export class AggiungiCuriositaComponent implements OnInit {
       "icona": ['',Validators.required],
       "copertina": ['',Validators.required],
       "descrizione": ['',Validators.required],
-      "curiosita": ['',Validators.required],
+      "curiosita": [this.listaCuriosita]
     })
   }
 
   ngOnInit(): void {
   }
 
-  controllaInput(): void{
-    console.log(this.form);
+  aggiungiCuriosita(curiosita: string): void{
+    console.log("curiosita:", curiosita);
+    this.listaCuriosita?.push(curiosita);
+    console.log("Lista curiosita: ",this.listaCuriosita);
+    //Deve pulire la textfield
+  }
+
+  aggiungi(ls: boolean): void{
+    this.form.value.curiosita = this.listaCuriosita;
+    console.log("1",this.listaCuriosita);
+    console.log("2",this.form.value.curiosita);
+    console.log("3",this.form.value);
+    console.log("ls", ls);
     if(!this.form.valid){
       alert("Dati mancanti");
       return;
     } else {
-      //this.http.get()
+        this.db.aggiungiDB(this.form.value, this.url);
   }
 }
 }
