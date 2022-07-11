@@ -2,9 +2,10 @@
 
 <div class="container mt-4 col-12">
   <h3>Curiosità</h3>
+  <button class="btn btn-primary" [routerLink]="['addCuriosity']" *ngIf="stato=='admin'"> Aggiungi curiosita </button>
   <div *ngFor="let animale of animali" class="scheda">
       <br>
-      <!-- Scheda di un animale -->
+      <!-- Carta di un animale -->
       <div class="card" >
         <img src="http://source.unsplash.com/{{animale.icona}}" class="card-img-top" alt="{{animale.animale}}">
         <div class="card-body">
@@ -14,9 +15,7 @@
         </div>
       </div>
 
-      <button></button>
-      
-      <!-- Pagina delle curiosità-->
+      <!-- Scheda delle curiosità-->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="scheda{{animale.animale}}" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <h3 class="offcanvas-title" id="offcanvasExampleLabel">{{animale.animale}}</h3>
@@ -28,7 +27,7 @@
             <h4>Descrizione:</h4>
             {{animale.descrizione}}
             <br> <br>
-            <h4>Nome scientifico:</h4>
+            <h4>Curiosità:</h4>
             {{animale.curiosita}}
           </div>
         </div>

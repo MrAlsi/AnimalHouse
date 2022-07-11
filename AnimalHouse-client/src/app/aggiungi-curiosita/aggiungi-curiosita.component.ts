@@ -3,6 +3,8 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@
 import { Router } from '@angular/router';
 import { AggiungiDBService } from '../aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
+import Swiper from 'swiper';
+
 
 @Component({
   selector: 'app-aggiungi-curiosita',

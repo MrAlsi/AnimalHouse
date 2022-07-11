@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'signup', component: RegistrazioneComponent},
   {path: 'signupAdmin', component: RegistrazioneAdminComponent},
   {path: 'games', component: GiochiComponent},
-  {path: 'meme', component: MemeComponent},
+  {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'curiosity', component: CuriositaComponent},
   {path: 'curiosity/addcuriosity', component: AggiungiCuriositaComponent},
