@@ -17,7 +17,4 @@ export class ProfiloComponent implements OnInit {
   ngOnInit(): void {
     this.biscotto.getRuolo();
   }
-
-
-
 }

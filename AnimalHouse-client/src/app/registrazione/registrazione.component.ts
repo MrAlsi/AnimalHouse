@@ -3,6 +3,9 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@
 import { Router } from '@angular/router';
 import { AggiungiDBService } from '../aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
+
 
 
 @Component({
@@ -16,7 +19,7 @@ export class RegistrazioneComponent implements OnInit {
   url: string= "utenti"; //per indirizzare alla collection
 
 
-  constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient) { 
+  constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient, public cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
       "cognome": ['',Validators.required],
@@ -49,8 +52,16 @@ export class RegistrazioneComponent implements OnInit {
             if(data1==null){ //se data è vuoto non è in uso
               if(this.form.value.password==this.form.value.confirmpassword){
                 this.db.aggiungiDB(this.form.value, this.url);
-                
-                this.router.navigate(['homepage']);
+                //Chiamata al db per salvare il token
+                this.http.put<any>('http://localhost:3000/ricercaUtenti', {user: this.form.value.username, password: this.form.value.password})
+                .subscribe(data => {
+                //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
+                  if(data!==null){
+                    this.cookieService.set("token",data);// in questo punto sto salvando il token in data
+                    this.biscotto.getRuolo(); //richiamo metodo per prendere il ruolo dal token
+                    this.router.navigate(['homepage']);
+                  }
+                });
               }else{
                 alert("le password non coincidono");
               }

@@ -27,7 +27,7 @@ export class MangiaBiscottoService {
 
 
   //metodo per prendere l'id dal token
-  getId(): void{
+  getId(): string{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
     console.log("token",this.cookie);
@@ -37,5 +37,6 @@ export class MangiaBiscottoService {
        console.log("id:", this.cookie.id);
        return this.cookie.id;
     }
+    return "";
   }
 }
