@@ -25,6 +25,7 @@ export class QuizComponent {
   gioca: boolean = true;
   giaVotato: boolean = false;
 
+
   constructor(public httpClient:HttpClient, private cookieService: CookieService) {  }
 
   ngOnInit(): void {   
@@ -73,28 +74,29 @@ export class QuizComponent {
         this.colore = "btn-success";
         this.punteggio+=1;
       } else {
-        this.colore = "btn-danger";
-        let risposte = document.getElementsByClassName('risposta');
-        //console.log(risposte[2].textContent)
-        //for(let i = 0; i < 4; i++){
-          //console.log(risposte[i].textContent?.trim());
-          //console.log(this.giusta, this.giusta?.length );*/
-          //console.log(risposte[i].textContent?.trim === this.giusta?.trim);
-          
-          //if(risposte[i].textContent?.trim() === this.giusta?.trim()){
-            //  console.log("risposta giusta:", i);
-              risposte[2].setAttribute('class', "btn btn-success");
-          
-
-      //  }  
-             
+        /* let risposte = document.getElementsByClassName('risposta');
+        for(let i = 0; i < 4; i++){
+          console.log(document.getElementsByClassName('risposta'))
+          if(risposte[i].textContent?.trim() === this.giusta){
+              console.log("risposta giusta:", i);
+              risposte[i].setAttribute('class', "btn risposta btn-success");
+          } else {
+            risposte[i].setAttribute('class', "btn risposta btn-danger");
+          }
+        } */
+          Array.from(document.getElementsByClassName('risposta')).forEach((elemento) => {
+            if(elemento.textContent?.trim() === this.giusta){
+              console.log("risposta giusta:", elemento);
+              elemento.setAttribute('class', "btn btn-success");
+            } else {
+              elemento.setAttribute('class', "btn btn-danger");
+            }
+          });
+        }     
       }
       this.stato = "";
       this.giaVotato = true;
     }
-
-
-  } 
 
   //Passa alla prossima domanda, incrementa l'indice per scorrere l'array, 
   //disabilita il bottone prossima domanda e carica il prossimo quesito
