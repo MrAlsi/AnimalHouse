@@ -68,6 +68,7 @@ export class CambiaPasswordService {
             data.password=pp;
           }); 
           this.profilo.selectedNewPassword=false;
+          alert("password cambiata con successo");
       }else{
         alert("non puoi inserire la stessa password");
         return;
