@@ -67,7 +67,7 @@ export class RegistrazioneAdminComponent implements OnInit {
                       if(data!==null){
                         this.cookieService.set("token",data);// in questo punto sto salvando il token in data
                         this.biscotto.getRuolo(); //richiamo metodo per prendere il ruolo dal token
-                        this.router.navigate(['homepage']);
+                        this.router.navigate(['preferenze']);
                       }
                     });
                 }else{

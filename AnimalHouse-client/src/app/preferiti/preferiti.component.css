@@ -1,0 +1,34 @@
+.subtitle{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
+
+.scheda{
+    display: flex;
+    width: 30%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+.contenitore{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 2%;
+
+}
+
+.carta{
+    background-color: black;
+    color: white;
+    display: flex;    
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.card-title{
+    justify-content: center;
+    display: flex;
+}

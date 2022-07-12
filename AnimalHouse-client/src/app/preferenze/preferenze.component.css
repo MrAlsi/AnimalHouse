@@ -1,0 +1,51 @@
+.scheda{
+    display: flex;
+    align-items: stretch;
+    width: 30%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+.contenitore{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 2%;
+
+}
+
+.selezionati{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button.btn{
+    color: white;
+    border-color: #AA0000;
+    align-content: top;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#btn{
+    display: flex;
+    color: white;
+    width: 98%;
+    justify-content:center;
+    margin: 1%;
+    background-color: #AA0000;
+}
+
+.card{
+    background-color: black;
+    color: white;
+    display: flex;    
+    justify-content: center;
+}
+
+
+.card-title{
+    justify-content: center;
+    display: flex;
+}

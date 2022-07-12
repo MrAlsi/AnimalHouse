@@ -34,6 +34,8 @@ import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { MemoryComponent } from './memory/memory.component';
 import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
+import { PreferenzeComponent } from './preferenze/preferenze.component';
+import { PreferitiComponent } from './preferiti/preferiti.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
     AggiungiCuriositaComponent,
     MemoryComponent,
     CartaMemoryComponent,
-    SafePipe
+    SafePipe,
+    PreferenzeComponent,
+    PreferitiComponent
   ],
   imports: [
     BrowserModule,

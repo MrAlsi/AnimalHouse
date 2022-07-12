@@ -14,6 +14,7 @@ import { ProfessionistiComponent } from './professionisti/professionisti.compone
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
+import { PreferenzeComponent } from './preferenze/preferenze.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'classifiche', component: ClassificheComponent},
   {path: 'newProfessionisti', component: ProfessionistiComponent},
   {path: 'utenti', component: UtentiComponent},
+  {path: 'preferenze', component: PreferenzeComponent},
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ export class ProfiloServiceService {
   selectedElimina: boolean=false;
   selectedReset: boolean=false;
   selectedNewPassword: boolean= false;
+  selectedPreferiti: boolean=false;
 
   
   showDati(): void{
@@ -28,6 +29,7 @@ export class ProfiloServiceService {
     this.selectedElimina=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
+    this.selectedPreferiti=false;
 
 
   }
@@ -39,6 +41,7 @@ export class ProfiloServiceService {
     this.selectedElimina=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
+    this.selectedPreferiti=false;
 
   }
 
@@ -49,7 +52,18 @@ export class ProfiloServiceService {
     this.selectedElimina=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
+    this.selectedPreferiti=false;
 
+  }
+
+  showPreferiti(): void{
+    this.selectedPreferiti=true;
+    this.selectedElimina=false;
+    this.selectedDati=false;
+    this.selectedPrenotazioni=false;
+    this.selectedStatistiche=false;
+    this.selectedReset=false;
+    this.selectedNewPassword= false;
 
   }
 
@@ -60,6 +74,8 @@ export class ProfiloServiceService {
     this.selectedStatistiche=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
+    this.selectedPreferiti=false;
+
   }
 
   close(): void{
