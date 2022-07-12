@@ -1,5 +1,10 @@
-<app-titolo></app-titolo>
-
+<div *ngIf="this.id==''; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-titolo></app-titolo>
+</ng-template>
+<ng-template #elseBlock>
+    <app-navbar></app-navbar>
+</ng-template>
 <div class="container mt-4 col-12">
   <h3>Curiosità</h3>
   <button class="btn btn-primary" [routerLink]="['addCuriosity']" *ngIf="stato=='admin'"> Aggiungi curiosita </button>

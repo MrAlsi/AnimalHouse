@@ -1,30 +1,68 @@
 <app-navbar></app-navbar>
+<form id="cerca" (ngSubmit)="cerca()" [formGroup]="form"> 
+  <div id="all" *ngIf="this.search==true">
+    <button class="btn btn-primary ms-small" id="all" type="button" (click)="cercatutti()">View all</button>
+  </div>
+  <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="cerca" >
+  <button class="btn btn-primary ms-small" type="submit">Search</button>
+</form>
 
-<p id="search">qui ci va un bel search</p>
-<h5>Utenti registrati su Animal House</h5>
-<div class="tabella">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th class="ordinario "scope="col">#</th>
-        <th class="username" scope="col">Username</th>
-        <th class="nome" scope="col">Nome</th>
-        <th class="cognome" scope="col">Cognome</th>
-        <th class="ruolo" scope="col">Ruolo</th>
-        <th class="email" scope="col">Email</th>
-        <th class="elimina" scope="col">Elimina</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let utente of this.collezioni, index as i">
-        <th class="ordinario" scope="row">{{i+1}}</th>
-        <td class="username">{{this.utente.username}}</td>
-        <td class="nome">{{this.utente.nome}}</td>
-        <td class="cognome">{{this.utente.cognome}}</td>
-        <td class="ruolo">{{this.utente.ruolo}}</td>
-        <td class="email">{{this.utente.email}}</td>
-        <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<br>
+<div *ngIf="this.search==false ;then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <h5>Utenti registrati su Animal House</h5>
+  <div class="tabella">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="ordinario "scope="col">#</th>
+          <th class="username" scope="col">Username</th>
+          <th class="nome" scope="col">Nome</th>
+          <th class="cognome" scope="col">Cognome</th>
+          <th class="ruolo" scope="col">Ruolo</th>
+          <th class="email" scope="col">Email</th>
+          <th class="elimina" scope="col">Elimina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let utente of this.collezioni, index as i">
+          <th class="ordinario" scope="row">{{i+1}}</th>
+          <td class="username">{{this.utente.username}}</td>
+          <td class="nome">{{this.utente.nome}}</td>
+          <td class="cognome">{{this.utente.cognome}}</td>
+          <td class="ruolo">{{this.utente.ruolo}}</td>
+          <td class="email">{{this.utente.email}}</td>
+          <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="tabella">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="ordinario "scope="col">#</th>
+          <th class="username" scope="col">Username</th>
+          <th class="nome" scope="col">Nome</th>
+          <th class="cognome" scope="col">Cognome</th>
+          <th class="ruolo" scope="col">Ruolo</th>
+          <th class="email" scope="col">Email</th>
+          <th class="elimina" scope="col">Elimina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="ordinario" scope="row">1</th>
+          <td class="username">{{this.collezione.username}}</td>
+          <td class="nome">{{this.collezione.nome}}</td>
+          <td class="cognome">{{this.collezione.cognome}}</td>
+          <td class="ruolo">{{this.collezione.ruolo}}</td>
+          <td class="email">{{this.collezione.email}}</td>
+          <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.collezione._id)">Elimina</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

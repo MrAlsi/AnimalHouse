@@ -12,9 +12,11 @@ export class CuriositaComponent implements OnInit {
   //animali = CURIOSITA;
   animali: any;
   stato?: string;
+  id?: any;
 
   constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) { 
     //console.log(CURIOSITA);
+    
     this.httpClient.get('http://localhost:3000/CRUD/curiosita').subscribe(data => { 
     console.log("Data: ", data);
       this.animali = data;}
@@ -27,6 +29,11 @@ export class CuriositaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    try{
+      this.id=this.biscotto.getId();
+    }catch (error) {
+      this.id='';
+    }
   }
 
 

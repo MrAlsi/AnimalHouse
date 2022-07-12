@@ -46,7 +46,6 @@ exports.deleteOneDocument= async(req,res)=>{
   });
 }
 
-
 //passata una collezione aggiorna la password del documento con quell'id
 exports.updateOnePasswordDocument = (req, res) => {
   const body = req.body.pp;
@@ -58,6 +57,15 @@ exports.updateOnePasswordDocument = (req, res) => {
   });
 }
 
+//passata un user cerca gli user con quell'user
+exports.cercaUser = async (req,res)=> {
+  console.log("collezione", req.params.collezione);
+  return await db.collection(`${req.params.collezione}`).findOne({username: (req.params.username) }, (err,cursor)=>{
+      if(err) console.log ("Err: ", err);
+      console.log("ciao",cursor);
+      res.json(cursor);
+  });
+}
 
 
 
