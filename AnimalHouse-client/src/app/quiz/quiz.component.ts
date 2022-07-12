@@ -67,36 +67,26 @@ export class QuizComponent {
   } 
   
 
-  //Per me ci sta che diventi tutto rosso, se volete solo uno fatelo voi
+  //Controlla se si ha già votato per non poter modificare la risposta
+  //Controlla se la risposta è giusta, incrementa il punteggio nel caso
+  //Colora le risposte, "success = verde" se è giusta e "danger = rosso" se è sbagliato
   controlloRisposta(risposta: any): void{
     if(!this.giaVotato){
-      if(risposta === this.giusta){
-        this.colore = "btn-success";
+      if(risposta === this.giusta)
         this.punteggio+=1;
-      } else {
-        /* let risposte = document.getElementsByClassName('risposta');
-        for(let i = 0; i < 4; i++){
-          console.log(document.getElementsByClassName('risposta'))
-          if(risposte[i].textContent?.trim() === this.giusta){
-              console.log("risposta giusta:", i);
-              risposte[i].setAttribute('class', "btn risposta btn-success");
-          } else {
-            risposte[i].setAttribute('class', "btn risposta btn-danger");
-          }
-        } */
-          Array.from(document.getElementsByClassName('risposta')).forEach((elemento) => {
-            if(elemento.textContent?.trim() === this.giusta){
-              console.log("risposta giusta:", elemento);
-              elemento.setAttribute('class', "btn btn-success");
-            } else {
-              elemento.setAttribute('class', "btn btn-danger");
-            }
-          });
-        }     
-      }
-      this.stato = "";
-      this.giaVotato = true;
-    }
+      Array.from(document.getElementsByClassName('risposta')).forEach((elemento) => {
+        if(elemento.textContent?.trim() === this.giusta){
+          console.log("risposta giusta:", elemento);
+          elemento.setAttribute('class', "btn btn-success");
+        } else {
+          elemento.setAttribute('class', "btn btn-danger");
+        }
+      });
+    }     
+    
+    this.stato = "";
+    this.giaVotato = true;
+  }
 
   //Passa alla prossima domanda, incrementa l'indice per scorrere l'array, 
   //disabilita il bottone prossima domanda e carica il prossimo quesito
