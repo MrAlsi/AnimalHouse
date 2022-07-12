@@ -9,9 +9,11 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
 })
 export class NavbarComponent implements OnInit {
 
+  ruolo?: string;
   constructor(public biscotto: MangiaBiscottoService) { }
 
   ngOnInit(): void {
+    this.ruolo=this.biscotto.getRuolo();
   }
 
 }

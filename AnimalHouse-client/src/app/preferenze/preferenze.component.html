@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<br>
+<h5>Seleziona le tue preferenze</h5>
+<br>
+<div *ngIf="this.preferiti.length!=0">
+    <p> Animali selezionati:</p>
+    <div class="selezionati">
+        <div  *ngFor="let preferito of preferiti" class="scheda" >
+            <p >{{preferito.nome}} </p>
+        </div>
+    </div>
+</div>
+<div class="contenitore">
+    <div *ngFor="let animale of animali" class="scheda" >
+        <div class="card" >
+            <img src="http://source.unsplash.com/{{animale.img}}" class="card-img-top" alt="{{animale.name}}">
+            <h5 class="card-title">{{animale.name}}</h5>
+            <button class="btn" type="button"  (click)="aggiungi(animale.name, animale.img)">Add</button>
+        </div>
+    </div>
+</div>
+<br>
+<button id="btn" class="btn btn-outline-danger" type="button" (click)="salva()">Salva</button>
+

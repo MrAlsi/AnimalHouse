@@ -35,6 +35,8 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
 import { MemoryComponent } from './memory/memory.component';
 import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PreferenzeComponent } from './preferenze/preferenze.component';
+import { PreferitiComponent } from './preferiti/preferiti.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MemoryComponent,
     CartaMemoryComponent,
     SafePipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PreferenzeComponent,
+    PreferitiComponent,
   ],
   imports: [
     BrowserModule,

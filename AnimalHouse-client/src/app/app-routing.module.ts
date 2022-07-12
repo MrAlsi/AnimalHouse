@@ -15,6 +15,7 @@ import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PreferenzeComponent } from './preferenze/preferenze.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'newProfessionisti', component: ProfessionistiComponent},
   {path: 'utenti', component: UtentiComponent},
   { path: '**', component: PageNotFoundComponent } //Da fare, pensa alsi pensa
+  {path: 'preferenze', component: PreferenzeComponent},
 ];
 
 @NgModule({

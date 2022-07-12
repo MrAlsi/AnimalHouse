@@ -3,15 +3,13 @@
 <br>
 <div class="base">
     <br>
-        
-            <button class="btn btn-secondary btn-sm" (click)="profilo.showDati()">Dati</button> 
-        <br>
-        
-            <button class="btn btn-secondary btn-sm" (click)="profilo.showStatistiche()">Statistiche giochi</button>
-        <br>
-        
-            <button class="btn btn-secondary btn-sm" (click)="profilo.showPrenotazioni()">Prenotazioni</button>
-        
+    <button class="btn btn-secondary btn-sm" (click)="profilo.showDati()">Dati</button> 
+    <br>
+    <button class="btn btn-secondary btn-sm" (click)="profilo.showStatistiche()">Statistiche giochi</button>
+    <br>
+    <button class="btn btn-secondary btn-sm" (click)="profilo.showPrenotazioni()">Prenotazioni</button>
+    <br>
+    <button class="btn btn-secondary btn-sm" (click)="profilo.showPreferiti()">Preferiti</button>
     <br>
 </div>
 <br>
@@ -34,4 +32,7 @@
     <app-newpassword></app-newpassword>
 </div>
 <br>
+<div *ngIf="profilo.selectedPreferiti">
+    <app-preferiti></app-preferiti>
+</div>
 <button id="eliminia" class="btn btn-dark btn-sm" (click)="profilo.showElimina()">Cancella account</button>
