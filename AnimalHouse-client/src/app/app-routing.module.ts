@@ -12,7 +12,6 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
 import { ClassificheComponent } from './classifiche/classifiche.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
-import { QuizComponent } from './quiz/quiz.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
