@@ -30,8 +30,8 @@ const routes: Routes = [
   {path: 'classifiche', component: ClassificheComponent},
   {path: 'newProfessionisti', component: ProfessionistiComponent},
   {path: 'utenti', component: UtentiComponent},
-  { path: '**', component: PageNotFoundComponent } //Da fare, pensa alsi pensa
   {path: 'preferenze', component: PreferenzeComponent},
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
