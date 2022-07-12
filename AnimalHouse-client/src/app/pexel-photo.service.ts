@@ -18,7 +18,7 @@ export class PexelPhotoService {
 
   getData(): Observable<any> {
       //let URL = "https://api.pexels.com/v1/collections/progettotechweb-fhnfajo";
-      let URL = "https://api.pexels.com/v1/collections/fhnfajo";
+      let URL = "https://api.pexels.com/v1/collections/sx1s9xi";
       return this.http.get<any>(URL, httpOptions)
       .pipe(catchError(this.handleError))
   }

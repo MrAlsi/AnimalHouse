@@ -3,10 +3,8 @@
         <img src="assets/img/memory/coperta.jpg">
     </div>
     <div *ngIf="carta.stato === 'selezionata'" (click)="cambiaStato()">
-        <img src="assets/img/memory/cane.jpg">
+        <img src={{carta.url}}>
     </div>
     <div *ngIf="carta.stato === 'accoppiata'">
-
     </div>
-
 </div>

@@ -1,6 +1,6 @@
 <div *ngIf="gioca === true">
     <div class="domanda">
-        <p>{{domanda}}</p>
+        <p>{{indice}})   {{domanda}}</p>
     </div>
     <div id="container">  
         <button type="button" class="btn {{colore}} risposta" *ngFor="let risposta of risposte; let i = index" (click)="controlloRisposta(risposta)">
