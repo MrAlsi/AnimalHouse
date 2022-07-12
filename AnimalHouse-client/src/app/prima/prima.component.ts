@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-prima',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimaComponent implements OnInit {
   
-  constructor() { }
+  vuoto: string='';
+
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
+    this.cookieService.set("token",this.vuoto);
   }
 
 }

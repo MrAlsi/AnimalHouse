@@ -38,7 +38,9 @@ export class MangiaBiscottoService {
        this.id=this.cookie.id;
        console.log("id:", this.cookie.id);
        return this.cookie.id;
+    }else{
+      return "";
     }
-    return "";
+    
   }
 }

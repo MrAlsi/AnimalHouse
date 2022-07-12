@@ -11,6 +11,7 @@ export class ProfiloServiceService {
   
   id?: string;
   constructor (private router: Router, public http: HttpClient, public biscotto: MangiaBiscottoService) {}
+  
   //variabili per gestire la visualizzazioni delle card nel profilo
   selectedPrenotazioni:boolean= false;
   selectedStatistiche: boolean= false;

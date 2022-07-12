@@ -1,9 +1,15 @@
-<app-titolo> </app-titolo>
+<div *ngIf="this.id==''; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-titolo></app-titolo>
+</ng-template>
+<ng-template #elseBlock>
+    <app-navbar></app-navbar>
+</ng-template>
 <div class="sfondo">
     <br>
     <div class="containers">
         <h1>Benvenuto nella sezione Baby Animal House, lo spazio per i più piccoli.</h1>
-        <p>Qui potrai divertirti, imparare e giocare con gli aniamali</p>
+        <p>Qui potrai divertirti, imparare e giocare con gli animali</p>
         <div class="listaBottoni">
             <h4>Divertiti come una rana</h4>
             <button style="background-image: url(assets/arrowRana.jpg);" [routerLink]="['./meme']"></button>

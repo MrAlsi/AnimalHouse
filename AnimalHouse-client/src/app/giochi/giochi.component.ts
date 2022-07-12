@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GIOCHI } from '../lista-giochi';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 @Component({
   selector: 'app-giochi',
@@ -12,9 +13,16 @@ export class GiochiComponent implements OnInit {
   memory?: boolean;
   quiz?: boolean;
   quantiSono?: boolean;
-  constructor() { }
+  id?: string;
+
+  constructor(public biscotto: MangiaBiscottoService) { }
 
   ngOnInit(): void {
+    try{
+      this.id=this.biscotto.getId();
+    }catch (error) {
+      this.id='';
+    }
   }
 
   giocaA(gioco: string): void {

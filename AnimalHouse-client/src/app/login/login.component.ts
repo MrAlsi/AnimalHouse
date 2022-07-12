@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   postId?: any;
   ruolo?: string;
+  selectedDimenticata: boolean= false; //variabile per far apparire la card per cambiare la password
+
     
   constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, private cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
     this.form = fb.group({
@@ -26,7 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedDimenticata: boolean= false; //variabile per far apparire la card per cambiare la password
   dimenticata(): void{
     this.selectedDimenticata= true;
   }

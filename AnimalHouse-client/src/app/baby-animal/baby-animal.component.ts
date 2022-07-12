@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 @Component({
   selector: 'app-baby-animal',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./baby-animal.component.css']
 })
 export class BabyAnimalComponent implements OnInit {
-
   
-  constructor() { }
+  id?: any;
+  
+  constructor(public biscotto: MangiaBiscottoService) { }
 
   ngOnInit(): void {
+    try{
+      this.id=this.biscotto.getId();
+    }catch (error) {
+      this.id='';
+    }
   }
 
 }

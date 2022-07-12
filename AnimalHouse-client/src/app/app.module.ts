@@ -34,7 +34,7 @@ import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { MemoryComponent } from './memory/memory.component';
 import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
-import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,8 +71,7 @@ import { SwiperModule } from 'swiper/angular';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    SwiperModule
+    HttpClientModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

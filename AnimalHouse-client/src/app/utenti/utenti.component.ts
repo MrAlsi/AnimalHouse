@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 
 
 @Component({
@@ -11,25 +12,55 @@ import { Data } from '@angular/router';
 export class UtentiComponent implements OnInit {
    
   collezioni?: any[]=[];
+  collezione?: any;
+  form: FormGroup;
+  search: boolean= false;
 
-  constructor(public http: HttpClient) { }
+
+  constructor(public http: HttpClient, public fb: FormBuilder) {
+    this.form=fb.group({
+      "cerca": [""],
+    });
+   }
 
   ngOnInit(): void {
-
-    this.http.get<any>('http://localhost:3000/CRUD/utenti/')
-        .subscribe(data => {
-          this.collezioni=data;
-          console.log(data);
-        });
+    this.cercatutti();
   }
 
   elimina(id: string): void{
     console.log("id:", id)
-    this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+id)
+    this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
       console.log(data);
     });
     window.location.reload();
+  }
+
+  cerca(): void{
+    if(this.form.value.cerca!=""){
+      this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.cerca)
+        .subscribe(data=>{
+          if(data!==null){
+            this.search=true;
+            this.collezione=data;
+          }else{
+            alert("Ci dispiace, l'utente cercato non esiste");
+          }
+        });
+    }else{
+      this.search=false;
+      this.cercatutti();
+    }
+  }
+
+  cercatutti(): void{
+    this.http.get<any>('http://localhost:3000/CRUD/utenti/')
+        .subscribe(data => {
+          this.collezioni=data;
+          console.log(data);
+        });
+    this.search=false;
+
   }
 }
