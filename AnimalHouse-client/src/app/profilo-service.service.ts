@@ -82,9 +82,9 @@ export class ProfiloServiceService {
 
 
   eliminaAccount(): void{
-      this.id=this.biscotto.getId();
-      console.log("id:", this.id);
-      this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
+    this.id=this.biscotto.getId();
+    console.log("id:", this.id);
+    this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
       .subscribe(data => {
         //this.collezioni=data;
         console.log(data);
