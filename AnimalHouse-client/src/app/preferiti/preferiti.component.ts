@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
+import { ProfiloServiceService } from '../profilo-service.service';
 
 
 @Component({
@@ -13,21 +14,10 @@ export class PreferitiComponent implements OnInit {
   id?: any;
   animali?: any;
 
-  constructor(public biscotto: MangiaBiscottoService, public http: HttpClient) { }
+  constructor(public biscotto: MangiaBiscottoService, public http: HttpClient, public profilo: ProfiloServiceService) { }
 
   ngOnInit(): void {
-    try{
-      this.id=this.biscotto.getId();
-    }catch (error) {
-      this.id='';
-    }
-    console.log("ciao");
-
-    this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.id)
-    .subscribe(data => {
-      this.animali=data.preferiti;
-      console.log(this.animali);
-    });
+    
   }
 
 }

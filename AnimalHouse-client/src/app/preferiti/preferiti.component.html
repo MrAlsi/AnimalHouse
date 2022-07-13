@@ -1,14 +1,9 @@
-<div class="card">
-    <div class="card-body">
-        <p class="subtitle">Animali preferiti</p>
-        <div class="contenitore">
-            <div *ngFor="let animale of animali" class="scheda" >
-                <div class="carta" >
-                    <img src="http://source.unsplash.com/{{animale.image}}" class="card-img-top" alt="{{animale.nome}}">
-                    <h5 class="card-title">{{animale.nome}}</h5>
-                </div>
-            </div>
+
+<div class="contenitore">
+    <div *ngFor="let animale of profilo.animali" class="scheda" >
+        <div class="carta" >
+            <img src="http://source.unsplash.com/{{animale.image}}" class="card-img-top" alt="{{animale.nome}}">
+            <h5 class="card-title">{{animale.nome}}</h5>
         </div>
     </div>
 </div>
-<br>

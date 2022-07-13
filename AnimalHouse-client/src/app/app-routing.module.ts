@@ -6,7 +6,6 @@ import { GiochiComponent } from './giochi/giochi.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MemeComponent } from './meme/meme.component';
 import { PrimaComponent } from './prima/prima.component';
-import { ProfiloComponent } from './profilo/profilo.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { ClassificheComponent } from './classifiche/classifiche.component';
@@ -15,6 +14,7 @@ import { UtentiComponent } from './utenti/utenti.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
+import { ProfiliComponent } from './profili/profili.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -26,12 +26,12 @@ const routes: Routes = [
   {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addcuriosity', component: AggiungiCuriositaComponent},
-  {path: 'profilo',component: ProfiloComponent}, //ci sarà poi da aggiungere l'id
   {path: 'classifiche', component: ClassificheComponent},
   {path: 'newProfessionisti', component: ProfessionistiComponent},
   {path: 'utenti', component: UtentiComponent},
   {path: 'preferenze', component: PreferenzeComponent},
-  { path: '**', component: PageNotFoundComponent },
+  {path: 'profili/:username', component: ProfiliComponent},
+  {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
 
 @NgModule({

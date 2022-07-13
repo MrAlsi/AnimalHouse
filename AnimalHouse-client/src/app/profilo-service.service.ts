@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MangiaBiscottoService } from './mangia-biscotto.service';
+import {ActivatedRoute} from '@angular/router';
+
 
 
 @Injectable({
@@ -9,72 +11,60 @@ import { MangiaBiscottoService } from './mangia-biscotto.service';
 })
 export class ProfiloServiceService {
   
-  id?: string;
-  constructor (private router: Router, public http: HttpClient, public biscotto: MangiaBiscottoService) {}
+  constructor (private router: Router, public http: HttpClient, public biscotto: MangiaBiscottoService, public route: ActivatedRoute) {}
   
   //variabili per gestire la visualizzazioni delle card nel profilo
-  selectedPrenotazioni:boolean= false;
-  selectedStatistiche: boolean= false;
-  selectedDati: boolean=false;
+  selectedDati: boolean=true;
   selectedElimina: boolean=false;
   selectedReset: boolean=false;
   selectedNewPassword: boolean= false;
-  selectedPreferiti: boolean=false;
 
-  
-  showDati(): void{
-    this.selectedDati=true;
-    this.selectedPrenotazioni=false;
-    this.selectedStatistiche=false;
-    this.selectedElimina=false;
-    this.selectedReset=false;
-    this.selectedNewPassword= false;
-    this.selectedPreferiti=false;
+  id?: string;
+  myUser?:string;
+  profile?: any;
+  dati?: any;
+  animali?: any[]=[];
+  idProfile?: string;
+  sonoio?: boolean= false;
+  ruolo?: string;
 
-
-  }
-
-  showStatistiche(): void{
-    this.selectedStatistiche=true;
-    this.selectedDati=false;
-    this.selectedPrenotazioni=false;
-    this.selectedElimina=false;
-    this.selectedReset=false;
-    this.selectedNewPassword= false;
-    this.selectedPreferiti=false;
-
-  }
-
-  showPrenotazioni(): void{
-    this.selectedDati=false;
-    this.selectedPrenotazioni=true;
-    this.selectedStatistiche=false;
-    this.selectedElimina=false;
-    this.selectedReset=false;
-    this.selectedNewPassword= false;
-    this.selectedPreferiti=false;
-
-  }
-
-  showPreferiti(): void{
-    this.selectedPreferiti=true;
-    this.selectedElimina=false;
-    this.selectedDati=false;
-    this.selectedPrenotazioni=false;
-    this.selectedStatistiche=false;
-    this.selectedReset=false;
-    this.selectedNewPassword= false;
-
+  profilo(): void {
+    console.log("ciao carlotta");
+    try{
+      this.id=this.biscotto.getId();
+    }catch (error) {
+      this.id='';
+    }    
+    this.ruolo=this.biscotto.getRuolo();
+    this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
+      .subscribe(data => {
+        this.myUser=data.username;
+        if(this.myUser==this.profile){ //controllo se è il mio profilo
+          this.sonoio= true;
+        }
+          this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.profile)
+            .subscribe(data=>{
+              if(data!==null){
+                this.dati=data;
+                this.idProfile=data._id;
+                console.log("id",this.idProfile);      
+                this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.idProfile)
+                  .subscribe(data => {
+                    if(data!== null){
+                      this.animali=data.preferiti;
+                      console.log(this.animali);
+                    }
+                  });
+              }
+            });
+      });    
   }
 
   showElimina() :void{
     this.selectedElimina=true;
     this.selectedDati=false;
-    this.selectedPrenotazioni=false;
-    this.selectedStatistiche=false;
     this.selectedReset=false;
     this.selectedNewPassword= false;
-    this.selectedPreferiti=false;
 
   }
 
@@ -91,7 +81,6 @@ export class ProfiloServiceService {
   }
 
 
-  
   eliminaAccount(): void{
       this.id=this.biscotto.getId();
       console.log("id:", this.id);

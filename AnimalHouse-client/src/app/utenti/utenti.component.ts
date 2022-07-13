@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class UtentiComponent implements OnInit {
   collezione?: any;
   form: FormGroup;
   search: boolean= false;
+  ruolo?: string;
 
 
-  constructor(public http: HttpClient, public fb: FormBuilder) {
+  constructor(public http: HttpClient, public fb: FormBuilder, public biscotto: MangiaBiscottoService) {
     this.form=fb.group({
       "cerca": [""],
     });
@@ -25,6 +27,7 @@ export class UtentiComponent implements OnInit {
 
   ngOnInit(): void {
     this.cercatutti();
+    this.ruolo=this.biscotto.getRuolo();
   }
 
   elimina(id: string): void{

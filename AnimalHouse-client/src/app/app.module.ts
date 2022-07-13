@@ -17,7 +17,6 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProfiloComponent } from './profilo/profilo.component';
 import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
 import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-utente.component';
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
@@ -37,6 +36,7 @@ import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
+import { ProfiliComponent } from './profili/profili.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,6 @@ import { PreferitiComponent } from './preferiti/preferiti.component';
     NewpasswordComponent,
     BabyAnimalComponent,
     CuriositaComponent,
-    ProfiloComponent,
     DatiUtenteComponent,
     StatisticheUtenteComponent,
     StoricoPrenotazioniComponent,
@@ -72,6 +71,7 @@ import { PreferitiComponent } from './preferiti/preferiti.component';
     PageNotFoundComponent,
     PreferenzeComponent,
     PreferitiComponent,
+    ProfiliComponent,
   ],
   imports: [
     BrowserModule,

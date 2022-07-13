@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { ProfiloServiceService } from '../profilo-service.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
 export class NavbarComponent implements OnInit {
 
   ruolo?: string;
-  constructor(public biscotto: MangiaBiscottoService) { }
+  constructor(public biscotto: MangiaBiscottoService, public profilo: ProfiloServiceService) { }
 
   ngOnInit(): void {
     this.ruolo=this.biscotto.getRuolo();
