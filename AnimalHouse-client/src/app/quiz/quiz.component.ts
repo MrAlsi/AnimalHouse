@@ -76,7 +76,6 @@ export class QuizComponent {
         this.punteggio+=1;
       Array.from(document.getElementsByClassName('risposta')).forEach((elemento) => {
         if(elemento.textContent?.trim() === this.giusta){
-          console.log("risposta giusta:", elemento);
           elemento.setAttribute('class', "btn btn-success");
         } else {
           elemento.setAttribute('class', "btn btn-danger");

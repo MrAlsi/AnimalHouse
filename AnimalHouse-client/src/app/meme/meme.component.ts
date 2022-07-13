@@ -57,7 +57,4 @@ export class MemeComponent implements OnInit {
     }
   }
 }
-function qualita(qualita: any, arg1: (any: any) => void) {
-  throw new Error('Function not implemented.');
-}
 

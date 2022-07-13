@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="conteiner" *ngIf="stop===false; else bastaFrame" >
+<!-- <div class="conteiner" *ngIf="stop===false; else bastaFrame" >
    
     <iframe width="100%" height="200%"
     [src]="link | safe" 
@@ -8,6 +8,8 @@
     (click)='swippa()'>
     </iframe>
     <button (click)="swippa()"> cambio</button>
+
+    <app-video-slider></app-video-slider>
 </div>
 
 <ng-template #bastaFrame>
@@ -15,4 +17,6 @@
     <h5>Vatti a lavare i denti e vai a dormire</h5>
     <img src="https://m2.paperblog.com/i/191/1916613/che-ci-ridi-la-minchia-L-jqVVIO.jpeg">
 </ng-template>
+-->
 
+<app-video-slider></app-video-slider>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SwiperModule } from 'swiper/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -37,6 +38,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
 import { ProfiliComponent } from './profili/profili.component';
+import { VideoSliderComponent } from './components/video-slider/video-slider.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,7 @@ import { ProfiliComponent } from './profili/profili.component';
     PreferenzeComponent,
     PreferitiComponent,
     ProfiliComponent,
+    VideoSliderComponent,
   ],
   imports: [
     BrowserModule,
