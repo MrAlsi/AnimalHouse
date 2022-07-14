@@ -15,20 +15,22 @@ import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curios
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { ProfiliComponent } from './profili/profili.component';
+import { GuardiaIdService } from './guardia.service';
+import { GuardiaRuoloService } from './guardia-ruolo.service';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
-  {path: 'homepage', component: HomepageComponent},
+  {path: 'homepage', component: HomepageComponent, canActivate :[GuardiaIdService]},
   {path: 'signup', component: RegistrazioneComponent},
   {path: 'signupAdmin', component: RegistrazioneAdminComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'babyanimal/games', component: GiochiComponent},
   {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
-  {path: 'babyanimal/curiosity/addcuriosity', component: AggiungiCuriositaComponent},
-  {path: 'classifiche', component: ClassificheComponent},
-  {path: 'newProfessionisti', component: ProfessionistiComponent},
-  {path: 'utenti', component: UtentiComponent},
+  {path: 'babyanimal/curiosity/addcuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
+  {path: 'newProfessionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
   {path: 'preferenze', component: PreferenzeComponent},
   {path: 'profili/:username', component: ProfiliComponent},
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo

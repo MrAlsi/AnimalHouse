@@ -19,13 +19,9 @@ export class CuriositaComponent implements OnInit {
     
     this.httpClient.get('http://localhost:3000/CRUD/curiosita').subscribe(data => { 
     console.log("Data: ", data);
-      this.animali = data;}
-      )
-    //this.animali = CURIOSITA;
-    this.stato = biscotto.getRuolo();
-    console.log(this.stato);
-
-  
+      this.animali = data;
+      return;
+    });
   }
 
   ngOnInit(): void {
@@ -34,7 +30,11 @@ export class CuriositaComponent implements OnInit {
     }catch (error) {
       this.id='';
     }
+    //this.animali = CURIOSITA;
+    try{
+      this.stato = this.biscotto.getRuolo();
+    }catch (error) {
+      this.stato='';
+    }
   }
-
-
 }
