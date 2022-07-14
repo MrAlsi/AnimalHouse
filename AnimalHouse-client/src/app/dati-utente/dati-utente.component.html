@@ -1,20 +1,21 @@
 <div class="card">
     <div class="card-body">
-        <p class="subtitle">Dati</p>
         <div class="info">
             <p class="desc"> Username: </p>
-            <p class="dati"> {{username}} </p>
+            <p class="dati"> {{profilo.dati.username}} </p>
             <p class="desc"> Ruolo: </p>
-            <p class="dati"> {{ruolo}}</p>
+            <p class="dati"> {{profilo.dati.ruolo}}</p>
             <p class="desc"> Nome: </p>
-            <p class="dati"> {{nome}}</p>
+            <p class="dati"> {{profilo.dati.nome}}</p>
             <p class="desc"> Cognome: </p>
-            <p class="dati"> {{cognome}}</p>
+            <p class="dati"> {{profilo.dati.cognome}}</p>
             <p class="desc"> Email: </p>
-            <p class="dati"> {{email}}</p>
+            <p class="dati"> {{profilo.dati.email}}</p>
         </div>
         <br>
-        <button class="btn btn-secondary btn-sm" (click)="profilo.reset()">Reset password</button> 
+        <div *ngIf="profilo.sonoio==true">
+            <button class="btn btn-secondary btn-sm" (click)="profilo.reset()">Reset password</button> 
+        </div> 
     </div>
     <br>
 </div>

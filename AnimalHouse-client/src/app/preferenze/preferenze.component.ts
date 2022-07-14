@@ -21,7 +21,6 @@ export class PreferenzeComponent implements OnInit {
   constructor(public biscotto: MangiaBiscottoService, public http: HttpClient, private router: Router, public DB: AggiungiDBService) { }
 
   ngOnInit(): void {
-    //prendo il token per capire il ruolo
     try{
       this.id=this.biscotto.getId();
     }catch (error) {

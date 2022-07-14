@@ -21,18 +21,22 @@
           <th class="cognome" scope="col">Cognome</th>
           <th class="ruolo" scope="col">Ruolo</th>
           <th class="email" scope="col">Email</th>
-          <th class="elimina" scope="col">Elimina</th>
+          <div *ngIf="this.ruolo=='admin'">
+            <th class="elimina" scope="col">Elimina</th>
+          </div>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let utente of this.collezioni, index as i">
           <th class="ordinario" scope="row">{{i+1}}</th>
-          <td class="username">{{this.utente.username}}</td>
+          <td class="username"><a class="nav-link" href="profili/{{this.utente.username}}">{{this.utente.username}}</a></td>
           <td class="nome">{{this.utente.nome}}</td>
           <td class="cognome">{{this.utente.cognome}}</td>
           <td class="ruolo">{{this.utente.ruolo}}</td>
           <td class="email">{{this.utente.email}}</td>
-          <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
+          <div *ngIf="this.ruolo=='admin'">
+            <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
+          </div>
         </tr>
       </tbody>
     </table>
@@ -55,7 +59,7 @@
       <tbody>
         <tr>
           <th class="ordinario" scope="row">1</th>
-          <td class="username">{{this.collezione.username}}</td>
+          <td class="username"><a class="nav-link" href="profili/{{this.collezione.username}}">{{this.collezione.username}}</a></td>
           <td class="nome">{{this.collezione.nome}}</td>
           <td class="cognome">{{this.collezione.cognome}}</td>
           <td class="ruolo">{{this.collezione.ruolo}}</td>

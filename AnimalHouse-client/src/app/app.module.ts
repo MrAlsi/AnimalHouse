@@ -18,7 +18,6 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProfiloComponent } from './profilo/profilo.component';
 import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
 import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-utente.component';
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
@@ -38,6 +37,7 @@ import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
+import { ProfiliComponent } from './profili/profili.component';
 import { VideoSliderComponent } from './components/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
 import { MemoryComponent } from './components/Memory/memory/memory.component';
@@ -59,7 +59,6 @@ import { MemoryCardComponent } from './components/Memory/memory-card/memory-card
     NewpasswordComponent,
     BabyAnimalComponent,
     CuriositaComponent,
-    ProfiloComponent,
     DatiUtenteComponent,
     StatisticheUtenteComponent,
     StoricoPrenotazioniComponent,
@@ -77,6 +76,7 @@ import { MemoryCardComponent } from './components/Memory/memory-card/memory-card
     PageNotFoundComponent,
     PreferenzeComponent,
     PreferitiComponent,
+    ProfiliComponent,
     VideoSliderComponent,
     MemoryComponent,
     MemoryBoardComponent,

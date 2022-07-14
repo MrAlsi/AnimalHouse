@@ -7,7 +7,9 @@
 </ng-template>
 <div class="container mt-4 col-12">
   <h3>Curiosità</h3>
-  <button class="btn btn-primary" [routerLink]="['addCuriosity']" *ngIf="stato=='admin'"> Aggiungi curiosita </button>
+  <div *ngIf="stato=='admin'">
+    <button class="btn btn-primary" [routerLink]="['addCuriosity']" > Aggiungi curiosita </button>
+  </div>
   <div *ngFor="let animale of animali" class="scheda">
       <br>
       <!-- Carta di un animale -->
