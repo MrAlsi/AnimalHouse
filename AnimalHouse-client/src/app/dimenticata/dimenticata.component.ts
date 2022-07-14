@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ControllaCodiceService } from '../controlla-codice.service';
 
 @Component({
   selector: 'app-dimenticata',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DimenticataComponent implements OnInit {
   form: FormGroup;
-  constructor(public fb: FormBuilder, private router: Router) { 
+  constructor(public fb: FormBuilder, private router: Router, public codice: ControllaCodiceService) { 
     this.form = fb.group({
       "codice": ['',Validators.required],
     });
@@ -20,9 +21,8 @@ export class DimenticataComponent implements OnInit {
 
 
   //metodo per far comparire il component
-  selectedVerifica: boolean= false;
   Verifica(): void{
-    this.selectedVerifica= true;
+    this.codice.selectedVerifica= true;
   }
 
   //metodo per verificare che il codice sia stato inserito e che sia corretto
@@ -30,8 +30,14 @@ export class DimenticataComponent implements OnInit {
     if(!this.form.valid){
       alert("Inserire il codice");
       return;
-    }else{//@todo: manca controllo sia il codice giusto
-      this.Verifica();
+    }else{
+      if(this.codice.code==this.form.value.codice){
+        this.Verifica();
+      }else{
+        alert("codice errato");
+        this.router.navigate(['']);
+      }
+      
     }
   }
 

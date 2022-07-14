@@ -42,6 +42,7 @@ export class ProfiloServiceService {
         if(this.myUser==this.profile){ //controllo se è il mio profilo
           this.sonoio= true;
         }
+          //dato l'user prendo i dati
           this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.profile)
             .subscribe(data=>{
               if(data!==null){

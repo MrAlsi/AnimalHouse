@@ -1,0 +1,27 @@
+<div *ngIf="selectedVerifica==false; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="formaContainer">
+                    <form (ngSubmit)="verifica()"  [formGroup]="form">
+                        <h6>Inserisci il tuo username</h6>
+                        <div  class="form-group"><input class="input-fiel" type="text" placeholder="Username" name="username" formControlName="username"/></div>
+                        <br>
+                        <button type="submit" class="btn btn-secondary btn-sm">Invia codice di verifica</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <div *ngIf="this.codice.selectedVerifica== false; then thenBlock1 else elseBlock1"></div>
+        <ng-template #thenBlock1>
+            <app-dimenticata></app-dimenticata>
+        </ng-template>
+        <ng-template #elseBlock1>
+            <app-newpassword></app-newpassword>
+        </ng-template>
+    
+</ng-template>

@@ -40,6 +40,7 @@ import { PreferitiComponent } from './preferiti/preferiti.component';
 import { ProfiliComponent } from './profili/profili.component';
 import { VideoSliderComponent } from './components/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
+import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { CommonModule } from '@angular/common';
     PreferitiComponent,
     ProfiliComponent,
     VideoSliderComponent,
+    InserisciEmailComponent,
   ],
   imports: [
     BrowserModule,

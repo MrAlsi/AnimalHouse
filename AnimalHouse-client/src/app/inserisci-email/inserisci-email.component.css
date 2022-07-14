@@ -1,0 +1,4 @@
+.btn.btn-secondary.btn-sm:focus{
+    color: white;
+    background-color: #AA0000;
+}
