@@ -1,0 +1,14 @@
+<p>memory works!</p>
+<div class="coperta" *ngIf="gioco === false">
+    <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(5)">5</button>
+    <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(8)">8</button>
+    <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(12)">12</button>
+</div>
+
+<div class="scoperta" *ngIf="gioco === true">
+    <app-memory-board [numeroCoppie]="numeroCoppieNum">
+
+
+    </app-memory-board>
+</div>
+

@@ -10,9 +10,13 @@
 }
 
  div > p{
-    border: black solid;
+    border: rgb(190, 141, 4) solid;
+    background-color: blanchedalmond;
+    text-align: center;
+    text-size-adjust: 10;
     border-radius: 5%;
     margin:2%;
+    padding: 2%;
 }
 
 #container > button:nth-child(3){

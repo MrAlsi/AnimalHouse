@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Component} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decoded from 'jwt-decode';
+//import { utf8Encode } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-quiz',
@@ -37,6 +38,7 @@ export class QuizComponent {
     ) 
   }
 
+  //Cambia la domanda nel DOM
   caricaQuesito(): void{
     console.log("Quesito", this.indice);
     this.colore = "btn-outline-dark"
@@ -50,6 +52,7 @@ export class QuizComponent {
     return this.api.results[this.indice].question;
   }
 
+  //Mescola le risposte
   mescola(): any{
     //Metto la risposta giusta e le tre risposte sbagliate in un array
     let arrayRitorno = [
@@ -104,6 +107,7 @@ export class QuizComponent {
     }
   }
 
+  //Salva il punteggio del DB
   salvaPunteggio(): void{
       this.cookie = jwt_decoded(this.cookie);  //Traduce il cookie
       console.log(this.cookie);

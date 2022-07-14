@@ -33,14 +33,16 @@ import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
-import { MemoryComponent } from './memory/memory.component';
+
 import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
 import { VideoSliderComponent } from './components/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
-
+import { MemoryComponent } from './components/Memory/memory/memory.component';
+import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
+import { MemoryCardComponent } from './components/Memory/memory-card/memory-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +78,9 @@ import { CommonModule } from '@angular/common';
     PreferenzeComponent,
     PreferitiComponent,
     VideoSliderComponent,
+    MemoryComponent,
+    MemoryBoardComponent,
+    MemoryCardComponent
   ],
   imports: [
     BrowserModule,
