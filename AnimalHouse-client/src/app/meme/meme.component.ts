@@ -45,7 +45,6 @@ export class MemeComponent implements OnInit {
         this.link = qualita.link;
       }
     })
-
   }
   
   swippa():void{

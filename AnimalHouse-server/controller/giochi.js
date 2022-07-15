@@ -10,3 +10,17 @@ exports.aggiungiPunteggioQuiz = async (req, res) => {
       console.log(e);
     }
   }
+
+
+exports.getPunteggiGlobaliQuiz = async(req, res) => {
+  try{
+    db.collection(`punteggioGiochi`).find().toArray((err, risp) => {
+      if(err) throw err;
+      console.log("res", risp);
+      res.json(risp);
+    })
+  } catch {
+
+  }
+
+}
