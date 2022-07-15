@@ -40,6 +40,8 @@ import { PreferitiComponent } from './preferiti/preferiti.component';
 import { ProfiliComponent } from './profili/profili.component';
 import { VideoSliderComponent } from './components/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
+import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
+
 import { MemoryComponent } from './components/Memory/memory/memory.component';
 import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
 import { MemoryCardComponent } from './components/Memory/memory-card/memory-card.component';
@@ -78,6 +80,7 @@ import { MemoryCardComponent } from './components/Memory/memory-card/memory-card
     PreferitiComponent,
     ProfiliComponent,
     VideoSliderComponent,
+    InserisciEmailComponent,
     MemoryComponent,
     MemoryBoardComponent,
     MemoryCardComponent
