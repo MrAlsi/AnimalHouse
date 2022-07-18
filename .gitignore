@@ -5,6 +5,7 @@
 /integration/bazel/bazel-*
 *.log
 node_modules
+.env
 
 # CircleCI temporary file for cache key computation.
 # See `save_month_to_file` in `.circleci/config.yml`.
@@ -30,7 +31,7 @@ modules/.vscode
 .nvimrc
 
 # Don't check in secret files
-./AnimalHouse-server/.env
+
 
 # Ignore npm/yarn debug log
 npm-debug.log
