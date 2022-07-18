@@ -31,7 +31,11 @@ modules/.vscode
 .nvimrc
 
 # Don't check in secret files
+<<<<<<< HEAD
 
+=======
+/AnimalHouse-server/.env
+>>>>>>> b9938a3e60cbddb1da5fa5321963ced532d953df
 
 # Ignore npm/yarn debug log
 npm-debug.log
