@@ -2,15 +2,7 @@
 
 const { MongoClient, ObjectId } = require('mongodb');
 const jwt= require("jsonwebtoken");
-//const { db } = require("../connessioneDB");
-// ! Risolvere perché non vada il modulo connessione DB
-const dotenv = require('dotenv');
-
-dotenv.config({ path: './.env'});
-
-const URI = process.env.URI;
-const mongo = new MongoClient(URI);
-const db = mongo.db("AnimalHouse");
+const db = require("../connessioneDB");
 
 //metodo per controllare non sia già in uso lo username
 exports.controllaUsername = async (req,res)=> {

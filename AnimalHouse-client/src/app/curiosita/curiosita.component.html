@@ -5,12 +5,15 @@
 <ng-template #elseBlock>
     <app-navbar></app-navbar>
 </ng-template>
+
+
 <div class="container mt-4 col-12">
   <h3>Curiosità</h3>
   <div *ngIf="stato=='admin'">
     <button class="btn btn-primary" [routerLink]="['addCuriosity']" > Aggiungi curiosita </button>
   </div>
-  <div *ngFor="let animale of animali" class="scheda">
+  <div id="curiosita">
+    <div *ngFor="let animale of animali" class="scheda">
       <br>
       <!-- Carta di un animale -->
       <div class="card" >
@@ -40,4 +43,6 @@
         </div>
       </div>
   </div>
+  </div>
+  
 </div>

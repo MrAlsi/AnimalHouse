@@ -3,6 +3,10 @@ var router = express.Router();
 const login = require("../controller/login");
 const registrazione = require ("../controller/registrazione");
 const nodemailer = require ('nodemailer');
+const dotenv = require('dotenv');
+const { getCuriosity } = require('../controller/curiosita');
+dotenv.config({ path: '.env'});
+
 let codice;
 
 let transport=nodemailer.createTransport({
@@ -10,8 +14,8 @@ let transport=nodemailer.createTransport({
   port: 465,
   service: "hotmail",
   auth: {
-    user: 'AnimalHouse2022@hotmail.com',
-    pass: 'ProgettoTechWeb2022'
+    user: process.env.MAIL,
+    pass: process.env.PASSWORD_MAIL
   },
   secureConnection: false,
   tls: {rejectUnauthorized: false}
@@ -32,7 +36,7 @@ router.put('/cambiaPassword/:email', function(req,res){
   //console.log("transp", transport);
 
   const message= {
-    from: 'AnimalHouse2022@hotmail.com',
+    from: process.env.MAIL,
     to: req.params.email, //al momento non esiste
     subject: "codice cambio password",
     text: `codice: ${codice}`
@@ -58,5 +62,6 @@ router.put('/ricercaUtenti', login.controlloUtente);
 router.put('/login', login.login);
 router.put('/controllaUsername', registrazione.controllaUsername );
 router.put('/controllaEmail', registrazione.controllaEmail);
+router.get('/curiosita', getCuriosity)
 
 module.exports = router;

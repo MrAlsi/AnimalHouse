@@ -10,17 +10,15 @@ import { CURIOSITA } from './lista-curiosita';
 })
 export class CuriositaComponent implements OnInit {
   //animali = CURIOSITA;
-  animali: any;
+  animali?: any;
   stato?: string;
   id?: any;
 
-  constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) { 
-    //console.log(CURIOSITA);
-    
-    this.httpClient.get('http://localhost:3000/CRUD/curiosita').subscribe(data => { 
-    console.log("Data: ", data);
+  constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) {     
+    this.httpClient.get('http://localhost:3000/curiosita').subscribe(data => { 
+      console.log("Data: ", data);
       this.animali = data;
-      return;
+      
     });
   }
 
@@ -37,4 +35,21 @@ export class CuriositaComponent implements OnInit {
       this.stato='';
     }
   }
+
+  ordinaBestie(data: any): void{
+    console.log("animali", data[0]);
+
+    let primo = 0;
+    for(let i = 0; i < data.lenght; i++){
+      if(data.animale[i]>data.animale[primo]){
+        primo = i;
+      }
+    }
+    
+    console.log(data[primo]);
+    this.animali?.push(data[primo]);
+    console.log(this.animali);
+  }
+
+
 }

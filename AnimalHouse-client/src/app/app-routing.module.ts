@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'babyanimal/games', component: GiochiComponent},
   {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
-  {path: 'babyanimal/curiosity/addcuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
   {path: 'newProfessionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
   {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
