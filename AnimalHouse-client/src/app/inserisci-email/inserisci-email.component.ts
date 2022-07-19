@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angula
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ControllaCodiceService } from '../controlla-codice.service';
+import { CodividiUserService } from '../codividi-user.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class InserisciEmailComponent implements OnInit {
   email?: string;
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, public codice: ControllaCodiceService) { 
+  constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, public codice: ControllaCodiceService, public condividi: CodividiUserService) { 
     this.form = fb.group({
       "username": ['',Validators.required],
     });
@@ -32,7 +33,9 @@ export class InserisciEmailComponent implements OnInit {
     }else{
       this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.username)
         .subscribe(data=>{
+          this.condividi.username=this.form.value.username;
           console.log("data",data);
+          console.log("user", this.condividi.username);
           if(data!=null){
             console.log("sonoqui");
             this.email=data.email;

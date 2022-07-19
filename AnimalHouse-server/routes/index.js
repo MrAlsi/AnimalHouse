@@ -15,7 +15,7 @@ let transport=nodemailer.createTransport({
   service: "hotmail",
   auth: {
     user: process.env.MAIL,
-    pass: process.env.PASSWORD_MAIL
+    pass: process.env.PASSWORDMAIL
   },
   secureConnection: false,
   tls: {rejectUnauthorized: false}
@@ -37,11 +37,12 @@ router.put('/cambiaPassword/:email', function(req,res){
 
   const message= {
     from: process.env.MAIL,
-    to: req.params.email, //al momento non esiste
+    to: req.params.email,
     subject: "codice cambio password",
     text: `codice: ${codice}`
   }
   console.log("messaggio", message);
+  console.log("env",process.env.MAIL);
 
   transport.sendMail(message, function(err, info){
     if(err){

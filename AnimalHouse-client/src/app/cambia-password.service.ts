@@ -75,4 +75,30 @@ export class CambiaPasswordService {
       }
     }
   }
+
+  controllaPassword2(): void{
+    if(!this.form2.valid){
+      alert("Dati mancanti");
+      return;
+    }else{
+      //controllo non sia stata inserita la stessa password
+      if(this.password!=this.form2.value.password2){
+        console.log("p2",this.form2.value.password2);
+        const pp= this.form2.value.password2;
+        console.log("pp",typeof(pp));
+
+        //aggiorno la password
+        this.http.put<any>('http://localhost:3000/CRUD/utenti/'+ this.id,{pp})
+          .subscribe(data=>{
+            console.log("data",data.password);
+            data.password=pp;
+          }); 
+          this.profilo.selectedNewPassword=false;
+          alert("password cambiata con successo");
+      }else{
+        alert("non puoi inserire la stessa password");
+        return;
+      }
+    }
+  }
 }

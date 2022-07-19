@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'newProfessionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
   {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
   {path: 'preferenze', component: PreferenzeComponent},
-  {path: 'profili/:username', component: ProfiliComponent},
+  {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
 

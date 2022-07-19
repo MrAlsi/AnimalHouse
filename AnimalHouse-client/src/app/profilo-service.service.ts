@@ -28,13 +28,15 @@ export class ProfiloServiceService {
   sonoio?: boolean= false;
   ruolo?: string;
 
+
   profilo(): void {
-    console.log("ciao carlotta");
     try{
       this.id=this.biscotto.getId();
+      console.log("idwe", this.id);
     }catch (error) {
       this.id='';
-    }    
+      console.log("idciao", this.id);
+    }
     this.ruolo=this.biscotto.getRuolo();
     this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
       .subscribe(data => {
