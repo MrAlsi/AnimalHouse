@@ -8,6 +8,6 @@
     text-justify: inter-word;
 }
 
-div p{
+h1, div p{
     text-align: center;
 }
