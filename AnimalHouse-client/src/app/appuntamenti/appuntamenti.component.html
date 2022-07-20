@@ -1,0 +1,31 @@
+<div class="tabella">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="ordinario"scope="col">#</th>
+          <th class="tipo" scope="col">Tipo</th>
+          <th class="nome" scope="col">Professionista</th>
+          <th class="data" scope="col">Data</th>
+          <th class="ora" scope="col">Ora</th>
+         <!-- <div *ngIf="this.ruolo=='admin'|| this.sonoio==true"> se l'appuntamento è già passato solo l'admin può cancellarlo-->
+            <th class="elimina" scope="col">Elimina</th>
+         <!-- </div>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <!--<tr *ngFor="let utente of this.collezioni, index as i">
+        
+          <th class="ordinario" scope="row">{{i+1}}</th>
+          <td class="tipo"><a class="nav-link" href="profili/{{this.utente.username}}">{{this.utente.username}}</a></td>
+          <td class="nome">{{this.utente.nome}}</td>
+          <td class="data">{{this.utente.cognome}}</td>
+          <td class="ora">{{this.utente.ruolo}}</td>
+          <td class="email">{{this.utente.email}}</td>
+          <div *ngIf="this.ruolo=='admin'">
+            <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
+         </div>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
