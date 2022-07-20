@@ -45,6 +45,7 @@ import { InserisciEmailComponent } from './inserisci-email/inserisci-email.compo
 import { MemoryComponent } from './components/Memory/memory/memory.component';
 import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
 import { MemoryCardComponent } from './components/Memory/memory-card/memory-card.component';
+import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import { MemoryCardComponent } from './components/Memory/memory-card/memory-card
     InserisciEmailComponent,
     MemoryComponent,
     MemoryBoardComponent,
-    MemoryCardComponent
+    MemoryCardComponent,
+    AppuntamentiComponent
   ],
   imports: [
     BrowserModule,

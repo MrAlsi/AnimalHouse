@@ -17,10 +17,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.biscotto.getId();
+    console.log(this.id);
     this.ruolo=this.biscotto.getRuolo();
     this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
       .subscribe(data => {
         this.user=data.username;
+        console.log(data.username);
       });
 
   }
