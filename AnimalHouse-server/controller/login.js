@@ -19,7 +19,6 @@ exports.controlloUtente = async (req, res) => {
         "ruolo": cursor.ruolo,
       };
 
-      console.log("payload", payload);
       token = jwt.sign(payload, "PASSWORDFORTE");
       res.json(token);
     } else {
