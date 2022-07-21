@@ -18,6 +18,7 @@ import { ProfiliComponent } from './profili/profili.component';
 import { GuardiaIdService } from './guardia.service';
 import { GuardiaRuoloService } from './guardia-ruolo.service';
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
+import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
   {path: 'preferenze', component: PreferenzeComponent},
   {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
+  {path: 'professionista/:nome', component: ProfiloProfComponent},
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
 

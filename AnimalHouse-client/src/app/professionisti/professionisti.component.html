@@ -7,12 +7,14 @@
     <p>{{this.form.value.cerca}}</p>
     <button class="btn btn-primary ms-small" type="submit">Search</button>
 </form>
-<br>
-<button class="btn btn-primary ms-small" type="Button" (click)="addProf()">Add professionista</button>
-
   
 <br>
 <h5>Professionisti presenti su Animal House</h5>
+<br>
+
+<button class="btn btn-primary ms-small" type="Button" (click)="addProf()">Add professionista</button>
+<br>
+
 <div class="tabella">
     <table class="table table-striped">
     <thead>
@@ -27,7 +29,7 @@
     <tbody>
         <tr *ngFor="let professionista of this.collezioni, index as i">
         <th class="ordinario" scope="row">{{i+1}}</th>
-        <td class="nome"><a class="nav-link" href="profili/{{this.professionista.nome}}">{{this.professionista.nome}}</a></td>
+        <td class="nome"><a class="nav-link" href="professionista/{{this.professionista._id}}">{{this.professionista.nome}}</a></td>
         <td class="città">{{this.professionista.citta}}</td>
         <td class="tipo">{{this.professionista.tipo}}</td>
             <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.professionista._id)">Elimina</button></td>

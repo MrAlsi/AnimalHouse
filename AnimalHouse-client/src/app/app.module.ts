@@ -47,6 +47,7 @@ import { MemoryBoardComponent } from './components/Memory/memory-board/memory-bo
 import { MemoryCardComponent } from './components/Memory/memory-card/memory-card.component';
 import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
+import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,8 @@ import { AddProfessionistiComponent } from './add-professionisti/add-professioni
     MemoryBoardComponent,
     MemoryCardComponent,
     AppuntamentiComponent,
-    AddProfessionistiComponent
+    AddProfessionistiComponent,
+    ProfiloProfComponent
   ],
   imports: [
     BrowserModule,
