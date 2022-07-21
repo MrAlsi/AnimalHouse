@@ -43,4 +43,19 @@ export class MangiaBiscottoService {
     }
     
   }
+
+  getUsername(): string{
+    this.cookie=this.cookieService.get('token');
+    this.cookie = jwt_decoded(this.cookie);
+    console.log("token",this.cookie);
+
+    if(this.cookie != null){
+      return this.cookie.username;
+       console.log("id:", this.cookie.id);
+       
+    }else{
+      return "";
+    }
+    
+  }
 }

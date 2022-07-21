@@ -35,32 +35,30 @@ export class ProfiloServiceService {
       console.log("idwe", this.id);
     }catch (error) {
       this.id='';
-      console.log("idciao", this.id);
+      console.log(error);
     }
     this.ruolo=this.biscotto.getRuolo();
-    this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
-      .subscribe(data => {
-        this.myUser=data.username;
-        if(this.myUser==this.profile){ //controllo se è il mio profilo
-          this.sonoio= true;
-        }
-          //dato l'user prendo i dati
-          this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.profile)
-            .subscribe(data=>{
-              if(data!==null){
-                this.dati=data;
-                this.idProfile=data._id;
-                console.log("id",this.idProfile);      
-                this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.idProfile)
-                  .subscribe(data => {
-                    if(data!== null){
-                      this.animali=data.preferiti;
-                      console.log(this.animali);
-                    }
-                  });
+
+    if(this.biscotto.getUsername()==this.profile){ //controllo se è il mio profilo
+      console.log("SOno IO!")
+      this.sonoio= true;
+    }
+    //dato l'user prendo i dati
+    this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.profile)
+      .subscribe(data=>{
+        if(data!==null){
+          this.dati=data;
+          this.idProfile=data._id;
+          console.log("id",this.idProfile);      
+          this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.idProfile)
+            .subscribe(data => {
+              if(data!== null){
+                this.animali=data.preferiti;
+                console.log(this.animali);
               }
             });
-      });    
+        }
+      });  
   }
 
   showElimina() :void{

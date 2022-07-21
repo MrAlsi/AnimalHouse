@@ -27,10 +27,10 @@ exports.getCollection = (req, res)=>{
 
 //passata una collezione restituisce solo il documento con quell'id
 exports.getOneDocument = async (req,res)=> {
-  console.log("collezione", req.params.collezione)
+  console.log("collezione", req.params.id)
   return await db.collection(`${req.params.collezione}`).findOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
       if(err) console.log ("Err: ", err);
-      console.log("ciao",cursor);
+      console.log("ciao1",cursor);
       res.json(cursor);
   });
 }
