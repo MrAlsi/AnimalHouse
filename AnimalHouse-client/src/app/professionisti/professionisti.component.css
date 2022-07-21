@@ -1,29 +1,52 @@
-p{
-    font-size: small;
-}
-
-.formaContainer{
+h5{
     margin-left: 2%;
 }
 
-.btn.btn-primary{
-    background-color: #AA0000;
+
+button #all{
+    background-color: gray;
+    border-color: black;
+    border-style: inset;
+}
+
+
+#search{
     color: white;
-    border:#AA0000;
-    margin-left: 70%;
+    background-color: black;
+    border-color: white;
+    width: 40%;
 }
 
-.form-check-input:checked{
-    background-color:#AA0000;
-    border-color:#AA0000;
-}
-
-
-#disponibilità{
+#cerca{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: end;
+    background-color: black;
+    padding: 2%;
+}
+
+table{
+    font-size: small;
+}
+
+.tabella{
+    overflow: scroll
 }
 
 
+button{
+    background-color: gray;
+    border-color: black;
+    border-style: inset;
+}
 
+button:focus{
+    background-color: #AA0000;
+    border-color: #AA0000;
+}
+
+
+#all:focus{
+    background-color: #AA0000;
+    border-color: #AA0000;
+}
 

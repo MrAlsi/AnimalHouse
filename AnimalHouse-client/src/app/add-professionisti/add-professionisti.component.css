@@ -1,0 +1,29 @@
+p{
+    font-size: small;
+}
+
+.formaContainer{
+    margin-left: 2%;
+}
+
+.btn.btn-primary{
+    background-color: #AA0000;
+    color: white;
+    border:#AA0000;
+    margin-left: 70%;
+}
+
+.form-check-input:checked{
+    background-color:#AA0000;
+    border-color:#AA0000;
+}
+
+
+#disponibilità{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+

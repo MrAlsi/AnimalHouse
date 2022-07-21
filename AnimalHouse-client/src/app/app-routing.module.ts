@@ -17,6 +17,7 @@ import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { ProfiliComponent } from './profili/profili.component';
 import { GuardiaIdService } from './guardia.service';
 import { GuardiaRuoloService } from './guardia-ruolo.service';
+import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
-  {path: 'newProfessionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'newProfessionisti', component: AddProfessionistiComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'professionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
   {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
   {path: 'preferenze', component: PreferenzeComponent},
   {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
