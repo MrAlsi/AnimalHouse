@@ -1,4 +1,5 @@
-.campoGioco{
-    width: 95vw;
-    border: solid black;
-}
+.contenitore-carta {
+    gap: 1vw;
+    row-gap: 3vh;
+  }
+  

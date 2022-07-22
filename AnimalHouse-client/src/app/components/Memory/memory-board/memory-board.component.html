@@ -1,7 +1,7 @@
-<div class="campoGioco">
-    <div class="carta" *ngFor="let carta of carte">
-        <app-memory-card>
-            
-        </app-memory-card>
+<div class="border border-dark board">
+  <div class="d-flex flex-row flex-wrap contenitore-carta">
+    <div *ngFor="let carta of carte;">
+      <app-carta [url]="carta.url"></app-carta>
     </div>
+  </div>
 </div>

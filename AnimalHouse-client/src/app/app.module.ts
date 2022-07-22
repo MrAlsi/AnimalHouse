@@ -41,11 +41,10 @@ import { ProfiliComponent } from './profili/profili.component';
 import { VideoSliderComponent } from './components/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
 import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
-
-import { MemoryComponent } from './components/Memory/memory/memory.component';
-import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
-import { MemoryCardComponent } from './components/Memory/memory-card/memory-card.component';
 import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
+import { MemoryComponent } from './components/memory/memory/memory.component';
+import { CartaComponent } from './components/memory/carta/carta.component';
+import { MemoryBoardComponent } from './components/memory/memory-board/memory-board.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +72,6 @@ import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
     QuizComponent,
     RispostaComponent,
     AggiungiCuriositaComponent,
-    MemoryComponent,
     CartaMemoryComponent,
     SafePipe,
     PageNotFoundComponent,
@@ -82,10 +80,10 @@ import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
     ProfiliComponent,
     VideoSliderComponent,
     InserisciEmailComponent,
+    AppuntamentiComponent,
     MemoryComponent,
+    CartaComponent,
     MemoryBoardComponent,
-    MemoryCardComponent,
-    AppuntamentiComponent
   ],
   imports: [
     BrowserModule,

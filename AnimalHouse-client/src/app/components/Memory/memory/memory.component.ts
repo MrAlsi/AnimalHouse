@@ -7,15 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemoryComponent implements OnInit {
   gioco: boolean = false;
-  numeroCoppieNum?: number;
+  numeroCoppieNum: 5 | 8 | 12 = 5;
+
+
+  url: string = 'https://dog.ceo/api/breeds/image/random';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  numeroDiCoppie(n: number): void{
+  numeroDiCoppie(n: 5 | 8 | 12): void{
     this.numeroCoppieNum = n;
+    console.log("memory", this.numeroCoppieNum)
     this.gioco = true;
   }
 }

@@ -1,0 +1,6 @@
+<div class="carta">
+  <div class="coperta" *ngIf="coperta" (click)="coperta = false"></div>
+  <div class="scoperta" *ngIf="! coperta">
+    <img class="img-responsive rounded" src="{{url}}">
+  </div>
+</div>

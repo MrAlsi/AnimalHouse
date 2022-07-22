@@ -7,13 +7,15 @@
 </ng-template>
 <h1>Benvenuto nella sezioni giochi di Animal House</h1>
 <h5>Giochi disponibili</h5>
+
+<!-- Crea il menu dei giochi -->
 <div class="giochi">
     <button type="button" class="btn gioco" *ngFor="let gioco of giochi" (click)="giocaA(gioco.nome)"> 
         {{gioco.nome}}
     </button>
 </div>
-<!-- In pratica vorrei che cliccassi su Memory apri qui sotto il memory con <app-memory>, 
-    se clicchi il quiz apra il quiz con <app-quiz>, ci riesci? ti amo <3-->
+
+<!-- Apre il gioco selezionato-->
 <div id="gioco">
     <div *ngIf="memory">
         <app-memory></app-memory>
