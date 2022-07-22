@@ -17,6 +17,10 @@ import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { ProfiliComponent } from './profili/profili.component';
 import { GuardiaIdService } from './guardia.service';
 import { GuardiaRuoloService } from './guardia-ruolo.service';
+import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
+import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
+import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
+import { GuardiaUtenteService } from './guardia-utente.service';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -29,10 +33,13 @@ const routes: Routes = [
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
-  {path: 'newProfessionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'newProfessionisti', component: AddProfessionistiComponent, canActivate :[GuardiaRuoloService]},
+  {path: 'professionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},
   {path: 'utenti', component: UtentiComponent, canActivate :[GuardiaIdService]},
   {path: 'preferenze', component: PreferenzeComponent},
   {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
+  {path: 'professionista/:nome', component: ProfiloProfComponent, canActivate :[GuardiaIdService]},
+  {path: 'prenotazioni', component: PrenotazioniComponent, canActivate:[GuardiaUtenteService]},
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
 

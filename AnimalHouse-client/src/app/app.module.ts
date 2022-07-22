@@ -45,6 +45,9 @@ import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
 import { MemoryComponent } from './components/memory/memory/memory.component';
 import { CartaComponent } from './components/memory/carta/carta.component';
 import { MemoryBoardComponent } from './components/memory/memory-board/memory-board.component';
+import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
+import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
+import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +87,10 @@ import { MemoryBoardComponent } from './components/memory/memory-board/memory-bo
     MemoryComponent,
     CartaComponent,
     MemoryBoardComponent,
+    AppuntamentiComponent,
+    AddProfessionistiComponent,
+    ProfiloProfComponent,
+    PrenotazioniComponent
   ],
   imports: [
     BrowserModule,

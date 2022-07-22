@@ -5,6 +5,8 @@ const registrazione = require ("../controller/registrazione");
 const nodemailer = require ('nodemailer');
 const dotenv = require('dotenv');
 const { getCuriosity } = require('../controller/curiosita');
+const {cercaProfessionista, cercaTipo}= require ("../controller/professionista");
+
 dotenv.config({ path: '.env'});
 
 let codice;
@@ -64,5 +66,12 @@ router.put('/login', login.login);
 router.put('/controllaUsername', registrazione.controllaUsername );
 router.put('/controllaEmail', registrazione.controllaEmail);
 router.get('/curiosita', getCuriosity)
+
+
+//passato un nome di restituisce i professionisti con quel nome
+router.get('/professionisti/:nome', cercaProfessionista);
+
+//passato un tipo ti restituisce i professionisti con quel tipo
+router.get('/prof/professionisti/:tipo', cercaTipo);
 
 module.exports = router;

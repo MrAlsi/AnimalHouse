@@ -1,0 +1,60 @@
+.accordion-button{
+    background-color: #aa00009d;
+    color: white;
+
+}
+
+.accordion-button:focus{
+    background-color:#AA0000;
+    color: white;
+    box-shadow: none;
+    font-weight: bolder;
+}
+
+.accordion-body{
+    border-style:ridge;
+    border-color:#AA0000;
+}
+
+.desc{
+    color: #AA0000;
+    font-weight: bolder;
+    grid-column-start: 1;
+}
+
+.dati{
+    grid-column-start: 2;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: 25% 50%;
+    grid-template-rows: 10% 10% 10% 10% 16% 15% 15%;
+    text-align: left;
+    justify-content: center;
+    align-items: end;
+}
+
+
+.scheda{
+    display: flex;
+    width: 30%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+.contenitore{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 2%;
+
+}
+
+.carta{
+    background-color: black;
+    color: white;
+    display: flex;    
+    justify-content: center;
+    flex-direction: column;
+}

@@ -27,6 +27,7 @@ export class UtentiComponent implements OnInit {
 
   ngOnInit(): void {
     this.cercatutti();
+    //prendo il ruolo perché se sono admin posso visualizzare dei bottoni in più
     this.ruolo=this.biscotto.getRuolo();
   }
 
