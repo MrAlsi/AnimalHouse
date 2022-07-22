@@ -5,7 +5,7 @@ import { MangiaBiscottoService } from './mangia-biscotto.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GuardiaRuoloService {
+export class GuardiaUtenteService {
 
   ruolo?: string;
 
@@ -17,9 +17,9 @@ export class GuardiaRuoloService {
     }catch (error) {
       this.ruolo='';
     }
-
+    
     console.log("ruolo",this.ruolo);
-    if(this.ruolo=='admin'){
+    if(this.ruolo=='utente'){
       return true;
     }else{
       this.router.navigate(['**']);

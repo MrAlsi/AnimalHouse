@@ -11,3 +11,12 @@ exports.cercaProfessionista = async (req,res)=> {
         res.json(risp);
     });
 }
+
+//passato un tipo cerca solo i professionisti di quella tipologia
+exports.cercaTipo = async (req,res)=> {
+    return await db.collection(`professionisti`).find({tipo: req.params.tipo}).toArray((err, risp)=>{
+        if(err) throw err;
+        console.log("res", risp);
+        res.json(risp);
+    });
+}

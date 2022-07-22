@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<br>
+<h5>Che servizio vorresti prenotare?</h5>
+<br>
+<div class="card">
+    <div class="card-body">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (change)="checked('Ripetizioni di canto')">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Ripetizioni di canto
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (change)="checked('Veterinario')">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Veterinario
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (change)="checked('Psicologo')">
+            <label class="form-check-label" for="flexRadioDefault3">
+              Psicologo
+            </label>
+        </div>
+    </div>
+</div>
+<br>
+<div *ngIf="this.check==true">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="ordinario "scope="col">#</th>
+                <th class="nome" scope="col">Nome</th>
+                <th class="città" scope="col">Città</th>
+                <th class="tipo" scope="col">Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let professionista of this.collezioni, index as i">
+                <th class="ordinario" scope="row">{{i+1}}</th>
+                <td class="nome"><a class="nav-link" href="professionista/{{this.professionista._id}}">{{this.professionista.nome}}</a></td>
+                <td class="città">{{this.professionista.citta}}</td>
+                <td class="tipo">{{this.professionista.tipo}}</td>
+            </tr>
+        </tbody>
+        </table>
+</div>
