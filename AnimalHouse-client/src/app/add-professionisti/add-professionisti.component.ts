@@ -20,6 +20,8 @@ export class AddProfessionistiComponent implements OnInit {
   ruolo?: string;
   on?: string;
   dom?: string;
+  msgalert?: string;
+  msgalertpos?: string;
   
 
   url: string= "professionisti"; //per indirizzare alla collection
@@ -69,19 +71,24 @@ export class AddProfessionistiComponent implements OnInit {
 
   //metodo dove avvengono i controlli che tutto sia compilato, se va a buon fine salva sul db
   salva(): void{
+    this.msgalert='';
+    this.msgalertpos='';
     if(!this.form.valid){
-      alert("dati mancati");
+      this.msgalert=("dati mancati");
+      //alert("dati mancati");
       return;
     }else{
       //controllo che i radio e i check siano stati compilati
       if(this.form.value.online!=undefined && this.form.value.domicilio!=undefined && this.disponibilità.length!=0){
-        alert("aggiunto professionista con successo");
+        this.msgalertpos=("aggiunto professionista con successo");
+        //alert("aggiunto professionista con successo");
         this.form.value.tipo=this.ruolo;
         //aggiungo il documento al db
         this.DB.aggiungiDB(this.form.value, this.url);
         window.location.reload();
       }else{
-        alert("compilare tutti i campi");
+        this.msgalert=("compilare tutti i campi");
+        //alert("compilare tutti i campi");
         return;
       }
     }

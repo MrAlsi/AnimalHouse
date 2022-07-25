@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CambiaPasswordService {
-
+  msgalert?: string;
   form: FormGroup;
   form2: FormGroup;
   id?: string;
@@ -26,10 +26,12 @@ export class CambiaPasswordService {
 
   //metodo per controllare siano stati inseriti i dati e che siano corretti
   verifica(): void{
+    this.msgalert='';
     this.id=this.biscotto.getId();
     console.log("ei id:",this.id)
     if(!this.form.valid){
-      alert("Dati mancanti");
+      this.msgalert=("Dati mancanti");
+      //alert("Dati mancanti");
       return;
     }else{
       //chiamata al db per prendere la password dell'utente
@@ -42,7 +44,8 @@ export class CambiaPasswordService {
             this.profilo.selectedNewPassword=true;
             this.profilo.selectedReset=false;
           }else{
-            alert("Password errata");
+            this.msgalert=("Password errata");
+            //alert("Password errata");
             return;
           }
         });
@@ -51,8 +54,10 @@ export class CambiaPasswordService {
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaPassword(): void{
+    this.msgalert='';
     if(!this.form2.valid){
-      alert("Dati mancanti");
+      this.msgalert=("Dati mancanti");
+      //alert("Dati mancanti");
       return;
     }else{
       //controllo non sia stata inserita la stessa password
@@ -68,35 +73,11 @@ export class CambiaPasswordService {
             data.password=pp;
           }); 
           this.profilo.selectedNewPassword=false;
-          alert("password cambiata con successo");
+          window.location.reload();
       }else{
-        alert("non puoi inserire la stessa password");
-        return;
-      }
-    }
-  }
+        this.msgalert=("non puoi inserire la stessa password");
 
-  controllaPassword2(): void{
-    if(!this.form2.valid){
-      alert("Dati mancanti");
-      return;
-    }else{
-      //controllo non sia stata inserita la stessa password
-      if(this.password!=this.form2.value.password2){
-        console.log("p2",this.form2.value.password2);
-        const pp= this.form2.value.password2;
-        console.log("pp",typeof(pp));
-
-        //aggiorno la password
-        this.http.put<any>('http://localhost:3000/CRUD/utenti/'+ this.id,{pp})
-          .subscribe(data=>{
-            console.log("data",data.password);
-            data.password=pp;
-          }); 
-          this.profilo.selectedNewPassword=false;
-          alert("password cambiata con successo");
-      }else{
-        alert("non puoi inserire la stessa password");
+        //alert("non puoi inserire la stessa password");
         return;
       }
     }

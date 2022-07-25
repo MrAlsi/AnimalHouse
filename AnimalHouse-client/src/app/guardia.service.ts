@@ -8,11 +8,13 @@ import { MangiaBiscottoService } from './mangia-biscotto.service';
 
 export class GuardiaIdService implements CanActivate {
 
+  msgalert?: string;
   id?:string;
 
   constructor(private _router:Router, public biscotto: MangiaBiscottoService, public router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    this.msgalert='';
     try{
       this.id=this.biscotto.getId();
     }catch (error) {
@@ -23,8 +25,9 @@ export class GuardiaIdService implements CanActivate {
     if(this.id!=''){
       return true;
     }else{
+      this.msgalert=("devi loggarti o registrarti per poter visualizzare questa pagina");
       this.router.navigate(['']);
-      alert("devi loggarti o registrarti per poter visualizzare questa pagina")
+      //alert("devi loggarti o registrarti per poter visualizzare questa pagina")
       return false;
     }
   }
