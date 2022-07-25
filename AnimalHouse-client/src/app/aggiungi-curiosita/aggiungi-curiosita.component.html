@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
@@ -14,6 +15,17 @@
                         <input class="form-control1" id="curiosita" type="text" name="curiosita" formControlName="curiosita"/>
                         <button class="btn btn-primary"  type="button" (click)="aggiungiCuriosita(this.form.value.curiosita)">+</button>
                     </div>
+                    <br>
+                    <div *ngIf="this.msgalert">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>
+                            {{this.msgalert}}
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <br>
                     <button class="btn btn-primary mt-3" type="submit">Aggiungi animale</button>
                 </form>
             </div>

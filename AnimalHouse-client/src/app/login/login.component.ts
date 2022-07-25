@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   postId?: any;
   ruolo?: string;
   selectedDimenticata: boolean= false; //variabile per far apparire la card per cambiare la password
+  msgalert?: string;
 
     
   constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, private cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
@@ -34,8 +35,10 @@ export class LoginComponent implements OnInit {
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   accedi(): void{
+    this.msgalert='';
     if(!this.form.valid){
-      alert("compila bene");
+      this.msgalert=("compila bene");
+      //alert("compila bene");
       return;
     }else{
       let credenziali = this.form.value;
@@ -48,7 +51,8 @@ export class LoginComponent implements OnInit {
             this.biscotto.getRuolo(); //richiamp metodo per prendere il ruolo dal token
             this.router.navigate(['homepage']);
           } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
-            alert("utente non trovato, riprova");
+            this.msgalert=('utente non trovato, riprova');
+            //alert("utente non trovato, riprova");
             //console.log("Accesso negato");
             return;
           }

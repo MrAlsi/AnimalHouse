@@ -17,6 +17,7 @@ export class UtentiComponent implements OnInit {
   form: FormGroup;
   search: boolean= false;
   ruolo?: string;
+  msgalert?: string;
 
 
   constructor(public http: HttpClient, public fb: FormBuilder, public biscotto: MangiaBiscottoService) {
@@ -42,6 +43,7 @@ export class UtentiComponent implements OnInit {
   }
 
   cerca(): void{
+    this.msgalert=('');
     if(this.form.value.cerca!=""){
       this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.cerca)
         .subscribe(data=>{
@@ -49,7 +51,8 @@ export class UtentiComponent implements OnInit {
             this.search=true;
             this.collezione=data;
           }else{
-            alert("Ci dispiace, l'utente cercato non esiste");
+            this.msgalert=("Ci dispiace, l'utente cercato non esiste");
+           // alert("Ci dispiace, l'utente cercato non esiste");
           }
         });
     }else{

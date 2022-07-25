@@ -19,6 +19,7 @@ export class RegistrazioneAdminComponent implements OnInit {
   form2: FormGroup; //per prendere confirmpassword senza salvarlo nel db
   postId: any; //id di ritorno da mongo
   url: string= "utenti"; //per indirizzare alla collection
+  msgalert?: string;
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient, private cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
     this.form = fb.group({
@@ -40,12 +41,14 @@ export class RegistrazioneAdminComponent implements OnInit {
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaInput(): void{
+    this.msgalert=('');
     if(!this.form.valid || !this.form2.valid){
       alert("Dati mancanti");
       return;
-    }else{//@todo: mancano i controlli sui singoli dati
+    }else{
       if(this.form2.value.codice!=this.codiceAdmin){
-        alert("codice amministratore errato");
+        this.msgalert=("codice amministratore errato");
+        //alert("codice amministratore errato");
       }else{
         //controllo l'user non sia già in uso
         console.log(this.form.value.username);
@@ -71,15 +74,18 @@ export class RegistrazioneAdminComponent implements OnInit {
                       }
                     });
                 }else{
-                  alert("le password non coincidono");
+                  this.msgalert=("le password non coincidono");
+                  // alert("le password non coincidono");
                 }
               }else{
-                alert( "mail: "+this.form.value.email+" è già in uso")
+                this.msgalert=("mail: "+this.form.value.email+" è già in uso");
+                //alert( "mail: "+this.form.value.email+" è già in uso")
               }
             });
           }else{
             console.log("username già in uso")
-            alert( "username: "+this.form.value.username+" è già in uso")
+            this.msgalert=("username: "+this.form.value.username+" è già in uso");
+            //alert( "username: "+this.form.value.username+" è già in uso")
             return;
           }
         });

@@ -10,6 +10,8 @@ import { ControllaCodiceService } from '../controlla-codice.service';
 })
 export class DimenticataComponent implements OnInit {
   form: FormGroup;
+  msgalert?: string;
+
   constructor(public fb: FormBuilder, private router: Router, public codice: ControllaCodiceService) { 
     this.form = fb.group({
       "codice": ['',Validators.required],
@@ -27,15 +29,18 @@ export class DimenticataComponent implements OnInit {
 
   //metodo per verificare che il codice sia stato inserito e che sia corretto
   controllaCodice(): void{
+    this.msgalert='';
     if(!this.form.valid){
-      alert("Inserire il codice");
+      this.msgalert=("Inserire il codice");
+      //alert("Inserire il codice");
       return;
     }else{
       if(this.codice.code==this.form.value.codice){
         this.Verifica();
       }else{
-        alert("codice errato");
-        this.router.navigate(['']);
+        this.msgalert=("codice errato");
+
+        //alert("codice errato");
       }
       
     }

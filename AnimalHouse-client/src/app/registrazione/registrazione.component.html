@@ -13,6 +13,15 @@
                     <form [formGroup]="form2"> 
                         <div class="form-group"><label for="passwordConfirm">Conferma Password</label><input class="form-control" id="passwordConfirm" type="password" name="passwordConfirm" formControlName="confirmpassword"/></div><br />
                     </form>
+                    <div *ngIf="this.msgalert">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>
+                              {{this.msgalert}}
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
                     <button class="btn btn-primary mt-3" type="submit">Sign up</button>
                 </form>
             </div>

@@ -15,6 +15,7 @@ import { CodividiUserService } from '../codividi-user.service';
 export class InserisciEmailComponent implements OnInit {
   email?: string;
   form: FormGroup;
+  msgalert?: string;
 
   constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, public codice: ControllaCodiceService, public condividi: CodividiUserService) { 
     this.form = fb.group({
@@ -28,8 +29,10 @@ export class InserisciEmailComponent implements OnInit {
   //metodo per far comparire il component per l'inserimento del codice
   selectedVerifica: boolean= false;
   verifica(): void{
+    this.msgalert='';
     if(!this.form.valid){
-      alert("inserire un username");
+      this.msgalert=("inserire un username");
+      //alert("inserire un username");
     }else{
       this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.username)
         .subscribe(data=>{
@@ -53,7 +56,8 @@ export class InserisciEmailComponent implements OnInit {
                 }
               });
           }else{
-            alert("username non registrato");
+            this.msgalert=("username non registrato");
+            //alert("username non registrato");
           }
         });
     }

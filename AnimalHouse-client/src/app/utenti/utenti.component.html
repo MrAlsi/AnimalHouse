@@ -6,6 +6,16 @@
   <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="cerca" >
   <button class="btn btn-primary ms-small" type="submit">Search</button>
 </form>
+<br>
+<div *ngIf="this.msgalert">
+  <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div>
+        {{this.msgalert}}
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
 
 <br>
 <div *ngIf="this.search==false ;then thenBlock else elseBlock"></div>
