@@ -26,7 +26,7 @@ export class AddProfessionistiComponent implements OnInit {
 
   url: string= "professionisti"; //per indirizzare alla collection
 
-  disponibilità: string[]= []; //array on le disponibilità
+  disponibilità: string[]= []; //array con le disponibilità
 
   constructor(public fb: FormBuilder, private router: Router, public biscotto: MangiaBiscottoService, public http: HttpClient, public DB: AggiungiDBService) { 
     this.form = fb.group({
