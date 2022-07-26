@@ -24,7 +24,9 @@ export class MemoryBoardComponent implements OnInit {
   carte: Carta[] = [];
   private loading: boolean = true;
   mosse: number = 0
-  cartaGirata?: any;
+  cartaGirata?: any;              //Tiene in memoria la prima carta girata  
+  dueCarte: boolean = false;      //serve per il bug di cliccare carte mentre c'è la pausa che mostra le due carte girate
+
 
   constructor() { }
 
@@ -65,23 +67,27 @@ export class MemoryBoardComponent implements OnInit {
 
 
   controlloCoppie(id: number): void {
-    if(this.carte[id].stato === 'coperta'){ //Controllo nel caso si clicki una carta scoperta o accoppiata
+    if(this.carte[id].stato === 'coperta' && this.dueCarte===false){ //Controllo nel caso si clicki una carta scoperta o accoppiata
       if(this.cartaGirata === undefined){   //Se è undefined vuol dire che è la prima carta che giro delle due
         this.cartaGirata = this.carte[id];
         this.carte[id].stato='scoperta';
       } else {
+        this.dueCarte = true;
         this.carte[id].stato='scoperta';
         if(this.cartaGirata.url === this.carte[id].url){  //Controllo gli url della carta precedentemente girata
           //Coppia
           this.carte[id].stato='accoppiata';
           this.carte[this.cartaGirata.id].stato = 'accoppiata';
           this.cartaGirata = undefined;   //Rimetto cartaGirata vuota 
+          this.dueCarte = false;
+
         } else {
           //Sbagliato
           setTimeout(() => {                //Timer per tenere la carta mostrata per 2 secondi
             this.carte[id].stato='coperta';
             this.carte[this.cartaGirata.id].stato = 'coperta';
             this.cartaGirata = undefined;   //Rimetto cartaGirata vuota
+            this.dueCarte = false;
           }, 2000);
         }
         this.mosse++;                   //Incremento il contatore mosse

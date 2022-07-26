@@ -1,0 +1,10 @@
+.rosso{
+    background-color: #AA0000;
+    border-color: #AA0000;
+}
+
+.menuMemory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
