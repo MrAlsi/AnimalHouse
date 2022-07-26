@@ -43,7 +43,7 @@ export class HomeService {
   salva1(): void{
     this.msgalert=('');
     console.log(this.form);
-    if(this.form.value.testo==null){
+    if(this.form.value.testo=='A cosa stai pensando?'||this.form.value.testo==''){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");
       return;
@@ -67,12 +67,12 @@ export class HomeService {
   salva2(): void{
     this.msgalert=('');
     console.log(this.form2);
-    if(this.form2.value.img==null){
+    if(this.form2.value.img=='Inserisci immagine'||this.form2.value.img==''){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");
       return;
     }else{
-        if(this.form.value.testo!=null){
+        if(this.form.value.testo!='A cosa stai pensando?'&&this.form.value.testo!=''){
           this.post.testo=this.form.value.testo;
         }
         this.post.img=this.form2.value.img;

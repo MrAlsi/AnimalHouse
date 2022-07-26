@@ -17,12 +17,30 @@
                         <input class="form-control" id="img" type="file" accept="image/*,video/*" name="img" formControlName="img"/>
                     </div>
                     <br>
+                    <div *ngIf="home.msgalert">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>
+                              {{home.msgalert}}
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
                     <button type="submit" id="btnpiccolo"class="btn btn-secondary btn-sm">Salva</button>
 
                 </form>
             </div>
             <br>
             <div *ngIf="home.carica==false">
+                <div *ngIf="home.msgalert">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>
+                          {{home.msgalert}}
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-secondary btn-sm">Salva</button>
             </div>
         </form>
