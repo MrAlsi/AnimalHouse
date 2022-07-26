@@ -4,6 +4,12 @@
 
 }
 
+.utente{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
+
 .btn.btn-secondary.btn-sm{
     color: white;
     background-color: #AA0000;
