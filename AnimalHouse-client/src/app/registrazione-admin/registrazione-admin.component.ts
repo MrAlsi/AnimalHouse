@@ -43,7 +43,8 @@ export class RegistrazioneAdminComponent implements OnInit {
   controllaInput(): void{
     this.msgalert=('');
     if(!this.form.valid || !this.form2.valid){
-      alert("Dati mancanti");
+      this.msgalert=("Dati mancanti");
+      //alert("Dati mancanti");
       return;
     }else{
       if(this.form2.value.codice!=this.codiceAdmin){

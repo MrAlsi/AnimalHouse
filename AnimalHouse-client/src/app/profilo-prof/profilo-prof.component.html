@@ -65,7 +65,26 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    quando le faremo le metteremo
+                    <div *ngIf="this.tabellaRecensioni==true">
+                        <div *ngFor="let recensione of recensioni, index as i">
+                            <p>{{recensione.recensione}}</p><!--mancano cose-->
+                        </div>
+                    </div>
+                    <div *ngIf="this.ruolo=='utente'&& this.recensione!=true && this.tabellaRecensioni==true"><!--aggiungere controllo che se hai già recensito non puoi aggiungerla ma modificare le tue-->
+                        <button class="btn btn-secondary btn-sm" type="submit" (click)="addRecensione()">Recensisci</button>
+                    </div>
+                    <div *ngIf="this.recensione==true">
+                        <div class="card-body">
+                            <div class="card">
+                                <p>Inserisci la tua recensione: </p>
+                                <form (ngSubmit)="salvaRecensione()" [formGroup]="form">
+                                    <div class="form-group"><input class="form-control" id="recensione" type="text" name="recensione" formControlName="recensione" /></div>
+                                    <br>
+                                    <button class="btn btn-secondary btn-sm" type="submit">Salva</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>            
             </div>
         </div>
