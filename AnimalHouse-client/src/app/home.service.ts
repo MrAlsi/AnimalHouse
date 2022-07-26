@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { MangiaBiscottoService } from './mangia-biscotto.service';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { AggiungiDBService } from './aggiungi-db.service';
+import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -20,11 +22,13 @@ export class HomeService {
   post={
     testo: '',
     img: '',
-    user: ''
-  }
+    user: '',
+    mipiace: 0
+  };
+  collezioni?: any;
 
 
-  constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService) {
+  constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) {
     this.ruolo=this.biscotto.getRuolo();
     this.username=this.biscotto.getUsername();
     this.form = fb.group({
@@ -89,5 +93,13 @@ export class HomeService {
   salvaDB(post: any): void{
     this.post.user=this.username;
     this.DB.aggiungiDB(this.post, 'post');
+  }
+
+  posted(): void{
+    this.http.get<any>('http://localhost:3000/CRUD/post/')
+        .subscribe(data => {
+          this.collezioni=data;
+          console.log(data);
+        });
   }
 }

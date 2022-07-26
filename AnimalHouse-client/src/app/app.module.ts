@@ -49,6 +49,7 @@ import { AddProfessionistiComponent } from './add-professionisti/add-professioni
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { PostComponent } from './post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +93,8 @@ import { NewPostComponent } from './new-post/new-post.component';
     AddProfessionistiComponent,
     ProfiloProfComponent,
     PrenotazioniComponent,
-    NewPostComponent
+    NewPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+#elimina{
+    color: white;
+    background-color: #AA0000;
+}
+
+#user{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
+
+#like{
+    border-radius: 100%;
+    display: flex;
+    justify-items: center;
+    background-color: transparent;
+    border-color: transparent;
+}
