@@ -1,5 +1,8 @@
 .contenitore-carta {
     gap: 1vw;
     row-gap: 3vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   

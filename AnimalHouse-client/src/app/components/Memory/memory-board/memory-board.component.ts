@@ -23,30 +23,70 @@ export class MemoryBoardComponent implements OnInit {
   @Input() numeroCoppie: 5 | 8 | 12 = 5;
   carte: Carta[] = [];
   private loading: boolean = true;
+  mosse: number = 0
+  cartaGirata?: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    
-    console.log("Num coppie", this.numeroCoppie)
-    for (let i = 0; i < this.numeroCoppie; i++) {
+    for (let id = 0; id < this.numeroCoppie; id++) {
       var urlPromise: Promise<string> = getRandomDogUrl();
 
       urlPromise.then(urlCaneRandom => {
-        this.carte.push({id: 0, url: urlCaneRandom});
-        this.carte.push({id: 0, url: urlCaneRandom});
+        this.carte.push({id: id, url: urlCaneRandom, stato: "coperta"});
+        this.carte.push({id: id, url: urlCaneRandom, stato: "coperta"});
         
 
         //Mescolo l'ordine delle carte
         for (let i = this.carte.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
+          console.log("i:", i, "j:", j);
           [this.carte[i], this.carte[j]] = [this.carte[j], this.carte[i]];
           this.carte[i].id = i;
           this.carte[j].id = j;
         }
-      })
-    }
 
-    this.loading = false;
+        this.loading = false;
+      })      
+    }
+  }
+
+
+  giraCarta(id: number): void {
+    this.carte[id] 
+  }
+
+
+  stampaId(id: number): void {
+    this.mosse++;
+    console.log(id);
+    this.carte[id].stato = "scoperta"
+  }
+
+
+  controlloCoppie(id: number): void {
+    if(this.carte[id].stato === 'coperta'){ //Controllo nel caso si clicki una carta scoperta o accoppiata
+      if(this.cartaGirata === undefined){   //Se è undefined vuol dire che è la prima carta che giro delle due
+        this.cartaGirata = this.carte[id];
+        this.carte[id].stato='scoperta';
+      } else {
+        this.carte[id].stato='scoperta';
+        if(this.cartaGirata.url === this.carte[id].url){  //Controllo gli url della carta precedentemente girata
+          //Coppia
+          this.carte[id].stato='accoppiata';
+          this.carte[this.cartaGirata.id].stato = 'accoppiata';
+          this.cartaGirata = undefined;   //Rimetto cartaGirata vuota 
+        } else {
+          //Sbagliato
+          setTimeout(() => {                //Timer per tenere la carta mostrata per 2 secondi
+            this.carte[id].stato='coperta';
+            this.carte[this.cartaGirata.id].stato = 'coperta';
+            this.cartaGirata = undefined;   //Rimetto cartaGirata vuota
+          }, 2000);
+        }
+        this.mosse++;                   //Incremento il contatore mosse
+        
+      }
+    }
   }
 }

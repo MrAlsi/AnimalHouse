@@ -1,7 +1,7 @@
 <div class="border border-dark board">
-  <div class="d-flex flex-row flex-wrap contenitore-carta">
+  <div class="contenitore-carta">
     <div *ngFor="let carta of carte;">
-      <app-carta [url]="carta.url"></app-carta>
+      <app-carta [url]="carta.url" (click)="controlloCoppie(carta.id)" [stato] = "carta.stato"></app-carta>
     </div>
   </div>
 </div>

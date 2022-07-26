@@ -1,6 +1,16 @@
 <div class="carta">
-  <div class="coperta" *ngIf="coperta" (click)="coperta = false"></div>
-  <div class="scoperta" *ngIf="! coperta">
+  <!-- carta coperta -->
+  <div class="coperta" *ngIf="stato === 'coperta'">
+    
+  </div>
+    
+  <!-- carta scoperta -->
+  <div class="scoperta" *ngIf="stato === 'scoperta'">
+    <img class="img-responsive rounded" src="{{url}}">
+  </div>
+
+  <!-- carta accoppiata -->
+  <div class="accoppiata" *ngIf="stato === 'accoppiata'">
     <img class="img-responsive rounded" src="{{url}}">
   </div>
 </div>
