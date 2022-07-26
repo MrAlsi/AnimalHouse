@@ -18,12 +18,15 @@
 <!-- Apre il gioco selezionato-->
 <div id="gioco">
     <div *ngIf="memory">
+        <h2 class="mb-4">Memory</h2>
         <app-memory></app-memory>
     </div>
     <div *ngIf="quiz">
+        <h2 class="mb-4">Quiz</h2>
         <app-quiz></app-quiz>
     </div>
     <div *ngIf="quantiSono">
+        <h2 class="mb-4">Quanti ce ne sono</h2>
         <h2>devo ancora crearlo</h2>
     </div>
 </div>

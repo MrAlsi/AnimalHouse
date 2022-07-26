@@ -1,4 +1,5 @@
 export interface Carta {
   id: number,
-  url: string
+  url: string,
+  stato: "coperta" | "scoperta" | "accoppiata",
 }

@@ -1,12 +1,13 @@
-<h2 class="mb-4">Memory</h2>
-<div *ngIf="gioco === false">
-  <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(5)">5</button>
-  <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(8)">8</button>
-  <button type="button" class="btn btn-primary" (click)="numeroDiCoppie(12)">12</button>
+<div *ngIf="gioco === false" class="menuMemory">
+  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(5)">Modalità facile: 5 coppie</button>
+  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(8)">Modalità media: 8 coppie</button>
+  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(12)">Modalità difficile: 12 coppie</button>
 </div>
 <div *ngIf="gioco === true">
-  <span>Mosse: <span id="mosse">0</span></span>
-  <p> {{numeroCoppieNum}}</p>
-  <app-memory-board [numeroCoppie] = "numeroCoppieNum"></app-memory-board>
+  <span>Mosse: {{mosse}}</span>
+  <app-memory-board [numeroCoppie] = "numeroCoppieNum" (numeroMosse)="mosse = $event"></app-memory-board>
 </div>
-
+<!--
+<div *ngIf=" vittoria === true">
+  <p>Concgratulazione hai vinto {{mosse}} con mosse!</p>
+</div>-->

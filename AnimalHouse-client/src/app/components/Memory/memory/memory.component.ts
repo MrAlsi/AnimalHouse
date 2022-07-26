@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-memory',
@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MemoryComponent implements OnInit {
   gioco: boolean = false;
   numeroCoppieNum: 5 | 8 | 12 = 5;
-
-
   url: string = 'https://dog.ceo/api/breeds/image/random';
+  mosse: number = 0
 
   constructor() { }
 
@@ -19,7 +18,6 @@ export class MemoryComponent implements OnInit {
 
   numeroDiCoppie(n: 5 | 8 | 12): void{
     this.numeroCoppieNum = n;
-    console.log("memory", this.numeroCoppieNum)
     this.gioco = true;
   }
 }
