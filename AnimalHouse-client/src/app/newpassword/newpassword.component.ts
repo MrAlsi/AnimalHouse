@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 import { CodividiUserService } from '../codividi-user.service';
+import { CambiaPasswordService } from '../cambia-password.service';
 
 
 
@@ -19,9 +20,10 @@ export class NewpasswordComponent implements OnInit {
   form: FormGroup;
   id?: string;
   password?: string;
+  //msgalert?: string;
 
 
-  constructor( public codice: ControllaCodiceService, public fb: FormBuilder, public http: HttpClient, public biscotto: MangiaBiscottoService, public condividi: CodividiUserService) {
+  constructor( public codice: ControllaCodiceService, public fb: FormBuilder, public http: HttpClient, public biscotto: MangiaBiscottoService, public condividi: CodividiUserService, public cambia: CambiaPasswordService) {
     this.form = fb.group({
       "password": ['',Validators.required]
     });
@@ -34,8 +36,9 @@ export class NewpasswordComponent implements OnInit {
 
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
-  controllaPassword(): void{
+ /* controllaPassword(): void{
     if(!this.form.valid){
+      //this.msgalert=("Dati mancanti");
       alert("Dati mancanti");
       return;
     }else{
@@ -69,5 +72,5 @@ export class NewpasswordComponent implements OnInit {
           });
       });
     }
-  }
+  }*/
 }

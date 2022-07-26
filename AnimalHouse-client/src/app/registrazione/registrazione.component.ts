@@ -18,6 +18,7 @@ export class RegistrazioneComponent implements OnInit {
   form2: FormGroup;
   postId: any; //id di ritorno da mongo
   url: string= "utenti"; //per indirizzare alla collection
+  msgalert?: string;
 
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient, public cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
@@ -39,9 +40,11 @@ export class RegistrazioneComponent implements OnInit {
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaInput(): void{
+    this.msgalert=('');
     console.log(this.form);
     if(!this.form.valid || !this.form2.valid){
-      alert("Dati mancanti");
+      this.msgalert=("Dati mancanti");
+      //alert("Dati mancanti");
       return;
     }else{
       //controllo l'user non sia già in uso
@@ -66,15 +69,18 @@ export class RegistrazioneComponent implements OnInit {
                   }
                 });
               }else{
-                alert("le password non coincidono");
+                this.msgalert=("le password non coincidono");
+                //alert("le password non coincidono");
               }
             }else{
-              alert( "mail: "+this.form.value.email+" è già in uso")
+              this.msgalert=("mail: "+this.form.value.email+" è già in uso");
+              //alert( "mail: "+this.form.value.email+" è già in uso")
             }
           });
         }else{
           console.log("username già in uso")
-          alert( "username: "+this.form.value.username+" è già in uso")
+          this.msgalert=("username: "+this.form.value.username+" è già in uso");
+          //alert( "username: "+this.form.value.username+" è già in uso")
           return;
         }
       });

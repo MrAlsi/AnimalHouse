@@ -10,6 +10,9 @@ router.put('/:collezione', routers.setData);
 //READ: tutti i dati da una collection
 router.get('/:collezione', routers.getCollection);
 
+//dato un professionista cerca le recensioni su di lui
+router.get('/recensioni/:professionista', routers.cercaRecProf);
+
 //dato un user ti ritorna i documenti con quell'user
 router.get('/:collezione/:username', routers.cercaUser);
 

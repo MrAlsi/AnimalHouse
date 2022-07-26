@@ -19,6 +19,7 @@ export class ProfessionistiComponent implements OnInit {
   //collezione?: any;
   search: boolean= false;
   ruolo?: string;
+  msgalert?: string;
 
   constructor(public fb: FormBuilder, private router: Router, public biscotto: MangiaBiscottoService, public http: HttpClient, public DB: AggiungiDBService) { 
     this.form = fb.group({
@@ -52,7 +53,8 @@ export class ProfessionistiComponent implements OnInit {
             this.search=true;
             this.collezioni=data;
           }else{
-            alert("Ci dispiace, il professionista cercato non esiste");
+            this.msgalert=("Ci dispiace, il professionista cercato non esiste");
+            //alert("Ci dispiace, il professionista cercato non esiste");
           }
         });
     }else{

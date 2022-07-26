@@ -13,6 +13,7 @@ export class AggiungiCuriositaComponent implements OnInit {
   form: FormGroup;
   url: string = "curiosita";
   listaCuriosita?: string[] = [];
+  msgalert?: string;
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService) { 
     this.form = fb.group({
@@ -35,7 +36,8 @@ export class AggiungiCuriositaComponent implements OnInit {
   aggiungi(ls: boolean): void{
     this.form.value.curiosita = this.listaCuriosita;
     if(!this.form.valid){
-      alert("Dati mancanti");
+      this.msgalert=("dati mancati");
+      //alert("Dati mancanti");
       return;
     } else {
         this.db.aggiungiDB(this.form.value, this.url);
