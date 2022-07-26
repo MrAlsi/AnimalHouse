@@ -37,7 +37,11 @@ export class HomeService {
   }
 
   newPost(): void{
-    this.newpost=true;
+    if(this.newpost==false){
+      this.newpost=true;
+    }else{
+      this.newpost=false;
+    }
   }
 
   salva1(): void{
@@ -50,7 +54,6 @@ export class HomeService {
     }
     this.post.testo=this.form.value.testo;
     this.salvaDB(this.post);
-    //@todo caricare sul db
     window.location.reload();
   }
   

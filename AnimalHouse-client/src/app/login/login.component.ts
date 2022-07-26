@@ -30,7 +30,11 @@ export class LoginComponent implements OnInit {
   }
 
   dimenticata(): void{
-    this.selectedDimenticata= true;
+    if(this.selectedDimenticata==false){
+      this.selectedDimenticata= true;
+    }else{
+      this.selectedDimenticata= false;
+    }
   }
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
