@@ -4,7 +4,10 @@
   <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(12)">Modalità difficile: 12 coppie</button>
 </div>
 <div *ngIf="gioco === true">
-  <span>Mosse: <span id="mosse">0</span></span>
-  <app-memory-board [numeroCoppie] = "numeroCoppieNum"></app-memory-board>
+  <span>Mosse: {{mosse}}</span>
+  <app-memory-board [numeroCoppie] = "numeroCoppieNum" (numeroMosse)="mosse = $event"></app-memory-board>
 </div>
-
+<!--
+<div *ngIf=" vittoria === true">
+  <p>Concgratulazione hai vinto {{mosse}} con mosse!</p>
+</div>-->

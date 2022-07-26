@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Carta} from "../carta";
 
 async function getRandomDogUrl(): Promise<string> {
@@ -26,7 +26,7 @@ export class MemoryBoardComponent implements OnInit {
   mosse: number = 0
   cartaGirata?: any;              //Tiene in memoria la prima carta girata  
   dueCarte: boolean = false;      //serve per il bug di cliccare carte mentre c'è la pausa che mostra le due carte girate
-
+  @Output() numeroMosse = new EventEmitter<number>();
 
   constructor() { }
 
@@ -42,7 +42,6 @@ export class MemoryBoardComponent implements OnInit {
         //Mescolo l'ordine delle carte
         for (let i = this.carte.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          console.log("i:", i, "j:", j);
           [this.carte[i], this.carte[j]] = [this.carte[j], this.carte[i]];
           this.carte[i].id = i;
           this.carte[j].id = j;
@@ -52,19 +51,6 @@ export class MemoryBoardComponent implements OnInit {
       })      
     }
   }
-
-
-  giraCarta(id: number): void {
-    this.carte[id] 
-  }
-
-
-  stampaId(id: number): void {
-    this.mosse++;
-    console.log(id);
-    this.carte[id].stato = "scoperta"
-  }
-
 
   controlloCoppie(id: number): void {
     if(this.carte[id].stato === 'coperta' && this.dueCarte===false){ //Controllo nel caso si clicki una carta scoperta o accoppiata
@@ -91,8 +77,15 @@ export class MemoryBoardComponent implements OnInit {
           }, 2000);
         }
         this.mosse++;                   //Incremento il contatore mosse
-        
+        this.getNumeroMosse();
       }
     }
   }
+
+  getNumeroMosse() {
+    console.log("mosse", this.mosse);
+    this.numeroMosse.emit(this.mosse);
+
+  }
+
 }
