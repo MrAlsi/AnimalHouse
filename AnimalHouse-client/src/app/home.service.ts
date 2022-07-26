@@ -56,6 +56,7 @@ export class HomeService {
   
 
   addFoto(): void{
+    this.msgalert='';
     if(this.carica==false){
       this.carica=true;
     }else{
