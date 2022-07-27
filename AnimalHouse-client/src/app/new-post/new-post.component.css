@@ -1,18 +1,16 @@
-#title{
-    font-weight: bolder;
-    text-align: center;
-}
-
 #subtitle{
-    text-align: center;
-    margin-right: 5%;
-    margin-left: 5%;
-    font-size: medium;
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
 }
 
-#btnadd{
+.btn.btn-secondary.btn-sm{
+    color: white;
+    background-color: #AA0000;
+}
+
+#addFoto{
     border-radius: 100%;
-    margin-left: 7%;
     display: flex;
     justify-items: center;
     background-color: transparent;

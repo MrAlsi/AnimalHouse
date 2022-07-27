@@ -49,6 +49,8 @@ import { AddProfessionistiComponent } from './add-professionisti/add-professioni
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { PostComponent } from './post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +94,9 @@ import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-ute
     AddProfessionistiComponent,
     ProfiloProfComponent,
     PrenotazioniComponent,
-    ClassificheUtenteComponent
+    ClassificheUtenteComponent,
+    NewPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

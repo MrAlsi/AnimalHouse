@@ -1,21 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 
-
-
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-new-post',
+  templateUrl: './new-post.component.html',
+  styleUrls: ['./new-post.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class NewPostComponent implements OnInit {
 
   constructor(public home: HomeService) { }
 
   ngOnInit(): void {
   }
-
-
-  
 
 }

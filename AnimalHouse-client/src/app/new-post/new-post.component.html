@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-body">
+        <p id="subtitle">New post</p>
+        <form (ngSubmit)="home.salva1()" [formGroup]="home.form">                
+            <div class="form-group">
+                <input class="form-control" id="testo" type="text" name="testo" placeholder="A cosa stai pensando?" formControlName="testo" maxlength="100"/>
+            </div>
+            <button type="button" id="addFoto" (click)="home.addFoto()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+                  </svg>
+            </button>
+            <div *ngIf="home.carica==true">
+                <form class="foto" (ngSubmit)="home.salva2()" [formGroup]="home.form2">
+                    <div class="form-group">
+                        <input class="form-control" id="img" type="file" accept="image/*,video/*" name="img" formControlName="img"/>
+                    </div>
+                    <br>
+                    <div *ngIf="home.msgalert">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                            <div>
+                              {{home.msgalert}}
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <button type="submit" id="btnpiccolo"class="btn btn-secondary btn-sm">Salva</button>
+
+                </form>
+            </div>
+            <br>
+            <div *ngIf="home.carica==false">
+                <div *ngIf="home.msgalert">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>
+                          {{home.msgalert}}
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-sm">Salva</button>
+            </div>
+        </form>
+        
+
+    </div>
+</div>
