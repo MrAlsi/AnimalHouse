@@ -70,14 +70,10 @@ export class ProfiloProfComponent implements OnInit {
           }
           console.log("dato",this.dato);
           this.recensioni?.push(this.dato);
-          
           }
         console.log("array", this.recensioni);
         return;
       });
-
-
-    
   }
 
   prenota(): void{

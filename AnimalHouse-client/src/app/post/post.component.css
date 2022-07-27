@@ -1,6 +1,7 @@
 #elimina{
     color: white;
     background-color: #AA0000;
+    margin-left: 2%;
 }
 
 #user{
@@ -15,4 +16,8 @@
     justify-items: center;
     background-color: transparent;
     border-color: transparent;
+}
+
+#sonoio{
+    display: flex;
 }

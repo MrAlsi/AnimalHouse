@@ -17,9 +17,12 @@
                     </div>
                     <br>
                     <div *ngIf="home.username==post.user || home.ruolo=='admin';then thenBlock1 else elseBlock1"></div>
-                    <ng-template #thenBlock1>
-                        <p>{{post.mipiace}} likes</p>
-                        <button id="elimina" type="button" class="btn btn-secondary btn-sm" (click)="this.elimina(post._id)">Elimina</button>
+                    <ng-template #thenBlock1 >
+                        <div id="sonoio">
+                            <p>{{post.mipiace}} likes</p>
+                            <button id="elimina" type="button" class="btn btn-secondary btn-sm" (click)="this.elimina(post._id)">Elimina</button>
+                        </div>
+                        
                     </ng-template>
                     <ng-template #elseBlock1><!--mancano i controlli per il dislike-->
                         <p>{{post.mipiace}} likes</p>
@@ -31,6 +34,7 @@
                     </ng-template>
                 </div>
             </div>
+            <br>
         </div>
     </div>
 </div>
