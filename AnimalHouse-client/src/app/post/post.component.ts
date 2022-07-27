@@ -10,14 +10,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+  likes:any[]=[];
   numlike?: any;
 
   constructor(public home: HomeService, public http: HttpClient) { }
 
   ngOnInit(): void {
     this.home.posted();
-    //@todo prendere i post a cui hai messo mi piace gli metto in un array
+    //@todo controllare i post a cui hai messo mi piace
   }
 
   elimina(id: any): void{
@@ -30,28 +30,52 @@ export class PostComponent implements OnInit {
   }
 
   like(myuser: string, id: any): void{
-
+    var user=this.home.username;
+    console.log("azz",id);
     //@todo aggiungere i like nel db
-    //@todo aggiungere il post nell'array
+    this.http.put<any>('http://localhost:3000/CRUD/persone/post/'+ id,{user})
+      .subscribe(data=>{
+        console.log("azz",data.like);
+        this.likes.push(data.like);
+        this.likes.push(user);
+        for(var i=0; i<this.likes.length;i++){
+          console.log("caio",this.likes[i]);
+        }
+        //window.location.reload();
+      });
     //@todo aumentare i like al post
     this.http.get<any>('http://localhost:3000/CRUD/one/post/'+ id)
       .subscribe(data => {
         console.log("post",data);
         this.numlike=data.mipiace;
-        return;
+        var like=this.numlike +1;
+        this.http.put<any>('http://localhost:3000/CRUD/like/post/'+ id,{like})
+          .subscribe(data=>{
+            console.log(like);
+            data.mipiace=like;
+            //window.location.reload();
+          });
       });
-    const like=this.numlike ++;
-    /*this.http.put<any>('http://localhost:3000/CRUD/post/'+ id,{like})
-      .subscribe(data=>{
-        data.mipiace=like;
-        return;
-      }); */
   }
 
   dislike(myuser: string, id: any): void{
-    //@todo togleire i like nel db
+    //@todo togliere i like nel db
     //@todo togliere il post nell'array
     //@todo diminuire i like al post
+    this.http.get<any>('http://localhost:3000/CRUD/one/post/'+ id)
+      .subscribe(data => {
+        console.log("post",data);
+        this.numlike=data.mipiace;
+        console.log(typeof(this.numlike));
+
+        var like=this.numlike -1;
+        this.http.put<any>('http://localhost:3000/CRUD/like/post/'+ id,{like})
+          .subscribe(data=>{
+            console.log(like);
+            data.mipiace=like;
+            window.location.reload();
+          });
+      });
   }
 
 

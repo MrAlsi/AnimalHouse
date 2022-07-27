@@ -23,7 +23,8 @@ export class HomeService {
     testo: '',
     img: '',
     user: '',
-    mipiace: 0
+    mipiace: 0,
+    like: []
   };
   collezioni?: any;
 

@@ -57,6 +57,17 @@ exports.updateOnePasswordDocument = (req, res) => {
   });
 }
 
+//aggiorna i like di un post
+exports.updateLike = (req, res) => {
+  const body = req.body.like;
+  //console.log("Body:", req.body.pp);
+  return db.collection('post').updateOne({_id:ObjectId(req.params.id)},{$set:{"mipiace": body}}, (err,cursor)=>{
+    if(err) console.log ("Err: ", err);
+    console.log("ciao",cursor);
+    res.json(cursor);
+  });
+}
+
 //passata un user cerca gli user con quell'user
 exports.cercaUser = async (req,res)=> {
   console.log("collezione", req.params.collezione);
@@ -67,6 +78,17 @@ exports.cercaUser = async (req,res)=> {
   });
 }
 
+//aggiorna le persone a cui piace il post
+exports.updateMipiace = (req, res) => {
+  const body = req.body.user;
+  //console.log("Body:", req.body.pp);
+  return db.collection('post').updateOne({_id:ObjectId(req.params.id)},{$set:{"like": body}}, (err,cursor)=>{
+    if(err) console.log ("Err: ", err);
+    console.log("ciao",cursor);
+    res.json(cursor);
+  });
+}
+
 exports.cercaRecProf = async( req,res)=>{
   return await db.collection('recensioni').find({professinista: (req.params.id) }).toArray((err, risp)=>{
       if(err) console.log ("Err: ", err);
@@ -74,6 +96,8 @@ exports.cercaRecProf = async( req,res)=>{
       res.json(risp);
   });
 }
+
+
 
 
 
