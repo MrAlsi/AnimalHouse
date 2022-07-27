@@ -61,13 +61,7 @@ export class ProfiloProfComponent implements OnInit {
       .subscribe(data=>{
         for(var i = 0; i < data.length; i++){
           console.log("ciao",i);
-          //controllo se sono io
-          if(data[i].utente==this.user){
-            this.sonoio=true;
-          }else{
-            this.sonoio=false;
-          }
-          //prendo l'username di chi ha scritto la recensiones
+          //prendo l'username di chi ha scritto la recensione
           console.log("utente", i);
           this.dato={
             u: data[i].utente,

@@ -74,7 +74,7 @@
                                             <div class="card">
                                                 <p class="utente">{{recensione.u}}</p>
                                                 <p>{{recensione.r}}</p>
-                                                <div *ngIf="sonoio==true || this.ruolo=='admin'">
+                                                <div *ngIf="user== recensione.u || this.ruolo=='admin'">
                                                     <button class="btn btn-secondary btn-sm" type="submit" (click)="eliminaRec(recensione.id)">Elimina</button>
                                                 </div>
                                             </div>

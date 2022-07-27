@@ -32,10 +32,10 @@ export class HomeService {
     this.ruolo=this.biscotto.getRuolo();
     this.username=this.biscotto.getUsername();
     this.form = fb.group({
-      'testo': ['A cosa stai pensando?']
+      'testo': ['']
     })
     this.form2= fb.group({
-      'img': ['Inserisci immagine']
+      'img': ['']
 
     })
   }

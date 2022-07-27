@@ -3,7 +3,7 @@
         <p id="subtitle">New post</p>
         <form (ngSubmit)="home.salva1()" [formGroup]="home.form">                
             <div class="form-group">
-                <input class="form-control" id="testo" type="text" name="testo" formControlName="testo" maxlength="100"/>
+                <input class="form-control" id="testo" type="text" name="testo" placeholder="A cosa stai pensando?" formControlName="testo" maxlength="100"/>
             </div>
             <button type="button" id="addFoto" (click)="home.addFoto()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
