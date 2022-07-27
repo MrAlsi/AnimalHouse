@@ -20,25 +20,30 @@ async function getRandomDogUrl(): Promise<string> {
 })
 
 export class MemoryBoardComponent implements OnInit {
-  @Input() numeroCoppie: 5 | 8 | 12 = 5;
-  carte: Carta[] = [];
-  private loading: boolean = true;
-  mosse: number = 0
-  cartaGirata?: any;              //Tiene in memoria la prima carta girata  
-  dueCarte: boolean = false;      //serve per il bug di cliccare carte mentre c'è la pausa che mostra le due carte girate
+  @Input() numeroCoppie: 5 | 8 | 12 = 5;  //Numero di coppie scelto dall'utente
+  coppieTrovate: number = 0;              //Per capire quando si vince
+  carte: Carta[] = [];                    //Array di carte
+  mosse: number = 0                       //Conteggio di numero di mosse
+  cartaGirata?: any;                      //Tiene in memoria la prima carta girata  
+  dueCarte: boolean = false;              //Serve per il bug di cliccare carte mentre c'è la pausa che mostra le due carte girate
   @Output() numeroMosse = new EventEmitter<number>();
+  @Output() segnalaVittoria = new EventEmitter<string>();
+  private loading: boolean = true;
+
 
   constructor() { }
-
+  
   ngOnInit(): void {
+    //Creatore delle carte per giocare
     for (let id = 0; id < this.numeroCoppie; id++) {
+      
+      //Richiama le API per prendere le immagini
       var urlPromise: Promise<string> = getRandomDogUrl();
 
       urlPromise.then(urlCaneRandom => {
-        this.carte.push({id: id, url: urlCaneRandom, stato: "coperta"});
+        this.carte.push({id: id, url: urlCaneRandom, stato: "coperta"});  //Aggiunge le carte all'array
         this.carte.push({id: id, url: urlCaneRandom, stato: "coperta"});
         
-
         //Mescolo l'ordine delle carte
         for (let i = this.carte.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -66,6 +71,10 @@ export class MemoryBoardComponent implements OnInit {
           this.carte[this.cartaGirata.id].stato = 'accoppiata';
           this.cartaGirata = undefined;   //Rimetto cartaGirata vuota 
           this.dueCarte = false;
+          this.coppieTrovate++;
+          if(this.coppieTrovate === this.numeroCoppie){
+            this.vittoria();
+          }
 
         } else {
           //Sbagliato
@@ -74,7 +83,7 @@ export class MemoryBoardComponent implements OnInit {
             this.carte[this.cartaGirata.id].stato = 'coperta';
             this.cartaGirata = undefined;   //Rimetto cartaGirata vuota
             this.dueCarte = false;
-          }, 2000);
+          }, 1200);
         }
         this.mosse++;                   //Incremento il contatore mosse
         this.getNumeroMosse();
@@ -82,10 +91,14 @@ export class MemoryBoardComponent implements OnInit {
     }
   }
 
+  //Evento per segnalare al component <memory> il numero di mosse è cambiato
   getNumeroMosse() {
-    console.log("mosse", this.mosse);
     this.numeroMosse.emit(this.mosse);
+  }
 
+  //Evento per segnalare al component <memory> che il giocatore ha vinto
+  vittoria() {
+    this.segnalaVittoria.emit("vittoria");
   }
 
 }

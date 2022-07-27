@@ -19,6 +19,21 @@ export class RegistrazioneComponent implements OnInit {
   postId: any; //id di ritorno da mongo
   url: string= "utenti"; //per indirizzare alla collection
   msgalert?: string;
+  dati?: any;
+  salvaGiochi = {
+    quiz:[{ "0": {punteggio: 0, count: 0} },
+      { "1": {punteggio: 0, count: 0} },
+      { "2": {punteggio: 0, count: 0} },
+      { "3": {punteggio: 0, count: 0} },
+      { "4": {punteggio: 0, count: 0} },
+      { "5": {punteggio: 0, count: 0} },
+      { "6": {punteggio: 0, count: 0} },
+      { "7": {punteggio: 0, count: 0} },
+      { "8": {punteggio: 0, count: 0} },
+      { "9": {punteggio: 0, count: 0} },
+      { "10": {punteggio: 0, count: 0} }]
+
+  }
 
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService, public http: HttpClient, public cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
@@ -28,7 +43,30 @@ export class RegistrazioneComponent implements OnInit {
       "email": ['',Validators.required],
       "username": ['',Validators.required],
       "password": ['',Validators.required],
-      "ruolo": ['utente']
+      "ruolo": ['utente'],
+      //servono per tenere i punteggi dei giochi
+      "quiz":[[{punteggio: 0, count: 0} ,
+              {punteggio: 1, count: 0}, 
+              {punteggio: 2, count: 0}, 
+              {punteggio: 3, count: 0}, 
+              {punteggio: 4, count: 0}, 
+              {punteggio: 5, count: 0}, 
+              {punteggio: 6, count: 0}, 
+              {punteggio: 7, count: 0}, 
+              {punteggio: 8, count: 0}, 
+              {punteggio: 9, count: 0}, 
+               {punteggio: 10, count: 0}]],
+      "impiccato":[[{punteggio: 1, count: 0},
+                   {punteggio: 2, count: 0},
+                   {punteggio: 3, count: 0},
+                   {punteggio: 4, count: 0},
+                   {punteggio: 5, count: 0},
+                   {punteggio: 6, count: 0},
+                   {punteggio: 0, count: 0} ]],
+      "memory-facile": [[]],
+      "memory-medio": [[]],
+      "memory-difficile": [[]]
+
     });
     this.form2=fb.group({
       "confirmpassword": ['',Validators.required],
@@ -37,6 +75,7 @@ export class RegistrazioneComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaInput(): void{
@@ -58,6 +97,11 @@ export class RegistrazioneComponent implements OnInit {
             if(data1==null){ //se data è vuoto non è in uso
               if(this.form.value.password==this.form2.value.confirmpassword){
                 this.db.aggiungiDB(this.form.value, this.url);
+                
+
+
+
+
                 //Chiamata al db per salvare il token
                 this.http.put<any>('http://localhost:3000/ricercaUtenti', {user: this.form.value.username, password: this.form.value.password})
                 .subscribe(data => {
@@ -67,6 +111,7 @@ export class RegistrazioneComponent implements OnInit {
                     this.biscotto.getRuolo(); //richiamo metodo per prendere il ruolo dal token
                     this.router.navigate(['preferenze']);
                   }
+                  console.log("DATAAAAAA:", data);
                 });
               }else{
                 this.msgalert=("le password non coincidono");

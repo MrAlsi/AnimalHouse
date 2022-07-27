@@ -48,6 +48,7 @@ import { MemoryBoardComponent } from './components/memory/memory-board/memory-bo
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
+import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
     AppuntamentiComponent,
     AddProfessionistiComponent,
     ProfiloProfComponent,
-    PrenotazioniComponent
+    PrenotazioniComponent,
+    ClassificheUtenteComponent
   ],
   imports: [
     BrowserModule,
