@@ -48,6 +48,7 @@ import { MemoryBoardComponent } from './components/memory/memory-board/memory-bo
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
+import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostComponent } from './post/post.component';
 @NgModule({
@@ -93,6 +94,7 @@ import { PostComponent } from './post/post.component';
     AddProfessionistiComponent,
     ProfiloProfComponent,
     PrenotazioniComponent,
+    ClassificheUtenteComponent,
     NewPostComponent,
     PostComponent
   ],
