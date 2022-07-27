@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostComponent implements OnInit {
 
-  
+  numlike?: any;
 
   constructor(public home: HomeService, public http: HttpClient) { }
 
@@ -30,9 +30,22 @@ export class PostComponent implements OnInit {
   }
 
   like(myuser: string, id: any): void{
+
     //@todo aggiungere i like nel db
     //@todo aggiungere il post nell'array
     //@todo aumentare i like al post
+    this.http.get<any>('http://localhost:3000/CRUD/one/post/'+ id)
+      .subscribe(data => {
+        console.log("post",data);
+        this.numlike=data.mipiace;
+        return;
+      });
+    const like=this.numlike ++;
+    /*this.http.put<any>('http://localhost:3000/CRUD/post/'+ id,{like})
+      .subscribe(data=>{
+        data.mipiace=like;
+        return;
+      }); */
   }
 
   dislike(myuser: string, id: any): void{
