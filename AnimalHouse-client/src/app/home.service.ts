@@ -27,6 +27,9 @@ export class HomeService {
     like: []
   };
   collezioni?: any;
+  arrayPost:any[]=[];
+  homessomipiace?: boolean;
+
 
 
   constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) {
@@ -98,9 +101,30 @@ export class HomeService {
 
   posted(): void{
     this.http.get<any>('http://localhost:3000/CRUD/post/')
-        .subscribe(data => {
-          this.collezioni=data;
-          console.log(data);
-        });
+      .subscribe(data => {
+        this.collezioni=data;
+        var dati;
+        //controllo per ogni post se ho messo mi piace
+        for(var i=0;i<data.length;i++){
+          console.log("ciao");
+          this.homessomipiace=false;
+          for(var j=0;j<data[i].like.length;j++){
+            console.log("f",data[i]);
+            if(data[i].like[j]==this.username){
+              this.homessomipiace=true;
+              console.log("data",data[i]);
+              dati={
+                flag: this.homessomipiace,
+                postId: data[i]._id,
+              } 
+            this.arrayPost?.push(dati);
+            break;
+            }
+          }
+            
+          
+        }
+        console.log("array",this.arrayPost);
+      });
   }
 }
