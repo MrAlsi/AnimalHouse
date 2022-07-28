@@ -25,6 +25,13 @@ router.delete('/:collezione/:id', routers.deleteOneDocument);
 //dato un id aggiorna un dato
 router.put('/:collezione/:id', routers.updateOnePasswordDocument);
 
+//aggiorna i like di un post
+router.put('/like/post/:id', routers.updateLike);
+
+//aggiorna le persone a cui piace il post
+router.put('/persone/post/:id', routers.updateMipiace);
+
+
 
 
 
