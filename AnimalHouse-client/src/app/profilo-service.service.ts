@@ -27,6 +27,7 @@ export class ProfiloServiceService {
   idProfile?: string;
   sonoio?: boolean= false;
   ruolo?: string;
+  datiGiochi: any = [];
 
 
   profilo(): void {
@@ -49,7 +50,18 @@ export class ProfiloServiceService {
         if(data!==null){
           this.dati=data;
           this.idProfile=data._id;
-          console.log("id",this.idProfile);      
+
+          //Per prendere tutte le infromazioni dei giochi per passarli al component delle classifiche
+          this.datiGiochi.push(this.dati.quiz);
+          this.datiGiochi.push(this.dati.impiccato);
+          this.datiGiochi.push(this.dati.memory_facile);
+          this.datiGiochi.push(this.dati.memory_medio);
+          this.datiGiochi.push(this.dati.memory_difficile);
+          
+          console.log("Dati:", this.dati)
+          console.log("id",this.idProfile);
+          console.log("giochi", this.datiGiochi);
+
           this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.idProfile)
             .subscribe(data => {
               if(data!== null){

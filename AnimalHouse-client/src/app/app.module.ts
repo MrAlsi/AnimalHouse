@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SwiperModule } from 'swiper/angular';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -51,6 +52,7 @@ import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostComponent } from './post/post.component';
+import { ImpiccatoComponent } from './impiccato/impiccato.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,13 +98,15 @@ import { PostComponent } from './post/post.component';
     PrenotazioniComponent,
     ClassificheUtenteComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    ImpiccatoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
