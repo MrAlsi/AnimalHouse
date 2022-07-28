@@ -63,9 +63,9 @@ export class RegistrazioneComponent implements OnInit {
                    {punteggio: 5, count: 0},
                    {punteggio: 6, count: 0},
                    {punteggio: 0, count: 0} ]],
-      "memory-facile": [[]],
-      "memory-medio": [[]],
-      "memory-difficile": [[]]
+      "memory_facile": [[]],
+      "memory_medio": [[]],
+      "memory_difficile": [[]]
 
     });
     this.form2=fb.group({
