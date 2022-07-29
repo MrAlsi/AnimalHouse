@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SwiperModule } from 'swiper/angular';
-import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -43,9 +42,9 @@ import { VideoSliderComponent } from './components/video-slider/video-slider.com
 import { CommonModule } from '@angular/common';
 import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
 import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
-import { MemoryComponent } from './components/memory/memory/memory.component';
-import { CartaComponent } from './components/memory/carta/carta.component';
-import { MemoryBoardComponent } from './components/memory/memory-board/memory-board.component';
+import { MemoryComponent } from './components/Memory/memory/memory.component';
+import { CartaComponent } from './components/Memory/carta/carta.component';
+import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
@@ -106,7 +105,6 @@ import { ImpiccatoComponent } from './impiccato/impiccato.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgChartsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
