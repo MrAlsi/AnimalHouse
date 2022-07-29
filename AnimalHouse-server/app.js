@@ -25,7 +25,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/crud', crudRouter);
 app.use('/giochi', giochiRouter);
-app.use('/post',postRouter);
+app.use('/post', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

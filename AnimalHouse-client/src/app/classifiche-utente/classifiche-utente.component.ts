@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 
-
-
 @Component({
   selector: 'app-classifiche-utente',
   templateUrl: './classifiche-utente.component.html',

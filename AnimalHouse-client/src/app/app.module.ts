@@ -8,7 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
-import { HomepageComponent } from './homepage/homepage.component';
+//import { HomepageComponent } from './homepage/homepage.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
@@ -50,8 +50,9 @@ import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
 import { NewPostComponent } from './new-post/new-post.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './components/bacheca/post/post.component';
 import { ImpiccatoComponent } from './impiccato/impiccato.component';
+import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
