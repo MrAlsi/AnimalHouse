@@ -1,25 +1,18 @@
-
-#elimina{
-    color: white;
-    background-color: #AA0000;
-    margin-left: 2%;
-    padding: 2cm;
-}
-
-#user{
+#subtitle{
     background-color: #AA0000;
     color: white;
     font-weight: bolder;
 }
 
-#like{
+.btn.btn-secondary.btn-sm{
+    color: white;
+    background-color: #AA0000;
+}
+
+#addFoto{
     border-radius: 100%;
     display: flex;
     justify-items: center;
     background-color: transparent;
     border-color: transparent;
-}
-
-#sonoio{
-    display: flex;
 }

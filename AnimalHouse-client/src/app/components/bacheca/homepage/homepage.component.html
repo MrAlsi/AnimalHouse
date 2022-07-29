@@ -1,7 +1,12 @@
 <app-navbar></app-navbar>
+<h5 id="title">Benvenuto nella tua HomePage di Animal House!</h5>
+<p id="subtitle"> Condividi pensieri e immagini con il resto della community</p>
 <!-- Nuovo post -->
+<app-nuovo-post> </app-nuovo-post>
+<br>
 
 <!-- Tutti i post da guardare -->
 <div *ngFor="let post of posts">
     <app-post [post]=(post)> </app-post>
+    <br>
 </div>

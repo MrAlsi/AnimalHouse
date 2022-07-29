@@ -49,10 +49,10 @@ import { AddProfessionistiComponent } from './add-professionisti/add-professioni
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
-import { NewPostComponent } from './new-post/new-post.component';
 import { PostComponent } from './components/bacheca/post/post.component';
 import { ImpiccatoComponent } from './impiccato/impiccato.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
+import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,9 +97,10 @@ import { HomepageComponent } from './components/bacheca/homepage/homepage.compon
     ProfiloProfComponent,
     PrenotazioniComponent,
     ClassificheUtenteComponent,
-    NewPostComponent,
+    NuovoPostComponent,
     PostComponent,
-    ImpiccatoComponent
+    ImpiccatoComponent,
+    NuovoPostComponent
   ],
   imports: [
     BrowserModule,

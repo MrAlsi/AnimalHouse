@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 
 @Component({
@@ -14,3 +14,4 @@ export class NewPostComponent implements OnInit {
   }
 
 }
+*/

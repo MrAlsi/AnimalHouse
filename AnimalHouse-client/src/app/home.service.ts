@@ -28,8 +28,6 @@ export class HomeService {
   arrayPost:any[]=[];
   homessomipiace?: boolean;
 
-
-
   constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) {
     this.ruolo=this.biscotto.getRuolo();
     this.username=this.biscotto.getUsername();
