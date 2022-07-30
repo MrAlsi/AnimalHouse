@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SwiperModule } from 'swiper/angular';
-import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -9,11 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { LoginComponent } from './login/login.component';
 import { TitoloComponent } from './titolo/titolo.component';
-import { MemeComponent } from './meme/meme.component';
 import { DimenticataComponent } from './dimenticata/dimenticata.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
@@ -31,10 +28,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { RispostaComponent } from './risposta/risposta.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
 
-import { CartaMemoryComponent } from './carta-memory/carta-memory.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
@@ -43,16 +38,16 @@ import { VideoSliderComponent } from './components/video-slider/video-slider.com
 import { CommonModule } from '@angular/common';
 import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
 import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
-import { MemoryComponent } from './components/memory/memory/memory.component';
-import { CartaComponent } from './components/memory/carta/carta.component';
-import { MemoryBoardComponent } from './components/memory/memory-board/memory-board.component';
+import { MemoryComponent } from './components/Memory/memory/memory.component';
+import { CartaComponent } from './components/Memory/carta/carta.component';
+import { MemoryBoardComponent } from './components/Memory/memory-board/memory-board.component';
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-utente.component';
-import { NewPostComponent } from './new-post/new-post.component';
-import { PostComponent } from './post/post.component';
-import { ImpiccatoComponent } from './impiccato/impiccato.component';
+import { PostComponent } from './components/bacheca/post/post.component';
+import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
+import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +59,6 @@ import { ImpiccatoComponent } from './impiccato/impiccato.component';
     GiochiComponent,
     LoginComponent,
     TitoloComponent,
-    MemeComponent,
     DimenticataComponent,
     NewpasswordComponent,
     BabyAnimalComponent,
@@ -78,9 +72,7 @@ import { ImpiccatoComponent } from './impiccato/impiccato.component';
     ProfessionistiComponent,
     UtentiComponent,
     QuizComponent,
-    RispostaComponent,
     AggiungiCuriositaComponent,
-    CartaMemoryComponent,
     SafePipe,
     PageNotFoundComponent,
     PreferenzeComponent,
@@ -97,16 +89,15 @@ import { ImpiccatoComponent } from './impiccato/impiccato.component';
     ProfiloProfComponent,
     PrenotazioniComponent,
     ClassificheUtenteComponent,
-    NewPostComponent,
+    NuovoPostComponent,
     PostComponent,
-    ImpiccatoComponent
+    NuovoPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgChartsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

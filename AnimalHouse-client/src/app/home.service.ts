@@ -5,8 +5,6 @@ import { AggiungiDBService } from './aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -29,8 +27,6 @@ export class HomeService {
   collezioni?: any;
   arrayPost:any[]=[];
   homessomipiace?: boolean;
-
-
 
   constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) {
     this.ruolo=this.biscotto.getRuolo();

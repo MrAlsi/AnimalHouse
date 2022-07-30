@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import  {  NgChartsModule  }  from  'ng2-charts' ; 
 import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
-
-
 
 @Component({
   selector: 'app-classifiche-utente',

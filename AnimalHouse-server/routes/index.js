@@ -74,4 +74,5 @@ router.get('/professionisti/:nome', cercaProfessionista);
 //passato un tipo ti restituisce i professionisti con quel tipo
 router.get('/prof/professionisti/:tipo', cercaTipo);
 
+
 module.exports = router;
