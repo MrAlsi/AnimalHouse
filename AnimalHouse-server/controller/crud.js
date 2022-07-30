@@ -71,13 +71,7 @@ exports.cercaUser = async (req,res)=> {
 
 
 
-exports.cercaRecProf = async( req,res)=>{
-  return await db.collection('recensioni').find({professinista: (req.params.id) }).toArray((err, risp)=>{
-      if(err) console.log ("Err: ", err);
-      console.log("ciao",risp);
-      res.json(risp);
-  });
-}
+
 
 
 

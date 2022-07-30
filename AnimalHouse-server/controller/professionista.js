@@ -20,3 +20,23 @@ exports.cercaTipo = async (req,res)=> {
         res.json(risp);
     });
 }
+
+//passato un id di un professionista elimina le sue recnesioni
+exports.deleteRec= async(req,res)=>{
+    console.log("collezione", req.params.professionista)
+    return await db.collection(`${req.params.collezione}`).delete({professionista: (req.params.professionista) }, (err,cursor)=>{
+      if(err) console.log ("Err: ", err);
+      console.log("ciao",cursor);
+      res.json(cursor);
+    });
+  }
+
+
+exports.cercaRecProf = async(req,res)=>{
+    console.log(req.params.professionista);
+    return await db.collection('recensioni').find({professionista: (req.params.professionista) }).toArray((err, risp)=>{
+        if(err) console.log ("Err: ", err);
+        console.log("ciao",risp);
+        res.json(risp);
+    });
+}

@@ -3,6 +3,8 @@
 var express = require('express');
 var router = express.Router();
 const routers = require("../controller/crud")
+const {cercaProfessionista, cercaTipo, cercaRecProf}= require ("../controller/professionista");
+
 
 //CREATE: un documento in una collection
 router.put('/:collezione', routers.setData);
@@ -10,8 +12,6 @@ router.put('/:collezione', routers.setData);
 //READ: tutti i dati da una collection
 router.get('/:collezione', routers.getCollection);
 
-//dato un professionista cerca le recensioni su di lui
-router.get('/recensioni/:professionista', routers.cercaRecProf);
 
 //dato un user ti ritorna i documenti con quell'user
 router.get('/:collezione/:username', routers.cercaUser);

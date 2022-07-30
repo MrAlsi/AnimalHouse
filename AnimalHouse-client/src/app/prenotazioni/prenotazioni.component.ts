@@ -33,7 +33,7 @@ export class PrenotazioniComponent implements OnInit {
       this.tipo="Ripetizioni%20di%20canto";
     }
     //chiamata al db per prendere solo i professionisti di quella tipologia
-    this.http.get<any>('http://localhost:3000/prof/professionisti/'+ this.tipo)
+    this.http.get<any>('http://localhost:3000/professionista/'+ this.tipo)
       .subscribe(data=>{
         this.collezioni= data;
         console.log("data",data);

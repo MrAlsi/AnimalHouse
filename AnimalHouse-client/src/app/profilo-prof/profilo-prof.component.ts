@@ -56,11 +56,11 @@ export class ProfiloProfComponent implements OnInit {
         return;
       });
 
-    //perndo i dati delle recensioni
-    this.http.get<any>('http://localhost:3000/CRUD/recensioni/'+ this.id)
+    //prendo i dati delle recensioni
+    console.log("palle",this.id);
+    this.http.get<any>('http://localhost:3000/professionista/recensioni/'+ this.id)
       .subscribe(data=>{
         for(var i = 0; i < data.length; i++){
-          console.log("ciao",i);
           //prendo l'username di chi ha scritto la recensione
           console.log("utente", i);
           this.dato={
@@ -84,8 +84,14 @@ export class ProfiloProfComponent implements OnInit {
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+this.id)
       .subscribe(data => {
         console.log(data);
+        return;
       });
-      window.location.reload();
+      this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
+      .subscribe(data => {
+        console.log(data);
+        return;
+      });     
+    window.location.reload();
   }
 
   addRecensione(): void{
