@@ -14,6 +14,9 @@ export class AggiungiCuriositaComponent implements OnInit {
   url: string = "curiosita";
   listaCuriosita?: string[] = [];
   msgalert?: string;
+  msgsuccess?: string;
+  input: any = '';
+
 
   constructor(public fb: FormBuilder, private router: Router, public db: AggiungiDBService) { 
     this.form = fb.group({
@@ -30,7 +33,10 @@ export class AggiungiCuriositaComponent implements OnInit {
 
   aggiungiCuriosita(curiosita: string): void{
     this.listaCuriosita?.push(curiosita);
-    //Deve pulire la textfield
+    //Pulisco l'input
+    this.input = document.getElementById('curiosita');
+    this.input.value = ''; 
+
   }
 
   aggiungi(ls: boolean): void{
@@ -40,7 +46,9 @@ export class AggiungiCuriositaComponent implements OnInit {
       //alert("Dati mancanti");
       return;
     } else {
-        this.db.aggiungiDB(this.form.value, this.url);
+      this.db.aggiungiDB(this.form.value, this.url);
+      this.form.reset();
+      this.msgsuccess=("Animale aggiunto con successo");
   }
 }
 }

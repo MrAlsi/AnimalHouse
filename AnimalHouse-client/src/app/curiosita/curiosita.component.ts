@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
-import { CURIOSITA } from './lista-curiosita';
+
 
 @Component({
   selector: 'app-curiosita',
@@ -9,7 +9,6 @@ import { CURIOSITA } from './lista-curiosita';
   styleUrls: ['./curiosita.component.css']
 })
 export class CuriositaComponent implements OnInit {
-  //animali = CURIOSITA;
   animali?: any;
   stato?: string;
   id?: any;
@@ -17,8 +16,7 @@ export class CuriositaComponent implements OnInit {
   constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) {     
     this.httpClient.get('http://localhost:3000/curiosita').subscribe(data => { 
       console.log("Data: ", data);
-      this.animali = data;
-      
+      this.animali = data;     
     });
   }
 
@@ -35,21 +33,5 @@ export class CuriositaComponent implements OnInit {
       this.stato='';
     }
   }
-
-  ordinaBestie(data: any): void{
-    console.log("animali", data[0]);
-
-    let primo = 0;
-    for(let i = 0; i < data.lenght; i++){
-      if(data.animale[i]>data.animale[primo]){
-        primo = i;
-      }
-    }
-    
-    console.log(data[primo]);
-    this.animali?.push(data[primo]);
-    console.log(this.animali);
-  }
-
 
 }
