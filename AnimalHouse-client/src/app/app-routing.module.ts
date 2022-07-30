@@ -4,7 +4,6 @@ import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
-import { MemeComponent } from './meme/meme.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   {path: 'signupAdmin', component: RegistrazioneAdminComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'babyanimal/games', component: GiochiComponent},
-  {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},

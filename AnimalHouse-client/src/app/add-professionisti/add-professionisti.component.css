@@ -18,6 +18,11 @@ p{
     border-color:#AA0000;
 }
 
+.desc{
+    background-color: #AA0000;
+    color: white;
+}
+
 
 #disponibilità{
     display: flex;
