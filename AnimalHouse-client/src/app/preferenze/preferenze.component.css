@@ -1,9 +1,27 @@
 .scheda{
     display: flex;
     align-items: stretch;
-    width: 30%;
+    width: 210px;
+    height: 45%;
     margin-top: 2%;
     justify-content: center;
+}
+
+.card{
+    background-color: black;
+    color: white;
+    display: flex;    
+    justify-content: center;
+}
+
+
+.card-title{
+    justify-content: center;
+    display: flex;
+}
+img{
+    width: 200px;
+    height: 200px;
 }
 
 .contenitore{
@@ -11,7 +29,6 @@
     justify-content:space-between;
     flex-wrap: wrap;
     margin: 2%;
-
 }
 
 .selezionati{
@@ -37,15 +54,5 @@ button.btn{
     background-color: #AA0000;
 }
 
-.card{
-    background-color: black;
-    color: white;
-    display: flex;    
-    justify-content: center;
-}
+button:hover {background-color: #AA0000}
 
-
-.card-title{
-    justify-content: center;
-    display: flex;
-}

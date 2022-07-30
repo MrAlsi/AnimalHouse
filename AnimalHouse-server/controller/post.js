@@ -2,6 +2,14 @@ const { MongoClient, ObjectId } = require('mongodb');
 const jwt= require("jsonwebtoken");
 const db = require("../connessioneDB");
 
+exports.getPosts = (req, res) => {
+  db.collection('post').find().sort( { "_id": -1 } ).toArray((err, risp) => {
+    if(err) throw err;
+    console.log("res", risp);
+    res.json(risp);
+}) 
+}
+
 //aggiorna le persone a cui piace il post
 exports.updateMipiace = (req, res) => {
   const body = req.body.user;

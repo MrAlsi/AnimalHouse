@@ -66,6 +66,7 @@ router.put('/login', login.login);
 router.put('/controllaUsername', registrazione.controllaUsername );
 router.put('/controllaEmail', registrazione.controllaEmail);
 router.get('/curiosita', getCuriosity)
+router.get('/listaAnimali', registrazione.getAnimali);
 
 
 //passato un nome di restituisce i professionisti con quel nome

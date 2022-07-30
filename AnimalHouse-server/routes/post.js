@@ -3,6 +3,9 @@ var express = require('express');
 var router = express.Router();
 const routers = require("../controller/post")
 
+//prendi tutti i post
+router.get('/getPosts', routers.getPosts);
+
 //aggiungi le persone a cui piace il post
 router.put('/persone/:id', routers.updateMipiace);
 
