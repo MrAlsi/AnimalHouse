@@ -24,6 +24,7 @@
                             <p class="dati"> {{this.prof.via}}, n°{{this.prof.civico}}</p>
                             <p class="desc"> Descrizione: </p>
                             <p class="dati"> {{this.prof.descrizione}}</p>
+                            <br>
                             <p class="desc"> Servizio online: </p>
                             <div *ngIf="this.prof.online=='true'; then thenBlock1 else elseBlock1"></div>
                             <ng-template #thenBlock1>
@@ -53,9 +54,37 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    quando le faremo le metteremo
+                    <table class="table table-striped">
+                        <thead>
+                            
+                          <tr>
+                            <th rowspan="2" scope="col">Giorno</th>
+                            <th scope="col" colspan="2">Mattina</th>
+                            
+                            <th scope="col" colspan="2">Pomeriggio</th>
+                            
+                          </tr>
+                          <th scope="col">Da</th>
+                            <th scope="col">A</th>
+                            <th scope="col">Da</th>
+                            <th scope="col">A</th>
+                          <tr>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor=" let giorno of this.prof.disponibilita" >
+                                <td>{{this.giorno}}</td>
+                                <td>{{this.prof.mattinaDa}}</td>
+                                <td>{{this.prof.mattinaA}}</td>
+                                <td>{{this.prof.pomeriggioDa}}</td>
+                                <td>{{this.prof.pomeriggioA}}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                        
+                    </div>
                 </div>
-            </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
@@ -88,7 +117,6 @@
                         </div>
                     </div>
                     <div *ngIf="this.recensione==true">
-                        
                         <form (ngSubmit)="salvaRecensione()" [formGroup]="form">
                             <div class="card-body">
                                 <div class="card">
@@ -98,9 +126,7 @@
                                     <button class="btn btn-secondary btn-sm" type="submit">Salva</button>
                                 </div>
                             </div>
-                            
                         </form>
-                           
                     </div>
                 </div>            
             </div>

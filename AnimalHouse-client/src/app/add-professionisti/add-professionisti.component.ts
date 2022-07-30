@@ -33,14 +33,14 @@ export class AddProfessionistiComponent implements OnInit {
   constructor(public fb: FormBuilder, private router: Router, public biscotto: MangiaBiscottoService, public http: HttpClient, public DB: AggiungiDBService) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
-      "città": ['',Validators.required],
+      "citta": ['',Validators.required],
       "via": ['',Validators.required],
       "civico": ['',Validators.required],
       "descrizione": ['',Validators.required],
       "online": [this.on],
       "domicilio": [this.dom],
       "tipo": [this.ruolo],
-      "disponibilità": [this.disponibilità],
+      "disponibilita": [this.disponibilità],
       "mattinaDa":[Validators.required],
       "mattinaA":[Validators.required],
       "pomeriggioDa":[Validators.required],

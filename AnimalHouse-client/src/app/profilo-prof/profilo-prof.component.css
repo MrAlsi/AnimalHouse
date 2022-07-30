@@ -44,7 +44,11 @@
     grid-template-rows: 10% 10% 10% 10% 16% 15% 15%;
     text-align: left;
     justify-content: center;
-    align-items: end;
+    align-items: flex-start;
+}
+
+tr, th{
+    text-align: center;
 }
 
 
