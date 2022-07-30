@@ -34,7 +34,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { PreferitiComponent } from './preferiti/preferiti.component';
 import { ProfiliComponent } from './profili/profili.component';
-import { VideoSliderComponent } from './components/video-slider/video-slider.component';
+import { VideoSliderComponent } from './components/Meme/video-slider/video-slider.component';
+import { MemeComponent } from './components/Meme/meme/meme.component';
 import { CommonModule } from '@angular/common';
 import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
 import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
@@ -91,7 +92,8 @@ import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.c
     ClassificheUtenteComponent,
     NuovoPostComponent,
     PostComponent,
-    NuovoPostComponent
+    NuovoPostComponent,
+    MemeComponent
   ],
   imports: [
     BrowserModule,
