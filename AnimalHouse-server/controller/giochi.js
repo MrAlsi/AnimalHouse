@@ -17,7 +17,7 @@ exports.aggiungiPunteggioMemory = async (req, res) => {
     case 5:
       console.log("Facile")
       try {
-        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory-facile": req.body.punteggio }}, {upsert: true} );
+        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory_facile": req.body.punteggio }}, {upsert: true} );
       } catch (e) {
         console.log(e);
       }
@@ -27,7 +27,7 @@ exports.aggiungiPunteggioMemory = async (req, res) => {
     //Aggiunge al DB in medio
     case 8:
       try {
-        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory-medio": req.body.punteggio }}, {upsert: true} );
+        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory_medio": req.body.punteggio }}, {upsert: true} );
       } catch (e) {
         console.log(e);
       }
@@ -37,7 +37,7 @@ exports.aggiungiPunteggioMemory = async (req, res) => {
     //Aggiunge al DB in difficile
     default: 
       try {
-        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory-difficile": req.body.punteggio }}, {upsert: true} );
+        db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory_difficile": req.body.punteggio }}, {upsert: true} );
       } catch (e) {
         console.log(e);
       }

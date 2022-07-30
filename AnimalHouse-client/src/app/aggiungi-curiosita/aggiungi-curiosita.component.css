@@ -1,0 +1,16 @@
+.rosso{
+    background-color: #AA0000;
+    border-color: #AA0000;
+    color: white;
+}
+
+.rigaCuriosita{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#fine{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
