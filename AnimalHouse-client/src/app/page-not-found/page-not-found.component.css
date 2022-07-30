@@ -1,4 +1,10 @@
 img{
-    width:90%;
-    height: 90%;
+    width:70vw;
+    height: 66vh;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.conteiner{
+    margin-left: 5%;
 }
