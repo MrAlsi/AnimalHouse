@@ -23,3 +23,11 @@ exports.controllaEmail = async (req,res)=> {
         res.json(cursor);
     });
 }
+
+exports.getAnimali = async (req, res) => {
+    db.collection('listaAnimali').find().sort( { "name": 1 } ).toArray((err, risp) => {
+        if(err) throw err;
+        console.log("res", risp);
+        res.json(risp);
+    }) 
+}

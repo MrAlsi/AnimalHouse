@@ -20,7 +20,7 @@ async function getRandomDogUrl(): Promise<string> {
 })
 
 export class MemoryBoardComponent implements OnInit {
-  @Input() numeroCoppie: 5 | 8 | 12 = 5;  //Numero di coppie scelto dall'utente
+  @Input() numeroCoppie: 6 | 8 | 12 = 6;  //Numero di coppie scelto dall'utente
   coppieTrovate: number = 0;              //Per capire quando si vince
   carte: Carta[] = [];                    //Array di carte
   mosse: number = 0                       //Conteggio di numero di mosse

@@ -1,21 +1,27 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-4">
+    <h3>Aggiungi curiosità</h3>
     <div class="card">
         <div class="card-body">
-            <h3>Aggiungi curiosità</h3>
             <div class="formaContainer">
                 <form (ngSubmit)="aggiungi(true)" [formGroup]="form">                
                     <div class="form-group"><label for="animale">Animale</label><input class="form-control" id="animale" type="text" name="animale" formControlName="animale"/></div>
                     <div class="form-group"><label for="icona">Icona</label><input class="form-control" id="icona" type="text" name="icona" formControlName="icona" /></div>
                     <div class="form-group"><label for="copertina">Copertina</label><input class="form-control" id="copertina" type="text" name="copertina" formControlName="copertina"/></div>
-                    <div class="form-group"><label for="descrizione">Descrizione</label><textarea class="input-field" placeholder="" type="text" cols="40" rows="8" id="descrizione" formControlName="descrizione"></textarea></div>
+                    <div class="form-group"><label for="descrizione">Descrizione</label><textarea class="form-control" placeholder="" type="text" id="descrizione" formControlName="descrizione"></textarea></div>
                     <div class="form-groupAggingi">
-                        <label for="curiosita">Curiosità</label>
-                        <input class="form-control1" id="curiosita" type="text" name="curiosita" formControlName="curiosita"/>
-                        <button class="btn btn-primary"  type="button" (click)="aggiungiCuriosita(this.form.value.curiosita)">+</button>
+
+                        <label for="curiosita">Curiosità: </label>
+                        <!-- Stampa curiosita già inserite -->
+                        <div *ngFor="let curiosita of listaCuriosita">
+                            <p> {{curiosita}} </p>
+                        </div>
+                        <div class="rigaCuriosita">
+                            <input class="form-control " id="curiosita" type="text" name="curiosita" formControlName="curiosita"/>
+                            <button class="btn rosso" type="button" (click)="aggiungiCuriosita(this.form.value.curiosita)">+</button>
+                        </div>
                     </div>
-                    <br>
                     <div *ngIf="this.msgalert">
                         <div class="alert alert-danger d-flex align-items-center" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
@@ -25,8 +31,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
-                    <br>
-                    <button class="btn btn-primary mt-3" type="submit">Aggiungi animale</button>
+                    <div id="fine">
+                        <button class="btn btn-secondary mt-3" type="submit">Indietro</button>
+                        <button class="btn rosso mt-3" type="submit">Aggiungi animale</button>
+                    </div>
                 </form>
             </div>
         </div>

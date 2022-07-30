@@ -14,7 +14,7 @@ export class MemoryComponent implements OnInit {
   cookie?: any;
 
   gioco: string = "menu";
-  numeroCoppieNum: 5 | 8 | 12 = 5;
+  numeroCoppieNum: 6 | 8 | 12 = 6;
   url: string = 'https://dog.ceo/api/breeds/image/random';
   mosse: number = 0;
 
@@ -23,7 +23,7 @@ export class MemoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  numeroDiCoppie(n: 5 | 8 | 12): void{
+  numeroDiCoppie(n: 6 | 8 | 12): void{
     this.numeroCoppieNum = n;
     this.gioco = "gioco";
   }

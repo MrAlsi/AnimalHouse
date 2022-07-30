@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
   constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/CRUD/post/')
+    this.http.get('http://localhost:3000/post/getPosts')
     .subscribe(data => {
         this.posts = data;
         console.log("POST:", this.posts);

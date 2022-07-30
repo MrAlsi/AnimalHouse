@@ -28,11 +28,11 @@ export class PreferenzeComponent implements OnInit {
     }
 
     //chiamata al db per prendere gli animali per selezionare le preferenze
-    this.http.get<any>('http://localhost:3000/CRUD/listaAnimali/')
-        .subscribe(data => {
-          this.animali=data;
-          console.log(data);
-        });
+    this.http.get<any>('http://localhost:3000/listaAnimali')
+      .subscribe(data => {
+        this.animali=data;
+        console.log(data);
+      });
   }
 
   salva(): void{

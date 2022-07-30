@@ -1,8 +1,8 @@
 <!-- Menu del gioco -->
 <div *ngIf="gioco === 'menu'" class="menuMemory">
-  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(5)">Modalità facile: 5 coppie</button>
-  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(8)">Modalità media: 8 coppie</button>
-  <button type="button" class="btn btn-primary rosso btn-lg btn-block" (click)="numeroDiCoppie(12)">Modalità difficile: 12 coppie</button>
+  <button type="button" class="btn rosso btn-lg btn-block" (click)="numeroDiCoppie(6)">Modalità facile: 6 coppie</button>
+  <button type="button" class="btn rosso btn-lg btn-block" (click)="numeroDiCoppie(8)">Modalità media: 8 coppie</button>
+  <button type="button" class="btn rosso btn-lg btn-block" (click)="numeroDiCoppie(12)">Modalità difficile: 12 coppie</button>
 </div>
 
 <!-- Mostra il gioco, logica del gioco in Memory-board-->
@@ -12,6 +12,7 @@
 </div>
 
 <!-- Mostra la schermata di vittoria-->
-<div *ngIf="gioco === 'vittoria'">
-  <p>Congratulazione hai vinto {{mosse}} con mosse!</p>
+<div *ngIf="gioco === 'vittoria'" id="schermataVittoria">
+  <h2>Congratulazione hai vinto {{mosse}} con mosse!</h2>
+  <button type="button" class="btn btn-primary rosso btn-lg" (click)="gioco = 'menu'"> RIGIOCA </button>
 </div>
