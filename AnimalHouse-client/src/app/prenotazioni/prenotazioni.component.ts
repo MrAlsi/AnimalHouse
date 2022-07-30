@@ -38,7 +38,6 @@ export class PrenotazioniComponent implements OnInit {
         this.collezioni= data;
         console.log("data",data);
       });
-
   }
 
 }

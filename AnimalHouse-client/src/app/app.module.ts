@@ -49,6 +49,7 @@ import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-ute
 import { PostComponent } from './components/bacheca/post/post.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
 import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
+import { PrenotaComponent } from './prenota/prenota.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,8 @@ import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.c
     NuovoPostComponent,
     PostComponent,
     NuovoPostComponent,
-    MemeComponent
+    MemeComponent,
+    PrenotaComponent
   ],
   imports: [
     BrowserModule,

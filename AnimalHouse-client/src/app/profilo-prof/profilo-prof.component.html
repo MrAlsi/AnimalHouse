@@ -1,141 +1,152 @@
 <app-navbar></app-navbar>
 <br>
 <h5 class="benvenuto">Benvenuto nel profilo di {{this.prof.nome}}</h5>
-<br>
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                DATI
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div class="card-body">
-                    <div class="card">
-                        <div class="info">
-                            <p class="desc"> Nome: </p>
-                            <p class="dati"> {{this.prof.nome}} </p>
-                            <p class="desc"> Tipo: </p>
-                            <p class="dati"> {{this.prof.tipo}}</p>
-                            <p class="desc"> Città: </p>
-                            <p class="dati"> {{this.prof.citta}}</p>
-                            <p class="desc"> Via: </p>
-                            <p class="dati"> {{this.prof.via}}, n°{{this.prof.civico}}</p>
-                            <p class="desc"> Descrizione: </p>
-                            <p class="dati"> {{this.prof.descrizione}}</p>
-                            <br>
-                            <p class="desc"> Servizio online: </p>
-                            <div *ngIf="this.prof.online=='true'; then thenBlock1 else elseBlock1"></div>
-                            <ng-template #thenBlock1>
-                                <p class="dati"> sì</p>
-                            </ng-template>
-                            <ng-template #elseBlock1>
-                                <p class="dati"> no </p>
-                            </ng-template>
-                            <p class="desc"> Servizio a domicilio: </p>
-                            <div *ngIf="this.profilo.profile; then thenBlock2 else elseBlock2"></div>
-                            <ng-template #thenBlock2>
-                                <p class="dati"> sì </p>
-                            </ng-template>
-                            <ng-template #elseBlock2>
-                                <p class="dati"> no </p>
-                            </ng-template>
+<div *ngIf="prenotazione; then thenBlock1 else elseBlock1" ></div>
+<ng-template #thenBlock1>
+    <br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    DATI
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="info">
+                                <p class="desc"> Nome: </p>
+                                <p class="dati"> {{this.prof.nome}} </p>
+                                <p class="desc"> Tipo: </p>
+                                <p class="dati"> {{this.prof.tipo}}</p>
+                                <p class="desc"> Città: </p>
+                                <p class="dati"> {{this.prof.citta}}</p>
+                                <p class="desc"> Via: </p>
+                                <p class="dati"> {{this.prof.via}}, n°{{this.prof.civico}}</p>
+                                <p class="desc"> Descrizione: </p>
+                                <p class="dati"> {{this.prof.descrizione}}</p>
+                                <br>
+                                <p class="desc"> Servizio online: </p>
+                                <div *ngIf="this.prof.online=='true'; then thenBlock1 else elseBlock1"></div>
+                                <ng-template #thenBlock1>
+                                    <p class="dati"> sì</p>
+                                </ng-template>
+                                <ng-template #elseBlock1>
+                                    <p class="dati"> no </p>
+                                </ng-template>
+                                <p class="desc"> Servizio a domicilio: </p>
+                                <div *ngIf="this.profilo.profile; then thenBlock2 else elseBlock2"></div>
+                                <ng-template #thenBlock2>
+                                    <p class="dati"> sì </p>
+                                </ng-template>
+                                <ng-template #elseBlock2>
+                                    <p class="dati"> no </p>
+                                </ng-template>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    ORARI
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th rowspan="2" scope="col">Giorno</th>
-                            <th scope="col" colspan="2">Mattina</th>
-                            <th scope="col" colspan="2">Pomeriggio</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">Da</th>
-                            <th scope="col">A</th>
-                            <th scope="col">Da</th>
-                            <th scope="col">A</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor=" let giorno of this.prof.disponibilita" >
-                                <td>{{this.giorno}}</td>
-                                <td>{{this.prof.mattinaDa}}</td>
-                                <td>{{this.prof.mattinaA}}</td>
-                                <td>{{this.prof.pomeriggioDa}}</td>
-                                <td>{{this.prof.pomeriggioA}}</td>
-                            </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                </div>
-            </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        RECENSIONI
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ORARI
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <div class="recensioni">
-                            <div *ngIf="this.tabellaRecensioni==true">
-                                <div class="card-body">
-                                    <div class="card">
-                                        <div *ngFor="let recensione of recensioni, index as i">
-                                            <div class="card-body">
-                                                <div class="card">
-                                                    <p class="utente">{{recensione.u}}</p>
-                                                    <p>{{recensione.r}}</p>
-                                                    <div *ngIf="user== recensione.u || this.ruolo=='admin'">
-                                                        <button class="btn btn-secondary btn-sm" type="submit" (click)="eliminaRec(recensione.id)">Elimina</button>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th rowspan="2" scope="col">Giorno</th>
+                                <th scope="col" colspan="2">Mattina</th>
+                                <th scope="col" colspan="2">Pomeriggio</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Da</th>
+                                <th scope="col">A</th>
+                                <th scope="col">Da</th>
+                                <th scope="col">A</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor=" let giorno of this.prof.disponibilita" >
+                                    <td>{{this.giorno}}</td>
+                                    <td>{{this.prof.mattinaDa}}</td>
+                                    <td>{{this.prof.mattinaA}}</td>
+                                    <td>{{this.prof.pomeriggioDa}}</td>
+                                    <td>{{this.prof.pomeriggioA}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            RECENSIONI
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="recensioni">
+                                <div *ngIf="this.tabellaRecensioni==true">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <div *ngFor="let recensione of recensioni, index as i">
+                                                <div class="card-body">
+                                                    <div class="card">
+                                                        <p class="utente">{{recensione.u}}</p>
+                                                        <p>{{recensione.r}}</p>
+                                                        <div *ngIf="user== recensione.u || this.ruolo=='admin'">
+                                                            <button class="btn btn-secondary btn-sm" type="submit" (click)="eliminaRec(recensione.id)">Elimina</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div *ngIf="this.ruolo=='utente'&& this.recensione!=true && this.tabellaRecensioni==true"><!--aggiungere controllo che se hai già recensito non puoi aggiungerla ma modificare le tue-->
-                                <button class="btn btn-secondary btn-sm" type="submit" (click)="addRecensione()">Recensisci</button>
-                            </div>
-                        </div>
-                        <div *ngIf="this.recensione==true">
-                            <form (ngSubmit)="salvaRecensione()" [formGroup]="form">
-                                <div class="card-body">
-                                    <div class="card">
-                                        <p>Inserisci la tua recensione: </p>
-                                        <div class="form-group"><input class="form-control" id="recensione" type="text-area" name="recensione" formControlName="recensione" /></div>
-                                        <br>
-                                        <button class="btn btn-secondary btn-sm" type="submit">Salva</button>
-                                    </div>
+                                <div *ngIf="this.ruolo=='utente'&& this.recensione!=true && this.tabellaRecensioni==true"><!--aggiungere controllo che se hai già recensito non puoi aggiungerla ma modificare le tue-->
+                                    <button class="btn btn-secondary btn-sm" type="submit" (click)="addRecensione()">Recensisci</button>
                                 </div>
-                            </form>
-                        </div>
-                    </div>            
-                </div>
+                            </div>
+                            <div *ngIf="this.recensione==true">
+                                <form (ngSubmit)="salvaRecensione()" [formGroup]="form">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <p>Inserisci la tua recensione: </p>
+                                            <div class="form-group"><input class="form-control" id="recensione" type="text-area" name="recensione" formControlName="recensione" /></div>
+                                            <br>
+                                            <button class="btn btn-secondary btn-sm" type="submit">Salva</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>            
+                    </div>
+            </div>
         </div>
     </div>
-</div>
-<br>
-<div *ngIf="this.ruolo=='utente'; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>
-    <button class="btn btn-dark btn-sm" (click)="prenota()">Prenota</button>
+    <br>
+    <div *ngIf="this.ruolo=='utente'; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <button class="btn btn-dark btn-sm" (click)="prenota()">Prenota</button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button class="btn btn-dark btn-sm" (click)="elimina()">Elimina</button>
+    </ng-template>
 </ng-template>
-<ng-template #elseBlock>
-    <button class="btn btn-dark btn-sm" (click)="elimina()">Elimina</button>
+<ng-template #elseBlock1>
+    <app-prenota [dati] = (id)>
+
+    </app-prenota>
 </ng-template>
+    
+
+
 
 
 
