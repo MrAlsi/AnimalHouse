@@ -1,11 +1,20 @@
-a.btn.btn-primary{
+.alto{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rosso {
     background-color: #AA0000;
-    border-color:black;
+    border-color:#AA0000;
+    color: white;
+}
+.apri_scheda{
     display: flex;
     flex: none;
     width: 100%;
-    margin-bottom: 1%;
-
+    margin-bottom: 15px;
 }
 
 h4{
@@ -28,6 +37,7 @@ div.offcanvas-header{
     height: 380px;
     margin: 1%;
     margin-top: 5%;
+    display: flex;
 }
 
 .card{
@@ -41,5 +51,6 @@ img{
 
 #curiosita{
     display: flex;
-    flex-wrap:  wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }

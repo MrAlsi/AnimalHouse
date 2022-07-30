@@ -8,9 +8,11 @@
 
 
 <div class="container mt-4 col-12">
-  <h3>Curiosità</h3>
-  <div *ngIf="stato=='admin'">
-    <button class="btn btn-primary" [routerLink]="['addCuriosity']" > Aggiungi curiosita </button>
+  <div class="alto">
+    <h3>Curiosità</h3>
+    <div *ngIf="stato=='admin'">
+      <button class="btn rosso" [routerLink]="['addCuriosity']" > Aggiungi curiosita </button>
+    </div>
   </div>
   <div id="curiosita">
     <div *ngFor="let animale of animali" class="scheda">
@@ -21,7 +23,7 @@
         <div class="card-body">
           <h5 class="card-title">{{animale.animale}}</h5>
           <p class="card-text">{{animale.descrizione}}</p>
-          <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#scheda{{animale.animale}}" role="button" aria-controls="offcanvasExample">Apri la scheda</a>
+          <a class="btn rosso apri_scheda" data-bs-toggle="offcanvas" href="#scheda{{animale.animale}}" role="button" aria-controls="offcanvasExample">Apri la scheda</a>
         </div>
       </div>
 
@@ -38,7 +40,10 @@
             {{animale.descrizione}}
             <br> <br>
             <h4>Curiosità:</h4>
-            {{animale.curiosita}}
+            <ul *ngFor="let curiosita of animale.curiosita">
+              <li> {{curiosita}}</li>
+            </ul>
+           
           </div>
         </div>
       </div>

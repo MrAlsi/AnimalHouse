@@ -31,8 +31,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
+
+                    <div *ngIf="msgsuccess"> 
+                        <div class="alert alert-success" role="alert">
+                            {{msgsuccess}}
+                        </div>
+                    </div>
+
                     <div id="fine">
-                        <button class="btn btn-secondary mt-3" type="submit">Indietro</button>
+                        <a href="./babyanimal/curiosity" class="btn btn-secondary mt-3">Indietro</a>
                         <button class="btn rosso mt-3" type="submit">Aggiungi animale</button>
                     </div>
                 </form>
