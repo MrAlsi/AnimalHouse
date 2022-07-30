@@ -4,7 +4,7 @@ import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
 import { CuriositaComponent } from './curiosita/curiosita.component';
 import { GiochiComponent } from './giochi/giochi.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
-import { MemeComponent } from './meme/meme.component';
+import { MemeComponent } from './components/Meme/meme/meme.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
