@@ -31,7 +31,7 @@
             <label class="form-gruop-label" for="nome"> Nome: </label>
             <div  class="form-group"><input class="input-fiel" placeholder="" type="text" id="nome" formControlName="nome" /></div>
             <label class="form-gruop-label" for="città"> Città: </label>
-            <div class="form-group"><input class="input-field" placeholder="" type="text"  id="città" formControlName="città"/></div>
+            <div class="form-group"><input class="input-field" placeholder="" type="text"  id="città" formControlName="citta"/></div>
             <label class="form-gruop-label" for="via"> Via: </label>
             <div class="form-group"><input class="input-field" placeholder="" type="text"  id="via" formControlName="via"/></div>
             <label class="form-gruop-label" for="civico"> Civico: </label>
@@ -41,7 +41,7 @@
             <br>
             <div class="card">
                 <div class="card-body">
-                    <label>Disponibilità: </label>
+                    <label class="desc">Disponibilità: </label>
                     <br>
                     <div id="disponibilità"> 
                         <div class="form-check">
@@ -91,7 +91,35 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <p>Servizio online: </p>
+                    <label class="desc">Orario: </label>
+                    <div class="orari">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Mattina</p>
+                                <label class="form-gruop-label" for="mattinaDa"> da: </label>
+                                <div  class="form-group"><input class="input-fiel" placeholder="" type="time" id="mattinaDA" formControlName="mattinaDa" /></div>
+                                <label class="form-gruop-label" for="mattinaA"> a: </label>
+                                <div  class="form-group"><input class="input-fiel" placeholder="" type="time" id="mattinaA" formControlName="mattinaA" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="orari">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Pomeriggio</p>
+                                <label class="form-gruop-label" for="pomeriggioDa"> da: </label>
+                                <div  class="form-group"><input class="input-fiel" placeholder="" type="time" id="pomeriggioDa" formControlName="pomeriggioDa" /></div>
+                                <label class="form-gruop-label" for="pomeriggioA"> a: </label>
+                                <div  class="form-group"><input class="input-fiel" placeholder="" type="time" id="pomeriggioA" formControlName="pomeriggioA" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <label class="desc">Servizio online: </label>
+                    <br>
                     <div class="form-checkonline">
                         <input  type="radio" name="flexRadioDefault1" id="flexRadioDefault4"  (change)="online('true')">
                         <label class="form-check-label" for="flexRadioDefault4">
@@ -108,7 +136,8 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <p>Servizio domicilio: </p>
+                    <label class="desc">Servizio domicilio: </label>
+                    <br>
                     <div class="form-checkdomicilio">
                         <input class="form-check-input2" type="radio" name="flexRadioDefault2" id="flexRadioDefault6" (change)="domicilio('true')">
                         <label class="form-check-label" for="flexRadioDefault6">
@@ -130,7 +159,7 @@
                     <div>
                       {{this.msgalert}}
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="close()"></button>
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Salva</button>

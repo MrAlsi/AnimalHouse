@@ -29,7 +29,6 @@ const routes: Routes = [
   {path: 'signupAdmin', component: RegistrazioneAdminComponent},
   {path: 'babyanimal', component: BabyAnimalComponent},
   {path: 'babyanimal/games', component: GiochiComponent},
-  {path: 'babyanimal/meme', component: MemeComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
