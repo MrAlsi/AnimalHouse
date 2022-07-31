@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SwiperModule } from 'swiper/angular';
+
+import { ScheduleModule, View } from '@syncfusion/ej2-angular-schedule';
+import { WeekService, MonthService} from '@syncfusion/ej2-angular-schedule';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -102,8 +104,14 @@ import { PrenotaComponent } from './prenota/prenota.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserModule,
+    ScheduleModule
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    WeekService,
+    MonthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -32,7 +32,7 @@ export class ProfiloProfComponent implements OnInit {
   recId?: any;
   user?: string;
   prenotazione: boolean=true;
-  dati: string = "";
+  dati?: Dati;
   
 
   constructor(public profilo: ProfiloServiceService, public route: ActivatedRoute, public biscotto: MangiaBiscottoService, public router: Router, public http: HttpClient, public fb: FormBuilder, public DB: AggiungiDBService) {
@@ -55,6 +55,14 @@ export class ProfiloProfComponent implements OnInit {
       .subscribe(data=>{
         this.prof= data;
         console.log("data",data);
+        this.dati = {
+          idProf: data._id,
+          disponibilita: data.disponibilita,
+          oraInizio: data.mattinaDa,
+          oraFine: data.pomeriggioA,
+          inizioPausa: data.mattinaA,
+          finePausa: data.pomeriggioDa,
+        }
         return;
       });
 
