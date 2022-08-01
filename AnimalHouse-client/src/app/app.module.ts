@@ -21,7 +21,7 @@ import { StatisticheUtenteComponent } from './statistiche-utente/statistiche-ute
 import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
 import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ClassificheComponent } from './classifiche/classifiche.component';
+import { ClassificheComponent } from './components/Classifiche/classifiche/classifiche.component';
 
 import { HttpClientModule} from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
@@ -49,6 +49,8 @@ import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-ute
 import { PostComponent } from './components/bacheca/post/post.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
 import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
+import { ClassificaQuizComponent } from './components/Classifiche/classifica-quiz/classifica-quiz.component';
+import { ClassificaMemoryComponent } from './components/Classifiche/classifica-memory/classifica-memory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +95,9 @@ import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.c
     NuovoPostComponent,
     PostComponent,
     NuovoPostComponent,
-    MemeComponent
+    MemeComponent,
+    ClassificaQuizComponent,
+    ClassificaMemoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
-import { PunteggiQuizService } from '../punteggi-quiz.service';
+import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { PunteggiQuizService } from '../../../punteggi-quiz.service';
 import { punteggio } from './punteggio';
 
 @Component({
@@ -10,22 +11,34 @@ import { punteggio } from './punteggio';
 })
 export class ClassificheComponent implements OnInit {
 
+  utenti?: any;
   punteggi?: any;
   classificaPunteggioTotale?: any[];
   classificaPunteggioTotalePesato?: any[];
   classificaPunteggiPerfetti?: punteggio[] = [{id: "a", punteggio: 0}];
+  dataQuiz: any[] = [];
+
   
 
-  constructor(public biscotto: MangiaBiscottoService, public punteggiQuiz: PunteggiQuizService) { 
-    this.classificaPunteggiPerfetti?.push({id: "a", punteggio: 0})
-    this.punteggiQuiz.getData().subscribe((punteggi:any) => {
-      this.punteggi = punteggi;
-      this.calcolaPunteggi()
+  constructor(public biscotto: MangiaBiscottoService, public punteggiQuiz: PunteggiQuizService, public http: HttpClient) { 
+    this.http.get('http://localhost:3000/CRUD/utenti').subscribe(data => {
+      this.utenti = data;
+      this.estraiPunteggiQuiz();
     })
   }
 
   ngOnInit(): void {
     this.biscotto.getRuolo();
+  }
+
+  estraiPunteggiQuiz(): void {
+    this.utenti.forEach((utente: any) => {
+      var punteggioQuiz = {
+        "id": utente._id,
+        "quiz": utente.quiz,
+      }
+      this.dataQuiz?.push(punteggioQuiz);
+    });
   }
 
   calcolaPunteggi(): void{

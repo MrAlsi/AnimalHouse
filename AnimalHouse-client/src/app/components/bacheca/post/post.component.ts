@@ -24,7 +24,7 @@ export class PostComponent implements OnInit {
   user: string = "";
   mipiace: number = 0;
   likes?: string[]
-
+    
   cuoricino: boolean = false;
 
   utente: string = '';

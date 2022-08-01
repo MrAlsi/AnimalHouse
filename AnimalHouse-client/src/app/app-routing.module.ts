@@ -8,7 +8,7 @@ import { MemeComponent } from './components/Meme/meme/meme.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
-import { ClassificheComponent } from './classifiche/classifiche.component';
+import { ClassificheComponent } from './components/Classifiche/classifiche/classifiche.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
 import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
