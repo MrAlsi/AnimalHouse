@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
  
-import { WeekService, MonthService, WorkWeekService, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
- 
-import { defaultData } from './data';
+import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService } from '@syncfusion/ej2-angular-schedule';
+
+
 import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 @Component({
   selector: 'app-prenota',
-  providers: [WeekService, MonthService, WorkWeekService],
+  providers: [DayService, WeekService, MonthService, WorkWeekService, TimelineViewsService, AgendaService],
   templateUrl: './prenota.component.html',
   styleUrls: ['./prenota.component.css']
 })
+
 export class PrenotaComponent implements OnInit {
 
   public today: Date = new Date();
@@ -142,5 +143,11 @@ export class PrenotaComponent implements OnInit {
 
   } 
 
+
+  prendiNuovoEvento(): void {
+    var evento = document.getElementsByClassName("e-new-event");
+    console.log(evento);
+
+  }
 
 }
