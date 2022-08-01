@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
  
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService } from '@syncfusion/ej2-angular-schedule';
 
+import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 
 import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
@@ -21,6 +22,9 @@ export class PrenotaComponent implements OnInit {
 
   public eventSettings?: EventSettingsModel;
 
+  form: FormGroup;
+  dataInput: any;
+
   @Input() dati: any | null = ""
 
   infoProfessionista?: any;
@@ -30,7 +34,13 @@ export class PrenotaComponent implements OnInit {
 
   appuntamenti: any[] = [];
 
-  constructor(public http: HttpClient, public biscotto: MangiaBiscottoService) {
+  nome: string = "Alsi"
+
+  constructor(public http: HttpClient, public biscotto: MangiaBiscottoService, public fb: FormBuilder,) {
+    this.form = fb.group({
+      "Data": ['',Validators.required],
+      "Ora": ['',Validators.required]
+    });
     console.log("info", this.dati)
     //http.get("http://localhost:3000/recensioni/")
   }
@@ -140,14 +150,21 @@ export class PrenotaComponent implements OnInit {
     } else {
       return true;
     }
-
   } 
-
 
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
     console.log(evento);
+  }
+
+
+  controllaInput(): void {
+   // var s = document.getElementById("Subject").;
+    console.log("D", this.dataInput);
 
   }
 
+  dateParser(d: any): void {
+    this.dataInput= d;
+  }
 }

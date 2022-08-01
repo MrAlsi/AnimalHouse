@@ -2,5 +2,37 @@
     <e-views> 
         <e-view option="Week" startHour="{{dati.oraInizio}}" endHour="{{dati.oraFine}}"></e-view>
     </e-views>
+    <ng-template #editorTemplate let-data>
+        <!--<div class="formaContainer">
+            <form (ngSubmit)="controllaInput()" [formGroup]="form">                
+                <div class="form-group"><label for="nome">Data</label><input class="form-control" id="data" type="date" name="data" formControlName="Data"/></div>
+                <div class="form-group"><label for="cognome">Ora</label><input class="form-control" id="ora" type="time" name="ora" formControlName="Ora" /></div>
+                </form>
+        </div>-->
+        <h2>Resoconto appuntamento</h2>
+        <table class="custom-event-editor" width="100%" cellpadding="">
+            <tbody>
+                <tr>
+                    <td class="e-textlabel"> Utente </td>
+                    <td colspan=4>
+                        <input class="form-control" type="text" placeholder="{{this.biscotto.getUsername()}}" readonly>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="e-textlabel"> Data e ora </td>
+                    <td colspan=4>
+                        <ejs-datetimepicker id="startTime" class="e-field form-control" data-name="StartTime" format="dd/M/yy h:mm"
+                        [value]="dateParser(data.StartTime)"  readonly=true></ejs-datetimepicker>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+        <button (click)="controllaInput()"> salva </button>
+    </ng-template>
 </ejs-schedule>
+
+
 <button (click)="prendiNuovoEvento()">Salva</button>

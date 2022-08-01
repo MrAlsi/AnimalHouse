@@ -17,11 +17,10 @@ export class MangiaBiscottoService {
   getRuolo(): any{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
-    console.log("token",this.cookie);
-
+    
     if(this.cookie != null){
        return this.cookie.ruolo;
-       console.log("ruolo:",this.cookie.ruolo);
+       
     }
 
     return null;
@@ -32,11 +31,9 @@ export class MangiaBiscottoService {
   getId(): string{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
-    console.log("token",this.cookie);
 
     if(this.cookie != null){
        this.id=this.cookie.id;
-       console.log("id:", this.cookie.id);
        return this.cookie.id;
     }else{
       return "";
@@ -47,12 +44,8 @@ export class MangiaBiscottoService {
   getUsername(): string{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
-    console.log("token",this.cookie);
-
     if(this.cookie != null){
-      return this.cookie.username;
-       console.log("id:", this.cookie.id);
-       
+      return this.cookie.username;     
     }else{
       return "";
     }

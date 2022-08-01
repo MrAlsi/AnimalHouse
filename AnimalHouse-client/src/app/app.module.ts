@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ScheduleModule, View,  WeekService, MonthService } from '@syncfusion/ej2-angular-schedule';
-//import {} from '@syncfusion/ej2-angular-schedule';
+import {} from '@syncfusion/ej2-angular-schedule';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DateTimePickerModel, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -109,7 +111,9 @@ import { PrenotaComponent } from './prenota/prenota.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
-    ScheduleModule
+    ScheduleModule,
+    DropDownListModule,
+    DateTimePickerModule,
   ],
   providers: [
     CookieService,
