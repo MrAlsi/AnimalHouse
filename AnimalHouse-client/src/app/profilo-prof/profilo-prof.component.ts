@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProfiloServiceService } from '../profilo-service.service';
 import { ActivatedRoute} from '@angular/router';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { AggiungiDBService } from '../aggiungi-db.service';
+import {Dati} from '../prenota/dati';
 
 
 
@@ -17,15 +18,9 @@ import { AggiungiDBService } from '../aggiungi-db.service';
 })
 export class ProfiloProfComponent implements OnInit {
 
-  constructor(public profilo: ProfiloServiceService, public route: ActivatedRoute, public biscotto: MangiaBiscottoService, public router: Router, public http: HttpClient, public fb: FormBuilder, public DB: AggiungiDBService) {
-    this.form = fb.group({
-      "recensione": ['',Validators.required]
-    });
-   }
-
   myId?: string;
   ruolo?: string;
-  id?: any;
+  id: string | null = "";
   prof?: any;
   recensione: boolean= false;
   form: FormGroup;
@@ -36,8 +31,15 @@ export class ProfiloProfComponent implements OnInit {
   sonoio: boolean= false;
   recId?: any;
   user?: string;
+  prenotazione: boolean=true;
+  dati?: Dati;
+  
 
-
+  constructor(public profilo: ProfiloServiceService, public route: ActivatedRoute, public biscotto: MangiaBiscottoService, public router: Router, public http: HttpClient, public fb: FormBuilder, public DB: AggiungiDBService) {
+    this.form = fb.group({
+      "recensione": ['',Validators.required]
+    });
+  }
 
 
   ngOnInit(): void {
@@ -48,19 +50,27 @@ export class ProfiloProfComponent implements OnInit {
 
     //prendo il mio id
     this.myId= this.biscotto.getId();
-    //perndo i dati dal db del professionsta
+    //prendo i dati dal db del professionsta
     this.http.get<any>('http://localhost:3000/CRUD/one/professionisti/'+ this.id)
       .subscribe(data=>{
         this.prof= data;
         console.log("data",data);
+        this.dati = {
+          idProf: data._id,
+          disponibilita: data.disponibilita,
+          oraInizio: data.mattinaDa,
+          oraFine: data.pomeriggioA,
+          inizioPausa: data.mattinaA,
+          finePausa: data.pomeriggioDa,
+        }
         return;
       });
 
-    //perndo i dati delle recensioni
-    this.http.get<any>('http://localhost:3000/CRUD/recensioni/'+ this.id)
+    //prendo i dati delle recensioni
+    console.log("palle",this.id);
+    this.http.get<any>('http://localhost:3000/professionista/recensioni/'+ this.id)
       .subscribe(data=>{
         for(var i = 0; i < data.length; i++){
-          console.log("ciao",i);
           //prendo l'username di chi ha scritto la recensione
           console.log("utente", i);
           this.dato={
@@ -77,15 +87,22 @@ export class ProfiloProfComponent implements OnInit {
   }
 
   prenota(): void{
-    //this.router.navigate(['newProfessionisti']); non ci va newProfessionisti ma la pagina di prenotazione
+    this.prenotazione=false;
+    //this.router.navigate(['prenota']);
   }
 
   elimina(): void{
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+this.id)
       .subscribe(data => {
         console.log(data);
+        return;
       });
-      window.location.reload();
+      this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
+      .subscribe(data => {
+        console.log(data);
+        return;
+      });     
+    window.location.reload();
   }
 
   addRecensione(): void{

@@ -37,7 +37,7 @@ export class PostComponent implements OnInit {
    }
 
   ngOnInit(): void {
-      //inizializzo i valori di post
+    //inizializzo i valori di post
     this.id = this.post._id;
     this.testo = this.post.testo;
     this.img = this.post.img;

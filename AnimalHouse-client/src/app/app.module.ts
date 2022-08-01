@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SwiperModule } from 'swiper/angular';
+
+import { ScheduleModule, View,  WeekService, MonthService } from '@syncfusion/ej2-angular-schedule';
+//import {} from '@syncfusion/ej2-angular-schedule';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -51,6 +53,7 @@ import { HomepageComponent } from './components/bacheca/homepage/homepage.compon
 import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
 import { ClassificaQuizComponent } from './components/Classifiche/classifica-quiz/classifica-quiz.component';
 import { ClassificaMemoryComponent } from './components/Classifiche/classifica-memory/classifica-memory.component';
+import { PrenotaComponent } from './prenota/prenota.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,15 +100,22 @@ import { ClassificaMemoryComponent } from './components/Classifiche/classifica-m
     NuovoPostComponent,
     MemeComponent,
     ClassificaQuizComponent,
-    ClassificaMemoryComponent
+    ClassificaMemoryComponent,
+    PrenotaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserModule,
+    ScheduleModule
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    WeekService,
+    MonthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
