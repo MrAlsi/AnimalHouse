@@ -25,12 +25,4 @@ router.delete('/:collezione/:id', routers.deleteOneDocument);
 //dato un id aggiorna un dato
 router.put('/:collezione/:id', routers.updateOnePasswordDocument);
 
-
-
-
-
-
-
-
-
 module.exports = router;

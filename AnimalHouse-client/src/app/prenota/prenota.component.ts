@@ -6,7 +6,7 @@ import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsMo
 
 import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
-
+import { MangiaBiscottoService } from '../mangia-biscotto.service';
 @Component({
   selector: 'app-prenota',
   providers: [DayService, WeekService, MonthService, WorkWeekService, TimelineViewsService, AgendaService],
@@ -28,10 +28,19 @@ export class PrenotaComponent implements OnInit {
 
   giorniBloccati: any[] =[] 
 
+  appuntamenti: any[] = [];
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, public biscotto: MangiaBiscottoService) {
+    console.log("info", this.dati)
+    //http.get("http://localhost:3000/recensioni/")
+  }
 
   ngOnInit(): void {
+    this.http.get("http://localhost:3000/appuntamenti/"+this.dati.idProf)
+    .subscribe(data => {
+
+    //Controllo per segnare gli appuntamenti già prenotati
+    this.segnaAppuntamenti(data);
     //controllo in quali giorni non lavora
     this.controlloGiorni();
 
@@ -39,9 +48,15 @@ export class PrenotaComponent implements OnInit {
     this.segnaPausaPranzo();
 
     //@TODO: Inserisco gli appuntamenti
+ 
 
+
+    console.log("Giorni bloccati", this.giorniBloccati);
     //Aggiunge al calendario gli eventi bloccati
     this.eventSettings = {dataSource: this.giorniBloccati}
+    })
+
+
   
     //@todo chiamata al db per prendere le prenotazioni
   }
@@ -89,6 +104,45 @@ export class PrenotaComponent implements OnInit {
       RecurrenceRule: "FREQ=DAILY; INTERVAL=1"}
     )
   }
+
+
+  segnaAppuntamenti(appuntamenti: any): void {
+    appuntamenti.forEach((appuntamento: any) =>{
+      var data = appuntamento.Day.split("T");
+      data = data[0].split("-");
+      
+      var oraI = appuntamento.StartTime.split(":")
+      var oraF = appuntamento.EndTime.split(":")
+
+      this.giorniBloccati.push({
+        Subject: this.controlloUser(appuntamento.Subject),
+        StartTime: new Date(data[0], +data[1]-1, data[2], oraI[0], oraI[1]),
+        EndTime: new Date(data[0], +data[1]-1, data[2], oraF[0], oraF[1]),
+        IsBlock: this.controlloAdmin(),
+        IsAllDay: false,
+        RecurrenceRule: ""
+      })
+    })
+  }
+
+
+  controlloUser(oggetto: string): string {
+    if(oggetto === this.biscotto.getUsername() || this.biscotto.getRuolo() === "admin"){
+      return oggetto;
+    } else {
+      return "OCCUPATO"
+    }
+  }
+
+  controlloAdmin(): boolean {
+    if(this.biscotto.getRuolo() === "admin"){
+      return false;
+    } else {
+      return true;
+    }
+
+  } 
+
 
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
