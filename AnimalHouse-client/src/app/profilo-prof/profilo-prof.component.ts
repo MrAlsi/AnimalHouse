@@ -62,6 +62,9 @@ export class ProfiloProfComponent implements OnInit {
           oraFine: data.pomeriggioA,
           inizioPausa: data.mattinaA,
           finePausa: data.pomeriggioDa,
+          tipo: data.tipo,
+          nome: data.nome
+
         }
         return;
       });
