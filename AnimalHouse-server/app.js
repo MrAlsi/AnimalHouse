@@ -10,6 +10,7 @@ var crudRouter = require('./routes/crud');
 var giochiRouter = require('./routes/giochi');
 var postRouter= require('./routes/post');
 var professionistaRouter = require ('./routes/professionista');
+var appuntamentiRouter = require ('./routes/appuntamenti');
 
 var app = express();
 // view engine setup
@@ -28,6 +29,7 @@ app.use('/crud', crudRouter);
 app.use('/giochi', giochiRouter);
 app.use('/post', postRouter);
 app.use('/professionista', professionistaRouter);
+app.use('/appuntamenti', appuntamentiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
