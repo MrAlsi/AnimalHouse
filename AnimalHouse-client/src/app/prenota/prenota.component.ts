@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
  
-import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
+import { L10n } from '@syncfusion/ej2-base';
 
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 
 import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
+
+
 @Component({
   selector: 'app-prenota',
   providers: [DayService, WeekService, MonthService, WorkWeekService, TimelineViewsService, AgendaService],
@@ -16,6 +19,12 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
 })
 
 export class PrenotaComponent implements OnInit {
+
+
+
+
+  public views: Array<string> = ['Day', 'Week', 'WorkWeek', 'Month'];
+
 
   public today: Date = new Date();
   public selectedDate: Date = new Date(this.today);
@@ -60,6 +69,12 @@ export class PrenotaComponent implements OnInit {
 
     //Aggiunge al calendario gli eventi bloccati
     this.eventSettings = {dataSource: this.giorniBloccati}
+
+  
+    document.getElementsByClassName("e-appointment")
+   
+
+    //eventi[0].setAttribute("(click)", "sonoFortissimo()");
     })
 
 
@@ -121,32 +136,32 @@ export class PrenotaComponent implements OnInit {
       var oraF = appuntamento.EndTime.split(":")
 
       this.giorniBloccati.push({
-        Subject: this.controlloUser(appuntamento.Subject),
+        Subject: this.getNome(appuntamento.Subject),
         StartTime: new Date(data[0], +data[1]-1, data[2], oraI[0], oraI[1]),
         EndTime: new Date(data[0], +data[1]-1, data[2], oraF[0], oraF[1]),
-        IsBlock: this.controlloAdmin(),
+        IsBlock: this.controlloUser(appuntamento.Subject),
         IsAllDay: false,
-        RecurrenceRule: ""
+        RecurrenceRule: "",
       })
     })
   }
 
-
-  controlloUser(oggetto: string): string {
-    if(oggetto === this.biscotto.getUsername() || this.biscotto.getRuolo() === "admin"){
+  getNome(oggetto: string): string {
+    if(!this.controlloUser(oggetto)){
       return oggetto;
     } else {
       return "OCCUPATO"
     }
   }
 
-  controlloAdmin(): boolean {
-    if(this.biscotto.getRuolo() === "admin"){
+  controlloUser(oggetto: string): Boolean {
+    if(oggetto === this.biscotto.getUsername() ||this.biscotto.getRuolo() === "admin"){
       return false;
     } else {
       return true;
     }
-  } 
+  }
+
 
   prendiNuovoEvento(): void {
     
@@ -163,6 +178,7 @@ export class PrenotaComponent implements OnInit {
   
     var data = input[0].split("-");
 
+    console.log(this.dati);
     //Pulisco l'ora in input
     var ora = input[1].substring(0, 5);
     var oraF = ora.split(":");
@@ -176,28 +192,34 @@ export class PrenotaComponent implements OnInit {
         Subject: this.biscotto.getUsername(),
         Day: this.dataInput,
         StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
-        EndTime: this.pulisciOra(oraF[0], 3, oraF[1])
+        EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
+        tipo: this.dati.tipo,
+        nome: this.dati.nome
       }
       //Creo il documento nel DB
       this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
       .subscribe()
     }
-    
-
-
-
-    
+        
   }
 
   pulisciOra(ora: string, plus: number, minuti: string ): string {
-
     var orario = +ora + plus;
-
     return orario.toString()+ ':' + minuti;
+  }
+
+  sonoFortissimo():void {
+    console.log("WAAAAA");
   }
 
 
   dateParser(d: any): void {
     this.dataInput= d;
   }
+
+  onPopupOpen(args: PopupOpenEventArgs): void {
+    if (args.type === 'Editor') {
+        args.duration = 60;
+    }
+}
 }

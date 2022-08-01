@@ -5,4 +5,6 @@ export interface Dati {
     oraFine: string,
     inizioPausa: string,
     finePausa: string,
+    tipo: string,
+    nome: string,
 }

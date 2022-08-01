@@ -1,14 +1,9 @@
-<ejs-schedule width='100%' height='550px' [selectedDate]="selectedDate" [eventSettings]="eventSettings" (cellClick)="prendiNuovoEvento()">
+<ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings' (popupOpen)='onPopupOpen($event)'>
     <e-views> 
         <e-view option="Week" startHour="{{dati.oraInizio}}" endHour="{{dati.oraFine}}"></e-view>
     </e-views>
     <ng-template #editorTemplate let-data>
-        <!--<div class="formaContainer">
-            <form (ngSubmit)="controllaInput()" [formGroup]="form">                
-                <div class="form-group"><label for="nome">Data</label><input class="form-control" id="data" type="date" name="data" formControlName="Data"/></div>
-                <div class="form-group"><label for="cognome">Ora</label><input class="form-control" id="ora" type="time" name="ora" formControlName="Ora" /></div>
-                </form>
-        </div>-->
+
         <h2>Resoconto appuntamento</h2>
         <table class="custom-event-editor" width="100%" cellpadding="">
             <tbody>
