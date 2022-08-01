@@ -34,7 +34,7 @@ export class PrenotaComponent implements OnInit {
 
   appuntamenti: any[] = [];
 
-  nome: string = "Alsi"
+  msgMezzora: boolean = false;
 
   constructor(public http: HttpClient, public biscotto: MangiaBiscottoService, public fb: FormBuilder,) {
     this.form = fb.group({
@@ -53,15 +53,11 @@ export class PrenotaComponent implements OnInit {
     this.segnaAppuntamenti(data);
     //controllo in quali giorni non lavora
     this.controlloGiorni();
-
     //Controllo pause 
     this.segnaPausaPranzo();
 
-    //@TODO: Inserisco gli appuntamenti
- 
-
-
     console.log("Giorni bloccati", this.giorniBloccati);
+
     //Aggiunge al calendario gli eventi bloccati
     this.eventSettings = {dataSource: this.giorniBloccati}
     })
@@ -153,16 +149,53 @@ export class PrenotaComponent implements OnInit {
   } 
 
   prendiNuovoEvento(): void {
+    
     var evento = document.getElementsByClassName("e-new-event");
     console.log(evento);
   }
 
 
-  controllaInput(): void {
-   // var s = document.getElementById("Subject").;
-    console.log("D", this.dataInput);
 
+  confermaAppuntamento(): void {
+    this.msgMezzora = false;
+    //Transofrmo in stringa l'oggetto in input e Splitto per dividere il giorno e l'ora
+    var input = JSON.stringify(this.dataInput).split("T");
+  
+    var data = input[0].split("-");
+
+    //Pulisco l'ora in input
+    var ora = input[1].substring(0, 5);
+    var oraF = ora.split(":");
+    console.log(oraF[1])
+    if(oraF[1] === "30"){
+      this.msgMezzora = true;
+    } else {
+      //Creo il body per mandare i dati al DB
+      var body = {
+        idProfessionista: this.dati.idProf,
+        Subject: this.biscotto.getUsername(),
+        Day: this.dataInput,
+        StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
+        EndTime: this.pulisciOra(oraF[0], 3, oraF[1])
+      }
+      //Creo il documento nel DB
+      this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
+      .subscribe()
+    }
+    
+
+
+
+    
   }
+
+  pulisciOra(ora: string, plus: number, minuti: string ): string {
+
+    var orario = +ora + plus;
+
+    return orario.toString()+ ':' + minuti;
+  }
+
 
   dateParser(d: any): void {
     this.dataInput= d;

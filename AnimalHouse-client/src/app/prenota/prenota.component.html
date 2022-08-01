@@ -30,9 +30,12 @@
             </tbody>
         </table>
         
-        <button (click)="controllaInput()"> salva </button>
+        <button (click)="confermaAppuntamento()"> Conferma </button>
+        
+        <div class="alert alert-danger" role="alert" *ngIf="msgMezzora == true">
+            Il principino vuole fare alla mezza, metti un orario vero per l'amor di Dio
+        </div>
+
+        
     </ng-template>
 </ejs-schedule>
-
-
-<button (click)="prendiNuovoEvento()">Salva</button>

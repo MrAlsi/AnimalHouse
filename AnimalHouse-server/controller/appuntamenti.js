@@ -11,3 +11,7 @@ exports.getAppuntamenti = async (req,res)=> {
         res.json(risp);
     });
 }
+
+exports.aggiungiAppuntamento = async (req, res) => {
+    return await db.collection(`appuntamenti`).insertOne()
+}
