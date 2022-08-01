@@ -45,6 +45,7 @@ export class UtentiComponent implements OnInit {
   cerca(): void{
     this.msgalert=('');
     if(this.form.value.cerca!=""){
+      //chiamata al db per trovare l'utente con quell'user
       this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.cerca)
         .subscribe(data=>{
           if(data!==null){

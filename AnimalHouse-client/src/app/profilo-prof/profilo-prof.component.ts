@@ -133,10 +133,17 @@ export class ProfiloProfComponent implements OnInit {
 
   eliminaRec(id: any): void{
     console.log("id",id);
+    //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/recensioni/'+ id)
       .subscribe(data => {
         console.log(data);
       });
+
+    //elimino appuntamenti professionista
+    this.http.delete<any>('http://localhost:3000/appuntamenti/professionista/'+ id)
+    .subscribe(data => {
+      console.log(data);
+    });
     window.location.reload();
   }
 
