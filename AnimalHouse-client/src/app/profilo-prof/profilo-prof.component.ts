@@ -45,6 +45,7 @@ export class ProfiloProfComponent implements OnInit {
   ngOnInit(): void {
     //prendo l'id del professionista che sto guardando da params
     this.id= this.route.snapshot.paramMap.get('nome'); 
+    console.log(this.id);
     this.ruolo= this.biscotto.getRuolo();
     this.user= this.biscotto.getUsername();
 

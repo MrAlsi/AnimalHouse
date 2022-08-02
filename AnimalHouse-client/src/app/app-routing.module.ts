@@ -20,6 +20,7 @@ import { GuardiaRuoloService } from './guardia-ruolo.service';
 import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
+import { ModificaComponent } from './modifica/modifica.component';
 import { GuardiaUtenteService } from './guardia-utente.service';
 
 const routes: Routes = [
@@ -39,6 +40,8 @@ const routes: Routes = [
   {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
   {path: 'professionista/:nome', component: ProfiloProfComponent, canActivate :[GuardiaIdService]},
   {path: 'prenotazioni', component: PrenotazioniComponent, canActivate:[GuardiaUtenteService]},
+  {path: 'modifica/:id', component: ModificaComponent, canActivate:[GuardiaUtenteService]},
+
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
 

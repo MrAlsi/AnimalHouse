@@ -6,6 +6,12 @@ table{
     overflow: scroll
 }
 
+.subtitle{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
+}
+
 #cerca{
     display: flex;
     justify-content: end;

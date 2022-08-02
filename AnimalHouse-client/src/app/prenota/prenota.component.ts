@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
  
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
-import { L10n } from '@syncfusion/ej2-base';
 
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 
@@ -55,6 +54,7 @@ export class PrenotaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("janj", this.dati)
     this.http.get("http://localhost:3000/appuntamenti/"+this.dati.idProf)
     .subscribe(data => {
 
