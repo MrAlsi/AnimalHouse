@@ -1,38 +1,62 @@
-<form id="cerca" (ngSubmit)="cerca()" [formGroup]="form"> 
-    <div id="all" *ngIf="this.search==true">
-      <button class="btn btn-primary ms-small" id="all" type="button" (click)="cercatutti(this.profilo.id)">View all</button>
-    </div>
-    <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="cerca" >
-    <button class="btn btn-primary ms-small" type="submit">Search professionisti</button>
-  </form>
+<p class="subtitle">Appuntamenti</p>
+<br>
 <div class="tabella">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="ordinario"scope="col">#</th>
-          <th class="tipo" scope="col">Tipo</th>
-          <th class="nome" scope="col">Professionista</th>
-          <th class="data" scope="col">Data</th>
-          <th class="ora" scope="col">Ora</th>
-         <!-- <div *ngIf="this.ruolo=='admin'|| this.sonoio==true"> se l'appuntamento è già passato solo l'admin può cancellarlo-->
-            <th class="elimina" scope="col">Elimina</th>
-         <!-- </div>-->
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-        <!--<tr *ngFor="let utente of this.collezioni, index as i">
-        
-          <th class="ordinario" scope="row">{{i+1}}</th>
-          <td class="tipo"><a class="nav-link" href="profili/{{this.utente.username}}">{{this.utente.username}}</a></td>
-          <td class="nome">{{this.utente.nome}}</td>
-          <td class="data">{{this.utente.cognome}}</td>
-          <td class="ora">{{this.utente.ruolo}}</td>
-          <td class="email">{{this.utente.email}}</td>
-          <div *ngIf="this.ruolo=='admin'">
-            <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.utente._id)">Elimina</button></td>
-         </div>-->
-        </tr>
-      </tbody>
-    </table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="ordinario"scope="col">#</th>
+        <th class="tipo" scope="col">Tipo</th>
+        <th class="nome" scope="col">Professionista</th>
+        <th class="data" scope="col">Data</th>
+        <th class="ora" scope="col">Ora</th>
+        <th class="elimina" scope="col">Elimina</th>
+        <th *ngIf="this.ruolo=='utente'" class="modifica" scope="col">Modifica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <tr *ngFor="let appuntamento  of this.appuntamenti, index as i">
+      
+        <th class="ordinario" scope="row">{{i+1}}</th>
+        <td class="tipo">{{this.appuntamento.tipo}}</td>
+        <td class="nome"><a class="nav-link" href="professionista/{{this.appuntamento.idProfessionista}}">{{this.appuntamento.nome}}</a></td>
+        <td class="data">{{this.appuntamento.Day}}</td>
+        <td class="ora">{{this.appuntamento.StartTime}}</td>
+        <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
+        <td *ngIf="this.ruolo=='utente'" class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista, this.appuntamento._id)">Modifica</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="subtitle">Appuntamenti passati</p>
+<br>
+<div class="tabella">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="ordinario"scope="col">#</th>
+        <th class="tipo" scope="col">Tipo</th>
+        <th class="nome" scope="col">Professionista</th>
+        <th class="data" scope="col">Data</th>
+        <th class="ora" scope="col">Ora</th>
+        <div *ngIf="this.ruolo=='admin'">
+          <th class="elimina" scope="col">Elimina</th>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <tr *ngFor="let appuntamento  of this.appuntamentiPassati, index as i">
+        <th class="ordinario" scope="row">{{i+1}}</th>
+        <td class="tipo">{{this.appuntamento.tipo}}</td>
+        <td class="nome"><a class="nav-link" href="professionista/{{this.appuntamento.idProfessionista}}">{{this.appuntamento.nome}}</a></td>
+        <td class="data">{{this.appuntamento.Day}}</td>
+        <td class="ora">{{this.appuntamento.StartTime}}</td>
+        <div *ngIf="this.ruolo=='admin'">
+          <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
   </div>

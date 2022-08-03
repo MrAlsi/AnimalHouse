@@ -21,15 +21,24 @@ exports.cercaTipo = async (req,res)=> {
     });
 }
 
-//passato un id di un professionista elimina le sue recnesioni
+//passato un id di un professionista elimina le sue recensioni
 exports.deleteRec= async(req,res)=>{
     console.log("collezione", req.params.professionista)
-    return await db.collection(`${req.params.collezione}`).delete({professionista: (req.params.professionista) }, (err,cursor)=>{
-      if(err) console.log ("Err: ", err);
-      console.log("ciao",cursor);
-      res.json(cursor);
+    return await db.collection(`recensioni`).delete({professionista: (req.params.professionista) }, (err,cursor)=>{
+        if(err) console.log ("Err: ", err);
+        console.log("ciao",cursor);
+        res.json(cursor);
     });
-  }
+}
+
+//passato un utente canclla le rensioni scritte da lui
+exports.deleteRecUtente= async(req,res)=>{
+    return await db.collection(`recensioni`).delete({utente: (req.params.user) }, (err,cursor)=>{
+        if(err) console.log ("Err: ", err);
+        console.log("ciao",cursor);
+        res.json(cursor);
+    });
+}
 
 
 exports.cercaRecProf = async(req,res)=>{

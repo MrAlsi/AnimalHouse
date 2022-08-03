@@ -45,3 +45,12 @@ exports.updateLike = (req, res) => {
     res.json(cursor);
   });
 }
+
+//elimino post scritti da un utente
+exports.deletePost= async(req,res)=>{
+  return await db.collection(`post`).delete({user: (req.params.user) }, (err,cursor)=>{
+      if(err) console.log ("Err: ", err);
+      console.log("ciao",cursor);
+      res.json(cursor);
+  });
+}

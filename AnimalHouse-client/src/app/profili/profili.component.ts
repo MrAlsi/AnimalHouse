@@ -19,6 +19,5 @@ export class ProfiliComponent implements OnInit {
   ngOnInit(): void {
     this.profilo.profile= this.route.snapshot.paramMap.get('username'); //prendo il nome dell'utente che sto guardando da params
     this.profilo.profilo(); 
-    
   }
 }

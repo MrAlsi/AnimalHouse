@@ -33,6 +33,8 @@ export class ProfiloProfComponent implements OnInit {
   user?: string;
   prenotazione: boolean=true;
   dati?: Dati;
+  appuntamenti: any[]=[];
+  appuntamentiPassati: any[]=[];
   
 
   constructor(public profilo: ProfiloServiceService, public route: ActivatedRoute, public biscotto: MangiaBiscottoService, public router: Router, public http: HttpClient, public fb: FormBuilder, public DB: AggiungiDBService) {
@@ -45,6 +47,7 @@ export class ProfiloProfComponent implements OnInit {
   ngOnInit(): void {
     //prendo l'id del professionista che sto guardando da params
     this.id= this.route.snapshot.paramMap.get('nome'); 
+    console.log(this.id);
     this.ruolo= this.biscotto.getRuolo();
     this.user= this.biscotto.getUsername();
 
@@ -63,8 +66,8 @@ export class ProfiloProfComponent implements OnInit {
           inizioPausa: data.mattinaA,
           finePausa: data.pomeriggioDa,
           tipo: data.tipo,
-          nome: data.nome
-
+          nome: data.nome,
+          appuntamento: "",
         }
         return;
       });
@@ -87,6 +90,24 @@ export class ProfiloProfComponent implements OnInit {
         console.log("array", this.recensioni);
         return;
       });
+
+    //prendo gli appuntamenti
+    let oggi=new Date();
+    //chiamata al db con tutti gli appuntamenti della persona
+    this.http.get<any>('http://localhost:3000/appuntamenti/appuntamenti/'+ this.id)
+      .subscribe(data=>{
+        //formatto la data
+        data.forEach((element: any) => {
+          element.Day=element.Day.split("T");
+          element.Day=element.Day[0];
+          
+          if(element.Day>=oggi.toISOString()){
+            this.appuntamenti.push(element);
+          }else{
+            this.appuntamentiPassati.push(element);
+          }
+        });  
+      });
   }
 
   prenota(): void{
@@ -95,16 +116,32 @@ export class ProfiloProfComponent implements OnInit {
   }
 
   elimina(): void{
+    //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+this.id)
       .subscribe(data => {
         console.log(data);
         return;
       });
-      this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
-      .subscribe(data => {
-        console.log(data);
-        return;
-      });     
+    //elimino recensioni
+    this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
+    .subscribe(data => {
+      console.log(data);
+      return;
+    }); 
+
+    //elimino appuntamenti
+    this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.id)
+    .subscribe(data => {
+      console.log(data);
+    });    
+    window.location.reload();
+  }
+
+  eliminaApp(id: any):void{
+    this.http.delete<any>('http://localhost:3000/CRUD/appuntamenti/'+ id)
+    .subscribe(data => {
+      this.appuntamenti=data;
+    });
     window.location.reload();
   }
 
@@ -136,10 +173,12 @@ export class ProfiloProfComponent implements OnInit {
 
   eliminaRec(id: any): void{
     console.log("id",id);
+    //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/recensioni/'+ id)
       .subscribe(data => {
         console.log(data);
       });
+
     window.location.reload();
   }
 

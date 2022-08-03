@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
  
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
-import { L10n } from '@syncfusion/ej2-base';
 
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 
@@ -55,6 +54,7 @@ export class PrenotaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("janj", this.dati)
     this.http.get("http://localhost:3000/appuntamenti/"+this.dati.idProf)
     .subscribe(data => {
 
@@ -93,6 +93,7 @@ export class PrenotaComponent implements OnInit {
      }
     });
     this.segnaGiorni();
+    this.segnaGiorniPassati();
     console.log("GL:", this.giorniLiberi)
   }
 
@@ -111,6 +112,27 @@ export class PrenotaComponent implements OnInit {
 
       console.log("Daaam", this.giorniBloccati);
   };
+
+  segnaGiorniPassati(): void{
+    //prendo la data di oggi
+    let oggi=new Date();
+    let day=oggi.toISOString();
+
+    let Day=day.split("-");
+    let g= Day[2].split("T");
+    console.log("oggi",Day);
+
+    let anno=Day[0];
+    let mese=Day[1];
+    let giorno=g[0];
+    console.log("stampa",anno,mese,giorno);
+    this.giorniBloccati.push({
+      Subject: "No",
+      StartTime: new Date(2000, 0, 1),
+      EndTime: new Date(+anno, +mese-1, +giorno),
+      IsBlock: true}
+    )
+  }
 
   //Controlla la pausa in mezzo e aggiunge a date bloccate
   segnaPausaPranzo(): void {
@@ -164,7 +186,6 @@ export class PrenotaComponent implements OnInit {
 
 
   prendiNuovoEvento(): void {
-    
     var evento = document.getElementsByClassName("e-new-event");
     console.log(evento);
   }
@@ -186,19 +207,37 @@ export class PrenotaComponent implements OnInit {
     if(oraF[1] === "30"){
       this.msgMezzora = true;
     } else {
-      //Creo il body per mandare i dati al DB
-      var body = {
-        idProfessionista: this.dati.idProf,
-        Subject: this.biscotto.getUsername(),
-        Day: this.dataInput,
-        StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
-        EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
-        tipo: this.dati.tipo,
-        nome: this.dati.nome
+      console.log("dati1",this.dati.appuntamento);
+      if(this.dati.appuntamento!=""){
+        //Creo il body per mandare i dati al DB
+        var body = {
+          idProfessionista: this.dati.idProf,
+          Subject: this.biscotto.getUsername(),
+          Day: this.dataInput,
+          StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
+          EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
+          tipo: this.dati.tipo,
+          nome: this.dati.nome
+        }
+        this.http.put<any>('http://localhost:3000/appuntamenti/'+ this.dati.appuntamento,{body})
+          .subscribe(data=>{}); 
+
+      }else{
+        //Creo il body per mandare i dati al DB
+        var body = {
+          idProfessionista: this.dati.idProf,
+          Subject: this.biscotto.getUsername(),
+          Day: this.dataInput,
+          StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
+          EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
+          tipo: this.dati.tipo,
+          nome: this.dati.nome
+        }
+
+        //Creo il documento nel DB
+        this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
+        .subscribe()
       }
-      //Creo il documento nel DB
-      this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
-      .subscribe()
     }
         
   }

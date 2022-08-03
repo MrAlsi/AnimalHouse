@@ -97,13 +97,39 @@ export class ProfiloServiceService {
   eliminaAccount(): void{
     this.id=this.biscotto.getId();
     console.log("id:", this.id);
+    //vado eliminare dal db l'utente con quel id
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
       .subscribe(data => {
         //this.collezioni=data;
         console.log(data);
-        this.router.navigate(['']);
       });
-      
+
+    //vado ad eliminare dal db gli appuntamenti di quell'user
+    this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.profile)
+    .subscribe(data => {
+      console.log(data);
+    });
+
+    //vado ad eliminare le recensioni dell'utente
+    this.http.delete<any>('http://localhost:3000/professionista/recensioni/utente/'+this.profile)
+    .subscribe(data => {
+      console.log(data);
+    });
+
+    //vado ad eliminare i post dell'utente
+    this.http.delete<any>('http://localhost:3000/post/'+this.profile)
+    .subscribe(data => {
+      console.log(data);
+    });
+
+    //vado ad eliminare le preferenze dell'utente
+    this.http.delete<any>('http://localhost:3000/preferenze/'+this.id)
+    .subscribe(data => {
+      console.log(data);
+    });
+
+    window.location.reload();
+
   }
 
 }
