@@ -201,12 +201,12 @@ export class ClassificheComponent implements OnInit {
   //Punteggi Memory
   classificaMemory(punteggi: Array<any>, difficolta: number): void{
     console.log("puntearrayggi", this.dataMemoryFacile);
-    let record = 1000;
+    let record = Infinity;
     let idUtente = 0;
     let idPunteggio = 0;
     try{
       for(let i = 0; i < 11; i++){
-        record = 1000;
+        record = Infinity;
         idUtente = 0;
         idPunteggio = 0;
 

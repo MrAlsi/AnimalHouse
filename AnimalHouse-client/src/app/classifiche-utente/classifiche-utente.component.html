@@ -1,8 +1,19 @@
-<button (click)="dividiPunteggi()"> Bottone </button>
-<div>
-    <!--
-    <canvas  baseChart 
-        [datasets] ="ds_quiz"
-        [type] ="'bar'"> 
-    </canvas >-->
-</div>    
+<!-- Punteggi del quiz -->
+<h3>Quiz</h3>
+<p>Punteggio: {{punteggio_quiz[0]}}</p>
+<p>Media:  {{punteggio_quiz[1]}}</p>
+<p>Punteggi massimi:  {{punteggio_quiz[2]}}</p>
+<br>
+<!--Punteggi del memory-->
+<h3>Memory</h3>
+<h5>Facile: </h5>
+<p>Record:  {{punteggio_memoryFacile[0]}}</p>
+<p>Partite fatte: {{punteggio_memoryFacile[1]}}</p>
+<hr>
+<h5>Medio: </h5>
+<p>Record:  {{punteggio_memoryMedio[0]}}</p>
+<p>Partite fatte: {{punteggio_memoryMedio[1]}}</p>
+<hr>
+<h5>Difficile: </h5>
+<p>Record:  {{punteggio_memoryDifficile[0]}}</p>
+<p>Partite fatte: {{punteggio_memoryDifficile[1]}}</p>
