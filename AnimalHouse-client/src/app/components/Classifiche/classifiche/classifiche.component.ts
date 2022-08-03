@@ -27,50 +27,11 @@ export class ClassificheComponent implements OnInit {
   quiz1: any[] = [];
   quiz2: any[] = [];
 
-  constructor(public biscotto: MangiaBiscottoService, public punteggiQuiz: PunteggiQuizService, public http: HttpClient) { 
-    /*let quiz: any[] = [];
-    let quiz1: any[] = [];
-    this.http.get('http://localhost:3000/CRUD/utenti').subscribe(data => {
-      this.utenti = data;
-      console.log("U", this.utenti);
-      this.utenti.forEach((utente: any) => {
-        var punteggioQuiz = {
-          "id": utente._id,
-          "user": utente.username,
-          "quiz": utente.quiz,
-        }
-       
-        var punteggioMemoryFacile = {
-          "id": utente._id,
-          "user": utente.username,
-          "storico": utente.memory_facile,
-        }
-  
-        var punteggioMemoryMedio = {
-          "id": utente._id,
-          "user": utente.username,
-          "storico": utente.memory_medio,
-        }
-  
-        var punteggioMemoryDifficile = {
-          "id": utente._id,
-          "user": utente.username,
-          "storico": utente.memory_difficile,
-        }
+  classificaMemoryFacile: any[] = [];
+  classificaMemoryMedio: any[] = [];
+  classificaMemoryDifficile: any[] = [];
 
-        quiz1.push(punteggioQuiz);
-        quiz.push(punteggioQuiz);
-        this.dataMemoryFacile.push(punteggioMemoryFacile);
-        this.dataMemoryMedio.push(punteggioMemoryMedio);
-        this.dataMemoryDifficile.push(punteggioMemoryDifficile);
-      });
-      console.log("dataQuiz", this.dataQuiz);
-      this.punteggioTotaleQuiz(quiz);
-      this.maxDieci(quiz1);
-    })
-
-    console.log("FUCK", quiz, "|", this.dataQuiz);*/
-  }
+  constructor(public biscotto: MangiaBiscottoService, public punteggiQuiz: PunteggiQuizService, public http: HttpClient) { }
 
   ngOnInit(): void {
     this.biscotto.getRuolo();
@@ -109,15 +70,24 @@ export class ClassificheComponent implements OnInit {
         this.dataMemoryMedio.push(punteggioMemoryMedio);
         this.dataMemoryDifficile.push(punteggioMemoryDifficile);
       });
-      console.log("dataQuiz", this.quiz);
-      console.log("dataQuiz1", this.quiz1);
 
+      //calcola punteggi per classifica punteggio totale
       this.punteggioTotaleQuiz(this.quiz);
-
-      this.punteggioTotaleQuizPesato(this.quiz2);
-      console.log("dataQuiz", this.quiz);
-
+      
+      //calcola punteggi per classifica medie punteggi
+      this.punteggioTotaleQuizMedia(this.quiz2);
+      
+      //calcola punteggi per classifica punteggi perfetti
       this.maxDieci(this.quiz1);
+
+      //calcola punteggi per classifica memory facile
+      this.classificaMemory(this.dataMemoryFacile, 0);
+
+      //calcola punteggi per classifica memory medio
+      this.classificaMemory(this.dataMemoryMedio, 1);
+
+      //calcola punteggi per classifica memory difficile
+      this.classificaMemory(this.dataMemoryDifficile, 2);
     })
 
   }
@@ -152,7 +122,6 @@ export class ClassificheComponent implements OnInit {
 
   //Calcola la top ten dei giocatori con i punteggi più alti
   punteggioTotaleQuiz(quizArray: Array<any>): void {
-    //let quizArray = this.dataQuiz
     console.log(quizArray)
     var punteggio = 0;
     try {
@@ -174,12 +143,10 @@ export class ClassificheComponent implements OnInit {
             }
           }
         })
-        //console.log("user1",this.classificaPunteggioTotale[maxId]);
 
         this.classificaPunteggioTotale?.push({"user": quizArray[maxId].user, "punteggio": max});
 
         quizArray.splice(maxId, 1);
-        console.log("user",this.classificaPunteggioTotale[maxId]);
 
       }
     } catch (e){
@@ -188,8 +155,8 @@ export class ClassificheComponent implements OnInit {
 
   }
 
-  punteggioTotaleQuizPesato(quizArray: Array<any>): void {
-    //let quizArray = this.dataQuiz
+  //Calcola la top ten dei giocatori con la media alta
+  punteggioTotaleQuizMedia(quizArray: Array<any>): void {
     var punteggio = 0;
     var totale = 0;
     var media = 0;
@@ -204,7 +171,6 @@ export class ClassificheComponent implements OnInit {
           media = 0;
 
           if(utente.quiz != undefined){
-            console.log("-------------------------------------------")
             for(let i = 1; i < 11; i++){
               punteggio = punteggio + ((utente.quiz[i].count * utente.quiz[i].punteggio));
               totale = totale + utente.quiz[i].count;
@@ -223,7 +189,6 @@ export class ClassificheComponent implements OnInit {
         this.classificaPunteggioMedia?.push({"user": quizArray[maxId].user, "punteggio": max});
   
         quizArray.splice(maxId, 1);
-        console.log("user",this.classificaPunteggioMedia[maxId]);
   
       }
     } catch (e) {
@@ -232,6 +197,53 @@ export class ClassificheComponent implements OnInit {
   }
 
 
+
+  //Punteggi Memory
+  classificaMemory(punteggi: Array<any>, difficolta: number): void{
+    console.log("puntearrayggi", this.dataMemoryFacile);
+    let record = 1000;
+    let idUtente = 0;
+    let idPunteggio = 0;
+    try{
+      for(let i = 0; i < 11; i++){
+        record = 1000;
+        idUtente = 0;
+        idPunteggio = 0;
+
+        punteggi.forEach((utente, indice) => {
+
+          if(utente.storico != undefined){
+          utente.storico.forEach((punteggio: any, index: number) => {
+            if(punteggio < record){
+              record = punteggio;
+              idPunteggio = index;
+              idUtente = indice;
+            }
+
+          })
+        }
+        })
+
+        switch(difficolta){
+          case 0:
+            this.classificaMemoryFacile.push({"user": punteggi[idUtente].user, "punteggio": record});
+            break;
+          case 1:
+            this.classificaMemoryMedio.push({"user": punteggi[idUtente].user, "punteggio": record});
+            break;
+          case 2:
+            this.classificaMemoryDifficile.push({"user": punteggi[idUtente].user, "punteggio": record});
+            break;
+        }
+
+        punteggi[idUtente].storico.splice(idPunteggio, 1);
+      
+      }
+
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
 
 
