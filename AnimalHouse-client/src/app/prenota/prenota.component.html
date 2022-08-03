@@ -19,7 +19,6 @@
                     <td colspan=4>
                         <ejs-datetimepicker id="startTime" class="e-field form-control" data-name="StartTime" format="dd/M/yy h:mm"
                         [value]="dateParser(data.StartTime)"  readonly=true></ejs-datetimepicker>
-                        <p>{{this.dati.online}}</p>
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +34,7 @@
         </table>
         
         
-        <button (click)="confermaAppuntamento()"> Conferma </button>
+        <button (click)="confermaAppuntamento()" type="button" class="btn btn-secondary btn-sm"> Conferma </button>
         
         <div class="alert alert-danger" role="alert" *ngIf="msgMezzora == true">
             Il principino vuole fare alla mezza, metti un orario vero per l'amor di Dio
