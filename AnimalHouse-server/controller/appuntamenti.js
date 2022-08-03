@@ -25,6 +25,14 @@ exports.getTuoiAppuntamenti= async (req,res)=>{
     });
 }
 
+exports.getAppuntamentiProf= async (req,res)=>{
+    return await db.collection(`appuntamenti`).find({idProfessionista: req.params.id}).toArray((err, risp)=>{
+        if(err) throw err;
+        console.log("res", risp);
+        res.json(risp);
+    });
+}
+
 exports.deleteAppuntamenti= async(req,res)=>{
     console.log("collezione", req.params.user)
     return await db.collection(`appuntamenti`).delete({Subject: (req.params.user) }, (err,cursor)=>{

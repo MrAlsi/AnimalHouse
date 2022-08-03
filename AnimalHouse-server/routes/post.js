@@ -16,6 +16,6 @@ router.put('/like/:id', routers.updateLike);
 router.put('/dislike/:id', routers.dropMipiace);
 
 //dato un user elimino i suoi post
-router.delete('/:user',router.deletePost);
+router.delete('/:user',routers.deletePost);
 
 module.exports = router;

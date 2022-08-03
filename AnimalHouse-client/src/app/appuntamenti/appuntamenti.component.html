@@ -10,7 +10,7 @@
         <th class="data" scope="col">Data</th>
         <th class="ora" scope="col">Ora</th>
         <th class="elimina" scope="col">Elimina</th>
-        <th class="modifica" scope="col">Modifica</th>
+        <th *ngIf="this.ruolo=='utente'" class="modifica" scope="col">Modifica</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
         <td class="data">{{this.appuntamento.Day}}</td>
         <td class="ora">{{this.appuntamento.StartTime}}</td>
         <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
-        <td class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista, this.appuntamento._id)">Modifica</button></td>
+        <td *ngIf="this.ruolo=='utente'" class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista, this.appuntamento._id)">Modifica</button></td>
 
       </tr>
     </tbody>

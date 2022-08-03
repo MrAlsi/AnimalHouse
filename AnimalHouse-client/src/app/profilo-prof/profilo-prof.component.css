@@ -16,6 +16,12 @@
     border-color:#AA0000;
 }
 
+.btn.btn-primary.mt-3{
+    color: white;
+    background-color: #AA0000;
+    border-color:#AA0000;
+}
+
 .accordion-button:focus{
     background-color:#AA0000;
     color: white;
@@ -45,6 +51,12 @@
     text-align: left;
     justify-content: center;
     align-items: flex-start;
+}
+
+.subtitle{
+    background-color: #AA0000;
+    color: white;
+    font-weight: bolder;
 }
 
 tr, th{
