@@ -9,6 +9,7 @@
         <th class="nome" scope="col">Professionista</th>
         <th class="data" scope="col">Data</th>
         <th class="ora" scope="col">Ora</th>
+        <th class="luogo" scope="col">Luogo</th>
         <th class="elimina" scope="col">Elimina</th>
         <th *ngIf="this.ruolo=='utente'" class="modifica" scope="col">Modifica</th>
       </tr>
@@ -22,6 +23,7 @@
         <td class="nome"><a class="nav-link" href="professionista/{{this.appuntamento.idProfessionista}}">{{this.appuntamento.nome}}</a></td>
         <td class="data">{{this.appuntamento.Day}}</td>
         <td class="ora">{{this.appuntamento.StartTime}}</td>
+        <td class="luogo">{{this.appuntamento.luogo}}</td>
         <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
         <td *ngIf="this.ruolo=='utente'" class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista, this.appuntamento._id)">Modifica</button></td>
 
@@ -40,6 +42,7 @@
         <th class="nome" scope="col">Professionista</th>
         <th class="data" scope="col">Data</th>
         <th class="ora" scope="col">Ora</th>
+        <th class="luogo" scope="col">Luogo</th>
         <div *ngIf="this.ruolo=='admin'">
           <th class="elimina" scope="col">Elimina</th>
         </div>
@@ -53,6 +56,7 @@
         <td class="nome"><a class="nav-link" href="professionista/{{this.appuntamento.idProfessionista}}">{{this.appuntamento.nome}}</a></td>
         <td class="data">{{this.appuntamento.Day}}</td>
         <td class="ora">{{this.appuntamento.StartTime}}</td>
+        <td class="luogo">{{this.appuntamento.luogo}}</td>
         <div *ngIf="this.ruolo=='admin'">
           <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
         </div>

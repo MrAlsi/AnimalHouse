@@ -32,6 +32,7 @@ export class PrenotaComponent implements OnInit {
 
   form: FormGroup;
   dataInput: any;
+  luogo: string="Ufficio";
 
   @Input() dati: any | null = ""
 
@@ -129,7 +130,7 @@ export class PrenotaComponent implements OnInit {
     this.giorniBloccati.push({
       Subject: "No",
       StartTime: new Date(2000, 0, 1),
-      EndTime: new Date(+anno, +mese-1, +giorno),
+      EndTime: new Date(+anno, +mese-1, +giorno+1),
       IsBlock: true}
     )
   }
@@ -217,7 +218,8 @@ export class PrenotaComponent implements OnInit {
           StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
           EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
           tipo: this.dati.tipo,
-          nome: this.dati.nome
+          nome: this.dati.nome,
+          luogo: this.luogo
         }
         this.http.put<any>('http://localhost:3000/appuntamenti/'+ this.dati.appuntamento,{body})
           .subscribe(data=>{}); 
@@ -231,7 +233,9 @@ export class PrenotaComponent implements OnInit {
           StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
           EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
           tipo: this.dati.tipo,
-          nome: this.dati.nome
+          nome: this.dati.nome,
+          luogo: this.luogo
+
         }
 
         //Creo il documento nel DB
@@ -240,6 +244,10 @@ export class PrenotaComponent implements OnInit {
       }
     }
         
+  }
+
+  checked(luogo: any): void{
+    this.luogo=luogo;
   }
 
   pulisciOra(ora: string, plus: number, minuti: string ): string {

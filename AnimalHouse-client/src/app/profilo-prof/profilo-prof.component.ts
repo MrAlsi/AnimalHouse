@@ -68,6 +68,8 @@ export class ProfiloProfComponent implements OnInit {
           tipo: data.tipo,
           nome: data.nome,
           appuntamento: "",
+          online: data.online,
+          domicilio: data.domicilio
         }
         return;
       });
