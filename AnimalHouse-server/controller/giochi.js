@@ -14,7 +14,7 @@ exports.aggiungiPunteggioMemory = async (req, res) => {
   console.log("SONO qui alsi", );
   switch(req.body.carte){
     //Aggiunge al DB in facile
-    case 5:
+    case 6:
       console.log("Facile")
       try {
         db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory_facile": req.body.punteggio }}, {upsert: true} );

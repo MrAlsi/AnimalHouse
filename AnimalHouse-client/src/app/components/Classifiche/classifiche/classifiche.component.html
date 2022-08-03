@@ -12,7 +12,72 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            <app-classifica-quiz [data]="dataQuiz"></app-classifica-quiz>
+
+          <!-- Classifica punteggio totale -->
+          <div *ngIf="classificaPunteggioTotale != []">
+            <h4>Classifica punteggi totale</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Punteggio totale</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaPunteggioTotale, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Classifica punteggio media -->
+          <div *ngIf="classificaPunteggioMedia != []">
+            <h4>Classifica punteggi media</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Punteggio totale</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaPunteggioMedia, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Classifica punteggi perfetti -->
+          <div *ngIf="classificaPunteggiPerfetti != []">
+            <h4>Classifica punteggi perfetti</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Punteggi perfetti</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaPunteggiPerfetti, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+
+           <!-- <app-classifica-quiz [maggioriDieci]="maxDieci()"></app-classifica-quiz> -->
         </div>
       </div>
     </div>
@@ -24,7 +89,69 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            <app-classifica-memory></app-classifica-memory>
+          <!-- Classifica memory facile -->
+          <div *ngIf="dataMemoryFacile != []">
+            <h4>Classifica Memory facile</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Mosse</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaMemoryFacile, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Classifica memory medio -->
+          <div *ngIf="classificaMemoryMedio != []">
+            <h4>Classifica Memory facile</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Mosse</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaMemoryMedio, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Classifica memory facile -->
+          <div *ngIf="dataMemoryDifficile != []">
+            <h4>Classifica Memory facile</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Utente</th>
+                  <th scope="col">Mosse</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let punteggio of classificaMemoryDifficile, index as i">
+                <tr>
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{punteggio.user}}</td>
+                  <td>{{punteggio.punteggio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+            
         </div>
       </div>
     </div>
