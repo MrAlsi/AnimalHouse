@@ -14,7 +14,7 @@
             <div *ngIf="home.carica==true">
                 <form class="foto" (ngSubmit)="home.salva2()" [formGroup]="home.form2">
                     <div class="form-group">
-                        <input class="form-control" id="img" type="file" accept="image/*,video/*" name="img" formControlName="img"/>
+                        <input class="form-control" id="img" type="file" accept="image/*,video/*" name="img" formControlName="img" (change)="home.onselectFile($event)"/>
                     </div>
                     <br>
                     <div *ngIf="home.msgalert">
@@ -26,7 +26,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
-                    <button type="submit" id="btnpiccolo"class="btn btn-secondary btn-sm">Salva</button>
+                    <button type="submit" id="btnpiccolo"class="btn btn-secondary btn-sm" >Salva</button>
 
                 </form>
             </div>
@@ -44,7 +44,5 @@
                 <button type="submit" class="btn btn-secondary btn-sm">Salva</button>
             </div>
         </form>
-        
-
     </div>
 </div>

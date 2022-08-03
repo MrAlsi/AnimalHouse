@@ -8,6 +8,9 @@
         <!-- Testo del post -->
         <p id="testo">{{testo}}</p>
 
+        <div *ngIf = "img!=''" class="photo">
+            <img [src]="img">
+        </div>
         <div id="basso">
         <!-- Gestione like -->
             <div *ngIf="cuoricino===false;then mettiLike else togliLike"></div>

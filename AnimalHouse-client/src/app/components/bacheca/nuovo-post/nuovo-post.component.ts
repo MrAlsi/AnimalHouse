@@ -10,10 +10,15 @@ import { HomeService } from 'src/app/home.service';
   styleUrls: ['./nuovo-post.component.css']
 })
 export class NuovoPostComponent implements OnInit {
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file?: File; // Variable to store file
   
+
   constructor(public home: HomeService) { }
 
   ngOnInit(): void {
   }
 
+  
 }
