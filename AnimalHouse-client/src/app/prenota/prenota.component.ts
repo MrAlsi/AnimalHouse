@@ -93,6 +93,7 @@ export class PrenotaComponent implements OnInit {
      }
     });
     this.segnaGiorni();
+    this.segnaGiorniPassati();
     console.log("GL:", this.giorniLiberi)
   }
 
@@ -111,6 +112,27 @@ export class PrenotaComponent implements OnInit {
 
       console.log("Daaam", this.giorniBloccati);
   };
+
+  segnaGiorniPassati(): void{
+    //prendo la data di oggi
+    let oggi=new Date();
+    let day=oggi.toISOString();
+
+    let Day=day.split("-");
+    let g= Day[2].split("T");
+    console.log("oggi",Day);
+
+    let anno=Day[0];
+    let mese=Day[1];
+    let giorno=g[0];
+    console.log("stampa",anno,mese,giorno);
+    this.giorniBloccati.push({
+      Subject: "No",
+      StartTime: new Date(2000, 0, 1),
+      EndTime: new Date(+anno, +mese-1, +giorno),
+      IsBlock: true}
+    )
+  }
 
   //Controlla la pausa in mezzo e aggiunge a date bloccate
   segnaPausaPranzo(): void {
