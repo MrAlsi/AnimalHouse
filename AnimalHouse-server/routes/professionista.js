@@ -15,4 +15,8 @@ router.get('/recensioni/:professionista', routers.cercaRecProf);
 //dato un id elimina le recnesioni con quel professionista
 router.delete('/recensioni/:professionista', routers.deleteRec);
 
+//dato un utente elimina le recensioni scritte da lui
+router.delete('/recensioni/utente/:user', routers.deleteRecUtente);
+
+
 module.exports = router;

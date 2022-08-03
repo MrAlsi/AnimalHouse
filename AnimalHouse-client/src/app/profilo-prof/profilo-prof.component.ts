@@ -96,16 +96,24 @@ export class ProfiloProfComponent implements OnInit {
   }
 
   elimina(): void{
+    //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+this.id)
       .subscribe(data => {
         console.log(data);
         return;
       });
-      this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
-      .subscribe(data => {
-        console.log(data);
-        return;
-      });     
+    //elimino recensioni
+    this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
+    .subscribe(data => {
+      console.log(data);
+      return;
+    }); 
+
+    //elimino appuntamenti
+    this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.id)
+    .subscribe(data => {
+      console.log(data);
+    });    
     window.location.reload();
   }
 
@@ -143,11 +151,6 @@ export class ProfiloProfComponent implements OnInit {
         console.log(data);
       });
 
-    //elimino appuntamenti professionista
-    this.http.delete<any>('http://localhost:3000/appuntamenti/professionista/'+ id)
-    .subscribe(data => {
-      console.log(data);
-    });
     window.location.reload();
   }
 

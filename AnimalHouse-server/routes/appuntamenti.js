@@ -12,7 +12,8 @@ router.get("/tuoiappuntamenti/:user", routers.getTuoiAppuntamenti);
 //elimino appuntamenti di un utente
 router.delete("/:user",routers.deleteAppuntamenti);
 
-//elimino appuntamenti di un professionoista
+
+//elimino appuntamenti di un professionoista dato l'id del prof
 router.delete("professionista/:prof",routers.deleteAppuntamentiProf);
 
 //dato un id modifica l'appuntamento

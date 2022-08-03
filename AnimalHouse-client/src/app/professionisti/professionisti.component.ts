@@ -40,12 +40,20 @@ export class ProfessionistiComponent implements OnInit {
       this.collezioni=data;
       console.log(data);
     });
+
     //elimino recensioni
     this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+id)
       .subscribe(data => {
         console.log(data);
         return;
       }); 
+
+    //elimino appuntamenti
+    this.http.delete<any>('http://localhost:3000/appuntamenti/'+id)
+    .subscribe(data => {
+      console.log(data);
+    });
+
     window.location.reload();
   }
 
