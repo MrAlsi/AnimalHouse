@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AnyForUntypedForms } from '@angular/forms';
+import { PunteggiClassificaService } from 'src/app/punteggi-classifica.service';
 import { Quiz } from './classificaData';
 
 
@@ -11,20 +13,15 @@ import { Quiz } from './classificaData';
 export class ClassificaQuizComponent implements OnInit {
 
   @Input() data: Quiz[] = [];
+  @Input() maggioriDieci: any;
   classificaGlobale: any;
-  constructor() { }
+
+  constructor(public punteggi: PunteggiClassificaService) {
+    //this.maggioriDieci =  punteggi.maxDieci();
+   }
 
   ngOnInit(): void {
-    this.classificaGlobale = this.data;
-    this.classificaGlobale.then((data:any) =>{
-      console.log("DD:", data);
-      }
-      )
-    for(let i=0; i<10; i++){
-      this.classificaGlobale.forEach((giocatore: any) => {
-        console.log("N:", i, giocatore);
-      })
-    }
+    
   }
 
   topTenGlobal(): void {
