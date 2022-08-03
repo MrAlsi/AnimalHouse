@@ -75,5 +75,8 @@
 </div>
 <br>
 <div *ngIf="profilo.sonoio==true">
-    <button id="eliminia" class="btn btn-dark btn-sm" (click)="profilo.showElimina()">Cancella account</button>
+    <button id="eliminia" class="btn btn-dark btn-sm" (click)="elimina()">Cancella account</button>
+</div>
+<div *ngIf="profilo.selectedElimina==true">
+    <app-elimina-account></app-elimina-account>
 </div>

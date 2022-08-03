@@ -128,8 +128,7 @@ export class ProfiloServiceService {
       console.log(data);
     });
 
-    window.location.reload();
-
+    this.router.navigate(['']);
   }
 
 }

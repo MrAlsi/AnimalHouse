@@ -20,4 +20,8 @@ export class ProfiliComponent implements OnInit {
     this.profilo.profile= this.route.snapshot.paramMap.get('username'); //prendo il nome dell'utente che sto guardando da params
     this.profilo.profilo(); 
   }
+
+  elimina(){
+    this.profilo.showElimina();
+  }
 }
