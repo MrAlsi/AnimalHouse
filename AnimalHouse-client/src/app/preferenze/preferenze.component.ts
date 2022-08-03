@@ -48,17 +48,21 @@ export class PreferenzeComponent implements OnInit {
 
 
   aggiungi(pet: string, img: string): void{
+    var flag=false;
     for(var i=0;i<this.preferiti.length;i++){
       //controllo l'animale non sia già stato selezionato
-      if(pet==this.preferiti[i]){
+      if(pet==this.preferiti[i].nome){
+        flag=true;
         break;
       }
     }
-    var prefe={
-      nome: pet,
-      image: img
+    //se non è presente nell'array lo aggiungo
+    if(flag==false){
+      var prefe={
+        nome: pet,
+        image: img
+      }
+      this.preferiti?.push(prefe);
     }
-    this.preferiti?.push(prefe);
   }
-
 }

@@ -36,6 +36,8 @@ export class ModificaComponent implements OnInit {
           tipo: data.tipo,
           nome: data.nome,
           appuntamento: this.appuntamento,
+          online: data.online,
+          domicilio: data.domicilio
         }
         console.log("datimodifica",this.dati);
         return;

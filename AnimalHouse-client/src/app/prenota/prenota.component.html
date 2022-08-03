@@ -21,11 +21,20 @@
                         [value]="dateParser(data.StartTime)"  readonly=true></ejs-datetimepicker>
                     </td>
                 </tr>
+                <tr>
+                    <input *ngIf="this.dati.online=='true'" type="radio" name="radioButton" id="radioButton" (change)="checked('Online')" />
+                    <label *ngIf="this.dati.online=='true'" for="radioButton">Online</label>
+                    <input *ngIf="this.dati.domiclio=='true'" type="radio" name="radioButton" id="radioButton1" (change)="checked('Domiclio')" />
+                    <label *ngIf="this.dati.domiclio=='true'" for="radioButton1">Domiclio</label>
+                    <input *ngIf="this.dati.domiclio=='true'|| this.dati.online=='true'" type="radio" name="radioButton" id="radioButton2" (change)="checked('Ufficio')" />
+                    <label *ngIf="this.dati.domiclio=='true'||this.dati.online=='true'" for="radioButton2">Ufficio</label>
+                </tr>
 
             </tbody>
         </table>
         
-        <button (click)="confermaAppuntamento()"> Conferma </button>
+        
+        <button (click)="confermaAppuntamento()" type="button" class="btn btn-secondary btn-sm"> Conferma </button>
         
         <div class="alert alert-danger" role="alert" *ngIf="msgMezzora == true">
             Il principino vuole fare alla mezza, metti un orario vero per l'amor di Dio

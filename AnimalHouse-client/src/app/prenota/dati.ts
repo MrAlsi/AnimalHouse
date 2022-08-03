@@ -8,4 +8,6 @@ export interface Dati {
     tipo: string,
     nome: string,
     appuntamento: string,
+    online: boolean,
+    domicilio: boolean,
 }
