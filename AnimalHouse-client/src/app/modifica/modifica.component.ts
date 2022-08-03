@@ -14,10 +14,13 @@ export class ModificaComponent implements OnInit {
   dati?: Dati;
   prof?: string;
   id?:any;
+  appuntamento?: any;
 
 
   constructor(public http: HttpClient, public route: ActivatedRoute) { 
     this.id= this.route.snapshot.paramMap.get('id'); 
+    this.appuntamento= this.route.snapshot.paramMap.get('appuntamento'); 
+
     console.log("ID:", this.id);
     this.http.get<any>('http://localhost:3000/CRUD/one/professionisti/'+ this.id)
       .subscribe(data=>{
@@ -31,8 +34,8 @@ export class ModificaComponent implements OnInit {
           inizioPausa: data.mattinaA,
           finePausa: data.pomeriggioDa,
           tipo: data.tipo,
-          nome: data.nome
-
+          nome: data.nome,
+          appuntamento: this.appuntamento,
         }
         console.log("datimodifica",this.dati);
         return;

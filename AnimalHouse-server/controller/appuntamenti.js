@@ -42,3 +42,15 @@ exports.deleteAppuntamentiProf= async(req,res)=>{
       res.json(cursor);
     });
 }
+
+//passato un id aggiorna l'appuntamento con quell'id
+exports.updateOneAppuntamento = (req, res) => {
+    console.log("boh", req.body.body, "id", req.params.id);
+    const body = req.body.body;
+    //console.log("Body:", req.body.pp);
+    return db.collection(`appuntamenti`).updateOne({_id:ObjectId(req.params.id)},{$set:{"Day": body.Day, "StartTime": body.StartTime,"EndTime": body.EndTime}}, (err,cursor)=>{
+      if(err) console.log ("Err: ", err);
+      console.log("ciao",cursor);
+      res.json(cursor);
+    });
+  }

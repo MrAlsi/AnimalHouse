@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ProfiloServiceService } from '../profilo-service.service';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
@@ -15,18 +14,13 @@ import { Router } from '@angular/router';
 })
 export class AppuntamentiComponent implements OnInit {
 
-  form: FormGroup;
   search: boolean= false;
   appuntamenti: any[]=[];
   appuntamentiPassati: any[]=[];
 
   ruolo?: string;
 
-  constructor(public fb: FormBuilder, public http: HttpClient, public profilo: ProfiloServiceService, public biscotto: MangiaBiscottoService, public router: Router) { 
-    this.form=fb.group({
-      "cerca": [""],
-    });
-  }
+  constructor(public http: HttpClient, public profilo: ProfiloServiceService, public biscotto: MangiaBiscottoService, public router: Router) { }
 
   ngOnInit(): void {
     this.cercatutti(this.profilo.profile);
@@ -36,7 +30,6 @@ export class AppuntamentiComponent implements OnInit {
   cercatutti(user: any): void{
     //prendo la data di oggi
     let oggi=new Date();
-    var today=oggi.toLocaleDateString();
     //chiamata al db con tutti gli appuntamenti della persona
     this.http.get<any>('http://localhost:3000/appuntamenti/tuoiappuntamenti/'+ user)
       .subscribe(data=>{
@@ -44,7 +37,8 @@ export class AppuntamentiComponent implements OnInit {
         data.forEach((element: any) => {
           element.Day=element.Day.split("T");
           element.Day=element.Day[0];
-          if(element.Day>today){
+          
+          if(element.Day>=oggi.toISOString()){
             this.appuntamenti.push(element);
           }else{
             this.appuntamentiPassati.push(element);
@@ -52,17 +46,6 @@ export class AppuntamentiComponent implements OnInit {
         });  
       });
     this.search=false;
-  }
-
-
-  cerca(): void{
-    if(this.form.value.cerca!=""){
-      //@todo chiamata al db dove cerco tra gli appuntamenti solo quelli con quel professionista
-      //guarda cerca in utenti
-    }else{
-      this.search=false;
-      this.cercatutti(this.biscotto.getUsername());
-    }
   }
 
   elimina(id: any):void{
@@ -73,8 +56,9 @@ export class AppuntamentiComponent implements OnInit {
     window.location.reload();
   }
 
-  modifica(id: any): void{
-    this.router.navigate(['modifica/'+id]);
+  modifica(id: any, appuntamento: any): void{
+    this.router.navigate(['modifica/'+id+'/'+appuntamento]);
   }
+
 
 }

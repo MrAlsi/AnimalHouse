@@ -1,10 +1,3 @@
-<form id="cerca" (ngSubmit)="cerca()" [formGroup]="form"> 
-    <div id="all" *ngIf="this.search==true">
-      <button class="btn btn-primary ms-small" id="all" type="button" (click)="cercatutti(this.profilo.id)">View all</button>
-    </div>
-    <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="cerca" >
-    <button class="btn btn-primary ms-small" type="submit">Search professionisti</button>
-  </form>
 <p class="subtitle">Appuntamenti</p>
 <br>
 <div class="tabella">
@@ -30,7 +23,7 @@
         <td class="data">{{this.appuntamento.Day}}</td>
         <td class="ora">{{this.appuntamento.StartTime}}</td>
         <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.appuntamento._id)">Elimina</button></td>
-        <td class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista)">Modifica</button></td>
+        <td class="modifica"><button type="button" class="btn btn-primary mt-3" (click)="modifica(this.appuntamento.idProfessionista, this.appuntamento._id)">Modifica</button></td>
 
       </tr>
     </tbody>

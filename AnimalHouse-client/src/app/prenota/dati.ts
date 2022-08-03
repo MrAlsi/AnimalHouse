@@ -7,4 +7,5 @@ export interface Dati {
     finePausa: string,
     tipo: string,
     nome: string,
+    appuntamento: string,
 }

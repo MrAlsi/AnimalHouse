@@ -164,7 +164,6 @@ export class PrenotaComponent implements OnInit {
 
 
   prendiNuovoEvento(): void {
-    
     var evento = document.getElementsByClassName("e-new-event");
     console.log(evento);
   }
@@ -186,19 +185,37 @@ export class PrenotaComponent implements OnInit {
     if(oraF[1] === "30"){
       this.msgMezzora = true;
     } else {
-      //Creo il body per mandare i dati al DB
-      var body = {
-        idProfessionista: this.dati.idProf,
-        Subject: this.biscotto.getUsername(),
-        Day: this.dataInput,
-        StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
-        EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
-        tipo: this.dati.tipo,
-        nome: this.dati.nome
+      console.log("dati1",this.dati.appuntamento);
+      if(this.dati.appuntamento!=""){
+        //Creo il body per mandare i dati al DB
+        var body = {
+          idProfessionista: this.dati.idProf,
+          Subject: this.biscotto.getUsername(),
+          Day: this.dataInput,
+          StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
+          EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
+          tipo: this.dati.tipo,
+          nome: this.dati.nome
+        }
+        this.http.put<any>('http://localhost:3000/appuntamenti/'+ this.dati.appuntamento,{body})
+          .subscribe(data=>{}); 
+
+      }else{
+        //Creo il body per mandare i dati al DB
+        var body = {
+          idProfessionista: this.dati.idProf,
+          Subject: this.biscotto.getUsername(),
+          Day: this.dataInput,
+          StartTime: this.pulisciOra(oraF[0], 2, oraF[1]),
+          EndTime: this.pulisciOra(oraF[0], 3, oraF[1]),
+          tipo: this.dati.tipo,
+          nome: this.dati.nome
+        }
+
+        //Creo il documento nel DB
+        this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
+        .subscribe()
       }
-      //Creo il documento nel DB
-      this.http.put<any>("http://localhost:3000/CRUD/appuntamenti", body)
-      .subscribe()
     }
         
   }

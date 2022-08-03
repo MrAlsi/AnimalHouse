@@ -15,5 +15,8 @@ router.delete("/:user",routers.deleteAppuntamenti);
 //elimino appuntamenti di un professionoista
 router.delete("professionista/:prof",routers.deleteAppuntamentiProf);
 
+//dato un id modifica l'appuntamento
+router.put('/:id', routers.updateOneAppuntamento);
+
 
 module.exports = router;

@@ -40,7 +40,7 @@ const routes: Routes = [
   {path: 'profili/:username', component: ProfiliComponent, canActivate :[GuardiaIdService]},
   {path: 'professionista/:nome', component: ProfiloProfComponent, canActivate :[GuardiaIdService]},
   {path: 'prenotazioni', component: PrenotazioniComponent, canActivate:[GuardiaUtenteService]},
-  {path: 'modifica/:id', component: ModificaComponent, canActivate:[GuardiaUtenteService]},
+  {path: 'modifica/:id/:appuntamento', component: ModificaComponent, canActivate:[GuardiaUtenteService]},
 
   {path: '**', component: PageNotFoundComponent } //deve essere l'ultimo
 ];
