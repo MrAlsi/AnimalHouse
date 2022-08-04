@@ -35,10 +35,10 @@ export class MemoryComponent implements OnInit {
 
   //Salvataggio nel DB
   salvaPunteggio(): void{
-    console.log("Salva");
+    //console.log("Salva");
 
     this.cookie = jwt_decoded( this.cookieService.get("token"));  //Traduce il cookie
-    console.log(this.mosse);
+    //console.log(this.mosse);
 
     //Crea il body per la richiesta al server
     var body = {

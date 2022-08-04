@@ -40,7 +40,7 @@ export class MemeComponent implements OnInit {
   }
 
   getHD(i: number): any{
-    console.log("HD: ", this.video[i].video_files);
+    //console.log("HD: ", this.video[i].video_files);
     this.video[i].video_files.forEach((qualita: any) => {
       if(qualita.quality === 'hd'){
         this.link = qualita.link;

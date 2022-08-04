@@ -78,10 +78,10 @@ export class PostComponent implements OnInit {
 
   //Elimina il post
   elimina(id: any): void{
-    console.log("id",id);
+    //console.log("id",id);
     this.http.delete<any>('http://localhost:3000/CRUD/post/'+ id)
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
       });
     window.location.reload();
   }

@@ -18,7 +18,7 @@ export class GuardiaRuoloService {
       this.ruolo='';
     }
 
-    console.log("ruolo",this.ruolo);
+    //console.log("ruolo",this.ruolo);
     if(this.ruolo=='admin'){
       return true;
     }else{

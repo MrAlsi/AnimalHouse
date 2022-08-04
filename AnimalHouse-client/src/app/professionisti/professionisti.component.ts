@@ -26,24 +26,21 @@ export class ProfessionistiComponent implements OnInit {
 
   //metodo per eliminare il professionista
   elimina(id: string): void{
-    console.log("id:", id)
+    //console.log("id:", id)
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
-      console.log(data);
     });
 
     //elimino recensioni
     this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+id)
       .subscribe(data => {
-        console.log(data);
         return;
       }); 
 
     //elimino appuntamenti
     this.http.delete<any>('http://localhost:3000/appuntamenti/'+id)
     .subscribe(data => {
-      console.log(data);
     });
 
     window.location.reload();
@@ -54,14 +51,11 @@ export class ProfessionistiComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/CRUD/professionisti/')
         .subscribe(data => {
           this.collezioni=data;
-          console.log(data);
         });
   }
 
   //metodo per indirizzarti alla creazione di professionsti
   addProf():void{
     this.router.navigate(['newProfessionisti']);
-
   }
-
 }

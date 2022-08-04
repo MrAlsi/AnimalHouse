@@ -31,9 +31,9 @@ router.get('/', function(req, res, next) {
 
 
 router.put('/cambiaPassword/:email', function(req,res){
-  console.log("no", req.params);
+ // console.log("no", req.params);
   codice= generateCodice();
-  console.log("cod", codice);
+ // console.log("cod", codice);
   //console.log("transp", transport);
 
   const message= {
@@ -42,15 +42,15 @@ router.put('/cambiaPassword/:email', function(req,res){
     subject: "codice cambio password",
     text: `codice: ${codice}`
   }
-  console.log("messaggio", message);
-  console.log("env",process.env.MAIL);
+  //console.log("messaggio", message);
+  //console.log("env",process.env.MAIL);
 
   transport.sendMail(message, function(err, info){
     if(err){
       console.log(err);
     }else{
       //console.log("info",info);
-      console.log("inviata");
+      //console.log("inviata");
       res.json({"codice": codice});
     }
   })

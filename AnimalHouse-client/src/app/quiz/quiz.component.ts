@@ -31,7 +31,7 @@ export class QuizComponent {
 
   ngOnInit(): void {   
     this.httpClient.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple').subscribe(data => {
-      console.log("Data: ", data);
+      //console.log("Data: ", data);
       this.api = data;
       this.caricaQuesito();
       }
@@ -40,7 +40,7 @@ export class QuizComponent {
 
   //Cambia la domanda nel DOM
   caricaQuesito(): void{
-    console.log("Quesito", this.indice);
+    //console.log("Quesito", this.indice);
     this.colore = "btn-outline-dark"
     this.domanda = this.getDomanda();
     this.risposte = this.mescola();
@@ -110,7 +110,7 @@ export class QuizComponent {
   //Salva il punteggio del DB
   salvaPunteggio(): void{
       this.cookie = jwt_decoded(this.cookie);  //Traduce il cookie
-      console.log(this.cookie);
+      //console.log(this.cookie);
 
       //Crea il body per la richiesta al server
       var body = {

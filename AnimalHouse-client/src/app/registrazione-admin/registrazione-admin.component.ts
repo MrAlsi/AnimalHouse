@@ -52,7 +52,7 @@ export class RegistrazioneAdminComponent implements OnInit {
         //alert("codice amministratore errato");
       }else{
         //controllo l'user non sia già in uso
-        console.log(this.form.value.username);
+        //console.log(this.form.value.username);
         this.http.put<any>('http://localhost:3000/controllaUsername', this.form.value)
         .subscribe(data => {
           if(data==null){ //se data è vuoto non è in uso
@@ -84,7 +84,6 @@ export class RegistrazioneAdminComponent implements OnInit {
               }
             });
           }else{
-            console.log("username già in uso")
             this.msgalert=("username: "+this.form.value.username+" è già in uso");
             //alert( "username: "+this.form.value.username+" è già in uso")
             return;

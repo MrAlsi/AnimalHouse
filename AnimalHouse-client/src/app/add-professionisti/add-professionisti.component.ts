@@ -94,12 +94,12 @@ export class AddProfessionistiComponent implements OnInit {
         //controllo gli orari
         if(this.form.value.mattinaDa>this.form.value.mattinaA ||this.form.value.pomeriggioDa>this.form.value.pomeriggioA){
           this.msgalert=("l'inizio del turno non può essere dopo la fine del turno");
-          console.log("ciao");
+          //console.log("ciao");
           return;
         }else{
           if(this.form.value.mattinaA>this.form.value.pomeriggioDa){
             this.msgalert=("il turno del pomeriggio deve iniziare dopo la fine del turno della mattina");
-            console.log("we");
+            //console.log("we");
             return;
           }
         }

@@ -31,7 +31,7 @@ export class PreferenzeComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/listaAnimali')
       .subscribe(data => {
         this.animali=data;
-        console.log(data);
+       // console.log(data);
       });
   }
 

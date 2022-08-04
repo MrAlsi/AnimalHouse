@@ -9,7 +9,7 @@ exports.controllaUsername = async (req,res)=> {
     //console.log("user:", req.body.username);
     return await db.collection("utenti").findOne({username: req.body.username}, (err,cursor)=>{
         if(err) console.log ("Err: ", err);
-        console.log(cursor);
+        //console.log(cursor);
         res.json(cursor);
     });
 }
@@ -19,7 +19,7 @@ exports.controllaEmail = async (req,res)=> {
     //console.log("mail:", req.body.email);
     return await db.collection("utenti").findOne({mail: req.body.email}, (err,cursor)=>{
         if(err) console.log ("Err: ", err);
-        console.log(cursor);
+        //console.log(cursor);
         res.json(cursor);
     });
 }
@@ -27,7 +27,7 @@ exports.controllaEmail = async (req,res)=> {
 exports.getAnimali = async (req, res) => {
     db.collection('listaAnimali').find().sort( { "name": 1 } ).toArray((err, risp) => {
         if(err) throw err;
-        console.log("res", risp);
+       // console.log("res", risp);
         res.json(risp);
     }) 
 }

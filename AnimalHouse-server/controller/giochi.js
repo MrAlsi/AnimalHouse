@@ -11,11 +11,11 @@ exports.aggiungiPunteggioQuiz = async (req, res) => {
 
 //Aggiungi punteggio partita a memory
 exports.aggiungiPunteggioMemory = async (req, res) => {
-  console.log("SONO qui alsi", );
+  //console.log("SONO qui alsi", );
   switch(req.body.carte){
     //Aggiunge al DB in facile
     case 6:
-      console.log("Facile")
+      //console.log("Facile")
       try {
         db.collection(`utenti`).updateOne({"_id": ObjectId(req.body._id)}, {$push: {"memory_facile": req.body.punteggio }}, {upsert: true} );
       } catch (e) {
@@ -51,7 +51,7 @@ exports.getPunteggiGlobaliQuiz = async(req, res) => {
   try{
     db.collection(`punteggioGiochi`).find().toArray((err, risp) => {
       if(err) throw err;
-      console.log("res", risp);
+      //console.log("res", risp);
       res.json(risp);
     })
   } catch {

@@ -37,7 +37,7 @@ export class ClassificheComponent implements OnInit {
     this.biscotto.getRuolo();
     this.http.get('http://localhost:3000/CRUD/utenti').subscribe(data => {
       this.utenti = data;
-      console.log("U", this.utenti);
+     // console.log("U", this.utenti);
       this.utenti.forEach((utente: any) => {
         var punteggioQuiz = {
           "id": utente._id,
@@ -122,7 +122,7 @@ export class ClassificheComponent implements OnInit {
 
   //Calcola la top ten dei giocatori con i punteggi più alti
   punteggioTotaleQuiz(quizArray: Array<any>): void {
-    console.log(quizArray)
+    //console.log(quizArray)
     var punteggio = 0;
     try {
       for(let i = 0; i < 10; i++){
@@ -200,7 +200,7 @@ export class ClassificheComponent implements OnInit {
 
   //Punteggi Memory
   classificaMemory(punteggi: Array<any>, difficolta: number): void{
-    console.log("puntearrayggi", this.dataMemoryFacile);
+    //console.log("puntearrayggi", this.dataMemoryFacile);
     let record = Infinity;
     let idUtente = 0;
     let idPunteggio = 0;

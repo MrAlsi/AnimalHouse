@@ -37,15 +37,15 @@ export class ProfiloServiceService {
   profilo(): void {
     try{
       this.id=this.biscotto.getId();
-      console.log("idwe", this.id);
+      //console.log("idwe", this.id);
     }catch (error) {
       this.id='';
-      console.log(error);
+      //console.log(error);
     }
     this.ruolo=this.biscotto.getRuolo();
 
     if(this.biscotto.getUsername()==this.profile){ //controllo se è il mio profilo
-      console.log("SOno IO!")
+      //console.log("SOno IO!")
       this.sonoio= true;
     }
     //dato l'user prendo i dati
@@ -56,7 +56,7 @@ export class ProfiloServiceService {
           this.idProfile=data._id;
 
           //Per prendere tutte le informazioni dei giochi per passarli al component delle classifiche
-          console.log("l", this.dati.quiz);
+          //console.log("l", this.dati.quiz);
           this.datiQuiz = this.dati.quiz;
           this.datiMemoryFacile = this.dati.memory_facile;
           this.datiMemoryMedio = this.dati.memory_medio;
@@ -67,7 +67,7 @@ export class ProfiloServiceService {
             .subscribe(data => {
               if(data!== null){
                 this.animali=data.preferiti;
-                console.log(this.animali);
+                //console.log(this.animali);
               }
             });
         }
@@ -97,36 +97,36 @@ export class ProfiloServiceService {
 
   eliminaAccount(): void{
     this.id=this.biscotto.getId();
-    console.log("id:", this.id);
+    //console.log("id:", this.id);
     //vado eliminare dal db l'utente con quel id
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
       .subscribe(data => {
         //this.collezioni=data;
-        console.log(data);
+        //console.log(data);
       });
 
     //vado ad eliminare dal db gli appuntamenti di quell'user
     this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.profile)
     .subscribe(data => {
-      console.log(data);
+      //console.log(data);
     });
 
     //vado ad eliminare le recensioni dell'utente
     this.http.delete<any>('http://localhost:3000/professionista/recensioni/utente/'+this.profile)
     .subscribe(data => {
-      console.log(data);
+      //console.log(data);
     });
 
     //vado ad eliminare i post dell'utente
     this.http.delete<any>('http://localhost:3000/post/'+this.profile)
     .subscribe(data => {
-      console.log(data);
+      //console.log(data);
     });
 
     //vado ad eliminare le preferenze dell'utente
     this.http.delete<any>('http://localhost:3000/preferenze/'+this.id)
     .subscribe(data => {
-      console.log(data);
+      //console.log(data);
     });
 
     this.router.navigate(['']);

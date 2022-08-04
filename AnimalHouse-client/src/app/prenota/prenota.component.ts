@@ -50,8 +50,7 @@ export class PrenotaComponent implements OnInit {
       "Data": ['',Validators.required],
       "Ora": ['',Validators.required]
     });
-    console.log("info", this.dati)
-    //http.get("http://localhost:3000/recensioni/")
+    //console.log("info", this.dati)
   }
 
   ngOnInit(): void {
@@ -66,21 +65,14 @@ export class PrenotaComponent implements OnInit {
     //Controllo pause 
     this.segnaPausaPranzo();
 
-    console.log("Giorni bloccati", this.giorniBloccati);
+    //console.log("Giorni bloccati", this.giorniBloccati);
 
     //Aggiunge al calendario gli eventi bloccati
     this.eventSettings = {dataSource: this.giorniBloccati}
 
   
     document.getElementsByClassName("e-appointment")
-   
-
-    //eventi[0].setAttribute("(click)", "sonoFortissimo()");
     })
-
-
-  
-    //@todo chiamata al db per prendere le prenotazioni
   }
   
 
@@ -95,7 +87,7 @@ export class PrenotaComponent implements OnInit {
     });
     this.segnaGiorni();
     this.segnaGiorniPassati();
-    console.log("GL:", this.giorniLiberi)
+    //console.log("GL:", this.giorniLiberi)
   }
 
   //Controllo i giorni che non lavora e li aggiungo alle date bloccate
@@ -110,8 +102,6 @@ export class PrenotaComponent implements OnInit {
       }
     )
     })
-
-      console.log("Daaam", this.giorniBloccati);
   };
 
   segnaGiorniPassati(): void{
@@ -121,12 +111,12 @@ export class PrenotaComponent implements OnInit {
 
     let Day=day.split("-");
     let g= Day[2].split("T");
-    console.log("oggi",Day);
+   // console.log("oggi",Day);
 
     let anno=Day[0];
     let mese=Day[1];
     let giorno=g[0];
-    console.log("stampa",anno,mese,giorno);
+    //console.log("stampa",anno,mese,giorno);
     this.giorniBloccati.push({
       Subject: "No",
       StartTime: new Date(2000, 0, 1),
@@ -188,7 +178,6 @@ export class PrenotaComponent implements OnInit {
 
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
-    console.log(evento);
   }
 
 
@@ -200,15 +189,12 @@ export class PrenotaComponent implements OnInit {
   
     var data = input[0].split("-");
 
-    console.log(this.dati);
     //Pulisco l'ora in input
     var ora = input[1].substring(0, 5);
     var oraF = ora.split(":");
-    console.log(oraF[1])
     if(oraF[1] === "30"){
       this.msgMezzora = true;
     } else {
-      console.log("dati1",this.dati.appuntamento);
       if(this.dati.appuntamento!=""){
         //Creo il body per mandare i dati al DB
         var body = {
@@ -253,10 +239,6 @@ export class PrenotaComponent implements OnInit {
   pulisciOra(ora: string, plus: number, minuti: string ): string {
     var orario = +ora + plus;
     return orario.toString()+ ':' + minuti;
-  }
-
-  sonoFortissimo():void {
-    console.log("WAAAAA");
   }
 
 

@@ -20,7 +20,7 @@ export class GuardiaIdService implements CanActivate {
     }catch (error) {
       this.id='';
     }
-    console.log("id",this.id);
+    //console.log("id",this.id);
     //controllo abbia un id
     if(this.id!=''){
       return true;
