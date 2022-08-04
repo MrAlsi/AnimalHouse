@@ -11,6 +11,9 @@ SwiperCore.use([Pagination]);
   styleUrls: ['./video-slider.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
+
+  //Serve per prendere i video dalle API di Pexels, sceglie i video migliori per risoluzione
+  //e li mette dentro l'array urls
 export class VideoSliderComponent implements OnInit {
   httpClient: any;
   videos?: any;
@@ -20,17 +23,18 @@ export class VideoSliderComponent implements OnInit {
   urls?: string[] = [''];
   primoUrl?: any = 'aa';
 
+
   constructor(private pexelService: PexelPhotoService) {
     this.pexelService.getData().subscribe(data => {
       this.videos = data.media;
       this.getHD();
-      //this.activeMethod();
     });
   }
 
   ngOnInit(): void {
   }
 
+  //Tra i video disponiobili sceglie quello con la risoluzione migliore
   getHD(): any{
     this.videos.forEach((video: any)=> {
       //console.log("video:", video);

@@ -3,6 +3,7 @@ import { MangiaBiscottoService } from './mangia-biscotto.service';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { AggiungiDBService } from './aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -27,6 +28,8 @@ export class HomeService {
   collezioni?: any;
   arrayPost:any[]=[];
   homessomipiace?: boolean;
+  baseApiUrl = "https://file.io";
+  url = "";
 
   constructor(public biscotto: MangiaBiscottoService, public fb: FormBuilder, public DB: AggiungiDBService, public http: HttpClient) {
     this.ruolo=this.biscotto.getRuolo();
@@ -74,7 +77,11 @@ export class HomeService {
 
   salva2(): void{
     this.msgalert=('');
+<<<<<<< HEAD
     //console.log(this.form2);
+=======
+
+>>>>>>> 1bfae3246405598297c424b4d7da1ec29aff61ea
     if(this.form2.value.img=='Inserisci immagine'||this.form2.value.img==''){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");
@@ -83,7 +90,8 @@ export class HomeService {
         if(this.form.value.testo!='A cosa stai pensando?'&&this.form.value.testo!=''){
           this.post.testo=this.form.value.testo;
         }
-        this.post.img=this.form2.value.img;
+
+        this.post.img=this.url;
       //@todo salvare immagini caricate
       this.salvaDB(this.post);
       window.location.reload();
@@ -92,6 +100,7 @@ export class HomeService {
 
   salvaDB(post: any): void{
     this.post.user=this.username;
+    console.log("post", post);
     this.DB.aggiungiDB(this.post, 'post');
   }
 
@@ -123,4 +132,16 @@ export class HomeService {
         //console.log("array",this.arrayPost);
       });
   }
+
+  onselectFile(e: any){
+    if(e.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+
+    }
+  }
+  
 }
