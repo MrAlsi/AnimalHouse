@@ -53,7 +53,6 @@ import { ClassificheUtenteComponent } from './classifiche-utente/classifiche-ute
 import { PostComponent } from './components/bacheca/post/post.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
 import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
-import { ClassificaQuizComponent } from './components/Classifiche/classifica-quiz/classifica-quiz.component';
 import { ClassificaMemoryComponent } from './components/Classifiche/classifica-memory/classifica-memory.component';
 import { PrenotaComponent } from './prenota/prenota.component';
 import { ModificaComponent } from './modifica/modifica.component';
@@ -102,7 +101,6 @@ import { ModificaComponent } from './modifica/modifica.component';
     PostComponent,
     NuovoPostComponent,
     MemeComponent,
-    ClassificaQuizComponent,
     ClassificaMemoryComponent,
     PrenotaComponent,
     ModificaComponent
