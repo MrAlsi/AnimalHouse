@@ -77,11 +77,8 @@ export class HomeService {
 
   salva2(): void{
     this.msgalert=('');
-<<<<<<< HEAD
     //console.log(this.form2);
-=======
 
->>>>>>> 1bfae3246405598297c424b4d7da1ec29aff61ea
     if(this.form2.value.img=='Inserisci immagine'||this.form2.value.img==''){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");

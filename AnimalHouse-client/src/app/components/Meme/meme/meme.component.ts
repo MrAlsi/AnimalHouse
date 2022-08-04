@@ -32,18 +32,6 @@ export class MemeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-<<<<<<< HEAD
-  getHD(i: number): any{
-    //console.log("HD: ", this.video[i].video_files);
-    this.video[i].video_files.forEach((qualita: any) => {
-      if(qualita.quality === 'hd'){
-        this.link = qualita.link;
-      }
-    })
-  }
-  
-=======
->>>>>>> 1bfae3246405598297c424b4d7da1ec29aff61ea
   swippa():void{
     if(this.indice < this.video.length-1){
       this.indice += 1;
