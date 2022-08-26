@@ -37,10 +37,10 @@ export class InserisciEmailComponent implements OnInit {
       this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.form.value.username)
         .subscribe(data=>{
           this.condividi.username=this.form.value.username;
-          console.log("data",data);
-          console.log("user", this.condividi.username);
+          //console.log("data",data);
+          //console.log("user", this.condividi.username);
           if(data!=null){
-            console.log("sonoqui");
+            //console.log("sonoqui");
             this.email=data.email;
             
             //richiamo il metodo per inviare la mail

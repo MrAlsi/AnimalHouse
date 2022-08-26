@@ -53,7 +53,7 @@ export class HomeService {
 
   salva1(): void{
     this.msgalert=('');
-    console.log(this.form);
+    //console.log(this.form);
     if(this.form.value.testo=='A cosa stai pensando?'||this.form.value.testo==''){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");
@@ -77,6 +77,7 @@ export class HomeService {
 
   salva2(): void{
     this.msgalert=('');
+    //console.log(this.form2);
 
     if(this.form2.value.img=='Inserisci immagine'||this.form2.value.img==''){
       this.msgalert=("Dati mancanti");
@@ -107,13 +108,13 @@ export class HomeService {
         var dati;
         //controllo per ogni post se ho messo mi piace
         for(var i=0;i<data.length;i++){
-          console.log("ciao");
+          //console.log("ciao");
           this.homessomipiace=false;
           for(var j=0;j<data[i].like.length;j++){
-            console.log("f",data[i]);
+            //console.log("f",data[i]);
             if(data[i].like[j]==this.username){
               this.homessomipiace=true;
-              console.log("data",data[i]);
+             // console.log("data",data[i]);
               dati={
                 flag: this.homessomipiace,
                 postId: data[i]._id,
@@ -125,7 +126,7 @@ export class HomeService {
             
           
         }
-        console.log("array",this.arrayPost);
+        //console.log("array",this.arrayPost);
       });
   }
 

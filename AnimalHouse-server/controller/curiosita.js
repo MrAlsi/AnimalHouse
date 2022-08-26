@@ -6,10 +6,10 @@ const db = require("../connessioneDB");
 
 
 exports.getCuriosity = (req, res)=>{
-  console.log(db);
+  //console.log(db);
   db.collection(`curiosita`).find().sort( { "animale": 1 } ).toArray((err, risp) => {
       if(err) throw err;
-      console.log("res", risp);
+      //console.log("res", risp);
       res.json(risp);
     }) 
 }

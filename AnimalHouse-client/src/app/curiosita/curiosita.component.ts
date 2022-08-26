@@ -15,7 +15,7 @@ export class CuriositaComponent implements OnInit {
 
   constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) {     
     this.httpClient.get('http://localhost:3000/curiosita').subscribe(data => { 
-      console.log("Data: ", data);
+      //console.log("Data: ", data);
       this.animali = data;     
     });
   }

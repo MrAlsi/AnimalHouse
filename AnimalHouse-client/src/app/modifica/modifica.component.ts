@@ -21,11 +21,11 @@ export class ModificaComponent implements OnInit {
     this.id= this.route.snapshot.paramMap.get('id'); 
     this.appuntamento= this.route.snapshot.paramMap.get('appuntamento'); 
 
-    console.log("ID:", this.id);
+    //console.log("ID:", this.id);
     this.http.get<any>('http://localhost:3000/CRUD/one/professionisti/'+ this.id)
       .subscribe(data=>{
         this.prof= data;
-        console.log("data",data);
+       // console.log("data",data);
         this.dati = {
           idProf: data._id,
           disponibilita: data.disponibilita,
@@ -39,7 +39,7 @@ export class ModificaComponent implements OnInit {
           online: data.online,
           domicilio: data.domicilio
         }
-        console.log("datimodifica",this.dati);
+        //console.log("datimodifica",this.dati);
         return;
       });
   }

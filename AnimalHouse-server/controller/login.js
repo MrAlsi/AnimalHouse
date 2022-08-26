@@ -6,12 +6,12 @@ const  db = require("../connessioneDB");
 
 // Controllo che esista una corrispondenza di username e passoword nel DB
 exports.controlloUtente = async (req, res) => {
-  console.log(db);
-  console.log("Credenziali  ", req.body);
+  //console.log(db);
+  //console.log("Credenziali  ", req.body);
   db.collection("utenti").findOne({username: req.body.user, password: req.body.password}, (err, cursor) => {
     if(err) console.log("Err: ", err);
     if(cursor != undefined){
-      console.log("cursor", cursor);
+      //console.log("cursor", cursor);
 
       const payload = {
         "id": cursor._id,

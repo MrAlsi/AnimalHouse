@@ -47,7 +47,7 @@ export class ProfiloProfComponent implements OnInit {
   ngOnInit(): void {
     //prendo l'id del professionista che sto guardando da params
     this.id= this.route.snapshot.paramMap.get('nome'); 
-    console.log(this.id);
+    //console.log(this.id);
     this.ruolo= this.biscotto.getRuolo();
     this.user= this.biscotto.getUsername();
 
@@ -57,7 +57,7 @@ export class ProfiloProfComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/CRUD/one/professionisti/'+ this.id)
       .subscribe(data=>{
         this.prof= data;
-        console.log("data",data);
+        //console.log("data",data);
         this.dati = {
           idProf: data._id,
           disponibilita: data.disponibilita,
@@ -75,21 +75,19 @@ export class ProfiloProfComponent implements OnInit {
       });
 
     //prendo i dati delle recensioni
-    console.log("palle",this.id);
     this.http.get<any>('http://localhost:3000/professionista/recensioni/'+ this.id)
       .subscribe(data=>{
         for(var i = 0; i < data.length; i++){
           //prendo l'username di chi ha scritto la recensione
-          console.log("utente", i);
           this.dato={
             u: data[i].utente,
             r: data[i].recensione,
             id: data[i]._id
           }
-          console.log("dato",this.dato);
+          //console.log("dato",this.dato);
           this.recensioni?.push(this.dato);
           }
-        console.log("array", this.recensioni);
+        //console.log("array", this.recensioni);
         return;
       });
 
@@ -114,27 +112,23 @@ export class ProfiloProfComponent implements OnInit {
 
   prenota(): void{
     this.prenotazione=false;
-    //this.router.navigate(['prenota']);
   }
 
   elimina(): void{
     //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+this.id)
       .subscribe(data => {
-        console.log(data);
         return;
       });
     //elimino recensioni
     this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+this.id)
     .subscribe(data => {
-      console.log(data);
       return;
     }); 
 
     //elimino appuntamenti
     this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.id)
     .subscribe(data => {
-      console.log(data);
     });    
     window.location.reload();
   }
@@ -142,7 +136,6 @@ export class ProfiloProfComponent implements OnInit {
   eliminaApp(id: any):void{
     this.http.delete<any>('http://localhost:3000/CRUD/appuntamenti/'+ id)
     .subscribe(data => {
-      this.appuntamenti=data;
     });
     window.location.reload();
   }
@@ -178,7 +171,6 @@ export class ProfiloProfComponent implements OnInit {
     //elimino professionista
     this.http.delete<any>('http://localhost:3000/CRUD/recensioni/'+ id)
       .subscribe(data => {
-        console.log(data);
       });
 
     window.location.reload();

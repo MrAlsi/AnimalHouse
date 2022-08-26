@@ -33,11 +33,10 @@ export class UtentiComponent implements OnInit {
   }
 
   elimina(id: string): void{
-    console.log("id:", id)
+   // console.log("id:", id)
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
-      console.log(data);
     });
     window.location.reload();
   }
@@ -66,7 +65,7 @@ export class UtentiComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/CRUD/utenti/')
         .subscribe(data => {
           this.collezioni=data;
-          console.log(data);
+          //console.log(data);
         });
     this.search=false;
 

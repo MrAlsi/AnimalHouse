@@ -7,7 +7,7 @@ const db = require("../connessioneDB");
 //CREATE: inserisce un nuovo documento in una collezione passata per parametro,
 exports.setData = (req, res) => {
   const body = req.body;
-  console.log("Body:", req.body);
+  //console.log("Body:", req.body);
   try{
     return db.collection(`${req.params.collezione}`).insertOne(body);
   } catch (e) {
@@ -17,20 +17,20 @@ exports.setData = (req, res) => {
 
 //READ: legge un'intera collezione passato come parametro nell'URL
 exports.getCollection = (req, res)=>{
-  console.log(db);
+  //console.log(db);
   db.collection(`${req.params.collezione}`).find().toArray((err, risp) => {
       if(err) throw err;
-      console.log("res", risp);
+      //console.log("res", risp);
       res.json(risp);
     }) 
 }
 
 //passata una collezione restituisce solo il documento con quell'id
 exports.getOneDocument = async (req,res)=> {
-  console.log("collezione", req.params.id)
+  //console.log("collezione", req.params.id)
   return await db.collection(`${req.params.collezione}`).findOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
       if(err) console.log ("Err: ", err);
-      console.log("ciao1",cursor);
+      //console.log("ciao1",cursor);
       res.json(cursor);
   });
 }
@@ -38,10 +38,10 @@ exports.getOneDocument = async (req,res)=> {
 
 //passata una collezione elimina solo il documento con quell'id
 exports.deleteOneDocument= async(req,res)=>{
-  console.log("collezione", req.params.id)
+ // console.log("collezione", req.params.id)
   return await db.collection(`${req.params.collezione}`).deleteOne({_id: ObjectId(req.params.id) }, (err,cursor)=>{
     if(err) console.log ("Err: ", err);
-    console.log("ciao",cursor);
+    //console.log("ciao",cursor);
     res.json(cursor);
   });
 }
@@ -52,7 +52,7 @@ exports.updateOnePasswordDocument = (req, res) => {
   //console.log("Body:", req.body.pp);
   return db.collection(`${req.params.collezione}`).updateOne({_id:ObjectId(req.params.id)},{$set:{"password": body}}, (err,cursor)=>{
     if(err) console.log ("Err: ", err);
-    console.log("ciao",cursor);
+    //console.log("ciao",cursor);
     res.json(cursor);
   });
 }
@@ -61,10 +61,10 @@ exports.updateOnePasswordDocument = (req, res) => {
 
 //passata un user cerca gli user con quell'user
 exports.cercaUser = async (req,res)=> {
-  console.log("collezione", req.params.collezione);
+  //console.log("collezione", req.params.collezione);
   return await db.collection(`${req.params.collezione}`).findOne({username: (req.params.username) }, (err,cursor)=>{
       if(err) console.log ("Err: ", err);
-      console.log("ciao",cursor);
+      //console.log("ciao",cursor);
       res.json(cursor);
   });
 }

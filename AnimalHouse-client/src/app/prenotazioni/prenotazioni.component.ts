@@ -36,7 +36,6 @@ export class PrenotazioniComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/professionista/'+ this.tipo)
       .subscribe(data=>{
         this.collezioni= data;
-        console.log("data",data);
       });
   }
 

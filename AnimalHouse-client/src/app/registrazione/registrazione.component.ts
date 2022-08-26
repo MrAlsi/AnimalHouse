@@ -80,14 +80,14 @@ export class RegistrazioneComponent implements OnInit {
   //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
   controllaInput(): void{
     this.msgalert=('');
-    console.log(this.form);
+    //console.log(this.form);
     if(!this.form.valid || !this.form2.valid){
       this.msgalert=("Dati mancanti");
       //alert("Dati mancanti");
       return;
     }else{
       //controllo l'user non sia già in uso
-      console.log(this.form.value.username);
+     // console.log(this.form.value.username);
       this.http.put<any>('http://localhost:3000/controllaUsername', this.form.value)
       .subscribe(data => {
         if(data==null){ //se data è vuoto non è in uso
@@ -97,11 +97,6 @@ export class RegistrazioneComponent implements OnInit {
             if(data1==null){ //se data è vuoto non è in uso
               if(this.form.value.password==this.form2.value.confirmpassword){
                 this.db.aggiungiDB(this.form.value, this.url);
-                
-
-
-
-
                 //Chiamata al db per salvare il token
                 this.http.put<any>('http://localhost:3000/ricercaUtenti', {user: this.form.value.username, password: this.form.value.password})
                 .subscribe(data => {
@@ -111,7 +106,7 @@ export class RegistrazioneComponent implements OnInit {
                     this.biscotto.getRuolo(); //richiamo metodo per prendere il ruolo dal token
                     this.router.navigate(['preferenze']);
                   }
-                  console.log("DATAAAAAA:", data);
+                  //console.log("DATAAAAAA:", data);
                 });
               }else{
                 this.msgalert=("le password non coincidono");
@@ -123,7 +118,6 @@ export class RegistrazioneComponent implements OnInit {
             }
           });
         }else{
-          console.log("username già in uso")
           this.msgalert=("username: "+this.form.value.username+" è già in uso");
           //alert( "username: "+this.form.value.username+" è già in uso")
           return;
