@@ -1,2 +1,3 @@
 # AnimalHouse
-Full stack university project
+contributors:
+Alsina Gabriel Riccardo, Carboni Carlotta
