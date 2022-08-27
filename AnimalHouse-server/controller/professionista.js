@@ -24,16 +24,16 @@ exports.cercaTipo = async (req,res)=> {
 //passato un id di un professionista elimina le sue recensioni
 exports.deleteRec= async(req,res)=>{
     //console.log("collezione", req.params.professionista)
-    return await db.collection(`recensioni`).delete({professionista: (req.params.professionista) }, (err,cursor)=>{
+    return await db.collection(`recensioni`).deleteMany({professionista: (req.params.professionista) }, (err,cursor)=>{
         if(err) console.log ("Err: ", err);
        // console.log("ciao",cursor);
         res.json(cursor);
     });
 }
 
-//passato un utente canclla le rensioni scritte da lui
+//passato un utente cancella le rensioni scritte da lui
 exports.deleteRecUtente= async(req,res)=>{
-    return await db.collection(`recensioni`).delete({utente: (req.params.user) }, (err,cursor)=>{
+    return await db.collection(`recensioni`).deleteMany({utente: (req.params.user) }, (err,cursor)=>{
         if(err) console.log ("Err: ", err);
         //console.log("ciao",cursor);
         res.json(cursor);
