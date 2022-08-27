@@ -174,6 +174,11 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
+  //metodo per resettare l'allert di errore
+  msgFalse(): void{
+    this.msgMezzora=false;
+  }
+
 
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
@@ -182,7 +187,6 @@ export class PrenotaComponent implements OnInit {
 
 
   confermaAppuntamento(): void {
-    this.msgMezzora = false;
     //Transofrmo in stringa l'oggetto in input e Splitto per dividere il giorno e l'ora
     var input = JSON.stringify(this.dataInput).split("T");
   
