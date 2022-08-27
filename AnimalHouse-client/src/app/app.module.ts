@@ -56,6 +56,7 @@ import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.c
 import { ClassificaMemoryComponent } from './components/Classifiche/classifica-memory/classifica-memory.component';
 import { PrenotaComponent } from './prenota/prenota.component';
 import { ModificaComponent } from './modifica/modifica.component';
+import { IndietroComponent } from './indietro/indietro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { ModificaComponent } from './modifica/modifica.component';
     MemeComponent,
     ClassificaMemoryComponent,
     PrenotaComponent,
-    ModificaComponent
+    ModificaComponent,
+    IndietroComponent
   ],
   imports: [
     BrowserModule,
