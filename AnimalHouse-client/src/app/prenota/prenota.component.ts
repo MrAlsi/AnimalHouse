@@ -19,11 +19,7 @@ import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 export class PrenotaComponent implements OnInit {
 
-
-
-
   public views: Array<string> = ['Day', 'Week', 'WorkWeek', 'Month'];
-
 
   public today: Date = new Date();
   public selectedDate: Date = new Date(this.today);
@@ -179,8 +175,6 @@ export class PrenotaComponent implements OnInit {
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
   }
-
-
 
   confermaAppuntamento(): void {
     this.msgMezzora = false;
