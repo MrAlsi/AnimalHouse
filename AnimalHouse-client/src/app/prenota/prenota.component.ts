@@ -3,9 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
  
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
 
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
