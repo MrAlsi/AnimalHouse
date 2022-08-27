@@ -7,7 +7,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
 
-
 @Component({
   selector: 'app-registrazione-admin',
   templateUrl: './registrazione-admin.component.html',
@@ -28,7 +27,21 @@ export class RegistrazioneAdminComponent implements OnInit {
       "email": ['',Validators.required],
       "username": ['',Validators.required],
       "password": ['',Validators.required],
-      "ruolo": ['admin']
+      "ruolo": ['admin'],
+      "quiz":[[{punteggio: 0, count: 0} ,
+        {punteggio: 1, count: 0}, 
+        {punteggio: 2, count: 0}, 
+        {punteggio: 3, count: 0}, 
+        {punteggio: 4, count: 0}, 
+        {punteggio: 5, count: 0}, 
+        {punteggio: 6, count: 0}, 
+        {punteggio: 7, count: 0}, 
+        {punteggio: 8, count: 0}, 
+        {punteggio: 9, count: 0}, 
+        {punteggio: 10, count: 0}]],
+      "memory_facile": [[]],
+      "memory_medio": [[]],
+      "memory_difficile": [[]]
     });
     this.form2= fb.group({
       "confirmpassword": ['',Validators.required],

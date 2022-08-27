@@ -56,13 +56,6 @@ export class RegistrazioneComponent implements OnInit {
               {punteggio: 8, count: 0}, 
               {punteggio: 9, count: 0}, 
                {punteggio: 10, count: 0}]],
-      "impiccato":[[{punteggio: 1, count: 0},
-                   {punteggio: 2, count: 0},
-                   {punteggio: 3, count: 0},
-                   {punteggio: 4, count: 0},
-                   {punteggio: 5, count: 0},
-                   {punteggio: 6, count: 0},
-                   {punteggio: 0, count: 0} ]],
       "memory_facile": [[]],
       "memory_medio": [[]],
       "memory_difficile": [[]]
