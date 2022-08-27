@@ -20,7 +20,6 @@ export class MangiaBiscottoService {
     
     if(this.cookie != null){
        return this.cookie.ruolo;
-       
     }
 
     return null;

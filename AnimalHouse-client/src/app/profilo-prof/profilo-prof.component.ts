@@ -4,7 +4,7 @@ import { ActivatedRoute} from '@angular/router';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AggiungiDBService } from '../aggiungi-db.service';
 import {Dati} from '../prenota/dati';
 

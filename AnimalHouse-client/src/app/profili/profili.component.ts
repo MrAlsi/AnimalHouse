@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfiloServiceService } from '../profilo-service.service';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
 import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
