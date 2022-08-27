@@ -32,16 +32,15 @@ export class ProfiloServiceService {
   datiMemoryMedio: any = [];
   datiMemoryDifficile: any = [];
 
-
-
   profilo(): void {
     try{
       this.id=this.biscotto.getId();
-      //console.log("idwe", this.id);
+      //console.log("try", this.id);
     }catch (error) {
       this.id='';
-      //console.log(error);
+      //console.log("Catch", error);
     }
+
     this.ruolo=this.biscotto.getRuolo();
 
     if(this.biscotto.getUsername()==this.profile){ //controllo se è il mio profilo
@@ -49,6 +48,7 @@ export class ProfiloServiceService {
       this.sonoio= true;
     }
     //dato l'user prendo i dati
+    console.log("Profile", this.profile, this.biscotto.getUsername());
     this.http.get<any>('http://localhost:3000/CRUD/utenti/'+ this.profile)
       .subscribe(data=>{
         if(data!==null){
@@ -56,12 +56,10 @@ export class ProfiloServiceService {
           this.idProfile=data._id;
 
           //Per prendere tutte le informazioni dei giochi per passarli al component delle classifiche
-          //console.log("l", this.dati.quiz);
           this.datiQuiz = this.dati.quiz;
           this.datiMemoryFacile = this.dati.memory_facile;
           this.datiMemoryMedio = this.dati.memory_medio;
           this.datiMemoryDifficile = this.dati.memory_difficile;
-        
 
           this.http.get<any>('http://localhost:3000/CRUD/animaliPreferiti/'+ this.idProfile)
             .subscribe(data => {
