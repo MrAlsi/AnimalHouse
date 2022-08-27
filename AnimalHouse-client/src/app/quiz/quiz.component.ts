@@ -123,4 +123,11 @@ export class QuizComponent {
       this.httpClient.put<any>("http://localhost:3000/giochi/aggiungiPunteggio/quiz", body)
         .subscribe();
   }
+
+  rigioca(): void {
+    this.indice = 0;
+    this.punteggio = 0;
+    this.giaVotato = false;
+    this.gioca = true;
+  }
 }

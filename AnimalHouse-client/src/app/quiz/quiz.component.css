@@ -39,3 +39,10 @@
     grid-row: 1/2;
     grid-column: 2;
 }
+
+.rosso{
+    background-color: #AA0000;
+    border-color: #AA0000;
+    color: white;
+    width: 40%;
+}
