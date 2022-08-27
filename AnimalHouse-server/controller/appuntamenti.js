@@ -35,7 +35,7 @@ exports.getAppuntamentiProf= async (req,res)=>{
 
 exports.deleteAppuntamenti= async(req,res)=>{
     console.log("collezione", req.params.user)
-    return await db.collection(`appuntamenti`).delete({Subject: (req.params.user) }, (err,cursor)=>{
+    return await db.collection(`appuntamenti`).deleteMany({Subject: (req.params.user) }, (err,cursor)=>{
       if(err) console.log ("Err: ", err);
       console.log("ciao",cursor);
       res.json(cursor);
@@ -44,7 +44,7 @@ exports.deleteAppuntamenti= async(req,res)=>{
 
 exports.deleteAppuntamentiProf= async(req,res)=>{
     console.log("collezione", req.params.prof)
-    return await db.collection(`appuntamenti`).delete({idProfessionista: (req.params.prof) }, (err,cursor)=>{
+    return await db.collection(`appuntamenti`).deleteMany({idProfessionista: (req.params.prof) }, (err,cursor)=>{
       if(err) console.log ("Err: ", err);
       console.log("ciao",cursor);
       res.json(cursor);
