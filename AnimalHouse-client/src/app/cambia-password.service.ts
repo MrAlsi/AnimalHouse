@@ -28,16 +28,13 @@ export class CambiaPasswordService {
   verifica(): void{
     this.msgalert='';
     this.id=this.biscotto.getId();
-   // console.log("ei id:",this.id)
     if(!this.form.valid){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }else{
       //chiamata al db per prendere la password dell'utente
       this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+ this.id)
         .subscribe(data => {
-          //console.log("k", data.password);
           this.password=data.password;
           if(this.password==this.form.value.password){
             //se la password è corretta passo alla card che permette l'inserimento della nuova password
@@ -45,7 +42,6 @@ export class CambiaPasswordService {
             this.profilo.selectedReset=false;
           }else{
             this.msgalert=("Password errata");
-            //alert("Password errata");
             return;
           }
         });
@@ -62,9 +58,9 @@ export class CambiaPasswordService {
     }else{
       //controllo non sia stata inserita la stessa password
       if(this.password!=this.form2.value.password2){
-        //console.log("p2",this.form2.value.password2);
+        console.log("p2",this.form2.value.password2);
         const pp= this.form2.value.password2;
-        //console.log("pp",typeof(pp));
+        //console.log("pp",pp);
 
         //aggiorno la password
         this.http.put<any>('http://localhost:3000/CRUD/utenti/'+ this.id,{pp})

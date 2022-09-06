@@ -1,11 +1,12 @@
+//component che permette agli admin di aggiungere nuovi professionisti alla piattaforma
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
 import { AggiungiDBService } from '../aggiungi-db.service';
 import { Time } from '@angular/common';
-import { ConnectableObservable } from 'rxjs';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class AddProfessionistiComponent implements OnInit {
   msgalertpos?: string;
   
 
-  url: string= "professionisti"; //per indirizzare alla collection
+  url: string= "professionisti"; //variabile per indirizzare alla collection
 
   disponibilità: string[]= []; //array con le disponibilità
 
@@ -48,9 +49,9 @@ export class AddProfessionistiComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
     this.biscotto.getRuolo();
-
   }
 
   //metodo per prendere dal radio la tipologia di professionista
@@ -86,7 +87,6 @@ export class AddProfessionistiComponent implements OnInit {
     this.msgalertpos='';
     if(!this.form.valid){
       this.msgalert=("dati mancati");
-      //alert("dati mancati");
       return;
     }else{
       //controllo che i radio e i check siano stati compilati
@@ -94,22 +94,19 @@ export class AddProfessionistiComponent implements OnInit {
         //controllo gli orari
         if(this.form.value.mattinaDa>this.form.value.mattinaA ||this.form.value.pomeriggioDa>this.form.value.pomeriggioA){
           this.msgalert=("l'inizio del turno non può essere dopo la fine del turno");
-          //console.log("ciao");
           return;
         }else{
           if(this.form.value.mattinaA>this.form.value.pomeriggioDa){
             this.msgalert=("il turno del pomeriggio deve iniziare dopo la fine del turno della mattina");
-            //console.log("we");
             return;
           }
         }
         this.form.value.tipo=this.ruolo;
         //aggiungo il documento al db
         this.DB.aggiungiDB(this.form.value, this.url);
-        window.location.reload();
+        window.location.reload(); //ricarico la pagina
       }else{
         this.msgalert=("compilare tutti i campi");
-        //alert("compilare tutti i campi");
         return;
       }
     }

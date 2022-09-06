@@ -1,3 +1,5 @@
+//component che permette di visualizzare gli appuntamenti di un utente
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProfiloServiceService } from '../profilo-service.service';
@@ -14,7 +16,6 @@ import { Router } from '@angular/router';
 })
 export class AppuntamentiComponent implements OnInit {
 
-  search: boolean= false;
   appuntamenti: any[]=[];
   appuntamentiPassati: any[]=[];
 
@@ -38,6 +39,8 @@ export class AppuntamentiComponent implements OnInit {
           element.Day=element.Day.split("T");
           element.Day=element.Day[0];
           
+          //tenendo separati gli appuntamenti passati e futuri devo fare un controllo per verificare 
+          //in quale array debbano essere messi
           if(element.Day>=oggi.toISOString()){
             this.appuntamenti.push(element);
           }else{
@@ -45,9 +48,9 @@ export class AppuntamentiComponent implements OnInit {
           }
         });  
       });
-    this.search=false;
   }
 
+  //metodo per poter eliminare gli appuntamenti
   elimina(id: any):void{
     this.http.delete<any>('http://localhost:3000/CRUD/appuntamenti/'+ id)
     .subscribe(data => {
@@ -56,6 +59,7 @@ export class AppuntamentiComponent implements OnInit {
     window.location.reload();
   }
 
+  //metodo che permette di modificare un appuntamento
   modifica(id: any, appuntamento: any): void{
     this.router.navigate(['modifica/'+id+'/'+appuntamento]);
   }

@@ -1,6 +1,7 @@
+//component che verifica la correttezza del codice inviato via mail per poter proseguire con il reset della password
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ControllaCodiceService } from '../controlla-codice.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DimenticataComponent implements OnInit {
   form: FormGroup;
   msgalert?: string;
 
-  constructor(public fb: FormBuilder, private router: Router, public codice: ControllaCodiceService) { 
+  constructor(public fb: FormBuilder, public codice: ControllaCodiceService) { 
     this.form = fb.group({
       "codice": ['',Validators.required],
     });
@@ -32,17 +33,13 @@ export class DimenticataComponent implements OnInit {
     this.msgalert='';
     if(!this.form.valid){
       this.msgalert=("Inserire il codice");
-      //alert("Inserire il codice");
       return;
     }else{
       if(this.codice.code==this.form.value.codice){
         this.Verifica();
       }else{
         this.msgalert=("codice errato");
-
-        //alert("codice errato");
       }
-      
     }
   }
 

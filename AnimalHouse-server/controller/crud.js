@@ -49,7 +49,12 @@ exports.deleteOneDocument= async(req,res)=>{
 //passata una collezione aggiorna la password del documento con quell'id
 exports.updateOnePasswordDocument = (req, res) => {
   const body = req.body.pp;
-  //console.log("Body:", req.body.pp);
+  console.log("Body:", req.body.pp);
+  console.log("collezione:", req.params.collezione);
+  console.log("id:", req.params.id);
+  
+
+
   return db.collection(`${req.params.collezione}`).updateOne({_id:ObjectId(req.params.id)},{$set:{"password": body}}, (err,cursor)=>{
     if(err) console.log ("Err: ", err);
     //console.log("ciao",cursor);

@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 const routers = require("../controller/crud")
-const {cercaProfessionista, cercaTipo, cercaRecProf}= require ("../controller/professionista");
 
 
 //CREATE: un documento in una collection
