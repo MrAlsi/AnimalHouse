@@ -1,16 +1,28 @@
 <div class="card">
     <div class="card-body">
-        <div class="info">
-            <p class="desc"> Username: </p>
-            <p class="dati"> {{profilo.dati.username}} </p>
-            <p class="desc"> Ruolo: </p>
-            <p class="dati"> {{profilo.dati.ruolo}}</p>
-            <p class="desc"> Nome: </p>
-            <p class="dati"> {{profilo.dati.nome}}</p>
-            <p class="desc"> Cognome: </p>
-            <p class="dati"> {{profilo.dati.cognome}}</p>
-            <p class="desc"> Email: </p>
-            <p class="dati"> {{profilo.dati.email}}</p>
+        <div class="tabella">
+            <table class="table table-striped">
+                <tr>
+                    <td class="desc"scope="col">Username:</td>
+                    <td class="dati"scope="col">{{profilo.dati.username}} </td>
+                </tr>
+                <tr>
+                    <td class="desc"scope="col">Ruolo:</td>
+                    <td class="dati"scope="col">{{profilo.dati.ruolo}} </td>
+                </tr>
+                <tr>
+                    <td class="desc"scope="col">Nome:</td>
+                    <td class="dati"scope="col">{{profilo.dati.nome}} </td>
+                </tr>
+                <tr>
+                    <td class="desc"scope="col">Cognome:</td>
+                    <td class="dati"scope="col">{{profilo.dati.cognome}} </td>
+                </tr>
+                <tr>
+                    <td class="desc"scope="col">Email:</td>
+                    <td class="dati"scope="col">{{profilo.dati.email}} </td>
+                </tr>
+            </table>
         </div>
         <br>
         <div *ngIf="profilo.sonoio==true">

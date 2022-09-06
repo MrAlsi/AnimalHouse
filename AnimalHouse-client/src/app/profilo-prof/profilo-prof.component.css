@@ -37,30 +37,19 @@
 .desc{
     color: #AA0000;
     font-weight: bolder;
-    grid-column-start: 1;
+    text-align: left;
+
 }
 
 .dati{
-    grid-column-start: 2;
-}
-
-.info{
-    display: grid;
-    grid-template-columns: 25% 50%;
-    grid-template-rows: 10% 10% 10% 10% 16% 15% 15%;
     text-align: left;
-    justify-content: center;
-    align-items: flex-start;
+
 }
 
 .subtitle{
     background-color: #AA0000;
     color: white;
     font-weight: bolder;
-}
-
-tr, th{
-    text-align: center;
 }
 
 
