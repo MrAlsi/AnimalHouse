@@ -1,3 +1,7 @@
+/*
+  Component del gioco memory, qui gestisce il numero di card e il salvataggio del punteggio
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import jwt_decoded from 'jwt-decode';
@@ -12,7 +16,6 @@ import { CookieService } from 'ngx-cookie-service';
 export class MemoryComponent implements OnInit {
 
   cookie?: any;
-
   gioco: string = "menu";
   numeroCoppieNum: 6 | 8 | 12 = 6;
   url: string = 'https://dog.ceo/api/breeds/image/random';
@@ -35,10 +38,7 @@ export class MemoryComponent implements OnInit {
 
   //Salvataggio nel DB
   salvaPunteggio(): void{
-    //console.log("Salva");
-
     this.cookie = jwt_decoded( this.cookieService.get("token"));  //Traduce il cookie
-    //console.log(this.mosse);
 
     //Crea il body per la richiesta al server
     var body = {

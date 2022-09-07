@@ -1,3 +1,9 @@
+/*
+  Component che rappresenta una carta del memory
+  la carta può essere coperta, scoperta ovvero quando giro una carta e devo girare
+  la seconda e accoppiata quando ho trovato la coppia e rimane girata
+*/
+
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 
 @Component({
@@ -13,7 +19,5 @@ export class CartaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    var loading: boolean = true;
-    this.url
   }
 }

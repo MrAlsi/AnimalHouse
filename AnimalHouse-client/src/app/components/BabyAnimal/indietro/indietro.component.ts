@@ -1,3 +1,7 @@
+/*
+  Tasto per tornare indietro in babyanimal, è rappresentato dalla faccia di un pollo
+*/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

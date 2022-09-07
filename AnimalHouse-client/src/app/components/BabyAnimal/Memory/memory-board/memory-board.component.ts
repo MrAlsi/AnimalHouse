@@ -1,9 +1,13 @@
+/*
+  Component per la gestione del gioco memory, qu
+*/
+
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Carta} from "../carta";
 
+//Chiamo le API per prendere l'URL dell'immagine dei cani
 async function getRandomDogUrl(): Promise<string> {
   var url: string = "";
-
   await fetch('https://dog.ceo/api/breeds/image/random')
     .then(response => response.json())
     .then(data => {
@@ -28,7 +32,7 @@ export class MemoryBoardComponent implements OnInit {
   dueCarte: boolean = false;              //Serve per il bug di cliccare carte mentre c'è la pausa che mostra le due carte girate
   @Output() numeroMosse = new EventEmitter<number>();
   @Output() segnalaVittoria = new EventEmitter<string>();
-  private loading: boolean = true;
+  loading: boolean = true;
 
 
   constructor() { }
@@ -57,6 +61,7 @@ export class MemoryBoardComponent implements OnInit {
     }
   }
 
+  //Metodo per controllare che le due card girate siano uguali 
   controlloCoppie(id: number): void {
     if(this.carte[id].stato === 'coperta' && this.dueCarte===false){ //Controllo nel caso si clicki una carta scoperta o accoppiata
       if(this.cartaGirata === undefined){   //Se è undefined vuol dire che è la prima carta che giro delle due

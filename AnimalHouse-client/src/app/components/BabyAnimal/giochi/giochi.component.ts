@@ -1,3 +1,8 @@
+/*
+  Component che mostra la lista di giochi a cui si può giocare
+  inoltre carica il component del gioco deciso
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { GIOCHI } from '../../../lista-giochi';
 import { MangiaBiscottoService } from '../../../mangia-biscotto.service';

@@ -108,6 +108,7 @@ export class QuizComponent {
   }
 
 
+  //Metodo per pulire la domanda da caratteri non UTF-8
   pulisciDomanda(domanda: string): string{
       var domandaPulita = domanda.replace("&quot;", '\"');
       domandaPulita = domandaPulita.replace("&quot;", '\"');
@@ -133,6 +134,7 @@ export class QuizComponent {
         .subscribe();
   }
 
+  //Metodo per rigiocare, riazzera tutte le variabili e fa ricomiciare la partita
   rigioca(): void {
     this.indice = 0;
     this.punteggio = 0;

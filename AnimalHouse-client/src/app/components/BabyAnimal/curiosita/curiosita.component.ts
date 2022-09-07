@@ -1,3 +1,8 @@
+/*
+  Component che mostra le curiosità sugli animali, controlla in ruolo perché in caso 
+  di 'admin' abilità il bottone aggiungi curiosità
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
@@ -15,7 +20,6 @@ export class CuriositaComponent implements OnInit {
 
   constructor(public httpClient: HttpClient, public biscotto: MangiaBiscottoService) {     
     this.httpClient.get('http://localhost:3000/curiosita').subscribe(data => { 
-      //console.log("Data: ", data);
       this.animali = data;     
     });
   }
@@ -26,7 +30,6 @@ export class CuriositaComponent implements OnInit {
     }catch (error) {
       this.id='';
     }
-    //this.animali = CURIOSITA;
     try{
       this.stato = this.biscotto.getRuolo();
     }catch (error) {
