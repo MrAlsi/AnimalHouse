@@ -30,8 +30,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.put('/cambiaPassword/:email', function(req,res){
- // console.log("no", req.params);
+router.put('/mandamail/:email', function(req,res){
+// console.log("no", req.params);
   codice= generateCodice();
  // console.log("cod", codice);
   //console.log("transp", transport);

@@ -1,22 +1,5 @@
-<app-navbar></app-navbar>
-<br>
-<h5 class="benvenuto">Benvenuto nel profilo di {{this.prof.nome}}</h5>
-<div *ngIf="prenotazione; then thenBlock1 else elseBlock1" ></div>
-<ng-template #thenBlock1>
-    <br>
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    DATI
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <div class="card-body">
-                        <div class="card">
-                            <div class="info">
-                                <p class="desc"> Nome: </p>
+<!--
+<p class="desc"> Nome: </p>
                                 <p class="dati"> {{this.prof.nome}} </p>
                                 <p class="desc"> Tipo: </p>
                                 <p class="dati"> {{this.prof.tipo}}</p>
@@ -43,7 +26,69 @@
                                 <ng-template #elseBlock2>
                                     <p class="dati"> no </p>
                                 </ng-template>
-                            </div>
+
+-->
+
+<app-navbar></app-navbar>
+<br>
+<h5 class="benvenuto">Benvenuto nel profilo di {{this.prof.nome}}</h5>
+<div *ngIf="prenotazione; then thenBlock1 else elseBlock1" ></div>
+<ng-template #thenBlock1>
+    <br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    DATI
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="card-body">
+                        <div class="card">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td class="desc"scope="col">Nome:</td>
+                                    <td class="dati"scope="col">{{this.prof.nome}} </td>
+                                </tr>
+                                <tr>
+                                    <td class="desc"scope="col">Tipo:</td>
+                                    <td class="dati"scope="col">{{this.prof.tipo}} </td>
+                                </tr>
+                                <tr>
+                                    <td class="desc"scope="col">Città:</td>
+                                    <td class="dati"scope="col">{{this.prof.citta}} </td>
+                                </tr>
+                                <tr>
+                                    <td class="desc"scope="col">Via:</td>
+                                    <td class="dati"scope="col">{{this.prof.via}}, n°{{this.prof.civico}} </td>
+                                </tr>
+                                <tr>
+                                    <td class="desc"scope="col">Descrizione:</td>
+                                    <td class="dati"scope="col">{{this.prof.descrizione}} </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="desc"> Servizio online: </td>
+                                    <div *ngIf="this.prof.online=='true'; then thenBlock1 else elseBlock1"></div>
+                                    <ng-template #thenBlock1>
+                                        <td class="dati"> sì</td>
+                                    </ng-template>
+                                    <ng-template #elseBlock1>
+                                        <td class="dati"> no </td>
+                                    </ng-template>
+                                </tr>
+                                <tr>
+                                    <td class="desc"> Servizio a domicilio: </td>
+                                    <div *ngIf="this.prof.domicilio; then thenBlock2 else elseBlock2"></div>
+                                    <ng-template #thenBlock2>
+                                        <td class="dati"> sì</td>
+                                    </ng-template>
+                                    <ng-template #elseBlock2>
+                                        <td class="dati"> no </td>
+                                    </ng-template>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

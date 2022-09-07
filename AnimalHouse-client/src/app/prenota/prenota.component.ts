@@ -3,9 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
  
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
 
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Event } from './event';
 import { arrayGiorni } from './dizionarioGiorni';
 import { MangiaBiscottoService } from '../mangia-biscotto.service';
 
@@ -171,13 +170,17 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
+  //metodo per resettare l'allert di errore
+  msgFalse(): void{
+    this.msgMezzora=false;
+  }
+
 
   prendiNuovoEvento(): void {
     var evento = document.getElementsByClassName("e-new-event");
   }
 
   confermaAppuntamento(): void {
-    this.msgMezzora = false;
     //Transofrmo in stringa l'oggetto in input e Splitto per dividere il giorno e l'ora
     var input = JSON.stringify(this.dataInput).split("T");
   

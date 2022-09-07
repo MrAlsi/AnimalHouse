@@ -5,22 +5,11 @@
 }
 
 .desc{
-    display: flex;
     color: #AA0000;
     font-weight: bolder;
-    grid-column-start: 1;
     flex-wrap: nowrap;
 }
 
 .dati{
-    grid-column-start: 2;
-    text-align: center;
-}
-
-.info{
-    display: grid;
-    grid-template-columns: 25% 50%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
     text-align: left;
-    justify-content: center;
 }
