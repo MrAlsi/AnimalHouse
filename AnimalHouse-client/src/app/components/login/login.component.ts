@@ -1,0 +1,66 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { MangiaBiscottoService } from '../../mangia-biscotto.service';
+
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  form: FormGroup;
+  postId?: any;
+  ruolo?: string;
+  selectedDimenticata: boolean= false; //variabile per far apparire la card per cambiare la password
+  msgalert?: string;
+
+    
+  constructor(public fb: FormBuilder, private router: Router, public http: HttpClient, private cookieService: CookieService, public biscotto: MangiaBiscottoService) { 
+    this.form = fb.group({
+      "user": ['',Validators.required],
+      "password": ['',Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  dimenticata(): void{
+    if(this.selectedDimenticata==false){
+      this.selectedDimenticata= true;
+    }else{
+      this.selectedDimenticata= false;
+    }
+  }
+
+  //metodo per verificare che gli input inseriti( e se sono stati inseriti) siano validi
+  accedi(): void{
+    this.msgalert='';
+    if(!this.form.valid){
+      this.msgalert=("compila bene");
+      //alert("compila bene");
+      return;
+    }else{
+      let credenziali = this.form.value;
+      //Chiamata al db per cercare una corrispondenza
+      this.http.put<any>('http://localhost:3000/ricercaUtenti', credenziali)
+        .subscribe(data => {
+          //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
+          if(data!==null){
+            this.cookieService.set("token",data);// in questo punto sto salvando il token in data
+            this.biscotto.getRuolo(); //richiamp metodo per prendere il ruolo dal token
+            this.router.navigate(['homepage']);
+          } else {  //Nessuna corrispondenza trovata, credenziali sbagliate
+            this.msgalert=('utente non trovato, riprova');
+            //alert("utente non trovato, riprova");
+            //console.log("Accesso negato");
+            return;
+          }
+        });
+    }
+  }
+}

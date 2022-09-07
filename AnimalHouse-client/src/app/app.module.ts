@@ -8,51 +8,51 @@ import { DateTimePickerModel, DateTimePickerModule } from '@syncfusion/ej2-angul
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RegistrazioneComponent } from './registrazione/registrazione.component';
-import { PrimaComponent } from './prima/prima.component';
-import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
+import { NavbarComponent } from './components/Navbar/navbar/navbar.component';
+import { RegistrazioneComponent } from './components/Account/registrazione/registrazione.component';
+import { PrimaComponent } from './components/Navbar/prima/prima.component';
+import { RegistrazioneAdminComponent } from './components/registrazione-admin/registrazione-admin.component';
 import { GiochiComponent } from './components/BabyAnimal/giochi/giochi.component';
-import { LoginComponent } from './login/login.component';
-import { TitoloComponent } from './titolo/titolo.component';
-import { DimenticataComponent } from './dimenticata/dimenticata.component';
-import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { LoginComponent } from './components/login/login.component';
+import { TitoloComponent } from './components/Navbar/titolo/titolo.component';
+import { DimenticataComponent } from './components/Account/dimenticata/dimenticata.component';
+import { NewpasswordComponent } from './components/Account/newpassword/newpassword.component';
 import { BabyAnimalComponent } from './components/BabyAnimal/baby-animal/baby-animal.component';
 import { CuriositaComponent } from './components/BabyAnimal/curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatiUtenteComponent } from './dati-utente/dati-utente.component';
-import { StoricoPrenotazioniComponent } from './storico-prenotazioni/storico-prenotazioni.component';
-import { EliminaAccountComponent } from './elimina-account/elimina-account.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DatiUtenteComponent } from './components/Account/dati-utente/dati-utente.component';
+import { StoricoPrenotazioniComponent } from './components/Professionisti/storico-prenotazioni/storico-prenotazioni.component';
+import { EliminaAccountComponent } from './components/Account/elimina-account/elimina-account.component';
+import { ResetPasswordComponent } from './components/Account/reset-password/reset-password.component';
 import { ClassificheComponent } from './components/Classifiche/classifiche/classifiche.component';
 
 import { HttpClientModule} from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service';
-import { ProfessionistiComponent } from './professionisti/professionisti.component';
-import { UtentiComponent } from './utenti/utenti.component';
+import { ProfessionistiComponent } from './components/Professionisti/professionisti/professionisti.component';
+import { UtentiComponent } from './components/utenti/utenti.component';
 import { QuizComponent } from './components/BabyAnimal/quiz/quiz.component';
 import { AggiungiCuriositaComponent } from './components/BabyAnimal/aggiungi-curiosita/aggiungi-curiosita.component';
 
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PreferenzeComponent } from './preferenze/preferenze.component';
-import { PreferitiComponent } from './preferiti/preferiti.component';
-import { ProfiliComponent } from './profili/profili.component';
+import { PageNotFoundComponent } from './components/Navbar/page-not-found/page-not-found.component';
+import { PreferenzeComponent } from './components/Account/preferenze/preferenze.component';
+import { PreferitiComponent } from './components/Account/preferiti/preferiti.component';
+import { ProfiliComponent } from './components/Account/profili/profili.component';
 import { VideoSliderComponent } from './components/BabyAnimal/video-slider/video-slider.component';
 import { CommonModule } from '@angular/common';
-import { InserisciEmailComponent } from './inserisci-email/inserisci-email.component';
-import { AppuntamentiComponent } from './appuntamenti/appuntamenti.component';
+import { InserisciEmailComponent } from './components/Account/inserisci-email/inserisci-email.component';
+import { AppuntamentiComponent } from './components/Professionisti/appuntamenti/appuntamenti.component';
 import { MemoryComponent } from './components/BabyAnimal/Memory/memory/memory.component';
 import { CartaComponent } from './components/BabyAnimal/Memory/carta/carta.component';
 import { MemoryBoardComponent } from './components/BabyAnimal/Memory/memory-board/memory-board.component';
-import { AddProfessionistiComponent } from './add-professionisti/add-professionisti.component';
-import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
-import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
+import { AddProfessionistiComponent } from './components/Professionisti/add-professionisti/add-professionisti.component';
+import { ProfiloProfComponent } from './components/Professionisti/profilo-prof/profilo-prof.component';
+import { PrenotazioniComponent } from './components/Professionisti/prenotazioni/prenotazioni.component';
 import { ClassificheUtenteComponent } from './components/Classifiche/classifiche-utente/classifiche-utente.component';
 import { PostComponent } from './components/bacheca/post/post.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
 import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.component';
-import { PrenotaComponent } from './prenota/prenota.component';
-import { ModificaComponent } from './modifica/modifica.component';
+import { PrenotaComponent } from './components/Professionisti/prenota/prenota.component';
+import { ModificaComponent } from './components/Account/modifica/modifica.component';
 import { IndietroComponent } from './components/BabyAnimal/indietro/indietro.component';
 @NgModule({
   declarations: [
