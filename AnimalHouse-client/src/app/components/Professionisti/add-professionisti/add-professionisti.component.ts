@@ -2,9 +2,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
-import { AggiungiDBService } from '../../../aggiungi-db.service';
+import { AggiungiDBService } from '../../../services/aggiungi-db.service';
 
 
 @Component({
