@@ -1,3 +1,7 @@
+/*
+  Component per le classifiche globali
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
@@ -244,7 +248,4 @@ export class ClassificheComponent implements OnInit {
       console.log(e);
     }
   }
-
-
-
 }

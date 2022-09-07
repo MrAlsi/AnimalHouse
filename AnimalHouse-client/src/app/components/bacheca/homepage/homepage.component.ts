@@ -1,3 +1,7 @@
+/*
+  Component che prende i Post dal DB e li mostra
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -18,7 +22,6 @@ export class HomepageComponent implements OnInit {
     this.http.get('http://localhost:3000/post/getPosts')
     .subscribe(data => {
         this.posts = data;
-       // console.log("POST:", this.posts);
       })
   }
 

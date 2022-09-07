@@ -1,3 +1,7 @@
+/*
+  Component per creare un nuovo post
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +18,6 @@ export class NuovoPostComponent implements OnInit {
   loading: boolean = false; // Flag variable
   file?: File; // Variable to store file
   
-
   constructor(public home: HomeService) { }
 
   ngOnInit(): void {

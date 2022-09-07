@@ -1,3 +1,7 @@
+/*
+  Component che gestisce un post e l'interazioni con esso
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { MangiaBiscottoService } from 'src/app/mangia-biscotto.service';
@@ -78,10 +82,8 @@ export class PostComponent implements OnInit {
 
   //Elimina il post
   elimina(id: any): void{
-    //console.log("id",id);
     this.http.delete<any>('http://localhost:3000/CRUD/post/'+ id)
       .subscribe(data => {
-        //console.log(data);
       });
     window.location.reload();
   }
