@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BabyAnimalComponent } from './baby-animal/baby-animal.component';
-import { CuriositaComponent } from './curiosita/curiosita.component';
-import { GiochiComponent } from './giochi/giochi.component';
+import { BabyAnimalComponent } from './components/BabyAnimal/baby-animal/baby-animal.component';
+import { CuriositaComponent } from './components/BabyAnimal/curiosita/curiosita.component';
+import { GiochiComponent } from './components/BabyAnimal/giochi/giochi.component';
 import { HomepageComponent } from './components/bacheca/homepage/homepage.component';
-import { MemeComponent } from './components/Meme/meme/meme.component';
 import { PrimaComponent } from './prima/prima.component';
 import { RegistrazioneAdminComponent } from './registrazione-admin/registrazione-admin.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { ClassificheComponent } from './components/Classifiche/classifiche/classifiche.component';
 import { ProfessionistiComponent } from './professionisti/professionisti.component';
 import { UtentiComponent } from './utenti/utenti.component';
-import { AggiungiCuriositaComponent } from './aggiungi-curiosita/aggiungi-curiosita.component';
+import { AggiungiCuriositaComponent } from './components/BabyAnimal/aggiungi-curiosita/aggiungi-curiosita.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './preferenze/preferenze.component';
 import { ProfiliComponent } from './profili/profili.component';
@@ -22,6 +21,7 @@ import { ProfiloProfComponent } from './profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { ModificaComponent } from './modifica/modifica.component';
 import { GuardiaUtenteService } from './guardia-utente.service';
+import { VideoSliderComponent } from './components/BabyAnimal/video-slider/video-slider.component';
 
 const routes: Routes = [
   {path: '', component: PrimaComponent},
@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'babyanimal/games', component: GiochiComponent},
   {path: 'babyanimal/curiosity', component: CuriositaComponent},
   {path: 'babyanimal/curiosity/addCuriosity', component: AggiungiCuriositaComponent, canActivate :[GuardiaRuoloService]},
-  {path: 'babyanimal/meme', component: MemeComponent},
+  {path: 'babyanimal/meme', component: VideoSliderComponent},
   {path: 'classifiche', component: ClassificheComponent, canActivate :[GuardiaIdService]},
   {path: 'newProfessionisti', component: AddProfessionistiComponent, canActivate :[GuardiaRuoloService]},
   {path: 'professionisti', component: ProfessionistiComponent, canActivate :[GuardiaRuoloService]},

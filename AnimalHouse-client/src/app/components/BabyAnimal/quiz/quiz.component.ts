@@ -49,7 +49,7 @@ export class QuizComponent {
 
   //Restituisce la domanda posta
   getDomanda(): string{
-    return this.api.results[this.indice].question;
+    return this.pulisciDomanda(this.api.results[this.indice].question);
   }
 
   //Mescola le risposte
@@ -105,6 +105,15 @@ export class QuizComponent {
         this.salvaPunteggio();    //Richiama il metodo per salvare il punteggio nel DB
       }
     }
+  }
+
+
+  pulisciDomanda(domanda: string): string{
+      var domandaPulita = domanda.replace("&quot;", '\"');
+      domandaPulita = domandaPulita.replace("&quot;", '\"');
+      domandaPulita = domandaPulita.replace("&#039;", "\'")
+      return domandaPulita;
+    
   }
 
   //Salva il punteggio del DB

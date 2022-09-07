@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GIOCHI } from '../lista-giochi';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { GIOCHI } from '../../../lista-giochi';
+import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
 
 @Component({
   selector: 'app-giochi',

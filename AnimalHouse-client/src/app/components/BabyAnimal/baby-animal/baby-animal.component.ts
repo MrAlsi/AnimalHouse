@@ -1,5 +1,11 @@
+/*
+Baby animal è lo spazio pensato per i più piccoli dove non si necessita di accedere con un account, 
+però se si accede e si va su babyanimal verrano salvati punteggi dei giochi.
+Questo component è il menù dove è possibile andare a vedere video buffi di aniamle, leggere delle curiosità e giocare a memory o fare un quiz 
+*/
+
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
 
 @Component({
   selector: 'app-baby-animal',

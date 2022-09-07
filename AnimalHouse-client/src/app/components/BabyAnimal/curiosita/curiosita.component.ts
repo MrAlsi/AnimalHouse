@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
 
 
 @Component({
