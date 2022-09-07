@@ -41,7 +41,6 @@ export class ClassificheComponent implements OnInit {
     this.biscotto.getRuolo();
     this.http.get('http://localhost:3000/CRUD/utenti').subscribe(data => {
       this.utenti = data;
-     // console.log("U", this.utenti);
       this.utenti.forEach((utente: any) => {
         var punteggioQuiz = {
           "id": utente._id,
