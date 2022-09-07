@@ -1,3 +1,7 @@
+/*
+  Servizio per collergarsi alle API di pexels, sitoweb che da i video per i meme
+*/
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
