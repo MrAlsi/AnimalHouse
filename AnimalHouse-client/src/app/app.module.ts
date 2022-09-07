@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ScheduleModule, View,  WeekService, MonthService } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule,  WeekService, MonthService } from '@syncfusion/ej2-angular-schedule';
 import {} from '@syncfusion/ej2-angular-schedule';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
-import { DateTimePickerModel, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, SafePipe } from './app.component';
@@ -19,7 +19,7 @@ import { DimenticataComponent } from './components/Account/dimenticata/dimentica
 import { NewpasswordComponent } from './components/Account/newpassword/newpassword.component';
 import { BabyAnimalComponent } from './components/BabyAnimal/baby-animal/baby-animal.component';
 import { CuriositaComponent } from './components/BabyAnimal/curiosita/curiosita.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DatiUtenteComponent } from './components/Account/dati-utente/dati-utente.component';
 import { EliminaAccountComponent } from './components/Account/elimina-account/elimina-account.component';
 import { ResetPasswordComponent } from './components/Account/reset-password/reset-password.component';
@@ -37,7 +37,6 @@ import { PreferenzeComponent } from './components/Account/preferenze/preferenze.
 import { PreferitiComponent } from './components/Account/preferiti/preferiti.component';
 import { ProfiliComponent } from './components/Account/profili/profili.component';
 import { VideoSliderComponent } from './components/BabyAnimal/video-slider/video-slider.component';
-import { CommonModule } from '@angular/common';
 import { InserisciEmailComponent } from './components/Account/inserisci-email/inserisci-email.component';
 import { AppuntamentiComponent } from './components/Professionisti/appuntamenti/appuntamenti.component';
 import { MemoryComponent } from './components/BabyAnimal/Memory/memory/memory.component';

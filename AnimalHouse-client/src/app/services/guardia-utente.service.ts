@@ -20,7 +20,6 @@ export class GuardiaUtenteService {
       this.ruolo='';
     }
     
-    //console.log("ruolo",this.ruolo);
     if(this.ruolo=='utente'){
       return true;
     }else{

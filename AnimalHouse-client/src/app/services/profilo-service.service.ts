@@ -35,16 +35,13 @@ export class ProfiloServiceService {
   profilo(): void {
     try{
       this.id=this.biscotto.getId();
-      //console.log("try", this.id);
     }catch (error) {
       this.id='';
-      //console.log("Catch", error);
     }
 
     this.ruolo=this.biscotto.getRuolo();
 
     if(this.biscotto.getUsername()==this.profile){ //controllo se è il mio profilo
-      //console.log("SOno IO!")
       this.sonoio= true;
     }
     //dato l'user prendo i dati
@@ -65,7 +62,6 @@ export class ProfiloServiceService {
             .subscribe(data => {
               if(data!== null){
                 this.animali=data.preferiti;
-                //console.log(this.animali);
               }
             });
         }
@@ -95,11 +91,9 @@ export class ProfiloServiceService {
 
   eliminaAccount(): void{
     this.id=this.biscotto.getId();
-    //console.log("id:", this.id);
     //vado eliminare dal db l'utente con quel id
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+this.id)
       .subscribe(data => {
-        //this.collezioni=data;
         //console.log(data);
       });
 

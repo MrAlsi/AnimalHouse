@@ -1,3 +1,4 @@
+//servizio che permette di cambiare la password quando si è già dentro al profilo
 import { Injectable } from '@angular/core';
 import { ProfiloServiceService } from './profilo-service.service';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
@@ -53,27 +54,22 @@ export class CambiaPasswordService {
     this.msgalert='';
     if(!this.form2.valid){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }else{
       //controllo non sia stata inserita la stessa password
       if(this.password!=this.form2.value.password2){
         console.log("p2",this.form2.value.password2);
         const pp= this.form2.value.password2;
-        //console.log("pp",pp);
 
         //aggiorno la password
         this.http.put<any>('http://localhost:3000/CRUD/utenti/'+ this.id,{pp})
           .subscribe(data=>{
-           // console.log("data",data.password);
             data.password=pp;
           }); 
           this.profilo.selectedNewPassword=false;
           window.location.reload();
       }else{
         this.msgalert=("non puoi inserire la stessa password");
-
-        //alert("non puoi inserire la stessa password");
         return;
       }
     }
