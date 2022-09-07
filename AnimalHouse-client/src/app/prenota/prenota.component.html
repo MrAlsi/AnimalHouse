@@ -3,7 +3,7 @@
         <e-view option="Week" startHour="{{dati.oraInizio}}" endHour="{{dati.oraFine}}"></e-view>
     </e-views>
     <ng-template #editorTemplate let-data>
-
+        
         <h2>Resoconto appuntamento</h2>
         <table class="custom-event-editor" width="100%" cellpadding="">
             <tbody>
@@ -33,13 +33,14 @@
             </tbody>
         </table>
         
-        
         <button (click)="confermaAppuntamento()" type="button" class="btn btn-secondary btn-sm"> Conferma </button>
         
-        <div class="alert alert-danger" role="alert" *ngIf="msgMezzora == true">
-            Il principino vuole fare alla mezza, metti un orario vero per l'amor di Dio
+        <div *ngIf="msgMezzora">
+            <div class="alert alert-danger" role="alert">
+                Non è possibile prenotare mezz'ora.
+            </div>
+            <p>{{msgMezzora}}</p>
         </div>
-
         
     </ng-template>
 </ejs-schedule>
