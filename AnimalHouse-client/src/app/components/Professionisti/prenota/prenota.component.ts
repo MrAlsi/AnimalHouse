@@ -1,3 +1,9 @@
+/*
+  Component che gestisce la tabella delle prenotazione, prima la riempie di giorni occupati, 
+  le pause e gli appuntamenti
+  gestisce anche le nuove prenotazioni controllando che vadano bene
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
@@ -60,7 +66,6 @@ export class PrenotaComponent implements OnInit {
       document.getElementsByClassName("e-appointment")
     })
   }
-  
 
   //Controllo in che giorni lavoro e li tolgo dall'array 
   controlloGiorni():void{
@@ -90,6 +95,7 @@ export class PrenotaComponent implements OnInit {
     })
   };
 
+  //Metodo per bloccare i giorni già passati cosi non si può prenotare a ieri
   segnaGiorniPassati(): void{
     //prendo la data di oggi
     let oggi=new Date();
@@ -125,7 +131,7 @@ export class PrenotaComponent implements OnInit {
     )
   }
 
-
+  //segna gli appuntamenti del professionista
   segnaAppuntamenti(appuntamenti: any): void {
     appuntamenti.forEach((appuntamento: any) =>{
       var data = appuntamento.Day.split("T");
@@ -145,6 +151,7 @@ export class PrenotaComponent implements OnInit {
     })
   }
 
+  //per mettere il nome nei propri appuntamenti, altrimenti mette occupato
   getNome(oggetto: string): string {
     if(!this.controlloUser(oggetto)){
       return oggetto;
@@ -153,6 +160,7 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
+  //Controlla user perché gli user possono vedere chi ha effettuato una prenotazione
   controlloUser(oggetto: string): Boolean {
     if(oggetto === this.biscotto.getUsername() ||this.biscotto.getRuolo() === "admin"){
       return false;
@@ -161,7 +169,7 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
-  //metodo per resettare l'allert di errore
+  //metodo per resettare l'alert di errore
   msgFalse(): void{
     this.msgMezzora=false;
   }
@@ -234,6 +242,7 @@ export class PrenotaComponent implements OnInit {
     this.dataInput= d;
   }
 
+  //Per creare appuntamenti di un ora
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === 'Editor') {
         args.duration = 60;

@@ -21,7 +21,6 @@ import { BabyAnimalComponent } from './components/BabyAnimal/baby-animal/baby-an
 import { CuriositaComponent } from './components/BabyAnimal/curiosita/curiosita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatiUtenteComponent } from './components/Account/dati-utente/dati-utente.component';
-import { StoricoPrenotazioniComponent } from './components/Professionisti/storico-prenotazioni/storico-prenotazioni.component';
 import { EliminaAccountComponent } from './components/Account/elimina-account/elimina-account.component';
 import { ResetPasswordComponent } from './components/Account/reset-password/reset-password.component';
 import { ClassificheComponent } from './components/Classifiche/classifiche/classifiche.component';
@@ -70,7 +69,6 @@ import { IndietroComponent } from './components/BabyAnimal/indietro/indietro.com
     BabyAnimalComponent,
     CuriositaComponent,
     DatiUtenteComponent,
-    StoricoPrenotazioniComponent,
     EliminaAccountComponent,
     ResetPasswordComponent,
     ClassificheComponent,
