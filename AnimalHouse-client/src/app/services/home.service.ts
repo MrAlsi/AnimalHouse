@@ -1,9 +1,11 @@
+//servizio che permette di creare nuovi post in bacheca
+
+
 import { Injectable } from '@angular/core';
 import { MangiaBiscottoService } from './mangia-biscotto.service';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { AggiungiDBService } from './aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -13,7 +15,6 @@ export class HomeService {
 
   ruolo?: string;
   username?: any;
-  newpost: boolean= false;
   form: FormGroup;
   form2: FormGroup;
   msgalert?: string;
@@ -43,28 +44,21 @@ export class HomeService {
     })
   }
 
-  newPost(): void{
-    if(this.newpost==false){
-      this.newpost=true;
-    }else{
-      this.newpost=false;
-    }
-  }
-
+  //memorizzo il testo del post
   salva1(): void{
     this.msgalert=('');
-    //console.log(this.form);
+    //controllo abbia scritto qualcosa
     if(this.form.value.testo=='A cosa stai pensando?'||this.form.value.testo==''){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }
     this.post.testo=this.form.value.testo;
+    //richiamo metodo per salvare il post nel db
     this.salvaDB(this.post);
     window.location.reload();
   }
   
-
+  //salvo che il post conterrà anche una foto
   addFoto(): void{
     this.msgalert='';
     if(this.carica==false){
@@ -75,32 +69,34 @@ export class HomeService {
     
   }
 
+
+  //memorizzo la foto del post
   salva2(): void{
     this.msgalert=('');
-    //console.log(this.form2);
-
     if(this.form2.value.img=='Inserisci immagine'||this.form2.value.img==''){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }else{
-        if(this.form.value.testo!='A cosa stai pensando?'&&this.form.value.testo!=''){
-          this.post.testo=this.form.value.testo;
-        }
+      if(this.form.value.testo!='A cosa stai pensando?'&&this.form.value.testo!=''){
+        this.post.testo=this.form.value.testo;
+      }
 
-        this.post.img=this.url;
-      //@todo salvare immagini caricate
+      this.post.img=this.url;
       this.salvaDB(this.post);
       window.location.reload();
     }
   }  
 
+
+  //salvo sul db il nuovo post
   salvaDB(post: any): void{
     this.post.user=this.username;
     console.log("post", post);
     this.DB.aggiungiDB(this.post, 'post');
   }
 
+
+  //prendo i post dal db
   posted(): void{
     this.http.get<any>('http://localhost:3000/CRUD/post/')
       .subscribe(data => {
@@ -108,13 +104,10 @@ export class HomeService {
         var dati;
         //controllo per ogni post se ho messo mi piace
         for(var i=0;i<data.length;i++){
-          //console.log("ciao");
           this.homessomipiace=false;
           for(var j=0;j<data[i].like.length;j++){
-            //console.log("f",data[i]);
             if(data[i].like[j]==this.username){
               this.homessomipiace=true;
-             // console.log("data",data[i]);
               dati={
                 flag: this.homessomipiace,
                 postId: data[i]._id,
@@ -126,10 +119,10 @@ export class HomeService {
             
           
         }
-        //console.log("array",this.arrayPost);
       });
   }
 
+  //metodo per leggere l'url della foto
   onselectFile(e: any){
     if(e.target.files){
       var reader = new FileReader();

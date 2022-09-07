@@ -19,6 +19,7 @@ export class UtentiComponent implements OnInit {
   search: boolean= false;
   ruolo?: string;
   msgalert?: string;
+  profile?: any; //nome dell'utente che eliminerò
 
 
   constructor(public http: HttpClient, public fb: FormBuilder, public biscotto: MangiaBiscottoService) {
@@ -34,9 +35,33 @@ export class UtentiComponent implements OnInit {
   }
 
   elimina(id: string): void{
+
+    this.http.get<any>('http://localhost:3000/CRUD/one/utenti/'+id)
+      .subscribe(data => {
+        this.profile=data.username; //prendo il nome per poter fare le altre operazioni sul db
+      }); 
+
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
+    });
+
+    //vado ad eliminare dal db gli appuntamenti di quell'user
+    this.http.delete<any>('http://localhost:3000/appuntamenti/'+this.profile)
+    .subscribe(data => {
+      //console.log(data);
+    });
+
+    //vado ad eliminare le recensioni dell'utente
+    this.http.delete<any>('http://localhost:3000/professionista/recensioni/utente/'+this.profile)
+    .subscribe(data => {
+      //console.log(data);
+    });
+
+    //vado ad eliminare i post dell'utente
+    this.http.delete<any>('http://localhost:3000/post/'+this.profile)
+    .subscribe(data => {
+      //console.log(data);
     });
     window.location.reload();
   }

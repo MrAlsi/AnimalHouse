@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decoded from 'jwt-decode';
 
-//servizio per capire se l'utente sia un admin o un utente normale
+//servizio per prendere dal token l'id l'user e il ruolo
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +40,8 @@ export class MangiaBiscottoService {
     
   }
 
+
+  //metodo per prendere l'user
   getUsername(): string{
     this.cookie=this.cookieService.get('token');
     this.cookie = jwt_decoded(this.cookie);
