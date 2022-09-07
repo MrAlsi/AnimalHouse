@@ -1,8 +1,8 @@
 //component che utilizza il servizio ProfiloService, e permette di visualizzare i dati dell'utente che si sta guardando
 
 import { Component, OnInit } from '@angular/core';
-import { ProfiloServiceService } from '../../../profilo-service.service';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
 
 

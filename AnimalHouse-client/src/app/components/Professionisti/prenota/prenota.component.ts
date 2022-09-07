@@ -6,7 +6,7 @@ import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsMo
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { arrayGiorni } from './dizionarioGiorni';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 
 
 @Component({

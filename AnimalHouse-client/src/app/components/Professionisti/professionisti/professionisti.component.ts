@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
-import { AggiungiDBService } from '../../../aggiungi-db.service';
+import { AggiungiDBService } from '../../../services/aggiungi-db.service';
 
 
 

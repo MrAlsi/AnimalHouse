@@ -2,8 +2,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProfiloServiceService } from '../../../profilo-service.service';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { Router } from '@angular/router';
 
 

@@ -14,13 +14,13 @@ import { AggiungiCuriositaComponent } from './components/BabyAnimal/aggiungi-cur
 import { PageNotFoundComponent } from './components/Navbar/page-not-found/page-not-found.component';
 import { PreferenzeComponent } from './components/Account/preferenze/preferenze.component';
 import { ProfiliComponent } from './components/Account/profili/profili.component';
-import { GuardiaIdService } from './guardia.service';
-import { GuardiaRuoloService } from './guardia-ruolo.service';
+import { GuardiaIdService } from './services/guardia.service';
+import { GuardiaRuoloService } from './services/guardia-ruolo.service';
 import { AddProfessionistiComponent } from './components/Professionisti/add-professionisti/add-professionisti.component';
 import { ProfiloProfComponent } from './components/Professionisti/profilo-prof/profilo-prof.component';
 import { PrenotazioniComponent } from './components/Professionisti/prenotazioni/prenotazioni.component';
 import { ModificaComponent } from './components/Account/modifica/modifica.component';
-import { GuardiaUtenteService } from './guardia-utente.service';
+import { GuardiaUtenteService } from './services/guardia-utente.service';
 import { VideoSliderComponent } from './components/BabyAnimal/video-slider/video-slider.component';
 
 const routes: Routes = [

@@ -1,11 +1,11 @@
 import { Component, OnInit} from '@angular/core';
-import { ProfiloServiceService } from '../../../profilo-service.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
 import { ActivatedRoute} from '@angular/router';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AggiungiDBService } from '../../../aggiungi-db.service';
+import { AggiungiDBService } from '../../../services/aggiungi-db.service';
 import {Dati} from '../prenota/dati';
 
 

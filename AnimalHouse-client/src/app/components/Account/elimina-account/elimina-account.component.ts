@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfiloServiceService } from '../../../profilo-service.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
 @Component({
   selector: 'app-elimina-account',
   templateUrl: './elimina-account.component.html',

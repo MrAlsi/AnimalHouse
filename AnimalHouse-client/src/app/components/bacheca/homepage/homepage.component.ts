@@ -5,8 +5,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AggiungiDBService } from 'src/app/aggiungi-db.service';
-import { MangiaBiscottoService } from 'src/app/mangia-biscotto.service';
+import { AggiungiDBService } from 'src/app/services/aggiungi-db.service';
+import { MangiaBiscottoService } from 'src/app/services/mangia-biscotto.service';
 
 @Component({
   selector: 'app-homepage',

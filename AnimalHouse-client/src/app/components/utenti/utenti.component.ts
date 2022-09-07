@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
-import { MangiaBiscottoService } from '../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../services/mangia-biscotto.service';
 
 
 @Component({

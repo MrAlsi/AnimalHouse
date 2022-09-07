@@ -4,8 +4,8 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
-import { PunteggiQuizService } from '../../../punteggi-quiz.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
+import { PunteggiQuizService } from '../../../services/punteggi-quiz.service';
 import { punteggio } from './punteggio';
 
 @Component({

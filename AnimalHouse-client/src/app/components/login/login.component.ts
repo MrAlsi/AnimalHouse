@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { MangiaBiscottoService } from '../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../services/mangia-biscotto.service';
 
 
 @Component({

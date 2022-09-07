@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ControllaCodiceService } from '../../../controlla-codice.service';
+import { ControllaCodiceService } from '../../../services/controlla-codice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
-import { CodividiUserService } from '../../../codividi-user.service';
-import { CambiaPasswordService } from '../../../cambia-password.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
+import { CodividiUserService } from '../../../services/codividi-user.service';
+import { CambiaPasswordService } from '../../../services/cambia-password.service';
 
 
 @Component({

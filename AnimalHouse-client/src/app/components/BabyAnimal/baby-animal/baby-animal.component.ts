@@ -5,7 +5,7 @@ Questo component è il menù dove è possibile andare a vedere video buffi di an
 */
 
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 
 @Component({
   selector: 'app-baby-animal',
