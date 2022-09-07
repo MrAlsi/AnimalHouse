@@ -1,13 +1,15 @@
+/*
+  Component che gestisce la tabella delle prenotazione, prima la riempie di giorni occupati, 
+  le pause e gli appuntamenti
+  gestisce anche le nuove prenotazioni controllando che vadano bene
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
- 
 import { DayService, WeekService, MonthService, WorkWeekService, EventSettingsModel, TimelineViewsService, AgendaService, PopupOpenEventArgs } from '@syncfusion/ej2-angular-schedule';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { arrayGiorni } from './dizionarioGiorni';
 import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
-
 
 @Component({
   selector: 'app-prenota',
@@ -19,10 +21,8 @@ import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service
 export class PrenotaComponent implements OnInit {
 
   public views: Array<string> = ['Day', 'Week', 'WorkWeek', 'Month'];
-
   public today: Date = new Date();
   public selectedDate: Date = new Date(this.today);
-
   public eventSettings?: EventSettingsModel;
 
   form: FormGroup;
@@ -48,27 +48,24 @@ export class PrenotaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("janj", this.dati)
-    this.http.get("http://localhost:3000/appuntamenti/"+this.dati.idProf)
-    .subscribe(data => {
+      this.http.get("http://localhost:3000/appuntamenti/"+this.dati.idProf)
+      .subscribe(data => {
 
-    //Controllo per segnare gli appuntamenti già prenotati
-    this.segnaAppuntamenti(data);
-    //controllo in quali giorni non lavora
-    this.controlloGiorni();
-    //Controllo pause 
-    this.segnaPausaPranzo();
+      //Controllo per segnare gli appuntamenti già prenotati
+      this.segnaAppuntamenti(data);
 
-    //console.log("Giorni bloccati", this.giorniBloccati);
+      //controllo in quali giorni non lavora
+      this.controlloGiorni();
+      
+      //Controllo pause 
+      this.segnaPausaPranzo();
 
-    //Aggiunge al calendario gli eventi bloccati
-    this.eventSettings = {dataSource: this.giorniBloccati}
+      //Aggiunge al calendario gli eventi bloccati
+      this.eventSettings = {dataSource: this.giorniBloccati}
 
-  
-    document.getElementsByClassName("e-appointment")
+      document.getElementsByClassName("e-appointment")
     })
   }
-  
 
   //Controllo in che giorni lavoro e li tolgo dall'array 
   controlloGiorni():void{
@@ -98,6 +95,7 @@ export class PrenotaComponent implements OnInit {
     })
   };
 
+  //Metodo per bloccare i giorni già passati cosi non si può prenotare a ieri
   segnaGiorniPassati(): void{
     //prendo la data di oggi
     let oggi=new Date();
@@ -133,7 +131,7 @@ export class PrenotaComponent implements OnInit {
     )
   }
 
-
+  //segna gli appuntamenti del professionista
   segnaAppuntamenti(appuntamenti: any): void {
     appuntamenti.forEach((appuntamento: any) =>{
       var data = appuntamento.Day.split("T");
@@ -153,6 +151,7 @@ export class PrenotaComponent implements OnInit {
     })
   }
 
+  //per mettere il nome nei propri appuntamenti, altrimenti mette occupato
   getNome(oggetto: string): string {
     if(!this.controlloUser(oggetto)){
       return oggetto;
@@ -161,6 +160,7 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
+  //Controlla user perché gli user possono vedere chi ha effettuato una prenotazione
   controlloUser(oggetto: string): Boolean {
     if(oggetto === this.biscotto.getUsername() ||this.biscotto.getRuolo() === "admin"){
       return false;
@@ -169,7 +169,7 @@ export class PrenotaComponent implements OnInit {
     }
   }
 
-  //metodo per resettare l'allert di errore
+  //metodo per resettare l'alert di errore
   msgFalse(): void{
     this.msgMezzora=false;
   }
@@ -242,6 +242,7 @@ export class PrenotaComponent implements OnInit {
     this.dataInput= d;
   }
 
+  //Per creare appuntamenti di un ora
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === 'Editor') {
         args.duration = 60;
