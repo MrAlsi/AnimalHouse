@@ -1,7 +1,8 @@
+//component che permette di viasualizzare l'elenco di tutte le persone registrate
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data } from '@angular/router';
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MangiaBiscottoService } from '../../services/mangia-biscotto.service';
 
 
@@ -33,7 +34,6 @@ export class UtentiComponent implements OnInit {
   }
 
   elimina(id: string): void{
-   // console.log("id:", id)
     this.http.delete<any>('http://localhost:3000/CRUD/utenti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
@@ -52,7 +52,6 @@ export class UtentiComponent implements OnInit {
             this.collezione=data;
           }else{
             this.msgalert=("Ci dispiace, l'utente cercato non esiste");
-           // alert("Ci dispiace, l'utente cercato non esiste");
           }
         });
     }else{
@@ -65,9 +64,7 @@ export class UtentiComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/CRUD/utenti/')
         .subscribe(data => {
           this.collezioni=data;
-          //console.log(data);
         });
     this.search=false;
-
   }
 }

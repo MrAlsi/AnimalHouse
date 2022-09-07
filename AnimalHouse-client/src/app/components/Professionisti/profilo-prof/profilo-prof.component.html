@@ -1,34 +1,3 @@
-<!--
-<p class="desc"> Nome: </p>
-                                <p class="dati"> {{this.prof.nome}} </p>
-                                <p class="desc"> Tipo: </p>
-                                <p class="dati"> {{this.prof.tipo}}</p>
-                                <p class="desc"> Città: </p>
-                                <p class="dati"> {{this.prof.citta}}</p>
-                                <p class="desc"> Via: </p>
-                                <p class="dati"> {{this.prof.via}}, n°{{this.prof.civico}}</p>
-                                <p class="desc"> Descrizione: </p>
-                                <p class="dati"> {{this.prof.descrizione}}</p>
-                                <br>
-                                <p class="desc"> Servizio online: </p>
-                                <div *ngIf="this.prof.online=='true'; then thenBlock1 else elseBlock1"></div>
-                                <ng-template #thenBlock1>
-                                    <p class="dati"> sì</p>
-                                </ng-template>
-                                <ng-template #elseBlock1>
-                                    <p class="dati"> no </p>
-                                </ng-template>
-                                <p class="desc"> Servizio a domicilio: </p>
-                                <div *ngIf="this.profilo.profile; then thenBlock2 else elseBlock2"></div>
-                                <ng-template #thenBlock2>
-                                    <p class="dati"> sì </p>
-                                </ng-template>
-                                <ng-template #elseBlock2>
-                                    <p class="dati"> no </p>
-                                </ng-template>
-
--->
-
 <app-navbar></app-navbar>
 <br>
 <h5 class="benvenuto">Benvenuto nel profilo di {{this.prof.nome}}</h5>

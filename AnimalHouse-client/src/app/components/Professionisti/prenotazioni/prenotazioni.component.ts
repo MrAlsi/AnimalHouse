@@ -1,3 +1,5 @@
+//component che permette di selezionare la tipologia di professionista a cui si è interessati
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -29,6 +31,10 @@ export class PrenotazioniComponent implements OnInit {
     this.tipo = prof;
     this.form.value.tipo=this.tipo;
     this.check= true;
+    //quando true attiva la visualizzazione dei professionisti di quella tipologia
+
+    //a differenza della altre tipologie di professionisti "Ripetizioni di canto" ha 
+    //degli spazi, devo quindi gestirlo in maniera diversa
     if(this.tipo=="Ripetizioni di canto"){
       this.tipo="Ripetizioni%20di%20canto";
     }
