@@ -1,3 +1,5 @@
+//compoente che utilizza i metodi di ProfiloService per recuperare i dati dell'utente e eliminarlo
+
 import { Component, OnInit } from '@angular/core';
 import { ProfiloServiceService } from '../../../profilo-service.service';
 @Component({

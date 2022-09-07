@@ -1,3 +1,5 @@
+//component che permette di selezionare gli animali preferiti e memorizzarli
+
 import { Component, OnInit } from '@angular/core';
 import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
@@ -31,7 +33,6 @@ export class PreferenzeComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/listaAnimali')
       .subscribe(data => {
         this.animali=data;
-       // console.log(data);
       });
   }
 

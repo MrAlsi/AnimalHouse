@@ -1,4 +1,5 @@
-//component che verifica la correttezza del codice inviato via mail per poter proseguire con il reset della password
+//component che verifica la correttezza del codice inviato via mail per poter proseguire
+// con il reset della password
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

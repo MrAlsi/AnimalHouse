@@ -1,8 +1,9 @@
+//component che mostra il profilo dell'utente
+
 import { Component, OnInit } from '@angular/core';
 import { ProfiloServiceService } from '../../../profilo-service.service';
 import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute} from '@angular/router';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,13 +14,16 @@ import { Router } from '@angular/router';
 export class ProfiliComponent implements OnInit {
 
 
-  constructor(public profilo: ProfiloServiceService, public http: HttpClient, public route: ActivatedRoute,private router: Router) { }
+  constructor(public profilo: ProfiloServiceService, public http: HttpClient, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.profilo.profile= this.route.snapshot.paramMap.get('username'); //prendo il nome dell'utente che sto guardando da params
-    this.profilo.profilo(); 
+    //prendo il nome dell'utente che sto guardando da params
+    this.profilo.profile= this.route.snapshot.paramMap.get('username'); 
+    this.profilo.profilo(); //prendo i miei dati tramite il servizio ProfiloService
   }
 
+
+  //metodo che richiama il metodo di Profiloservice per eliminare l'account
   elimina(){
     this.profilo.showElimina();
   }

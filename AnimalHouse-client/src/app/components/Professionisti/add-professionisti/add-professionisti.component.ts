@@ -2,11 +2,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
 import { AggiungiDBService } from '../../../aggiungi-db.service';
-import { Time } from '@angular/common';
 
 
 @Component({
@@ -31,7 +29,7 @@ export class AddProfessionistiComponent implements OnInit {
 
   disponibilità: string[]= []; //array con le disponibilità
 
-  constructor(public fb: FormBuilder, private router: Router, public biscotto: MangiaBiscottoService, public http: HttpClient, public DB: AggiungiDBService) { 
+  constructor(public fb: FormBuilder, public biscotto: MangiaBiscottoService, public http: HttpClient, public DB: AggiungiDBService) { 
     this.form = fb.group({
       "nome": ['',Validators.required],
       "citta": ['',Validators.required],
@@ -51,6 +49,7 @@ export class AddProfessionistiComponent implements OnInit {
 
 
   ngOnInit(): void {
+    //prendo il ruolo perché se dovessi provare accedere a questa "zona" senza essere admin la guardia mi bloccherà
     this.biscotto.getRuolo();
   }
 

@@ -1,5 +1,5 @@
 /*
-  Component per creare un nuovo post
+  Component che sfrutta il servizio Homeservice per creare nuovi post
 */
 
 import { HttpClient } from '@angular/common/http';

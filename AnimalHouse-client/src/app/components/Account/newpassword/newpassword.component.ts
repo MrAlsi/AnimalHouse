@@ -1,3 +1,5 @@
+//component che permette di cambiare la password quando ci è dimenticati quale sia
+
 import { Component, OnInit } from '@angular/core';
 import { ControllaCodiceService } from '../../../controlla-codice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +25,7 @@ export class NewpasswordComponent implements OnInit {
 
   constructor( public codice: ControllaCodiceService, public fb: FormBuilder, public http: HttpClient, public biscotto: MangiaBiscottoService, public condividi: CodividiUserService, public cambia: CambiaPasswordService) {
     this.form = fb.group({
-      "password": ['',Validators.required]
+      "password": ['',Validators.required] //nuova password
     });
   }
 
@@ -31,6 +33,8 @@ export class NewpasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
   cambiaPassword(): void{
     this.msgalert='';
@@ -44,7 +48,7 @@ export class NewpasswordComponent implements OnInit {
         if(data!=null){
           this.password2=data.password;
           this.id=data._id;
-          //se la password sono diverse stampo un errore
+          //se la password sono uguali stampo un errore
           if(this.form.value.password!=this.password2){
             const pp=this.form.value.password;
             console.log("pp"+pp);

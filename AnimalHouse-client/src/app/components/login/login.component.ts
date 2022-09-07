@@ -1,3 +1,5 @@
+//component che gestisce il login e permette di passare al component per resettare la password dimenticata
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';

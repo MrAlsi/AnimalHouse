@@ -45,7 +45,6 @@ export class PrenotaComponent implements OnInit {
       "Data": ['',Validators.required],
       "Ora": ['',Validators.required]
     });
-    //console.log("info", this.dati)
   }
 
   ngOnInit(): void {

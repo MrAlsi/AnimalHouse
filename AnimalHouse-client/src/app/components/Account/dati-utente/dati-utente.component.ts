@@ -1,4 +1,5 @@
-//component che utilizza il servizio ProfiloService, e permette di visualizzare i dati dell'utente che si sta guardando
+//component che utilizza il servizio ProfiloService per prendere i dato dell'utente 
+//e permette di visualizzare i dati dell'utente che si sta guardando
 
 import { Component, OnInit } from '@angular/core';
 import { ProfiloServiceService } from '../../../profilo-service.service';

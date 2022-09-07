@@ -28,7 +28,8 @@ export class InserisciEmailComponent implements OnInit {
   }
 
   //metodo per far comparire il component per l'inserimento del codice che  verrà inviato via mail
-  selectedVerifica: boolean= false;
+  selectedVerifica: boolean= false; //setto la variabile a false così quando diventerà true 
+  //richiamerà il component "dimenticata"
   verifica(): void{
     this.msgalert='';
     if(!this.form.valid){
