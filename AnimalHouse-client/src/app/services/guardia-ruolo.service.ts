@@ -1,3 +1,5 @@
+//servizio che blocca l'accesso alla pagina se non si è un admin
+
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot,RouterStateSnapshot } from '@angular/router';
 import { MangiaBiscottoService } from './mangia-biscotto.service';
@@ -18,7 +20,6 @@ export class GuardiaRuoloService {
       this.ruolo='';
     }
 
-    //console.log("ruolo",this.ruolo);
     if(this.ruolo=='admin'){
       return true;
     }else{

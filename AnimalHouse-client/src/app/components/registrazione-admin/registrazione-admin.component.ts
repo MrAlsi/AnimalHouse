@@ -1,5 +1,7 @@
+//component che gestisce la registrazione di un admin
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AggiungiDBService } from '../../services/aggiungi-db.service';
 import { HttpClient } from '@angular/common/http';
@@ -57,15 +59,12 @@ export class RegistrazioneAdminComponent implements OnInit {
     this.msgalert=('');
     if(!this.form.valid || !this.form2.valid){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }else{
       if(this.form2.value.codice!=this.codiceAdmin){
         this.msgalert=("codice amministratore errato");
-        //alert("codice amministratore errato");
       }else{
         //controllo l'user non sia già in uso
-        //console.log(this.form.value.username);
         this.http.put<any>('http://localhost:3000/controllaUsername', this.form.value)
         .subscribe(data => {
           if(data==null){ //se data è vuoto non è in uso
@@ -80,7 +79,8 @@ export class RegistrazioneAdminComponent implements OnInit {
                   //Chiamata al db per salvare il token
                   this.http.put<any>('http://localhost:3000/ricercaUtenti', {user: this.form.value.username, password: this.form.value.password})
                     .subscribe(data => {
-                    //Se data non è null vuol dire che ha trovato una corrispondenza nel DB, data = al token che dobbiamo salvare
+                    //Se data non è null vuol dire che ha trovato una corrispondenza nel DB
+                    //, data = al token che dobbiamo salvare
                       if(data!==null){
                         this.cookieService.set("token",data);// in questo punto sto salvando il token in data
                         this.biscotto.getRuolo(); //richiamo metodo per prendere il ruolo dal token
@@ -89,16 +89,13 @@ export class RegistrazioneAdminComponent implements OnInit {
                     });
                 }else{
                   this.msgalert=("le password non coincidono");
-                  // alert("le password non coincidono");
                 }
               }else{
                 this.msgalert=("mail: "+this.form.value.email+" è già in uso");
-                //alert( "mail: "+this.form.value.email+" è già in uso")
               }
             });
           }else{
             this.msgalert=("username: "+this.form.value.username+" è già in uso");
-            //alert( "username: "+this.form.value.username+" è già in uso")
             return;
           }
         });

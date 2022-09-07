@@ -1,3 +1,5 @@
+//component che permette di visualizzare tutti i professionisti
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
@@ -21,17 +23,17 @@ export class ProfessionistiComponent implements OnInit {
 
   ngOnInit(): void {
     this.cercatutti();
-    //this.biscotto.getRuolo();
   }
 
   //metodo per eliminare il professionista
   elimina(id: string): void{
-    //console.log("id:", id)
     this.http.delete<any>('http://localhost:3000/CRUD/professionisti/'+ id)
     .subscribe(data => {
       this.collezioni=data;
     });
 
+
+    //se elimino un professionisti cancello dal db anche i dati che non riguradano il suo profilo all'interno del db
     //elimino recensioni
     this.http.delete<any>('http://localhost:3000/professionista/recensioni/'+id)
       .subscribe(data => {

@@ -1,3 +1,5 @@
+//component che permette la viasualizzazione dei singoli profili dei professionisti
+
 import { Component, OnInit} from '@angular/core';
 import { ProfiloServiceService } from '../../../services/profilo-service.service';
 import { ActivatedRoute} from '@angular/router';
@@ -47,17 +49,16 @@ export class ProfiloProfComponent implements OnInit {
   ngOnInit(): void {
     //prendo l'id del professionista che sto guardando da params
     this.id= this.route.snapshot.paramMap.get('nome'); 
-    //console.log(this.id);
+    //prendo i miei dati
     this.ruolo= this.biscotto.getRuolo();
     this.user= this.biscotto.getUsername();
-
-    //prendo il mio id
     this.myId= this.biscotto.getId();
+
+
     //prendo i dati dal db del professionsta
     this.http.get<any>('http://localhost:3000/CRUD/one/professionisti/'+ this.id)
       .subscribe(data=>{
         this.prof= data;
-        //console.log("data",data);
         this.dati = {
           idProf: data._id,
           disponibilita: data.disponibilita,
@@ -84,10 +85,10 @@ export class ProfiloProfComponent implements OnInit {
             r: data[i].recensione,
             id: data[i]._id
           }
-          //console.log("dato",this.dato);
+
+          //aggiungo le recensioni all'array delle recensioni
           this.recensioni?.push(this.dato);
           }
-        //console.log("array", this.recensioni);
         return;
       });
 
@@ -110,6 +111,7 @@ export class ProfiloProfComponent implements OnInit {
       });
   }
 
+  //metodo per attivare il component per effettuare la prenotazione
   prenota(): void{
     this.prenotazione=false;
   }
@@ -140,6 +142,7 @@ export class ProfiloProfComponent implements OnInit {
     window.location.reload();
   }
 
+  //metodo per nascondere le recensioni e dare la possibilità di crearne una
   addRecensione(): void{
     this.recensione= true;
     this.tabellaRecensioni=false;
@@ -149,7 +152,6 @@ export class ProfiloProfComponent implements OnInit {
     this.msgalert=('');
     if(!this.form.valid){
       this.msgalert=("Dati mancanti");
-      //alert("Dati mancanti");
       return;
     }else{
       //salvo i dati in un'unica variabile per passarli al db
