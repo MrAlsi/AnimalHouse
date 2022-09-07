@@ -1,7 +1,7 @@
 //component che permette di cambiare la password quando si è già dentro al profilo
 import { Component, OnInit } from '@angular/core';
-import { ProfiloServiceService } from '../../../profilo-service.service';
-import { CambiaPasswordService } from '../../../cambia-password.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
+import { CambiaPasswordService } from '../../../services/cambia-password.service';
 
 
 @Component({

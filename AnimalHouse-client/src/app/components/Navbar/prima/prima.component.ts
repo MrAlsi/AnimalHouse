@@ -1,7 +1,7 @@
 //è la prima pagina di AnimalHouse dove ci si può registrare, loggare e giocare
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { GuardiaIdService } from '../../../guardia.service';
+import { GuardiaIdService } from '../../../services/guardia.service';
 
 @Component({
   selector: 'app-prima',

@@ -4,7 +4,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-import { MangiaBiscottoService } from 'src/app/mangia-biscotto.service';
+import { MangiaBiscottoService } from 'src/app/services/mangia-biscotto.service';
 import { Post } from './post'
 
 @Component({

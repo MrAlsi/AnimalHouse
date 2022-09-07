@@ -2,7 +2,7 @@
 //sfrutta il servizio di MangiaBIscotto perché il base alla tipologia dell'utente la navbar cambia
 
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
 
 

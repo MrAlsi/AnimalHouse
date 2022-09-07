@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AggiungiDBService } from '../../../aggiungi-db.service';
+import { AggiungiDBService } from '../../../services/aggiungi-db.service';
 
 @Component({
   selector: 'app-aggiungi-curiosita',

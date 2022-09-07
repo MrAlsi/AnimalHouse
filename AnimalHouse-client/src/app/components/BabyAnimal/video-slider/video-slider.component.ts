@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ViewChild, OnInit } from "@angular/core";
-import { PexelPhotoService } from "src/app/pexel-photo.service";
+import { PexelPhotoService } from "../../../services/pexel-photo.service";
 import SwiperCore, { Pagination } from "swiper";
 import { SwiperComponent } from "swiper/angular";
 

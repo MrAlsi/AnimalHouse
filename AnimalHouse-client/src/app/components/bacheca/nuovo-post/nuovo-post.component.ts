@@ -5,7 +5,7 @@
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators, Form } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from 'src/app/home.service';
+import { HomeService } from 'src/app/services/home.service';
 
 
 @Component({

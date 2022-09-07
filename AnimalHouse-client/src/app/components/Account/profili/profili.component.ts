@@ -1,7 +1,7 @@
 //component che mostra il profilo dell'utente
 
 import { Component, OnInit } from '@angular/core';
-import { ProfiloServiceService } from '../../../profilo-service.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
 import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute} from '@angular/router';
 

@@ -94,7 +94,6 @@ import { IndietroComponent } from './components/BabyAnimal/indietro/indietro.com
     ProfiloProfComponent,
     PrenotazioniComponent,
     ClassificheUtenteComponent,
-    NuovoPostComponent,
     PostComponent,
     NuovoPostComponent,
     PrenotaComponent,

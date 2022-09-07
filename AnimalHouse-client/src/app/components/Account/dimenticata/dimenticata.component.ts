@@ -3,7 +3,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ControllaCodiceService } from '../../../controlla-codice.service';
+import { ControllaCodiceService } from '../../../services/controlla-codice.service';
 
 @Component({
   selector: 'app-dimenticata',

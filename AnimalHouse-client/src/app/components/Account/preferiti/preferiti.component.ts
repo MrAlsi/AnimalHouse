@@ -1,9 +1,9 @@
 //component che mostra all'interno del profilo gli animali preferiti di quell'utente
 
 import { Component, OnInit } from '@angular/core';
-import { MangiaBiscottoService } from '../../../mangia-biscotto.service';
+import { MangiaBiscottoService } from '../../../services/mangia-biscotto.service';
 import { HttpClient } from '@angular/common/http';
-import { ProfiloServiceService } from '../../../profilo-service.service';
+import { ProfiloServiceService } from '../../../services/profilo-service.service';
 
 
 @Component({
