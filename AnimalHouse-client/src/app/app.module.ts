@@ -52,6 +52,7 @@ import { NuovoPostComponent } from './components/bacheca/nuovo-post/nuovo-post.c
 import { PrenotaComponent } from './components/Professionisti/prenota/prenota.component';
 import { ModificaComponent } from './components/Account/modifica/modifica.component';
 import { IndietroComponent } from './components/BabyAnimal/indietro/indietro.component';
+import { CambiaPasswordComponent } from './components/Account/cambia-password/cambia-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +96,8 @@ import { IndietroComponent } from './components/BabyAnimal/indietro/indietro.com
     NuovoPostComponent,
     PrenotaComponent,
     ModificaComponent,
-    IndietroComponent
+    IndietroComponent,
+    CambiaPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -63,7 +63,9 @@
           <th class="cognome" scope="col">Cognome</th>
           <th class="ruolo" scope="col">Ruolo</th>
           <th class="email" scope="col">Email</th>
-          <th class="elimina" scope="col">Elimina</th>
+          <div *ngIf="this.ruolo=='admin'">
+            <th class="elimina" scope="col">Elimina</th>
+          </div>
         </tr>
       </thead>
       <tbody>
@@ -74,7 +76,9 @@
           <td class="cognome">{{this.collezione.cognome}}</td>
           <td class="ruolo">{{this.collezione.ruolo}}</td>
           <td class="email">{{this.collezione.email}}</td>
-          <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.collezione._id)">Elimina</button></td>
+          <div *ngIf="this.ruolo=='admin'">
+            <td class="elimina"><button type="button" class="btn btn-primary mt-3" (click)="elimina(this.collezione._id)">Elimina</button></td>
+          </div>
         </tr>
       </tbody>
     </table>
