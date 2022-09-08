@@ -50,5 +50,10 @@ export class MemoryComponent implements OnInit {
     //Manda la richiesta al server per salvare il risultato della partita
     this.httpClient.put<any>("http://localhost:3000/giochi/aggiungiPunteggio/memory", body)
       .subscribe();
-}
+  }
+
+  rigioca(): void{
+    this.gioco = 'menu';
+    this.mosse = 0;
+  }
 }

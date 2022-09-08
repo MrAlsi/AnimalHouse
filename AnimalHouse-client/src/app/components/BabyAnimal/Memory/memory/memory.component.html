@@ -14,5 +14,5 @@
 <!-- Mostra la schermata di vittoria-->
 <div *ngIf="gioco === 'vittoria'" id="schermataVittoria">
   <h2>Congratulazione hai vinto {{mosse}} con mosse!</h2>
-  <button type="button" class="btn btn-primary rosso btn-lg" (click)="gioco = 'menu'"> RIGIOCA </button>
+  <button type="button" class="btn btn-primary rosso btn-lg" (click)="rigioca()"> RIGIOCA </button>
 </div>

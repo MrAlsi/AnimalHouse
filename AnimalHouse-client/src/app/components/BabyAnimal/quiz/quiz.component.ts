@@ -49,17 +49,17 @@ export class QuizComponent {
 
   //Restituisce la domanda posta
   getDomanda(): string{
-    return this.pulisciDomanda(this.api.results[this.indice].question);
+    return this.pulisciTesto(this.api.results[this.indice].question);
   }
 
   //Mescola le risposte
   mescola(): any{
     //Metto la risposta giusta e le tre risposte sbagliate in un array
     let arrayRitorno = [
-      this.api.results[this.indice].correct_answer,
-      this.api.results[this.indice].incorrect_answers[0],
-      this.api.results[this.indice].incorrect_answers[1],
-      this.api.results[this.indice].incorrect_answers[2],
+      this.pulisciTesto(this.api.results[this.indice].correct_answer),
+      this.pulisciTesto(this.api.results[this.indice].incorrect_answers[0]),
+      this.pulisciTesto(this.api.results[this.indice].incorrect_answers[1]),
+      this.pulisciTesto(this.api.results[this.indice].incorrect_answers[2]),
     ]
 
     //riordino le risposte in ordine alfabetico, in tal modo non si sa qual è quella giusta
@@ -109,11 +109,11 @@ export class QuizComponent {
 
 
   //Metodo per pulire la domanda da caratteri non UTF-8
-  pulisciDomanda(domanda: string): string{
-      var domandaPulita = domanda.replace("&quot;", '\"');
-      domandaPulita = domandaPulita.replace("&quot;", '\"');
-      domandaPulita = domandaPulita.replace("&#039;", "\'")
-      return domandaPulita;
+  pulisciTesto(testo: string): string{
+      var testoPulito = testo.replace("&quot;", '\"');
+      testoPulito = testoPulito.replace("&quot;", '\"');
+      testoPulito = testoPulito.replace("&#039;", "\'")
+      return testoPulito;
     
   }
 
