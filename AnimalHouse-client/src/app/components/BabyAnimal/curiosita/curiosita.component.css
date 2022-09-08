@@ -10,11 +10,12 @@
     border-color:#AA0000;
     color: white;
 }
+
 .apri_scheda{
     display: flex;
     flex: none;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 3%;
 }
 
 h4{
@@ -34,8 +35,7 @@ div.offcanvas-header{
 
 .scheda{
     width: 250px;
-    height: 380px;
-    margin: 1%;
+    height: 400px;
     margin-top: 5%;
     display: flex;
 }
